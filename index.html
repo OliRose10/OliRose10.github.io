@@ -12,8 +12,11 @@
   <link rel="stylesheet" href="style.css" />
   <!-- Google Fonts: Poppins -->
   <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,700&display=swap" rel="stylesheet">
+  <!-- Font Awesome for Social Icons & Misc Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-HHsOCqnpXSXwd/q8b6xZeXKfGJiA9bC09XQCD3OUwE/o5F/qvh22oX7rO1X6zYyQ780pK3zV6hGVEF4c2PZS3w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
+  <!-- Sticky Header with Navigation -->
   <header>
     <div class="header-content">
       <h1>🎸 Oliver’s Finance for Musicians 🎶</h1>
@@ -23,23 +26,28 @@
       <!-- Dark Mode Toggle -->
       <button id="darkModeToggle" aria-label="Toggle Dark Mode">Dark Mode</button>
       <!-- Mobile Navigation Toggle -->
-      <button id="menuToggle" aria-label="Toggle Navigation Menu" aria-expanded="false">&#9776;</button>
+      <button id="menuToggle" aria-label="Toggle Navigation Menu" aria-expanded="false" aria-controls="navMenu">&#9776;</button>
     </div>
   </header>
   
-  <nav id="navMenu">
+  <!-- Navigation -->
+  <nav id="navMenu" role="navigation">
     <ul>
+      <li><a href="#hero">Home</a></li>
       <li><a href="#services">Services</a></li>
       <li><a href="#portfolio">Portfolio</a></li>
       <li><a href="#testimonials">Testimonials</a></li>
       <li><a href="#blog">Blog</a></li>
       <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#faq">FAQ</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
   
   <main>
-    <section class="hero">
+    <!-- Hero Section -->
+    <section id="hero" class="hero fade-in">
       <div class="hero-content">
         <h2>Take Control of Your Finances</h2>
         <p>Offering expert bookkeeping, tax planning, and financial strategies tailored for the music industry.</p>
@@ -47,7 +55,8 @@
       </div>
     </section>
     
-    <section id="services">
+    <!-- Services Section -->
+    <section id="services" class="fade-in">
       <h2>Services</h2>
       <div class="cards-container">
         <div class="card service-box">
@@ -65,7 +74,8 @@
       </div>
     </section>
     
-    <section id="portfolio">
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="fade-in">
       <h2>Portfolio</h2>
       <p>A selection of projects and clients we’ve worked with.</p>
       <div class="cards-container portfolio-grid">
@@ -75,7 +85,8 @@
       </div>
     </section>
     
-    <section id="testimonials">
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="fade-in">
       <h2>Testimonials</h2>
       <p>What our clients have to say:</p>
       <div class="cards-container">
@@ -90,7 +101,8 @@
       </div>
     </section>
     
-    <section id="blog">
+    <!-- Blog Section -->
+    <section id="blog" class="fade-in">
       <h2>Blog</h2>
       <p>Latest insights on managing finances in the music industry.</p>
       <div class="cards-container">
@@ -105,7 +117,8 @@
       </div>
     </section>
     
-    <section id="pricing">
+    <!-- Pricing Section -->
+    <section id="pricing" class="fade-in">
       <h2>Pricing</h2>
       <p>Simple, transparent pricing for our services.</p>
       <div class="cards-container">
@@ -130,14 +143,78 @@
       </div>
     </section>
     
-    <section id="contact">
+    <!-- About Section -->
+    <section id="about" class="fade-in">
+      <h2>About Us</h2>
+      <p>We’re passionate about turning financial chaos into harmony. Combining a love for music with financial expertise, we empower musicians, labels, and creatives to thrive.</p>
+      <div class="about-content">
+        <img src="images/about.jpg" alt="About Oliver's Finance" class="about-img" />
+        <div class="about-text">
+          <p>Our journey started with a belief that creative professionals deserve tailored financial strategies. We blend innovation with proven techniques to craft solutions that resonate with your artistic vision.</p>
+        </div>
+      </div>
+    </section>
+    
+    <!-- FAQ Section -->
+    <section id="faq" class="fade-in">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-item">
+        <button class="faq-question">
+          What services do you offer?
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>We offer comprehensive bookkeeping, tax planning, and innovative financial strategies customized for the music and creative industries.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          How do I get started?
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>Just fill in our contact form and we’ll schedule a consultation to understand your unique financial needs.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          Do you offer custom packages?
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>Absolutely! Our Premium Package is fully customizable to align with your specific financial goals.</p>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact" class="fade-in">
       <h2>Contact</h2>
       <p>Let’s work together! Fill out the form below:</p>
       <form>
-        <input type="text" placeholder="Your Name" required>
-        <input type="email" placeholder="Your Email" required>
-        <textarea placeholder="Your Message" required></textarea>
+        <div class="form-group">
+          <label for="contactName">Your Name</label>
+          <input id="contactName" type="text" placeholder="Your Name" required>
+        </div>
+        <div class="form-group">
+          <label for="contactEmail">Your Email</label>
+          <input id="contactEmail" type="email" placeholder="Your Email" required autocomplete="email">
+        </div>
+        <div class="form-group">
+          <label for="contactMessage">Your Message</label>
+          <textarea id="contactMessage" placeholder="Your Message" required></textarea>
+        </div>
         <button type="submit">Send Message</button>
+      </form>
+    </section>
+    
+    <!-- Subscribe Section -->
+    <section id="subscribe" class="fade-in">
+      <h2>Stay in the Loop</h2>
+      <p>Join our newsletter for the latest financial tips and industry insights.</p>
+      <form id="subscribeForm">
+        <input type="email" placeholder="Enter your email" required autocomplete="email">
+        <button type="submit">Subscribe <i class="fa-solid fa-paper-plane"></i></button>
       </form>
     </section>
     
@@ -145,34 +222,70 @@
     <button id="backToTop" aria-label="Back to Top">↑</button>
   </main>
   
+  <!-- Footer -->
   <footer>
+    <div class="social-icons">
+      <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+      <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+    </div>
     <p>&copy; 2025 Oliver's Finance for Musicians. All Rights Reserved.</p>
   </footer>
   
   <!-- JavaScript for Interactive Features -->
   <script>
-    // Dark Mode Toggle
+    /* Dark Mode Toggle */
     const darkModeToggle = document.getElementById('darkModeToggle');
     darkModeToggle.addEventListener('click', () => {
       document.body.classList.toggle('dark-mode');
+      darkModeToggle.textContent = document.body.classList.contains('dark-mode') ? 'Light Mode' : 'Dark Mode';
     });
     
-    // Mobile Navigation Toggle
+    /* Mobile Navigation Toggle */
     const menuToggle = document.getElementById('menuToggle');
     const navMenu = document.getElementById('navMenu');
     menuToggle.addEventListener('click', () => {
       navMenu.classList.toggle('active');
-      const expanded = menuToggle.getAttribute('aria-expanded') === 'true' || false;
+      const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
       menuToggle.setAttribute('aria-expanded', !expanded);
+      menuToggle.innerHTML = !expanded ? '&times;' : '&#9776;';
     });
     
-    // Back to Top Button
+    /* Back to Top Button */
     const backToTop = document.getElementById('backToTop');
     window.addEventListener('scroll', () => {
       backToTop.style.display = window.scrollY > 300 ? 'block' : 'none';
     });
     backToTop.addEventListener('click', () => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    
+    /* FAQ Accordion Functionality */
+    document.querySelectorAll('.faq-question').forEach(button => {
+      button.addEventListener('click', () => {
+        const faqItem = button.parentElement;
+        faqItem.classList.toggle('active');
+      });
+    });
+    
+    /* Scroll Fade-in Animation using IntersectionObserver */
+    const faders = document.querySelectorAll('.fade-in');
+    const appearOptions = {
+      threshold: 0.2,
+      rootMargin: "0px 0px -50px 0px"
+    };
+    
+    const appearOnScroll = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      });
+    }, appearOptions);
+    
+    faders.forEach(fader => {
+      appearOnScroll.observe(fader);
     });
   </script>
 </body>
