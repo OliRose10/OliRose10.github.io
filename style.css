@@ -1,3 +1,7 @@
+/* ==============================================
+   Main Stylesheet for Oliver's Finance for Musicians
+   ============================================== */
+
 /* CSS Variables for Theming */
 :root {
   --primary-gradient: linear-gradient(to right, #1e3c72, #2a5298);
@@ -48,7 +52,7 @@ textarea:focus {
   outline-offset: 2px;
 }
 
-/* Sticky Header */
+/* Header */
 header {
   position: sticky;
   top: 0;
@@ -106,7 +110,6 @@ nav ul {
   justify-content: center;
   gap: 25px;
   padding: 10px 0;
-  margin: 0;
 }
 nav ul li a {
   text-decoration: none;
