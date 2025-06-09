@@ -9,13 +9,14 @@
   <meta name="author" content="Oliver" />
   <meta name="theme-color" content="#1e3c72" />
   <title>Oliver's Finance for Musicians</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="css/style.css" />
   <!-- Google Fonts: Poppins -->
   <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,700&display=swap" rel="stylesheet">
   <!-- Font Awesome for Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" 
-  integrity="sha512-HHsOCqnpXSXwd/q8b6xZeXKfGJiA9bC09XQCD3OUwE/o5F/qvh22oX7rO1X6zYyQ780pK3zV6hGVEF4c2PZS3w==" 
-  crossorigin="anonymous" referrerpolicy="no-referrer" />
+        integrity="sha512-HHsOCqnpXSXwd/q8b6xZeXKfGJiA9bC09XQCD3OUwE/o5F/qvh22oX7rO1X6zYyQ780pK3zV6hGVEF4c2PZS3w==" 
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- (Optional Structured Data / Social Meta Tags here) -->
 </head>
 <body>
   <!-- Sticky Header with Navigation -->
@@ -25,9 +26,7 @@
       <p>Expert finance strategies for musicians, labels &amp; creatives.</p>
     </div>
     <div class="header-controls">
-      <!-- Dark Mode Toggle -->
       <button id="darkModeToggle" aria-label="Toggle Dark Mode">Dark Mode</button>
-      <!-- Mobile Navigation Toggle -->
       <button id="menuToggle" aria-label="Toggle Navigation Menu" aria-expanded="false" aria-controls="navMenu">&#9776;</button>
     </div>
   </header>
@@ -50,6 +49,9 @@
       <li><a href="#partners">Partners</a></li>
       <li><a href="#video">Video</a></li>
       <li><a href="#press">Press</a></li>
+      <!-- Extra items -->
+      <li><a href="#awards">Awards</a></li>
+      <li><a href="#careers">Careers</a></li>
     </ul>
   </nav>
 
@@ -60,6 +62,12 @@
         <h2>Take Control of Your Finances</h2>
         <p>Offering expert bookkeeping, tax planning, and financial strategies tailored for the music industry.</p>
         <a href="#contact" class="cta-button">Get Started</a>
+      </div>
+      <!-- Animated SVG background example -->
+      <div class="hero-background">
+        <svg class="hero-svg" viewBox="0 0 800 200">
+          <path d="M0,100 C200,0 600,200 800,100" stroke="#fff" stroke-width="5" fill="none" />
+        </svg>
       </div>
     </section>
 
@@ -73,11 +81,11 @@
         </div>
         <div class="card service-box">
           <h3>Tax Planning</h3>
-          <p>Maximize deductions and simplify your tax process with expert guidance.</p>
+          <p>Maximize deductions with expert guidance to simplify your tax process.</p>
         </div>
         <div class="card service-box">
           <h3>Financial Strategy</h3>
-          <p>Customized strategies to help you manage and grow your finances.</p>
+          <p>Customized strategies to help you grow your finances.</p>
         </div>
       </div>
     </section>
@@ -87,9 +95,18 @@
       <h2>Portfolio</h2>
       <p>A selection of projects and clients we’ve worked with.</p>
       <div class="cards-container portfolio-grid">
-        <div class="card portfolio-item">Artist A: Financial Planning</div>
-        <div class="card portfolio-item">Label B: Tax Optimization</div>
-        <div class="card portfolio-item">Creative C: Budget Strategy</div>
+        <div class="card portfolio-item">
+          <h3>Artist A</h3>
+          <p>Financial Planning</p>
+        </div>
+        <div class="card portfolio-item">
+          <h3>Label B</h3>
+          <p>Tax Optimization</p>
+        </div>
+        <div class="card portfolio-item">
+          <h3>Creative C</h3>
+          <p>Budget Strategy</p>
+        </div>
       </div>
     </section>
 
@@ -154,11 +171,15 @@
     <!-- About Section -->
     <section id="about" class="fade-in">
       <h2>About Us</h2>
-      <p>We’re passionate about turning financial chaos into harmony. Combining a love for music with financial expertise, we empower musicians, labels, and creatives to thrive.</p>
+      <p>
+        We’re passionate about turning financial chaos into harmony. Combining a love for music with financial expertise, we empower musicians, labels, and creatives to thrive.
+      </p>
       <div class="about-content">
         <img src="images/about.jpg" alt="About Oliver's Finance" class="about-img" />
         <div class="about-text">
-          <p>Our journey started with a belief that creative professionals deserve tailored financial strategies. We blend innovation with proven techniques to craft solutions that resonate with your artistic vision.</p>
+          <p>
+            Our journey started with the belief that creative professionals deserve tailored financial strategies. We blend innovation with proven techniques to craft solutions that resonate with your artistic vision.
+          </p>
         </div>
       </div>
     </section>
@@ -172,7 +193,9 @@
           <i class="fa-solid fa-chevron-down"></i>
         </button>
         <div class="faq-answer">
-          <p>We offer comprehensive bookkeeping, tax planning, and innovative financial strategies customized for the music and creative industries.</p>
+          <p>
+            We offer comprehensive bookkeeping, tax planning, and innovative financial strategies customized for the music and creative industries.
+          </p>
         </div>
       </div>
       <div class="faq-item">
@@ -181,7 +204,9 @@
           <i class="fa-solid fa-chevron-down"></i>
         </button>
         <div class="faq-answer">
-          <p>Just fill in our contact form and we’ll schedule a consultation to understand your unique financial needs.</p>
+          <p>
+            Simply fill in our contact form and we’ll schedule a consultation to understand your unique financial needs.
+          </p>
         </div>
       </div>
       <div class="faq-item">
@@ -190,7 +215,9 @@
           <i class="fa-solid fa-chevron-down"></i>
         </button>
         <div class="faq-answer">
-          <p>Absolutely! Our Premium Package is fully customizable to align with your specific financial goals.</p>
+          <p>
+            Absolutely! Our Premium Package is fully customizable to align with your specific financial goals.
+          </p>
         </div>
       </div>
     </section>
@@ -346,6 +373,9 @@
     </div>
   </main>
 
+  <!-- Back to Top Button -->
+  <button id="backToTop" aria-label="Back to Top">↑</button>
+
   <!-- Footer -->
   <footer>
     <div class="social-icons">
@@ -357,106 +387,9 @@
     <p>&copy; 2025 Oliver's Finance for Musicians. All Rights Reserved.</p>
   </footer>
 
-  <!-- JavaScript for Interactive Features -->
-  <script>
-    /* Dark Mode Toggle */
-    const darkModeToggle = document.getElementById('darkModeToggle');
-    darkModeToggle.addEventListener('click', () => {
-      document.body.classList.toggle('dark-mode');
-      darkModeToggle.textContent = document.body.classList.contains('dark-mode') ? 'Light Mode' : 'Dark Mode';
-    });
-    
-    /* Mobile Navigation Toggle */
-    const menuToggle = document.getElementById('menuToggle');
-    const navMenu = document.getElementById('navMenu');
-    menuToggle.addEventListener('click', () => {
-      navMenu.classList.toggle('active');
-      const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
-      menuToggle.setAttribute('aria-expanded', !expanded);
-      menuToggle.innerHTML = !expanded ? '&times;' : '&#9776;';
-    });
-    
-    /* Back to Top Button */
-    const backToTop = document.getElementById('backToTop');
-    window.addEventListener('scroll', () => {
-      if(window.scrollY > 300) {
-        backToTop.style.display = 'block';
-      } else {
-        backToTop.style.display = 'none';
-      }
-    });
-    backToTop.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-    
-    /* FAQ Accordion Functionality */
-    document.querySelectorAll('.faq-question').forEach(button => {
-      button.addEventListener('click', () => {
-        const faqItem = button.parentElement;
-        faqItem.classList.toggle('active');
-      });
-    });
-    
-    /* Scroll Fade-in Animation using IntersectionObserver */
-    const faders = document.querySelectorAll('.fade-in');
-    const appearOptions = {
-      threshold: 0.2,
-      rootMargin: "0px 0px -50px 0px"
-    };
-    const appearOnScroll = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      });
-    }, appearOptions);
-    faders.forEach(fader => {
-      appearOnScroll.observe(fader);
-    });
-    
-    /* Slider Control for Case Studies */
-    let currentSlide = 0;
-    const slides = document.querySelectorAll('.slide');
-    const totalSlides = slides.length;
-    
-    document.querySelector('.next-btn').addEventListener('click', () => {
-      slides[currentSlide].classList.remove('active');
-      currentSlide = (currentSlide + 1) % totalSlides;
-      slides[currentSlide].classList.add('active');
-    });
-    
-    document.querySelector('.prev-btn').addEventListener('click', () => {
-      slides[currentSlide].classList.remove('active');
-      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-      slides[currentSlide].classList.add('active');
-    });
-    
-    /* Live Chat Toggle */
-    const chatToggle = document.getElementById('chatToggle');
-    const chatBox = document.getElementById('chatBox');
-    const chatClose = document.getElementById('chatClose');
-    
-    chatToggle.addEventListener('click', () => {
-      chatBox.classList.toggle('visible');
-    });
-    chatClose.addEventListener('click', () => {
-      chatBox.classList.remove('visible');
-    });
-    
-    /* Chat Form Submission (Dummy) */
-    const chatForm = document.getElementById('chatForm');
-    chatForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const input = chatForm.querySelector('input');
-      const message = input.value;
-      if(message.trim() !== ''){
-        const newMessage = document.createElement('p');
-        newMessage.textContent = message;
-        newMessage.classList.add('chat-message', 'user');
-        document.querySelector('.chat-messages').appendChild(newMessage);
-        input.value = '';
-      }
-    });
-  </script>
+  <!-- Include JavaScript Files -->
+  <script src="js/main.js"></script>
+  <script src="js/slider.js"></script>
+  <script src="js/chat.js"></script>
 </body>
 </html>
