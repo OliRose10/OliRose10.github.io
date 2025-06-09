@@ -25,7 +25,6 @@
 html {
   scroll-behavior: smooth;
 }
-
 body {
   font-family: var(--font-primary);
   text-align: center;
@@ -34,13 +33,26 @@ body {
   transition: background var(--transition-speed), color var(--transition-speed);
 }
 
+/* Dark Mode */
 body.dark-mode {
   background: var(--dark-gradient);
   color: #f4f4f4;
 }
 
-/* Header Styles */
+/* Focus Styles for Accessibility */
+button:focus,
+a:focus,
+input:focus,
+textarea:focus {
+  outline: 2px dashed var(--accent-color);
+  outline-offset: 2px;
+}
+
+/* Sticky Header */
 header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -86,7 +98,7 @@ nav {
   background: var(--nav-bg);
   transition: max-height var(--transition-speed);
   overflow: hidden;
-  max-height: 100px; /* Default height for mobile */
+  max-height: 100px;
 }
 nav ul {
   list-style: none;
@@ -109,7 +121,6 @@ nav ul li a:hover {
 nav.active {
   max-height: 500px;
 }
-
 @media (max-width: 768px) {
   nav ul {
     flex-direction: column;
@@ -125,8 +136,8 @@ nav.active {
   margin: 20px auto;
   max-width: 1200px;
   border-radius: 10px;
-  animation: fadeIn 1.5s ease-in-out;
   box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+  position: relative;
 }
 .hero-content {
   max-width: 800px;
@@ -157,16 +168,13 @@ nav.active {
   transform: scale(1.1);
 }
 
-/* Main Section Styling */
-main section {
-  padding: 60px 20px;
-}
-main h2 {
+/* Main Section Headings */
+main section h2 {
   margin-bottom: 20px;
   font-size: 32px;
   position: relative;
 }
-main h2::after {
+main section h2::after {
   content: "";
   display: block;
   width: 60px;
@@ -200,8 +208,6 @@ main h2::after {
   transform: translateY(-5px);
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
 }
-
-/* Blog Post Specific */
 .blog-post {
   background: rgba(255, 255, 255, 0.95);
 }
@@ -222,22 +228,93 @@ main h2::after {
   margin-top: 10px;
 }
 
+/* About Section */
+#about {
+  padding: 60px 20px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 10px;
+  margin: 40px auto;
+  max-width: 1200px;
+}
+.about-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+.about-img {
+  max-width: 400px;
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+}
+.about-text {
+  max-width: 600px;
+  text-align: left;
+  color: var(--text-dark);
+}
+
+/* FAQ Section */
+#faq {
+  padding: 60px 20px;
+  max-width: 800px;
+  margin: 40px auto;
+  text-align: left;
+  color: var(--text-dark);
+}
+.faq-item {
+  border-bottom: 1px solid #ccc;
+  padding: 10px 0;
+}
+.faq-question {
+  background: none;
+  border: none;
+  font-size: 18px;
+  font-weight: bold;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out;
+}
+.faq-item.active .faq-answer {
+  max-height: 200px;
+  padding: 10px 0;
+}
+
 /* Contact Form */
-form {
+#contact form {
   max-width: 500px;
   margin: 30px auto;
   text-align: left;
 }
-form input,
-form textarea {
+.form-group {
+  margin-bottom: 15px;
+}
+#contact form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: var(--text-dark);
+}
+#contact form input,
+#contact form textarea {
   width: 100%;
   padding: 12px;
-  margin: 12px 0;
   border-radius: 6px;
   border: 1px solid #ccc;
   font-size: 16px;
 }
-form button {
+#contact form button {
   background: var(--nav-bg);
   color: var(--text-color);
   padding: 12px 22px;
@@ -248,8 +325,62 @@ form button {
   transition: background var(--transition-speed);
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
-form button:hover {
+#contact form button:hover {
   background: var(--nav-hover);
+}
+
+/* Subscribe Section */
+#subscribe {
+  background: var(--primary-gradient);
+  padding: 60px 20px;
+  border-radius: 10px;
+  margin: 40px auto;
+  max-width: 800px;
+  color: var(--text-color);
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+}
+#subscribe form {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+#subscribe form input {
+  flex: 1;
+  min-width: 250px;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+}
+#subscribe form button {
+  background: var(--cta-bg);
+  color: var(--cta-color);
+  border: none;
+  padding: 12px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: transform var(--transition-speed);
+}
+#subscribe form button:hover {
+  transform: scale(1.05);
+}
+
+/* Social Icons in Footer */
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 10px;
+}
+.social-icons a {
+  color: var(--text-color);
+  font-size: 20px;
+  transition: transform var(--transition-speed), color var(--transition-speed);
+}
+.social-icons a:hover {
+  transform: scale(1.15);
+  color: var(--accent-color);
 }
 
 /* Footer */
@@ -283,16 +414,15 @@ footer {
   transform: scale(1.1);
 }
 
-/* Fade In Animation */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* Fade-in Animation */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* Mobile Optimization */
@@ -306,13 +436,6 @@ footer {
     display: flex;
     justify-content: space-between;
     margin-top: 10px;
-  }
-  nav ul {
-    flex-direction: column;
-    gap: 15px;
-  }
-  .hero {
-    padding: 60px 20px;
   }
   .cards-container {
     flex-direction: column;
