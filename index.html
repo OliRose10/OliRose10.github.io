@@ -12,8 +12,10 @@
   <link rel="stylesheet" href="style.css" />
   <!-- Google Fonts: Poppins -->
   <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,700&display=swap" rel="stylesheet">
-  <!-- Font Awesome for Social Icons & Misc Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-HHsOCqnpXSXwd/q8b6xZeXKfGJiA9bC09XQCD3OUwE/o5F/qvh22oX7rO1X6zYyQ780pK3zV6hGVEF4c2PZS3w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" 
+  integrity="sha512-HHsOCqnpXSXwd/q8b6xZeXKfGJiA9bC09XQCD3OUwE/o5F/qvh22oX7rO1X6zYyQ780pK3zV6hGVEF4c2PZS3w==" 
+  crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
   <!-- Sticky Header with Navigation -->
@@ -29,7 +31,7 @@
       <button id="menuToggle" aria-label="Toggle Navigation Menu" aria-expanded="false" aria-controls="navMenu">&#9776;</button>
     </div>
   </header>
-  
+
   <!-- Navigation -->
   <nav id="navMenu" role="navigation">
     <ul>
@@ -42,9 +44,15 @@
       <li><a href="#about">About</a></li>
       <li><a href="#faq">FAQ</a></li>
       <li><a href="#contact">Contact</a></li>
+      <li><a href="#subscribe">Subscribe</a></li>
+      <li><a href="#team">Team</a></li>
+      <li><a href="#case-studies">Case Studies</a></li>
+      <li><a href="#partners">Partners</a></li>
+      <li><a href="#video">Video</a></li>
+      <li><a href="#press">Press</a></li>
     </ul>
   </nav>
-  
+
   <main>
     <!-- Hero Section -->
     <section id="hero" class="hero fade-in">
@@ -54,7 +62,7 @@
         <a href="#contact" class="cta-button">Get Started</a>
       </div>
     </section>
-    
+
     <!-- Services Section -->
     <section id="services" class="fade-in">
       <h2>Services</h2>
@@ -73,7 +81,7 @@
         </div>
       </div>
     </section>
-    
+
     <!-- Portfolio Section -->
     <section id="portfolio" class="fade-in">
       <h2>Portfolio</h2>
@@ -84,7 +92,7 @@
         <div class="card portfolio-item">Creative C: Budget Strategy</div>
       </div>
     </section>
-    
+
     <!-- Testimonials Section -->
     <section id="testimonials" class="fade-in">
       <h2>Testimonials</h2>
@@ -100,7 +108,7 @@
         </div>
       </div>
     </section>
-    
+
     <!-- Blog Section -->
     <section id="blog" class="fade-in">
       <h2>Blog</h2>
@@ -116,7 +124,7 @@
         </div>
       </div>
     </section>
-    
+
     <!-- Pricing Section -->
     <section id="pricing" class="fade-in">
       <h2>Pricing</h2>
@@ -142,7 +150,7 @@
         </div>
       </div>
     </section>
-    
+
     <!-- About Section -->
     <section id="about" class="fade-in">
       <h2>About Us</h2>
@@ -154,7 +162,7 @@
         </div>
       </div>
     </section>
-    
+
     <!-- FAQ Section -->
     <section id="faq" class="fade-in">
       <h2>Frequently Asked Questions</h2>
@@ -186,7 +194,7 @@
         </div>
       </div>
     </section>
-    
+
     <!-- Contact Section -->
     <section id="contact" class="fade-in">
       <h2>Contact</h2>
@@ -207,7 +215,7 @@
         <button type="submit">Send Message</button>
       </form>
     </section>
-    
+
     <!-- Subscribe Section -->
     <section id="subscribe" class="fade-in">
       <h2>Stay in the Loop</h2>
@@ -217,11 +225,127 @@
         <button type="submit">Subscribe <i class="fa-solid fa-paper-plane"></i></button>
       </form>
     </section>
-    
-    <!-- Back to Top Button -->
-    <button id="backToTop" aria-label="Back to Top">↑</button>
+
+    <!-- Team Section -->
+    <section id="team" class="fade-in">
+      <h2>Meet The Team</h2>
+      <p>Our creative and experienced team is here to empower your success.</p>
+      <div class="cards-container team-cards">
+        <div class="card team-member">
+          <img src="images/team1.jpg" alt="Alexandra Stone">
+          <h3>Alexandra Stone</h3>
+          <p>Chief Financial Officer</p>
+          <div class="social-icons">
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+        <div class="card team-member">
+          <img src="images/team2.jpg" alt="Benjamin King">
+          <h3>Benjamin King</h3>
+          <p>Tax Specialist</p>
+          <div class="social-icons">
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+        <div class="card team-member">
+          <img src="images/team3.jpg" alt="Cassandra Lee">
+          <h3>Cassandra Lee</h3>
+          <p>Bookkeeping Expert</p>
+          <div class="social-icons">
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Case Studies Section with Slider -->
+    <section id="case-studies" class="fade-in">
+      <h2>Case Studies</h2>
+      <p>Read our success stories from real creative professionals.</p>
+      <div class="slider-container">
+        <button class="slider-btn prev-btn" aria-label="Previous">&lt;</button>
+        <div class="slider">
+          <div class="slide active">
+            <img src="images/case1.jpg" alt="Case Study 1">
+            <div class="slide-caption">
+              <h3>Case Study 1</h3>
+              <p>How we helped an indie band streamline their finances.</p>
+            </div>
+          </div>
+          <div class="slide">
+            <img src="images/case2.jpg" alt="Case Study 2">
+            <div class="slide-caption">
+              <h3>Case Study 2</h3>
+              <p>Optimizing tax strategies for a record label.</p>
+            </div>
+          </div>
+          <div class="slide">
+            <img src="images/case3.jpg" alt="Case Study 3">
+            <div class="slide-caption">
+              <h3>Case Study 3</h3>
+              <p>Transforming financial processes for creative professionals.</p>
+            </div>
+          </div>
+        </div>
+        <button class="slider-btn next-btn" aria-label="Next">&gt;</button>
+      </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section id="partners" class="fade-in">
+      <h2>Our Partners</h2>
+      <p>Trusted by leading industry players.</p>
+      <div class="partners-logos">
+        <img src="images/partner1.png" alt="Partner 1">
+        <img src="images/partner2.png" alt="Partner 2">
+        <img src="images/partner3.png" alt="Partner 3">
+        <img src="images/partner4.png" alt="Partner 4">
+      </div>
+    </section>
+
+    <!-- Video Section -->
+    <section id="video" class="fade-in">
+      <h2>Watch Our Webinar</h2>
+      <p>Learn more about managing your finances in the digital age.</p>
+      <div class="video-container">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Financial Strategy Webinar" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </section>
+
+    <!-- Press & Awards Section -->
+    <section id="press" class="fade-in">
+      <h2>Press & Awards</h2>
+      <p>As seen in the media.</p>
+      <div class="press-logos">
+        <img src="images/press1.png" alt="Press Logo 1">
+        <img src="images/press2.png" alt="Press Logo 2">
+        <img src="images/press3.png" alt="Press Logo 3">
+        <img src="images/press4.png" alt="Press Logo 4">
+      </div>
+    </section>
+
+    <!-- Live Chat Widget -->
+    <div id="liveChat" class="live-chat">
+      <button id="chatToggle" aria-label="Toggle Chat"><i class="fa-solid fa-comment"></i></button>
+      <div id="chatBox" class="chat-box">
+        <div class="chat-header">
+          <h3>Live Chat</h3>
+          <button id="chatClose" aria-label="Close Chat">&times;</button>
+        </div>
+        <div class="chat-messages">
+          <p class="chat-message bot">Hello, how can we help you?</p>
+        </div>
+        <form id="chatForm" class="chat-form">
+          <input type="text" placeholder="Type your message..." required>
+          <button type="submit"><i class="fa-solid fa-paper-plane"></i></button>
+        </form>
+      </div>
+    </div>
   </main>
-  
+
   <!-- Footer -->
   <footer>
     <div class="social-icons">
@@ -232,7 +356,7 @@
     </div>
     <p>&copy; 2025 Oliver's Finance for Musicians. All Rights Reserved.</p>
   </footer>
-  
+
   <!-- JavaScript for Interactive Features -->
   <script>
     /* Dark Mode Toggle */
@@ -255,7 +379,11 @@
     /* Back to Top Button */
     const backToTop = document.getElementById('backToTop');
     window.addEventListener('scroll', () => {
-      backToTop.style.display = window.scrollY > 300 ? 'block' : 'none';
+      if(window.scrollY > 300) {
+        backToTop.style.display = 'block';
+      } else {
+        backToTop.style.display = 'none';
+      }
     });
     backToTop.addEventListener('click', () => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -275,7 +403,6 @@
       threshold: 0.2,
       rootMargin: "0px 0px -50px 0px"
     };
-    
     const appearOnScroll = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
         if (!entry.isIntersecting) return;
@@ -283,9 +410,52 @@
         observer.unobserve(entry.target);
       });
     }, appearOptions);
-    
     faders.forEach(fader => {
       appearOnScroll.observe(fader);
+    });
+    
+    /* Slider Control for Case Studies */
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const totalSlides = slides.length;
+    
+    document.querySelector('.next-btn').addEventListener('click', () => {
+      slides[currentSlide].classList.remove('active');
+      currentSlide = (currentSlide + 1) % totalSlides;
+      slides[currentSlide].classList.add('active');
+    });
+    
+    document.querySelector('.prev-btn').addEventListener('click', () => {
+      slides[currentSlide].classList.remove('active');
+      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+      slides[currentSlide].classList.add('active');
+    });
+    
+    /* Live Chat Toggle */
+    const chatToggle = document.getElementById('chatToggle');
+    const chatBox = document.getElementById('chatBox');
+    const chatClose = document.getElementById('chatClose');
+    
+    chatToggle.addEventListener('click', () => {
+      chatBox.classList.toggle('visible');
+    });
+    chatClose.addEventListener('click', () => {
+      chatBox.classList.remove('visible');
+    });
+    
+    /* Chat Form Submission (Dummy) */
+    const chatForm = document.getElementById('chatForm');
+    chatForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const input = chatForm.querySelector('input');
+      const message = input.value;
+      if(message.trim() !== ''){
+        const newMessage = document.createElement('p');
+        newMessage.textContent = message;
+        newMessage.classList.add('chat-message', 'user');
+        document.querySelector('.chat-messages').appendChild(newMessage);
+        input.value = '';
+      }
     });
   </script>
 </body>
