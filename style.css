@@ -1,3 +1,4 @@
+/* General Styling */
 body {
     font-family: 'Poppins', sans-serif;
     text-align: center;
@@ -7,31 +8,44 @@ body {
     padding: 0;
 }
 
+/* Dark Mode */
+body.dark-mode {
+    background: linear-gradient(to right, #222, #444);
+    color: #f4f4f4;
+}
+
+/* Header */
 header {
     background-color: #222;
     color: white;
     padding: 20px;
     font-size: 24px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease-in-out;
 }
 
+/* Hero Section */
 .hero {
     background: linear-gradient(to right, #ff6600, #ff3300);
     color: white;
-    padding: 50px;
+    padding: 60px;
     margin: 20px auto;
     border-radius: 10px;
     animation: fadeIn 1.5s ease-in-out;
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
 }
 
+/* CTA Button */
 .cta-button {
     display: inline-block;
     background: white;
     color: #ff3300;
     padding: 15px 25px;
-    border-radius: 5px;
+    border-radius: 8px;
     text-decoration: none;
     font-weight: bold;
-    transition: 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .cta-button:hover {
@@ -40,16 +54,17 @@ header {
     transform: scale(1.1);
 }
 
+/* Navigation */
 nav {
     background: #ff6600;
-    padding: 10px;
+    padding: 15px;
 }
 
 nav ul {
     list-style: none;
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 25px;
 }
 
 nav ul li {
@@ -60,7 +75,7 @@ nav ul li a {
     text-decoration: none;
     color: white;
     font-weight: bold;
-    transition: 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
 }
 
 nav ul li a:hover {
@@ -68,14 +83,15 @@ nav ul li a:hover {
     transform: scale(1.1);
 }
 
+/* Cards */
 .service-box, .portfolio-item, .testimonial {
     background: white;
-    padding: 20px;
+    padding: 25px;
     margin: 20px auto;
     max-width: 600px;
-    border-radius: 8px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out;
+    border-radius: 10px;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
     color: black;
 }
 
@@ -85,37 +101,43 @@ nav ul li a:hover {
     color: white;
 }
 
+/* Contact Form */
 form input, form textarea {
     width: 80%;
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 5px;
+    padding: 12px;
+    margin: 12px 0;
+    border-radius: 6px;
     border: none;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 form button {
     background: #ff3300;
     color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
+    padding: 12px 22px;
+    border-radius: 6px;
     border: none;
     cursor: pointer;
-    transition: 0.3s ease-in-out;
+    transition: background-color 0.3s ease-in-out;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 form button:hover {
     background: #222;
 }
 
+/* Footer */
 footer {
     background-color: #222;
     color: white;
-    padding: 10px;
+    padding: 15px;
     position: fixed;
     bottom: 0;
     width: 100%;
+    box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.2);
 }
 
+/* Keyframes */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -124,5 +146,22 @@ footer {
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+/* Mobile Optimization */
+@media (max-width: 768px) {
+    .hero {
+        padding: 40px;
+    }
+    .cta-button {
+        padding: 12px 20px;
+    }
+    nav ul {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .service-box, .portfolio-item, .testimonial {
+        max-width: 90%;
     }
 }
