@@ -4,24 +4,24 @@
   <meta charset="UTF-8" />
   <title>Contact | Oliver Rose Finance for Musicians & Creatives</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Contact Oliver Rose for expert finance and tax advice for musicians, indie labels, and creatives." />
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" href="images/favicon.ico">
   <script src="https://kit.fontawesome.com/fe7fbe4e2b.js" crossorigin="anonymous"></script>
 </head>
 <body>
   <header>
-    <div class="main-container header-content">
+    <div class="header-content">
       <a href="index.html" class="logo" aria-label="Oli Rose Home">
-        <img class="logo-img" src="images/logo-placeholder.png" alt="Oliver Rose Logo" />
-        <span class="logo-title">Oliver Rose</span>
+        <img class="logo-img" src="images/logo.png" alt="Oliver Rose Logo"
+          onerror="this.style.display='none';this.insertAdjacentHTML('afterend',`<svg width='48' height='48' aria-label='OR'><rect width='48' height='48' fill='#fff'/><text x='50%' y='55%' dominant-baseline='middle' text-anchor='middle' font-size='18' fill='#222' font-family='Montserrat,sans-serif'>OR</text></svg>`);" />
+        <span class="logo-title">OLIVER<br>ROSE</span>
       </a>
       <nav aria-label="Main navigation">
         <ul>
           <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
           <li><a href="services.html" class="nav-link">Services</a></li>
           <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
-          <li><a href="about.html" class="nav-link">About</a></li>
           <li><a href="privacy.html" class="nav-link">Privacy</a></li>
           <li><a href="terms.html" class="nav-link">Terms</a></li>
           <li><a href="contact.html" class="nav-link active">Contact</a></li>
@@ -44,7 +44,7 @@
             <label for="contactMessage" style="margin-top:0.7em;">How can I help?</label>
             <textarea id="contactMessage" name="contactMessage" placeholder="Tell me about your project or question" rows="4" required></textarea>
             <button type="submit" class="btn" style="margin-top:1em;">Send Message <i class="fa-solid fa-paper-plane"></i></button>
-            <div id="form-success" style="display:none;color:var(--accent-highlight);margin-top:1em;font-weight:600;">Thank you! I’ll be in touch soon.</div>
+            <div id="form-success" style="display:none;color:var(--accent-hover);margin-top:1em;font-weight:600;">Thank you! I’ll be in touch soon.</div>
           </div>
           <div class="card" style="flex:1;align-items:center;justify-content:center;text-align:center;">
             <div style="font-size:2.5rem;margin-bottom:1em;"><i class="fa-solid fa-envelope"></i></div>
@@ -55,7 +55,6 @@
         </div>
       </form>
       <script>
-        // CONTACT FORM SUCCESS MESSAGE
         document.getElementById('contactForm').addEventListener('submit', function(e) {
           e.preventDefault();
           let valid = true;
