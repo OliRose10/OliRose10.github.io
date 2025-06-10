@@ -662,3 +662,21 @@ footer .social-icons a:hover {
   h1 { font-size: 2rem; }
   h2 { font-size: 1.13rem; }
 }
+[data-theme="light"] {
+  --bg-main: #f5f6fb;
+  --bg-section: #fff;
+  --bg-band: #f5f7ff;
+  --bg-card: #f8f9ff;
+  --border: #e1e4ed;
+  --border-accent: #6c7aff;
+  --border-strong: #bfc4e0;
+  --text-main: #22243d;
+  --text-muted: #617191;
+  --text-heading: #1b1b33;
+  --accent: #6c7aff;
+  --accent-hover: #3ee7fa;
+  --accent-subtle: #e6eaff;
+  --danger: #ff5978;
+  --shadow: 0 3px 16px rgba(108,122,255,0.08);
+  --shadow-strong: 0 12px 48px rgba(108,122,255,0.10);
+}
