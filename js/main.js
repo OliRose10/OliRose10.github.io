@@ -125,3 +125,22 @@ function revealOnScroll() {
 }
 window.addEventListener('scroll', revealOnScroll);
 window.addEventListener('DOMContentLoaded', revealOnScroll);
+// Parallax hero on scroll and mousemove
+const heroSection = document.querySelector('.hero-section');
+const heroBgFloat = document.querySelector('.hero-bg-float');
+window.addEventListener('scroll', () => {
+  if(heroBgFloat) {
+    let y = window.scrollY * 0.28;
+    heroBgFloat.style.transform = `translateY(${y}px)`;
+  }
+});
+if(heroSection) {
+  heroSection.addEventListener('mousemove', e => {
+    const {width, left} = heroSection.getBoundingClientRect();
+    const x = (e.clientX - left) / width - 0.5;
+    heroSection.querySelector('.hero-title').style.transform = `translateX(${x*16}px) scale(1.03)`;
+  });
+  heroSection.addEventListener('mouseleave', () => {
+    heroSection.querySelector('.hero-title').style.transform = '';
+  });
+}
