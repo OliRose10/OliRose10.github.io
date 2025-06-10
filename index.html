@@ -11,15 +11,22 @@
   <meta property="og:image" content="https://olirose10.github.io/images/oliver-profile.jpg">
   <meta property="og:url" content="https://olirose10.github.io/">
   <meta name="twitter:card" content="summary_large_image">
+  <link rel="manifest" href="manifest.json">
   <link rel="icon" href="images/favicon.ico">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/carousel.css">
+  <link rel="stylesheet" href="css/stats.css">
   <script src="https://kit.fontawesome.com/fe7fbe4e2b.js" crossorigin="anonymous"></script>
 </head>
 <body>
+  <div class="free-guide-banner" style="text-align:center;background:var(--bg-accent-light);padding:1.2em 0;box-shadow:0 2px 12px #0001;">
+    <a href="free-guide.pdf" class="btn" style="font-size:1.1rem;" download>
+      <i class="fa-solid fa-book-open"></i> Download My Free Guide: “Finance for Musicians”
+    </a>
+  </div>
   <header>
     <div class="main-container header-content">
-      <a href="/" class="logo" aria-label="Oli Rose Home">
+      <a href="index.html" class="logo" aria-label="Oli Rose Home">
         <img class="logo-img" src="images/logo-placeholder.png" alt="Oliver Rose Logo" />
         <span class="logo-title">Oliver Rose</span>
       </a>
@@ -40,10 +47,12 @@
     </div>
   </header>
   <main class="main-container">
+    <!-- SKA ACCENT -->
+    <div class="ska-accent"></div>
     <!-- HERO -->
     <section class="hero-section" id="hero">
       <div class="hero-bg-float"></div>
-      <div class="hero-accent"></div>
+      <div class="hero-accent ska-accent"></div>
       <div class="hero-content">
         <h1 class="hero-title">Finance for Musicians & Creatives</h1>
         <p class="hero-desc">
@@ -52,6 +61,23 @@
           <span class="text-muted">Your numbers, your style, your rules.</span>
         </p>
         <a href="#contact" class="hero-btn">Book a Free Consultation</a>
+      </div>
+    </section>
+    <!-- IMPACT STATS -->
+    <section>
+      <div class="stats-row">
+        <div class="stat">
+          <span class="stat-number">100+</span>
+          <div class="stat-label">Artists Helped</div>
+        </div>
+        <div class="stat">
+          <span class="stat-number">£250k+</span>
+          <div class="stat-label">Tax Saved</div>
+        </div>
+        <div class="stat">
+          <span class="stat-number">10+</span>
+          <div class="stat-label">Years Experience</div>
+        </div>
       </div>
     </section>
     <!-- ABOUT -->
@@ -110,30 +136,39 @@
         </div>
       </div>
     </section>
-    <!-- TESTIMONIALS -->
-    <section id="testimonials">
+    <!-- TESTIMONIALS - CAROUSEL -->
+    <section id="testimonials" class="fade-in section-band">
       <span class="section-subtitle">What Clients Say</span>
       <h2 class="section-title">Testimonials</h2>
-      <div class="cards-container">
-        <div class="card">
-          <span class="service-icon"><i class="fa-solid fa-heart"></i></span>
-          <h3>Clarity & Confidence</h3>
-          <p>“Oliver’s advice gave me clarity and confidence about my music finances. Highly recommended!”<br><i>- Singer/Songwriter</i></p>
+      <div class="testimonial-carousel" aria-label="Client Testimonials" tabindex="0">
+        <button class="carousel-btn prev" aria-label="Previous testimonial"><i class="fa-solid fa-chevron-left"></i></button>
+        <div class="carousel-track">
+          <div class="carousel-item active">
+            <span class="service-icon"><i class="fa-solid fa-heart"></i></span>
+            <p>“Oliver’s advice gave me clarity and confidence about my music finances. Highly recommended!”</p>
+            <span>- Singer/Songwriter</span>
+          </div>
+          <div class="carousel-item">
+            <span class="service-icon"><i class="fa-solid fa-thumbs-up"></i></span>
+            <p>“Professional, responsive, and knows the music business inside out.”</p>
+            <span>- Indie Label Owner</span>
+          </div>
+          <div class="carousel-item">
+            <span class="service-icon"><i class="fa-solid fa-star"></i></span>
+            <p>“Oliver made my tax return painless and helped me get organized for the year ahead.”</p>
+            <span>- Touring Musician</span>
+          </div>
+          <div class="carousel-item">
+            <p>Want to leave a testimonial? <a href="#contact">Get in touch!</a></p>
+          </div>
         </div>
-        <div class="card">
-          <span class="service-icon"><i class="fa-solid fa-thumbs-up"></i></span>
-          <h3>Knows the Business</h3>
-          <p>“Professional, responsive, and knows the music business inside out.”<br><i>- Indie Label Owner</i></p>
-        </div>
-        <div class="card card-accent">
-          <span class="service-icon"><i class="fa-solid fa-star"></i></span>
-          <h3>Painless Tax Return</h3>
-          <p>“Oliver made my tax return painless and helped me get organized for the year ahead.”<br><i>- Touring Musician</i></p>
-        </div>
-        <div class="card">
-          <h3>Want to leave a testimonial?</h3>
-          <p><a href="#contact">Get in touch!</a></p>
-        </div>
+        <button class="carousel-btn next" aria-label="Next testimonial"><i class="fa-solid fa-chevron-right"></i></button>
+      </div>
+      <div class="carousel-dots" aria-label="Testimonial carousel navigation">
+        <span class="carousel-dot active" tabindex="0" aria-label="Go to testimonial 1"></span>
+        <span class="carousel-dot" tabindex="0" aria-label="Go to testimonial 2"></span>
+        <span class="carousel-dot" tabindex="0" aria-label="Go to testimonial 3"></span>
+        <span class="carousel-dot" tabindex="0" aria-label="Go to testimonial 4"></span>
       </div>
     </section>
     <!-- FAQ -->
@@ -267,6 +302,27 @@
         this.reset();
       }
     });
+    // Testimonial Carousel Script
+    const track = document.querySelector('.carousel-track');
+    const items = Array.from(document.querySelectorAll('.carousel-item'));
+    const dots = Array.from(document.querySelectorAll('.carousel-dot'));
+    let current = 0;
+    function show(index) {
+      items.forEach((item, i) => item.classList.toggle('active', i === index));
+      dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
+      current = index;
+    }
+    document.querySelector('.carousel-btn.prev').onclick = () => show((current - 1 + items.length) % items.length);
+    document.querySelector('.carousel-btn.next').onclick = () => show((current + 1) % items.length);
+    dots.forEach((dot, i) => dot.onclick = () => show(i));
+  </script>
+  <script>
+    // Register service worker
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('sw.js');
+      });
+    }
   </script>
 </body>
 </html>
