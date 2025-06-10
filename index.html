@@ -14,9 +14,23 @@
   <link rel="manifest" href="manifest.json">
   <link rel="icon" href="images/favicon.ico">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Space+Grotesk:wght@500;700&display=swap">
   <script src="https://kit.fontawesome.com/fe7fbe4e2b.js" crossorigin="anonymous"></script>
 </head>
 <body>
+  <!-- Animated SVG Background for Depth -->
+  <svg class="background-svg" aria-hidden="true" style="position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:-1;pointer-events:none;">
+    <defs>
+      <linearGradient id="bg-ska" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="#3ee7fa" />
+        <stop offset="100%" stop-color="#fff" />
+      </linearGradient>
+    </defs>
+    <circle cx="80%" cy="120" r="180" fill="url(#bg-ska)" opacity="0.11">
+      <animate attributeName="cy" values="120;160;120" dur="8s" repeatCount="indefinite" />
+    </circle>
+    <rect x="0" y="0" width="100%" height="100%" fill="none"/>
+  </svg>
   <!-- Free Guide Banner with Ska Accent -->
   <div class="free-guide-banner" style="text-align:center;background:var(--bg-accent);padding:1.2em 0;box-shadow:0 2px 12px #0001;">
     <a href="free-guide.pdf" class="btn" style="font-size:1.1rem;" download>
@@ -33,7 +47,7 @@
       </a>
       <nav aria-label="Main navigation">
         <ul>
-          <li><a href="#hero" class="nav-link active">Home</a></li>
+          <li><a href="#hero" class="nav-link active" aria-current="page">Home</a></li>
           <li><a href="#about" class="nav-link">About</a></li>
           <li><a href="#services" class="nav-link">Services</a></li>
           <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
@@ -55,7 +69,7 @@
     <section class="hero-section" id="hero">
       <div class="hero-bg-float"></div>
       <div class="hero-accent ska-accent"></div>
-      <div class="hero-content">
+      <div class="hero-content scroll-fade-in">
         <h1 class="hero-title">Finance for Musicians & Creatives</h1>
         <p class="hero-desc">
           Specialist support in tax, accounts & business for artists, bands, and indie labels.<br>
@@ -68,19 +82,19 @@
 
     <div class="ska-divider"></div>
 
-    <!-- IMPACT STATS -->
+    <!-- IMPACT STATS (animated) -->
     <section>
-      <div class="stats-row">
+      <div class="stats-row scroll-fade-in">
         <div class="stat">
-          <span class="stat-number">100+</span>
+          <span class="stat-number" data-target="100">0</span><span class="stat-plus">+</span>
           <div class="stat-label">Artists Helped</div>
         </div>
         <div class="stat">
-          <span class="stat-number">£250000+</span>
+          <span class="stat-currency">£</span><span class="stat-number" data-target="250000">0</span><span class="stat-plus">+</span>
           <div class="stat-label">Tax Saved</div>
         </div>
         <div class="stat">
-          <span class="stat-number">10+</span>
+          <span class="stat-number" data-target="10">0</span><span class="stat-plus">+</span>
           <div class="stat-label">Years Experience</div>
         </div>
       </div>
@@ -89,7 +103,7 @@
     <div class="ska-divider"></div>
 
     <!-- ABOUT -->
-    <section id="about">
+    <section id="about" class="scroll-fade-in">
       <span class="section-subtitle">Who I Am</span>
       <h2 class="section-title">About Oliver</h2>
       <div class="about-flex">
@@ -116,31 +130,31 @@
     <div class="ska-divider"></div>
 
     <!-- SERVICES -->
-    <section id="services">
+    <section id="services" class="scroll-fade-in">
       <span class="section-subtitle">How I Can Help</span>
       <h2 class="section-title">Services</h2>
       <div class="cards-container">
-        <div class="card">
+        <div class="card scroll-fade-in">
           <span class="service-icon"><i class="fa-solid fa-file-invoice"></i></span>
           <h3>Tax & Compliance</h3>
           <p>Stress-free returns, maximising your deductions, and never missing a deadline.</p>
         </div>
-        <div class="card">
+        <div class="card scroll-fade-in">
           <span class="service-icon"><i class="fa-solid fa-chart-line"></i></span>
           <h3>Growth & Budgeting</h3>
           <p>Budgeting, cash flow, and growth strategies for the unpredictable creative world.</p>
         </div>
-        <div class="card card-accent">
+        <div class="card card-accent scroll-fade-in">
           <span class="service-icon"><i class="fa-solid fa-lightbulb"></i></span>
           <h3>Business Advice</h3>
           <p>Band agreements, label setup, contracts and practical support for creative businesses at every stage.</p>
         </div>
-        <div class="card">
+        <div class="card scroll-fade-in">
           <span class="service-icon"><i class="fa-solid fa-coins"></i></span>
           <h3>Royalty & Income Tracking</h3>
           <p>Clear, actionable reports for all your income streams—royalties, merch, sync, and more.</p>
         </div>
-        <div class="card">
+        <div class="card scroll-fade-in">
           <span class="service-icon"><i class="fa-solid fa-comments"></i></span>
           <h3>“Ask Me Anything” Sessions</h3>
           <p>Transparent, jargon-free answers to your questions—big or small. One-off or ongoing.</p>
@@ -151,28 +165,28 @@
     <div class="ska-divider"></div>
 
     <!-- TESTIMONIALS - CAROUSEL -->
-    <section id="testimonials" class="fade-in section-band">
+    <section id="testimonials" class="fade-in section-band scroll-fade-in">
       <span class="section-subtitle">What Clients Say</span>
       <h2 class="section-title">Testimonials</h2>
       <div class="testimonial-carousel" aria-label="Client Testimonials" tabindex="0">
         <button class="carousel-btn prev" aria-label="Previous testimonial"><i class="fa-solid fa-chevron-left"></i></button>
         <div class="carousel-track">
-          <div class="carousel-item active">
+          <div class="carousel-item active" tabindex="0" aria-live="polite">
             <span class="service-icon"><i class="fa-solid fa-heart"></i></span>
             <p>“Oliver’s advice gave me clarity and confidence about my music finances. Highly recommended!”</p>
             <span style="color:#3ee7fa;font-weight:700;">– Singer/Songwriter</span>
           </div>
-          <div class="carousel-item">
+          <div class="carousel-item" tabindex="0">
             <span class="service-icon"><i class="fa-solid fa-thumbs-up"></i></span>
             <p>“Professional, responsive, and knows the music business inside out.”</p>
             <span style="color:#3ee7fa;font-weight:700;">– Indie Label Owner</span>
           </div>
-          <div class="carousel-item">
+          <div class="carousel-item" tabindex="0">
             <span class="service-icon"><i class="fa-solid fa-star"></i></span>
             <p>“Oliver made my tax return painless and helped me get organized for the year ahead.”</p>
             <span style="color:#3ee7fa;font-weight:700;">– Touring Musician</span>
           </div>
-          <div class="carousel-item">
+          <div class="carousel-item" tabindex="0">
             <p>Want to leave a testimonial? <a href="#contact">Get in touch!</a></p>
           </div>
         </div>
@@ -189,30 +203,30 @@
     <div class="ska-divider"></div>
 
     <!-- FAQ -->
-    <section id="faq" class="faq-section">
+    <section id="faq" class="faq-section scroll-fade-in">
       <span class="section-subtitle">FAQ</span>
       <h2 class="section-title">Frequently Asked Questions</h2>
       <div class="faq-list">
         <div class="faq-item">
-          <button class="faq-question" type="button">Do you only work with musicians and creatives?</button>
+          <button class="faq-question" type="button" aria-expanded="false">Do you only work with musicians and creatives?</button>
           <div class="faq-answer">
             <p>No, but that's my speciality! I have clients from all walks of life, but I love helping creative people and indie businesses thrive.</p>
           </div>
         </div>
         <div class="faq-item">
-          <button class="faq-question" type="button">Can you help remotely or internationally?</button>
+          <button class="faq-question" type="button" aria-expanded="false">Can you help remotely or internationally?</button>
           <div class="faq-answer">
             <p>Absolutely. Most of my work is done virtually, and I can help wherever you are in the world, as long as you need UK finance/tax support.</p>
           </div>
         </div>
         <div class="faq-item">
-          <button class="faq-question" type="button">How does your pricing work?</button>
+          <button class="faq-question" type="button" aria-expanded="false">How does your pricing work?</button>
           <div class="faq-answer">
             <p>I offer clear, up-front pricing for all services. We’ll agree everything together before any work starts, so there are no surprises.</p>
           </div>
         </div>
         <div class="faq-item">
-          <button class="faq-question" type="button">What if I just have a quick question?</button>
+          <button class="faq-question" type="button" aria-expanded="false">What if I just have a quick question?</button>
           <div class="faq-answer">
             <p>Feel free to get in touch! I offer “Ask Me Anything” sessions for one-off advice, and there’s never any hard sell.</p>
           </div>
@@ -223,7 +237,7 @@
     <div class="ska-divider"></div>
 
     <!-- CONTACT -->
-    <section id="contact">
+    <section id="contact" class="scroll-fade-in">
       <span class="section-subtitle">Let’s Talk</span>
       <h2 class="section-title">Contact</h2>
       <form id="contactForm" autocomplete="off" novalidate>
@@ -299,14 +313,25 @@
         text.textContent = 'Light';
       }
     }
-    // FAQ Interaction
+    // FAQ Accessibility + Interaction
     document.querySelectorAll('.faq-question').forEach(button => {
       button.addEventListener('click', function() {
         const item = this.closest('.faq-item');
+        const expanded = this.getAttribute('aria-expanded') === "true";
+        this.setAttribute('aria-expanded', !expanded);
         item.classList.toggle('open');
         document.querySelectorAll('.faq-item').forEach(other => {
-          if (other !== item) other.classList.remove('open');
+          if (other !== item) {
+            other.classList.remove('open');
+            other.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+          }
         });
+      });
+      button.addEventListener('keydown', function(e) {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          this.click();
+        }
       });
     });
     // CONTACT FORM SUCCESS MESSAGE
@@ -323,44 +348,82 @@
       }
     });
 
-    // Testimonial Carousel Script
+    // Testimonial Carousel Script with Keyboard & Touch Support + Auto-advance
     (function() {
       const track = document.querySelector('.carousel-track');
       const items = Array.from(document.querySelectorAll('.carousel-item'));
       const dots = Array.from(document.querySelectorAll('.carousel-dot'));
-      let current = 0;
+      let current = 0, timer;
       function show(index) {
         items.forEach((item, i) => item.classList.toggle('active', i === index));
         dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
         current = index;
+        clearTimeout(timer);
+        timer = setTimeout(() => show((current + 1) % items.length), 7000);
       }
       document.querySelector('.carousel-btn.prev').onclick = () => show((current - 1 + items.length) % items.length);
       document.querySelector('.carousel-btn.next').onclick = () => show((current + 1) % items.length);
       dots.forEach((dot, i) => dot.onclick = () => show(i));
-      // Auto-advance every 7s
-      setInterval(() => show((current + 1) % items.length), 7000);
+      document.querySelector('.testimonial-carousel').addEventListener('keydown', function(e) {
+        if(e.key === 'ArrowLeft') document.querySelector('.carousel-btn.prev').click();
+        if(e.key === 'ArrowRight') document.querySelector('.carousel-btn.next').click();
+      });
+      let startX = 0;
+      track.addEventListener('touchstart', e => startX = e.touches[0].clientX);
+      track.addEventListener('touchend', e => {
+        let endX = e.changedTouches[0].clientX;
+        if (endX - startX > 40) document.querySelector('.carousel-btn.prev').click();
+        if (startX - endX > 40) document.querySelector('.carousel-btn.next').click();
+      });
+      show(0);
     })();
 
-    // Stats Counter Animation
-    document.querySelectorAll('.stat-number').forEach(function(el) {
-      const original = el.textContent;
-      const plus = original.includes('+');
-      const pound = original.includes('£');
-      const digits = original.replace(/[^\d]/g, '');
-      const end = parseInt(digits, 10);
-      let start = 0;
-      let duration = 1200;
-      let increment = Math.ceil(end / (duration / 20));
-      function run() {
-        start += increment;
-        if (start > end) start = end;
-        el.textContent = (pound ? '£' : '') + start.toLocaleString() + (plus ? '+' : '');
-        if (start < end) setTimeout(run, 20);
-      }
-      run();
+    // Stats Counter Animation (with thousands separator and animation on scroll)
+    function animateStats() {
+      document.querySelectorAll('.stat-number').forEach(function(el) {
+        if (el.dataset.animated) return;
+        const target = parseInt(el.getAttribute('data-target'), 10);
+        if (isNaN(target)) return;
+        let start = 0;
+        let duration = 1300 + Math.random()*300;
+        let increment = Math.ceil(target / (duration / 20));
+        function run() {
+          start += increment;
+          if (start > target) start = target;
+          el.textContent = start.toLocaleString();
+          if (start < target) setTimeout(run, 20);
+          else el.dataset.animated = "true";
+        }
+        run();
+      });
+    }
+    function isInView(el) {
+      const rect = el.getBoundingClientRect();
+      return rect.top < window.innerHeight && rect.bottom > 0;
+    }
+    window.addEventListener('scroll', () => {
+      document.querySelectorAll('.stats-row').forEach(row => {
+        if (isInView(row)) animateStats();
+      });
+    });
+    window.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.stats-row').forEach(row => {
+        if (isInView(row)) animateStats();
+      });
     });
 
-    // Register service worker
+    // Animated scroll reveal for cards/sections
+    function revealOnScroll() {
+      document.querySelectorAll('.scroll-fade-in').forEach(el => {
+        if (!el.classList.contains('revealed') && isInView(el)) {
+          el.classList.add('revealed');
+        }
+      });
+    }
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('DOMContentLoaded', revealOnScroll);
+
+    // Register service worker for offline support
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
         navigator.serviceWorker.register('sw.js');
