@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Oliver Rose | Expert Finance for Musicians & Creatives</title>
   <meta name="description" content="Finance, tax, and business support for musicians, indie labels & creatives by Oliver Rose. Modern, interactive, trusted.">
-  <!-- OG & Twitter Card -->
   <meta property="og:title" content="Oliver Rose | Finance for Musicians & Creatives">
   <meta property="og:description" content="Finance, tax, and business support for musicians, indie labels & creatives by Oliver Rose.">
   <meta property="og:image" content="https://olirose10.github.io/images/oliver-profile.jpg">
@@ -22,6 +21,13 @@
   <script src="https://kit.fontawesome.com/fe7fbe4e2b.js" crossorigin="anonymous"></script>
 </head>
 <body>
+  <!-- Animated Blob Background -->
+  <div class="animated-blobs">
+    <div class="blob blob1"></div>
+    <div class="blob blob2"></div>
+    <div class="blob blob3"></div>
+  </div>
+
   <header>
     <div class="main-container header-content">
       <a href="/" class="logo" aria-label="Oli Rose Home">
@@ -38,66 +44,90 @@
         </ul>
       </nav>
     </div>
+    <!-- SVG divider for header -->
+    <div class="svg-divider">
+      <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill="#7c5fff" fill-opacity="0.11" d="M0,32L60,38C120,44,240,56,360,57C480,59,600,48,720,41C840,34,960,32,1080,28C1200,24,1320,26,1380,26L1440,26L1440,60L1380,60C1320,60,1200,60,1080,60C960,60,840,60,720,60C600,60,480,60,360,60C240,60,120,60,60,60L0,60Z"/>
+      </svg>
+    </div>
   </header>
+
   <main class="main-container">
-    <!-- SLIDESHOW HERO -->
-    <div class="slideshow" aria-label="Main Highlights">
-      <div class="slide active" style="background: linear-gradient(120deg, #7c5fff 60%, #3ee7fa 100%);">
-        <div class="slide-overlay">
-          <h2 class="slide-title">Finance for Musicians & Creatives</h2>
-          <p class="slide-desc">Specialist support in tax, accounts & business for artists, bands, and indie labels. Trusted, modern, and jargon-free.</p>
-          <a href="#contact" class="slide-btn">Book a Free Consultation</a>
+    <!-- HERO / SLIDESHOW -->
+    <section class="hero-section" id="hero">
+      <div class="hero-slideshow slideshow" aria-label="Main Highlights">
+        <div class="slide active" style="background: linear-gradient(120deg, #7c5fff 60%, #3ee7fa 100%);">
+          <div class="slide-overlay">
+            <h2 class="slide-title">Finance for Musicians & Creatives</h2>
+            <p class="slide-desc">Specialist support in tax, accounts & business for artists, bands, and indie labels. Trusted, modern, and jargon-free.</p>
+            <a href="#contact" class="slide-btn">Book a Free Consultation</a>
+          </div>
+        </div>
+        <div class="slide" style="background: url('images/slide2-placeholder.jpg') center/cover, #152033;">
+          <div class="slide-overlay">
+            <h2 class="slide-title">Personal, Professional, Proven</h2>
+            <p class="slide-desc">Every client gets a tailored, friendly service. See why so many creatives trust Oliver Rose with their finances.</p>
+            <a href="#testimonials" class="slide-btn">See Testimonials</a>
+          </div>
+        </div>
+        <div class="slide" style="background: url('images/slide3-placeholder.jpg') center/cover, #3ee7fa;">
+          <div class="slide-overlay">
+            <h2 class="slide-title">Get Organised & Focus on Your Art</h2>
+            <p class="slide-desc">Tax returns, budgeting, royalty tracking and growth advice—so you can do what you do best: create.</p>
+            <a href="#services" class="slide-btn">View Services</a>
+          </div>
+        </div>
+        <button class="slideshow-arrow left" aria-label="Previous slide"><i class="fa fa-chevron-left"></i></button>
+        <button class="slideshow-arrow right" aria-label="Next slide"><i class="fa fa-chevron-right"></i></button>
+        <div class="slideshow-progress"></div>
+        <div class="slideshow-controls">
+          <span class="slideshow-dot active" tabindex="0" aria-label="Go to slide 1"></span>
+          <span class="slideshow-dot" tabindex="0" aria-label="Go to slide 2"></span>
+          <span class="slideshow-dot" tabindex="0" aria-label="Go to slide 3"></span>
         </div>
       </div>
-      <div class="slide" style="background: url('images/slide2-placeholder.jpg') center/cover, #152033;">
-        <div class="slide-overlay">
-          <h2 class="slide-title">Personal, Professional, Proven</h2>
-          <p class="slide-desc">Every client gets a tailored, friendly service. See why so many creatives trust Oliver Rose with their finances.</p>
-          <a href="#testimonials" class="slide-btn">See Testimonials</a>
-        </div>
-      </div>
-      <div class="slide" style="background: url('images/slide3-placeholder.jpg') center/cover, #3ee7fa;">
-        <div class="slide-overlay">
-          <h2 class="slide-title">Get Organised & Focus on Your Art</h2>
-          <p class="slide-desc">Tax returns, budgeting, royalty tracking and growth advice—so you can do what you do best: create.</p>
-          <a href="#services" class="slide-btn">View Services</a>
-        </div>
-      </div>
-      <button class="slideshow-arrow left" aria-label="Previous slide"><i class="fa fa-chevron-left"></i></button>
-      <button class="slideshow-arrow right" aria-label="Next slide"><i class="fa fa-chevron-right"></i></button>
-      <div class="slideshow-progress"></div>
-      <div class="slideshow-controls">
-        <span class="slideshow-dot active" tabindex="0" aria-label="Go to slide 1"></span>
-        <span class="slideshow-dot" tabindex="0" aria-label="Go to slide 2"></span>
-        <span class="slideshow-dot" tabindex="0" aria-label="Go to slide 3"></span>
-      </div>
+    </section>
+
+    <!-- SVG DIVIDER -->
+    <div class="svg-divider">
+      <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill="#3ee7fa" fill-opacity="0.13" d="M0,32L60,38C120,44,240,56,360,57C480,59,600,48,720,41C840,34,960,32,1080,28C1200,24,1320,26,1380,26L1440,26L1440,60L1380,60C1320,60,1200,60,1080,60C960,60,840,60,720,60C600,60,480,60,360,60C240,60,120,60,60,60L0,60Z"/>
+      </svg>
     </div>
 
     <!-- ABOUT SECTION -->
     <section id="about">
       <span class="section-subtitle">Who I Am</span>
       <h2 class="section-title">About Oliver</h2>
-      <div class="cards-container">
-        <div class="card" style="max-width:320px;">
-          <span class="service-icon"><i class="fa-solid fa-music"></i></span>
-          <h3>Music Industry Focus</h3>
-          <p>Years in the scene means I understand the ups and downs of creative income, royalties, and band life.</p>
+      <div class="about-flex">
+        <div class="about-img" style="background:linear-gradient(120deg,#7c5fff,#3ee7fa);border-radius:50%;width:140px;height:140px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 26px #3ee7fa44;">
+          <img src="images/oliver-profile.jpg" alt="Oliver Rose" style="border-radius:50%;width:120px;height:120px;object-fit:cover;">
         </div>
-        <div class="card" style="max-width:320px;">
-          <span class="service-icon"><i class="fa-solid fa-certificate"></i></span>
-          <h3>Fully Qualified</h3>
-          <p>ICAEW ACA advanced, up-to-date on tax, digital tools, and creative business best practices.</p>
-        </div>
-        <div class="card" style="max-width:320px;">
-          <span class="service-icon"><i class="fa-solid fa-handshake"></i></span>
-          <h3>Personal Approach</h3>
-          <p>No jargon. No one-size-fits-all. Just honest, warm support tailored to you.</p>
+        <div class="about-text">
+          <p>
+            <strong>Specialist adviser to musicians, indie labels & creative entrepreneurs.</strong>
+            <br>Years of experience, ICAEW ACA advanced, and a passion for making finance approachable for artists.
+            <br>I offer clarity, confidence, and practical support for your unique journey.
+          </p>
+          <div class="about-graphics" style="margin-top:1.2em;">
+            <i class="fa-solid fa-music"></i>
+            <i class="fa-solid fa-guitar"></i>
+            <i class="fa-solid fa-headphones"></i>
+            <i class="fa-solid fa-microphone"></i>
+            <i class="fa-solid fa-wave-square"></i>
+          </div>
         </div>
       </div>
     </section>
 
+    <div class="svg-divider">
+      <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill="#f9c846" fill-opacity="0.08" d="M0,32L60,38C120,44,240,56,360,57C480,59,600,48,720,41C840,34,960,32,1080,28C1200,24,1320,26,1380,26L1440,26L1440,60L1380,60C1320,60,1200,60,1080,60C960,60,840,60,720,60C600,60,480,60,360,60C240,60,120,60,60,60L0,60Z"/>
+      </svg>
+    </div>
+
     <!-- SERVICES SECTION -->
-    <section id="services">
+    <section id="services" class="section-band" style="background:linear-gradient(110deg,#242a42 70%,#f9c84622 100%);">
       <span class="section-subtitle">How I Can Help</span>
       <h2 class="section-title">Services</h2>
       <div class="cards-container">
@@ -116,11 +146,26 @@
           <h3>Business Advice</h3>
           <p>Band agreements, label setup, contracts and practical support for creative businesses at every stage.</p>
         </div>
+        <div class="card">
+          <span class="service-icon"><i class="fa-solid fa-coins"></i></span>
+          <h3>Royalty & Income Tracking</h3>
+          <p>Clear, actionable reports for all your income streams—royalties, merch, sync, and more.</p>
+        </div>
+        <div class="card">
+          <span class="service-icon"><i class="fa-solid fa-comments"></i></span>
+          <h3>“Ask Me Anything” Sessions</h3>
+          <p>Transparent, jargon-free answers to your questions—big or small. One-off or ongoing.</p>
+        </div>
       </div>
     </section>
 
+    <div class="svg-divider">
+      <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill="#ff5978" fill-opacity="0.1" d="M0,32L60,38C120,44,240,56,360,57C480,59,600,48,720,41C840,34,960,32,1080,28C1200,24,1320,26,1380,26L1440,26L1440,60L1380,60C1320,60,1200,60,1080,60C960,60,840,60,720,60C600,60,480,60,360,60C240,60,120,60,60,60L0,60Z"/>
+      </svg>
+    </div>
+
     <!-- TESTIMONIALS SECTION -->
-    <!-- Use the improved testimonial-carousel.html component -->
     <section id="testimonials" class="fade-in section-band">
       <span class="section-subtitle">What Clients Say</span>
       <h2 class="section-title">Testimonials</h2>
@@ -155,6 +200,12 @@
         <span class="carousel-dot" tabindex="0" aria-label="Go to testimonial 4"></span>
       </div>
     </section>
+
+    <div class="svg-divider">
+      <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill="#7c5fff" fill-opacity="0.11" d="M0,32L60,38C120,44,240,56,360,57C480,59,600,48,720,41C840,34,960,32,1080,28C1200,24,1320,26,1380,26L1440,26L1440,60L1380,60C1320,60,1200,60,1080,60C960,60,840,60,720,60C600,60,480,60,360,60C240,60,120,60,60,60L0,60Z"/>
+      </svg>
+    </div>
 
     <!-- CONTACT SECTION -->
     <section id="contact">
@@ -204,7 +255,8 @@
       </div>
     </div>
   </footer>
-  <!-- SCRIPTS -->
+
+  <!-- JS for slideshow and testimonials -->
   <script src="js/slideshow.js"></script>
   <script src="js/testimonial-carousel.js"></script>
   <script>
