@@ -215,4 +215,36 @@ document.addEventListener("DOMContentLoaded", () => {
     const scrollPercent = (scrollTop / docHeight) * 100;
     scrollProgress.style.width = scrollPercent + "%";
   });
+
+  /* --- Header Shrink on Scroll & Parallax Hero Background --- */
+  const header = document.querySelector("header");
+  const heroBackground = document.querySelector(".hero-background");
+  window.addEventListener("scroll", () => {
+    if (window.pageYOffset > 100) {
+      header.classList.add("header-shrink");
+      heroBackground.style.transform = `translateY(${window.pageYOffset * 0.2}px)`;
+    } else {
+      header.classList.remove("header-shrink");
+      heroBackground.style.transform = "translateY(0)";
+    }
+  });
+
+  /* --- Social Share Button Functionality --- */
+  const shareButtons = document.querySelectorAll(".share-btn");
+  shareButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const platform = btn.getAttribute("data-platform");
+      const pageUrl = encodeURIComponent(window.location.href);
+      const pageTitle = encodeURIComponent(document.title);
+      let shareUrl = "";
+      if (platform === "facebook") {
+        shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${pageUrl}`;
+      } else if (platform === "twitter") {
+        shareUrl = `https://twitter.com/intent/tweet?url=${pageUrl}&text=${pageTitle}`;
+      } else if (platform === "linkedin") {
+        shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${pageUrl}`;
+      }
+      window.open(shareUrl, '_blank', 'width=600,height=400');
+    });
+  });
 });
