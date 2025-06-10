@@ -30,7 +30,91 @@
   --transition: .19s cubic-bezier(.4,0,.2,1);
   --input-focus: #3ee7fa;
 }
+[data-theme="dark"] {
+  --bg-main: #181820;
+  --bg-section: #23242a;
+  --bg-alt: #181820;
+  --bg-card: #23242a;
+  --border: #23242a;
+  --text-main: #f7f7f7;
+  --text-muted: #b6b6b6;
+  --text-heading: #fff;
+  --accent: #3ee7fa;
+  --accent-hover: #1ca9c9;
+  --accent-light: #222;
+  --accent-faded: #191b20;
+  --chequer-light: #23242a;
+  --chequer-dark: #fff;
+  --shadow: 0 8px 38px #10111420, 0 2px 8px #10111418;
+  --shadow-strong: 0 18px 60px #10111444;
+  --font-main: 'Montserrat', Arial, sans-serif;
+  --font-heading: 'Space Grotesk', 'Montserrat', Arial, sans-serif;
+  --input-focus: #3ee7fa;
+}
+[data-theme="dark"] nav .nav-link.active,
+[data-theme="dark"] nav .nav-link:hover {
+  color: #181818;
+  background: #3ee7fa;
+  border-bottom: 2.5px solid #3ee7fa;
+}
+[data-theme="dark"] .btn,
+[data-theme="dark"] .hero-btn {
+  background: #3ee7fa;
+  color: #23242a;
+}
+[data-theme="dark"] .btn:hover,
+[data-theme="dark"] .hero-btn:hover {
+  background: #fff;
+  color: #23242a;
+}
+[data-theme="dark"] .card.card-accent {
+  background: repeating-linear-gradient(135deg, #3ee7fa 0 18px, #222 18px 36px) !important;
+}
+[data-theme="dark"] .about-highlight .fa-solid {
+  color: #fff;
+  background: #3ee7fa;
+}
+[data-theme="dark"] .section-title {
+  color: #fff;
+}
+[data-theme="dark"] .card {
+  background: #23242a;
+  color: #fff;
+  border-color: #3ee7fa22;
+}
+[data-theme="dark"] .card h3 {
+  color: #3ee7fa;
+  border-bottom: 2px solid #3ee7fa;
+}
+[data-theme="dark"] .card:not(.card-accent):hover {
+  background: #222;
+}
 
+[data-theme="dark"] .faq-item {
+  background: #23242a;
+  color: #fff;
+  border-color: #3ee7fa44;
+}
+[data-theme="dark"] .faq-answer {
+  background: #222;
+  color: #fff;
+}
+[data-theme="dark"] footer {
+  background: #101114;
+  color: #3ee7fa;
+}
+[data-theme="dark"] footer .footer-links a {
+  color: #3ee7fa;
+}
+[data-theme="dark"] footer .footer-links a:hover {
+  background: #3ee7fa;
+  color: #101114;
+  border-bottom: 2px dotted #101114;
+}
+[data-theme="dark"] .ska-accent,
+[data-theme="dark"] .ska-divider {
+  background: repeating-linear-gradient(90deg, #3ee7fa 0 14px, #fff 14px 28px);
+}
 /* ===== RESET & BASE ===== */
 *,
 *::before,
