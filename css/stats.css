@@ -1,0 +1,33 @@
+.stats-row {
+  display: flex;
+  gap: 2.2em;
+  justify-content: center;
+  margin: 2.4em 0 1em 0;
+}
+.stat {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  padding: 1.3em 2em;
+  box-shadow: 0 4px 18px var(--accent)13;
+  text-align: center;
+  min-width: 120px;
+}
+.stat-number {
+  font-size: 2.3rem;
+  font-weight: 900;
+  color: var(--accent);
+  letter-spacing: 2px;
+  display: block;
+  margin-bottom: 0.3em;
+  animation: statPulse 2.5s infinite alternate;
+}
+@keyframes statPulse {
+  0% { text-shadow: 0 0 8px var(--accent);}
+  100% { text-shadow: 0 0 24px var(--accent)33;}
+}
+.stat-label {
+  color: var(--text-muted);
+  font-size: 1.12em;
+  font-weight: 600;
+  letter-spacing: 0.7px;
+}
