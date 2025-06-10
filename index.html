@@ -6,6 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Oliver Rose | Expert Finance for Musicians & Creatives</title>
   <meta name="description" content="Finance, tax, and business support for musicians, indie labels & creatives by Oliver Rose. Modern, interactive, trusted.">
+  <!-- Open Graph & Twitter Card -->
+  <meta property="og:title" content="Oliver Rose | Finance for Musicians & Creatives">
+  <meta property="og:description" content="Finance, tax, and business support for musicians, indie labels & creatives by Oliver Rose.">
+  <meta property="og:image" content="https://olirose10.github.io/images/oliver-profile.jpg">
+  <meta property="og:url" content="https://olirose10.github.io/">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="images/favicon.ico">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
@@ -14,16 +20,80 @@
   <link rel="stylesheet" href="css/case-studies.css">
   <link rel="stylesheet" href="css/carousel.css">
   <script src="https://kit.fontawesome.com/fe7fbe4e2b.js" crossorigin="anonymous"></script>
+  <style>
+    /* For About Section Centering & Modern Card */
+    #about .bio-flex {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+    }
+    #about .profile-img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 3px solid var(--accent);
+      box-shadow: 0 4px 28px var(--accent)22;
+      margin: 0 auto;
+      display: block;
+    }
+    #about .bio-card {
+      background: var(--bg-card);
+      border-radius: var(--radius);
+      box-shadow: 0 4px 20px var(--accent)14;
+      padding: 2.2rem 2rem 2rem 2rem;
+      max-width: 540px;
+      text-align: left;
+      min-width: 260px;
+    }
+    #about .bio-card h3 {
+      margin-top: 0.6em;
+      font-family: var(--font-heading);
+      font-size: 1.35em;
+      color: var(--accent);
+      margin-bottom: 0.4em;
+    }
+    #about .about-graphics {
+      margin-top: 1.15em;
+      display: flex;
+      gap: 1.5em;
+      justify-content: flex-start;
+      font-size: 1.3em;
+    }
+    @media (max-width: 800px) {
+      #about .bio-flex { flex-direction: column; gap: 1.2em;}
+      #about .bio-card { max-width: 97vw; padding: 1.4rem 0.7rem;}
+      #about .profile-img { margin-bottom: 1em;}
+    }
+    /* Contact form success message */
+    #form-success {
+      display: none;
+      color: var(--accent);
+      margin-top: 1em;
+      font-weight: 600;
+    }
+    /* Accessibility: reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
 </head>
 <body>
   <!-- Animated Blobs Background -->
-  <div class="animated-blobs">
+  <div class="animated-blobs" aria-hidden="true">
     <div class="blob blob1"></div>
     <div class="blob blob2"></div>
     <div class="blob blob3"></div>
   </div>
   <!-- Particles for Hero -->
-  <div class="particles" id="particles-hero">
+  <div class="particles" id="particles-hero" aria-hidden="true">
     <div class="particle p1"></div>
     <div class="particle p2"></div>
     <div class="particle p3"></div>
@@ -35,7 +105,7 @@
     <div class="spinner"></div>
     <span class="sr-only">Loading...</span>
   </div>
-  <header>
+  <header role="banner">
     <div class="header-content">
       <div class="logo">
         <img src="images/logo.png" alt="Oliver Rose Logo" />
@@ -53,7 +123,7 @@
     </div>
     <nav id="navMenu" role="navigation" aria-label="Main navigation">
       <ul>
-        <li><a href="#hero" class="nav-link active">Home</a></li>
+        <li><a href="#hero" class="nav-link active" aria-current="page">Home</a></li>
         <li><a href="#about" class="nav-link">About</a></li>
         <li><a href="#whyme" class="nav-link">Why Me</a></li>
         <li><a href="#services" class="nav-link">Services</a></li>
@@ -75,9 +145,10 @@
         <a href="#contact" class="cta-button" aria-label="Book your free call">
           Book a Free Consultation <i class="fa-solid fa-arrow-right"></i>
         </a>
+        <a href="#case-studies" class="cta-button outline" style="margin-left:1em;">See Success Stories</a>
       </div>
       <!-- Music Note Decorations -->
-      <div class="hero-graphics">
+      <div class="hero-graphics" aria-hidden="true">
         <i class="fa-solid fa-music note note1"></i>
         <i class="fa-solid fa-music note note2"></i>
         <i class="fa-solid fa-music note note3"></i>
@@ -85,7 +156,7 @@
       </div>
     </section>
     <!-- SVG Divider -->
-    <div class="svg-divider">
+    <div class="svg-divider" aria-hidden="true">
       <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path fill="#6c7aff" fill-opacity="0.12" d="M0,64L60,69.3C120,75,240,85,360,90.7C480,96,600,96,720,85.3C840,75,960,53,1080,42.7C1200,32,1320,32,1380,32L1440,32L1440,120L1380,120C1320,120,1200,120,1080,120C960,120,840,120,720,120C600,120,480,120,360,120C240,120,120,120,60,120L0,120Z"/>
       </svg>
@@ -94,26 +165,34 @@
     <section id="about" class="fade-in">
       <span class="section-subtitle">Meet Oliver</span>
       <h2>About Me</h2>
-      <div class="cards-container">
-        <div class="card">
-          <img src="images/oliver-profile.jpg" alt="Oliver Rose" class="profile-img" style="width:90px;float:left;margin:0 1.2em 1em 0;border-radius:50%;">
+      <div class="bio-flex">
+        <picture>
+          <source srcset="images/oliver-profile.webp" type="image/webp">
+          <img src="images/oliver-profile.jpg" alt="Oliver Rose portrait" class="profile-img" loading="lazy">
+        </picture>
+        <div class="bio-card">
+          <h3>Hi, I’m <b>Oliver Rose</b> <span style="font-size:0.7em;color:var(--text-muted);">(he/him)</span></h3>
           <p>
-            Hi, I’m <b>Oliver Rose</b> (he/him), a finance specialist with proven experience in the music and creative industries.<br>
-            Over the past several years, I’ve helped dozens of musicians, bands, and creatives take control of their finances and thrive.<br>
-            I’m passionate about making finance approachable, effective, and fully tailored to the unique needs of artists like you.<br>
-            <b>Qualifications:</b> Advanced stage of ICAEW ACA training, up-to-date with modern tax law and digital tools.<br>
+            I’m a finance specialist with proven experience in the music and creative industries.
+            <br><br>
+            Over the past several years, I’ve helped dozens of musicians, bands, and creatives take control of their finances and thrive.
+            <br><br>
+            I’m passionate about making finance approachable, effective, and fully tailored to the unique needs of artists like you.
+            <br><br>
+            <b>Qualifications:</b> Advanced stage of ICAEW ACA training, up-to-date with modern tax law and digital tools.
+            <br>
             <b>Mission:</b> Clarity, trust, and results—so you can focus on your craft.
           </p>
           <div class="about-graphics">
-            <i class="fa-solid fa-guitar"></i>
-            <i class="fa-solid fa-headphones"></i>
-            <i class="fa-solid fa-microphone"></i>
-            <i class="fa-solid fa-wave-square"></i>
+            <i class="fa-solid fa-guitar" aria-hidden="true"></i>
+            <i class="fa-solid fa-headphones" aria-hidden="true"></i>
+            <i class="fa-solid fa-microphone" aria-hidden="true"></i>
+            <i class="fa-solid fa-wave-square" aria-hidden="true"></i>
           </div>
         </div>
       </div>
     </section>
-    <div class="svg-divider">
+    <div class="svg-divider" aria-hidden="true">
       <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path fill="#6c7aff" fill-opacity="0.12" d="M0,64L60,69.3C120,75,240,85,360,90.7C480,96,600,96,720,85.3C840,75,960,53,1080,42.7C1200,32,1320,32,1380,32L1440,32L1440,120L1380,120C1320,120,1200,120,1080,120C960,120,840,120,720,120C600,120,480,120,360,120C240,120,120,120,60,120L0,120Z"/>
       </svg>
@@ -134,7 +213,7 @@
     </div>
     <!-- WHY WORK WITH ME -->
     <section id="whyme" class="fade-in section-band">
-      <div class="particles" id="particles-why">
+      <div class="particles" id="particles-why" aria-hidden="true">
         <div class="particle p1"></div>
         <div class="particle p2"></div>
         <div class="particle p3"></div>
@@ -145,28 +224,28 @@
       <h2>Trusted. Professional. Creative-Focused.</h2>
       <div class="cards-container">
         <div class="card">
-          <span class="service-icon"><i class="fa-solid fa-music"></i></span>
+          <span class="service-icon"><i class="fa-solid fa-music" aria-hidden="true"></i></span>
           <h3>Industry Expertise</h3>
           <p>I specialize in supporting musicians, labels, and creatives. I understand your challenges and opportunities, and offer solutions that work in the real world.</p>
         </div>
         <div class="card">
-          <span class="service-icon"><i class="fa-solid fa-star"></i></span>
+          <span class="service-icon"><i class="fa-solid fa-star" aria-hidden="true"></i></span>
           <h3>Proven Results</h3>
           <p>Clients consistently see clearer finances, lower stress, and more time for their art. I pride myself on practical, actionable advice—not jargon.</p>
         </div>
         <div class="card">
-          <span class="service-icon"><i class="fa-solid fa-handshake"></i></span>
+          <span class="service-icon"><i class="fa-solid fa-handshake" aria-hidden="true"></i></span>
           <h3>Tailored Service</h3>
           <p>Every client receives a personal, one-to-one approach. Flexible, friendly, and always on your side.</p>
         </div>
         <div class="card">
-          <span class="service-icon"><i class="fa-solid fa-award"></i></span>
+          <span class="service-icon"><i class="fa-solid fa-award" aria-hidden="true"></i></span>
           <h3>Professional Standards</h3>
           <p>I combine technical knowledge with a creative mindset, so your finances are handled with care, accuracy, and integrity.</p>
         </div>
       </div>
     </section>
-    <div class="svg-divider">
+    <div class="svg-divider" aria-hidden="true">
       <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path fill="#6c7aff" fill-opacity="0.12" d="M0,64L60,69.3C120,75,240,85,360,90.7C480,96,600,96,720,85.3C840,75,960,53,1080,42.7C1200,32,1320,32,1380,32L1440,32L1440,120L1380,120C1320,120,1200,120,1080,120C960,120,840,120,720,120C600,120,480,120,360,120C240,120,120,120,60,120L0,120Z"/>
       </svg>
@@ -177,39 +256,38 @@
       <h2>Finance Services for Creatives</h2>
       <div class="cards-container">
         <div class="card">
-          <span class="service-icon"><i class="fa-solid fa-file-invoice"></i></span>
+          <span class="service-icon"><i class="fa-solid fa-file-invoice" aria-hidden="true"></i></span>
           <h3>Bookkeeping & Accounts</h3>
           <p>From DIY spreadsheets to cloud accounting, I set up and manage your books so you always know where you stand.</p>
         </div>
         <div class="card">
-          <span class="service-icon"><i class="fa-solid fa-coins"></i></span>
+          <span class="service-icon"><i class="fa-solid fa-coins" aria-hidden="true"></i></span>
           <h3>Tax Returns & Self-Assessment</h3>
           <p>Stress-free tax returns—guiding you through every step, maximizing your deductions, and making sure you never miss a deadline.</p>
         </div>
         <div class="card">
-          <span class="service-icon"><i class="fa-solid fa-chart-line"></i></span>
+          <span class="service-icon"><i class="fa-solid fa-chart-line" aria-hidden="true"></i></span>
           <h3>Royalty, Streaming & Income Tracking</h3>
           <p>Transparent reports for all your income streams. Understand your royalties, merch, sync, and more.</p>
         </div>
         <div class="card">
-          <span class="service-icon"><i class="fa-solid fa-lightbulb"></i></span>
+          <span class="service-icon"><i class="fa-solid fa-lightbulb" aria-hidden="true"></i></span>
           <h3>Financial Strategy & Advice</h3>
           <p>Custom advice sessions: budgeting, project planning, and making your creative career sustainable.</p>
         </div>
         <div class="card">
-          <span class="service-icon"><i class="fa-solid fa-comments"></i></span>
+          <span class="service-icon"><i class="fa-solid fa-comments" aria-hidden="true"></i></span>
           <h3>“Ask Me Anything” Sessions</h3>
           <p>Clear, candid conversations to answer your finance questions—big or small. Available one-off or ongoing.</p>
         </div>
       </div>
-      <!-- Animated Service Arrows -->
-      <div class="service-arrows">
+      <div class="service-arrows" aria-hidden="true">
         <i class="fa-solid fa-arrow-down-long arrow1"></i>
         <i class="fa-solid fa-arrow-down-long arrow2"></i>
         <i class="fa-solid fa-arrow-down-long arrow3"></i>
       </div>
     </section>
-    <div class="svg-divider">
+    <div class="svg-divider" aria-hidden="true">
       <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path fill="#6c7aff" fill-opacity="0.12" d="M0,64L60,69.3C120,75,240,85,360,90.7C480,96,600,96,720,85.3C840,75,960,53,1080,42.7C1200,32,1320,32,1380,32L1440,32L1440,120L1380,120C1320,120,1200,120,1080,120C960,120,840,120,720,120C600,120,480,120,360,120C240,120,120,120,60,120L0,120Z"/>
       </svg>
@@ -236,13 +314,13 @@
           <div class="faq-answer"><p>It starts with a free, friendly consultation. Then I create a tailored plan and quote based on your needs—no hidden fees, ever.</p></div>
         </div>
       </div>
-      <div class="faq-graphic">
+      <div class="faq-graphic" aria-hidden="true">
         <i class="fa-solid fa-question-circle"></i>
         <i class="fa-solid fa-lightbulb"></i>
         <i class="fa-solid fa-brain"></i>
       </div>
     </section>
-    <div class="svg-divider">
+    <div class="svg-divider" aria-hidden="true">
       <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path fill="#6c7aff" fill-opacity="0.12" d="M0,64L60,69.3C120,75,240,85,360,90.7C480,96,600,96,720,85.3C840,75,960,53,1080,42.7C1200,32,1320,32,1380,32L1440,32L1440,120L1380,120C1320,120,1200,120,1080,120C960,120,840,120,720,120C600,120,480,120,360,120C240,120,120,120,60,120L0,120Z"/>
       </svg>
@@ -255,17 +333,17 @@
         <button class="carousel-btn prev" aria-label="Previous testimonial"><i class="fa-solid fa-chevron-left"></i></button>
         <div class="carousel-track">
           <div class="carousel-item active">
-            <span class="service-icon"><i class="fa-solid fa-heart"></i></span>
+            <span class="service-icon"><i class="fa-solid fa-heart" aria-hidden="true"></i></span>
             <p>“Oliver’s advice gave me clarity and confidence about my music finances. Highly recommended!”</p>
             <span>- Singer/Songwriter</span>
           </div>
           <div class="carousel-item">
-            <span class="service-icon"><i class="fa-solid fa-thumbs-up"></i></span>
+            <span class="service-icon"><i class="fa-solid fa-thumbs-up" aria-hidden="true"></i></span>
             <p>“Professional, responsive, and knows the music business inside out.”</p>
             <span>- Indie Label Owner</span>
           </div>
           <div class="carousel-item">
-            <span class="service-icon"><i class="fa-solid fa-star"></i></span>
+            <span class="service-icon"><i class="fa-solid fa-star" aria-hidden="true"></i></span>
             <p>“Oliver made my tax return painless and helped me get organized for the year ahead.”</p>
             <span>- Touring Musician</span>
           </div>
@@ -275,13 +353,13 @@
         </div>
         <button class="carousel-btn next" aria-label="Next testimonial"><i class="fa-solid fa-chevron-right"></i></button>
       </div>
-      <div class="testimonials-graphic">
+      <div class="testimonials-graphic" aria-hidden="true">
         <i class="fa-solid fa-users"></i>
         <i class="fa-solid fa-microphone"></i>
         <i class="fa-solid fa-music"></i>
       </div>
     </section>
-    <div class="svg-divider">
+    <div class="svg-divider" aria-hidden="true">
       <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path fill="#6c7aff" fill-opacity="0.12" d="M0,64L60,69.3C120,75,240,85,360,90.7C480,96,600,96,720,85.3C840,75,960,53,1080,42.7C1200,32,1320,32,1380,32L1440,32L1440,120L1380,120C1320,120,1200,120,1080,120C960,120,840,120,720,120C600,120,480,120,360,120C240,120,120,120,60,120L0,120Z"/>
       </svg>
@@ -292,19 +370,19 @@
       <h2>Blog & Free Guides</h2>
       <div class="blog-grid">
         <article class="blog-card">
-          <img src="images/blog1.jpg" alt="Finance tips for musicians illustration">
+          <img src="images/blog1.jpg" alt="Finance tips for musicians illustration" loading="lazy">
           <h3><a href="blog-post-1.html">5 Tax Essentials for Musicians</a></h3>
           <p>Confused by self-assessment? Here are 5 things every artist should know to stay stress-free at tax time.</p>
           <a class="button ghost" href="blog-post-1.html">Read More</a>
         </article>
         <article class="blog-card">
-          <img src="images/blog2.jpg" alt="Budgeting illustration">
+          <img src="images/blog2.jpg" alt="Budgeting illustration" loading="lazy">
           <h3><a href="blog-post-2.html">How to Budget a Music Release</a></h3>
           <p>Step-by-step guide for planning your next single, album, or tour—without breaking the bank.</p>
           <a class="button ghost" href="blog-post-2.html">Read More</a>
         </article>
         <article class="blog-card">
-          <img src="images/blog3.jpg" alt="Royalty tracking illustration">
+          <img src="images/blog3.jpg" alt="Royalty tracking illustration" loading="lazy">
           <h3><a href="blog-post-3.html">Royalty Tracking Made Simple</a></h3>
           <p>Track your streaming, merch, and sync income—in plain English, with free spreadsheet templates.</p>
           <a class="button ghost" href="blog-post-3.html">Read More</a>
@@ -316,7 +394,7 @@
         </a>
       </div>
     </section>
-    <div class="svg-divider">
+    <div class="svg-divider" aria-hidden="true">
       <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path fill="#6c7aff" fill-opacity="0.12" d="M0,64L60,69.3C120,75,240,85,360,90.7C480,96,600,96,720,85.3C840,75,960,53,1080,42.7C1200,32,1320,32,1380,32L1440,32L1440,120L1380,120C1320,120,1200,120,1080,120C960,120,840,120,720,120C600,120,480,120,360,120C240,120,120,120,60,120L0,120Z"/>
       </svg>
@@ -327,7 +405,7 @@
       <h2>Success Stories</h2>
       <div class="case-grid">
         <div class="case-card">
-          <span class="service-icon"><i class="fa-solid fa-user"></i></span>
+          <span class="service-icon"><i class="fa-solid fa-user" aria-hidden="true"></i></span>
           <h3>Indie Singer-Songwriter</h3>
           <ul>
             <li>Saved £1,200 on tax by optimizing expense claims</li>
@@ -336,7 +414,7 @@
           </ul>
         </div>
         <div class="case-card">
-          <span class="service-icon"><i class="fa-solid fa-users"></i></span>
+          <span class="service-icon"><i class="fa-solid fa-users" aria-hidden="true"></i></span>
           <h3>Small Label</h3>
           <ul>
             <li>Automated royalty tracking for 8 artists</li>
@@ -345,7 +423,7 @@
           </ul>
         </div>
         <div class="case-card">
-          <span class="service-icon"><i class="fa-solid fa-guitar"></i></span>
+          <span class="service-icon"><i class="fa-solid fa-guitar" aria-hidden="true"></i></span>
           <h3>Touring Band</h3>
           <ul>
             <li>Built custom cashflow spreadsheet</li>
@@ -355,7 +433,7 @@
         </div>
       </div>
     </section>
-    <div class="svg-divider">
+    <div class="svg-divider" aria-hidden="true">
       <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path fill="#6c7aff" fill-opacity="0.12" d="M0,64L60,69.3C120,75,240,85,360,90.7C480,96,600,96,720,85.3C840,75,960,53,1080,42.7C1200,32,1320,32,1380,32L1440,32L1440,120L1380,120C1320,120,1200,120,1080,120C960,120,840,120,720,120C600,120,480,120,360,120C240,120,120,120,60,120L0,120Z"/>
       </svg>
@@ -379,20 +457,19 @@
         </div>
         <button type="submit" class="cta-button">Send Message <i class="fa-solid fa-paper-plane"></i></button>
       </form>
+      <div id="form-success">Thank you! I’ll be in touch soon.</div>
       <div class="text-center" style="margin-top:1em;">
         <p>Or email me: <a href="mailto:oliverrosefinance@gmail.com">oliverrosefinance@gmail.com</a></p>
       </div>
-      <div class="contact-graphic">
+      <div class="contact-graphic" aria-hidden="true">
         <i class="fa-solid fa-envelope"></i>
         <i class="fa-solid fa-calendar-days"></i>
         <i class="fa-solid fa-arrow-right"></i>
       </div>
     </section>
   </main>
-  <!-- Back to Top Button -->
   <button id="backToTop" aria-label="Back to Top" title="Back to Top">↑</button>
-  <!-- Footer -->
-  <footer>
+  <footer role="contentinfo">
     <div class="footer-links">
       <a href="privacy.html">Privacy</a>
       <a href="terms.html">Terms</a>
@@ -411,5 +488,28 @@
   <script src="js/main.js"></script>
   <script src="js/stats.js"></script>
   <script src="js/carousel.js"></script>
+  <script>
+    // Contact form success message
+    document.addEventListener("DOMContentLoaded", function() {
+      var form = document.getElementById('contactForm');
+      if(form) {
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          var valid = true;
+          form.querySelectorAll('input[required],textarea[required]').forEach(inp => {
+            if (!inp.value.trim()) {
+              inp.classList.add('error'); valid = false;
+            } else {
+              inp.classList.remove('error');
+            }
+          });
+          if (valid) {
+            document.getElementById('form-success').style.display = 'block';
+            form.reset();
+          }
+        });
+      }
+    });
+  </script>
 </body>
 </html>
