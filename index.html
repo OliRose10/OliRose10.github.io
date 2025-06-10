@@ -3,23 +3,41 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- SEO Meta Tags -->
+  <!-- SEO & Social Meta Tags -->
   <meta name="description" content="Oliver's Finance for Musicians: Expert bookkeeping, tax planning, and financial strategies for musicians, labels, and creatives." />
   <meta name="keywords" content="Finance, Bookkeeping, Musicians, Tax Planning, Financial Strategy" />
   <meta name="author" content="Oliver" />
   <meta name="theme-color" content="#1e3c72" />
   <title>Oliver's Finance for Musicians</title>
   <link rel="stylesheet" href="css/style.css" />
-  <!-- Google Fonts: Poppins -->
+  <!-- Google Fonts & Font Awesome -->
   <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,700&display=swap" rel="stylesheet">
-  <!-- Font Awesome for Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" 
         integrity="sha512-HHsOCqnpXSXwd/q8b6xZeXKfGJiA9bC09XQCD3OUwE/o5F/qvh22oX7rO1X6zYyQ780pK3zV6hGVEF4c2PZS3w==" 
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <!-- (Optional Structured Data / Social Meta Tags here) -->
+  <!-- Optional: Extra Animations (Animate.css) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 </head>
 <body>
-  <!-- Sticky Header with Navigation -->
+  <!-- Preloader -->
+  <div id="preloader" class="preloader">
+    <div class="spinner"></div>
+  </div>
+
+  <!-- Modal for Newsletter Subscription -->
+  <div id="newsletterModal" class="modal">
+    <div class="modal-content">
+      <span id="modalClose" class="close">&times;</span>
+      <h2>Subscribe to Our Newsletter!</h2>
+      <p>Don't miss our financial tips and updates.</p>
+      <form id="modalSubscribeForm">
+        <input type="email" name="modalEmail" placeholder="Enter your email" required>
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Header -->
   <header>
     <div class="header-content">
       <h1>🎸 Oliver’s Finance for Musicians 🎶</h1>
@@ -31,27 +49,26 @@
     </div>
   </header>
 
-  <!-- Navigation -->
+  <!-- Navigation (Multi‑page links – can be split into separate files later) -->
   <nav id="navMenu" role="navigation">
     <ul>
-      <li><a href="#hero">Home</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#portfolio">Portfolio</a></li>
-      <li><a href="#testimonials">Testimonials</a></li>
-      <li><a href="#blog">Blog</a></li>
-      <li><a href="#pricing">Pricing</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#faq">FAQ</a></li>
-      <li><a href="#contact">Contact</a></li>
-      <li><a href="#subscribe">Subscribe</a></li>
-      <li><a href="#team">Team</a></li>
-      <li><a href="#case-studies">Case Studies</a></li>
-      <li><a href="#partners">Partners</a></li>
-      <li><a href="#video">Video</a></li>
-      <li><a href="#press">Press</a></li>
-      <!-- Extra items -->
-      <li><a href="#awards">Awards</a></li>
-      <li><a href="#careers">Careers</a></li>
+      <li><a href="index.html" class="nav-link active">Home</a></li>
+      <li><a href="services.html" class="nav-link">Services</a></li>
+      <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+      <li><a href="testimonials.html" class="nav-link">Testimonials</a></li>
+      <li><a href="blog.html" class="nav-link">Blog</a></li>
+      <li><a href="pricing.html" class="nav-link">Pricing</a></li>
+      <li><a href="about.html" class="nav-link">About</a></li>
+      <li><a href="faq.html" class="nav-link">FAQ</a></li>
+      <li><a href="contact.html" class="nav-link">Contact</a></li>
+      <li><a href="subscribe.html" class="nav-link">Subscribe</a></li>
+      <li><a href="team.html" class="nav-link">Team</a></li>
+      <li><a href="case-studies.html" class="nav-link">Case Studies</a></li>
+      <li><a href="partners.html" class="nav-link">Partners</a></li>
+      <li><a href="video.html" class="nav-link">Video</a></li>
+      <li><a href="press.html" class="nav-link">Press</a></li>
+      <li><a href="awards.html" class="nav-link">Awards</a></li>
+      <li><a href="careers.html" class="nav-link">Careers</a></li>
     </ul>
   </nav>
 
@@ -61,9 +78,8 @@
       <div class="hero-content">
         <h2>Take Control of Your Finances</h2>
         <p>Offering expert bookkeeping, tax planning, and financial strategies tailored for the music industry.</p>
-        <a href="#contact" class="cta-button">Get Started</a>
+        <a href="contact.html" class="cta-button">Get Started</a>
       </div>
-      <!-- Animated SVG background example -->
       <div class="hero-background">
         <svg class="hero-svg" viewBox="0 0 800 200">
           <path d="M0,100 C200,0 600,200 800,100" stroke="#fff" stroke-width="5" fill="none" />
@@ -87,6 +103,21 @@
           <h3>Financial Strategy</h3>
           <p>Customized strategies to help you grow your finances.</p>
         </div>
+      </div>
+      <!-- Additional Interactive Tabbed Content (e.g., extra details) -->
+      <div class="tabs extra-tabs">
+        <button class="tab-link active" data-tab="serviceTab1">Overview</button>
+        <button class="tab-link" data-tab="serviceTab2">Case Studies</button>
+        <button class="tab-link" data-tab="serviceTab3">Testimonials</button>
+      </div>
+      <div class="tab-content active" id="serviceTab1">
+        <p>Our comprehensive services cover every aspect of your financial needs.</p>
+      </div>
+      <div class="tab-content" id="serviceTab2">
+        <p>Read how we have helped musicians streamline their finances.</p>
+      </div>
+      <div class="tab-content" id="serviceTab3">
+        <p>Discover what our clients say about our exceptional services.</p>
       </div>
     </section>
 
@@ -134,10 +165,12 @@
         <div class="card blog-post">
           <h3>How to Budget as a Musician</h3>
           <p>Effective strategies for managing income and expenses.</p>
+          <a href="blog.html" class="read-more">Read More <i class="fa-solid fa-arrow-right"></i></a>
         </div>
         <div class="card blog-post">
           <h3>Tax Tips for Independent Artists</h3>
           <p>Maximize your deductions and stay compliant with tax laws.</p>
+          <a href="blog.html" class="read-more">Read More <i class="fa-solid fa-arrow-right"></i></a>
         </div>
       </div>
     </section>
@@ -226,18 +259,18 @@
     <section id="contact" class="fade-in">
       <h2>Contact</h2>
       <p>Let’s work together! Fill out the form below:</p>
-      <form>
+      <form action="contact.html" method="post">
         <div class="form-group">
           <label for="contactName">Your Name</label>
-          <input id="contactName" type="text" placeholder="Your Name" required>
+          <input id="contactName" name="contactName" type="text" placeholder="Your Name" required>
         </div>
         <div class="form-group">
           <label for="contactEmail">Your Email</label>
-          <input id="contactEmail" type="email" placeholder="Your Email" required autocomplete="email">
+          <input id="contactEmail" name="contactEmail" type="email" placeholder="Your Email" required autocomplete="email">
         </div>
         <div class="form-group">
           <label for="contactMessage">Your Message</label>
-          <textarea id="contactMessage" placeholder="Your Message" required></textarea>
+          <textarea id="contactMessage" name="contactMessage" placeholder="Your Message" required></textarea>
         </div>
         <button type="submit">Send Message</button>
       </form>
@@ -288,7 +321,7 @@
       </div>
     </section>
 
-    <!-- Case Studies Section with Slider -->
+    <!-- Case Studies Slider Section -->
     <section id="case-studies" class="fade-in">
       <h2>Case Studies</h2>
       <p>Read our success stories from real creative professionals.</p>
@@ -389,7 +422,5 @@
 
   <!-- Include JavaScript Files -->
   <script src="js/main.js"></script>
-  <script src="js/slider.js"></script>
-  <script src="js/chat.js"></script>
 </body>
 </html>
