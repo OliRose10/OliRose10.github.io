@@ -76,7 +76,7 @@
           <div class="stat-label">Artists Helped</div>
         </div>
         <div class="stat">
-          <span class="stat-number">£250k+</span>
+          <span class="stat-number">£250000+</span>
           <div class="stat-label">Tax Saved</div>
         </div>
         <div class="stat">
@@ -322,21 +322,44 @@
         this.reset();
       }
     });
+
     // Testimonial Carousel Script
-    const track = document.querySelector('.carousel-track');
-    const items = Array.from(document.querySelectorAll('.carousel-item'));
-    const dots = Array.from(document.querySelectorAll('.carousel-dot'));
-    let current = 0;
-    function show(index) {
-      items.forEach((item, i) => item.classList.toggle('active', i === index));
-      dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
-      current = index;
-    }
-    document.querySelector('.carousel-btn.prev').onclick = () => show((current - 1 + items.length) % items.length);
-    document.querySelector('.carousel-btn.next').onclick = () => show((current + 1) % items.length);
-    dots.forEach((dot, i) => dot.onclick = () => show(i));
-  </script>
-  <script>
+    (function() {
+      const track = document.querySelector('.carousel-track');
+      const items = Array.from(document.querySelectorAll('.carousel-item'));
+      const dots = Array.from(document.querySelectorAll('.carousel-dot'));
+      let current = 0;
+      function show(index) {
+        items.forEach((item, i) => item.classList.toggle('active', i === index));
+        dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
+        current = index;
+      }
+      document.querySelector('.carousel-btn.prev').onclick = () => show((current - 1 + items.length) % items.length);
+      document.querySelector('.carousel-btn.next').onclick = () => show((current + 1) % items.length);
+      dots.forEach((dot, i) => dot.onclick = () => show(i));
+      // Auto-advance every 7s
+      setInterval(() => show((current + 1) % items.length), 7000);
+    })();
+
+    // Stats Counter Animation
+    document.querySelectorAll('.stat-number').forEach(function(el) {
+      const original = el.textContent;
+      const plus = original.includes('+');
+      const pound = original.includes('£');
+      const digits = original.replace(/[^\d]/g, '');
+      const end = parseInt(digits, 10);
+      let start = 0;
+      let duration = 1200;
+      let increment = Math.ceil(end / (duration / 20));
+      function run() {
+        start += increment;
+        if (start > end) start = end;
+        el.textContent = (pound ? '£' : '') + start.toLocaleString() + (plus ? '+' : '');
+        if (start < end) setTimeout(run, 20);
+      }
+      run();
+    });
+
     // Register service worker
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
@@ -344,39 +367,5 @@
       });
     }
   </script>
-  <script>
-  // Testimonial Carousel Script
-  const track = document.querySelector('.carousel-track');
-  const items = Array.from(document.querySelectorAll('.carousel-item'));
-  const dots = Array.from(document.querySelectorAll('.carousel-dot'));
-  let current = 0;
-  function show(index) {
-    items.forEach((item, i) => item.classList.toggle('active', i === index));
-    dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
-    current = index;
-  }
-  document.querySelector('.carousel-btn.prev').onclick = () => show((current - 1 + items.length) % items.length);
-  document.querySelector('.carousel-btn.next').onclick = () => show((current + 1) % items.length);
-  dots.forEach((dot, i) => dot.onclick = () => show(i));
-</script>
-<script>
-  document.querySelectorAll('.stat-number').forEach(function(el) {
-    const original = el.textContent;
-    const plus = original.includes('+');
-    const pound = original.includes('£');
-    const digits = original.replace(/[^\d]/g, '');
-    const end = parseInt(digits, 10);
-    let start = 0;
-    let duration = 1200;
-    let increment = Math.ceil(end / (duration / 20));
-    function run() {
-      start += increment;
-      if (start > end) start = end;
-      el.textContent = (pound ? '£' : '') + start.toLocaleString() + (plus ? '+' : '');
-      if (start < end) setTimeout(run, 20);
-    }
-    run();
-  });
-</script>
 </body>
 </html>
