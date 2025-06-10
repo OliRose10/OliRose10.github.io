@@ -1,3 +1,4 @@
+// Carousel for testimonials
 document.addEventListener("DOMContentLoaded", function () {
   const track = document.querySelector('.carousel-track');
   if (!track) return;
