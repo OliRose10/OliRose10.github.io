@@ -1009,3 +1009,11 @@ nav .nav-link:focus {
   0% { transform: translateY(100vh) scale(0.9) rotate(0deg);}
   100% { transform: translateY(-18vh) scale(1.15) rotate(40deg);}
 }
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 0 #3ee7fa44; }
+  50% { box-shadow: 0 0 0 16px #3ee7fa11; }
+}
+.hero-btn, .btn.cta {
+  animation: pulse 2.8s infinite;
+}
+.hero-btn:hover, .btn.cta:hover { animation: none; }
