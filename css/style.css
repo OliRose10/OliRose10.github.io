@@ -682,3 +682,74 @@ footer .social-icons a:hover {
   h2 { font-size: 1.13rem; }
   .main-container { padding-left: 0.1rem; padding-right: 0.1rem;}
 }
+/* ...keep your previous CSS... */
+
+/* === CHEQUERED SECTION (Alternating Black and White Squares) === */
+.chequered-section {
+  padding: 3rem 0;
+  background: repeating-linear-gradient(
+    135deg,
+    #fff 0 40px, #101114 40px 80px
+  );
+  /* Fallback for old browsers: */
+  background-color: #fff;
+  position: relative;
+}
+.chequered-section .main-container {
+  position: relative;
+  z-index: 2;
+}
+.chequered-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
+  gap: 2rem;
+  margin-top: 2.2rem;
+}
+.cheq-card {
+  background: rgba(255,255,255,0.89);
+  border-radius: 18px;
+  box-shadow: 0 8px 36px #10111411;
+  border: 2.5px solid #101114;
+  padding: 2.2em 1.2em 1.7em 1.2em;
+  text-align: center;
+  position: relative;
+  transition: transform .17s, box-shadow .17s;
+  color: #101114;
+  min-height: 170px;
+  font-family: 'Montserrat', Arial, sans-serif;
+  z-index: 2;
+}
+.cheq-card:nth-child(even) {
+  background: #101114;
+  color: #fff;
+  border-color: #fff;
+}
+.cheq-card .service-icon {
+  font-size: 2.2em;
+  margin-bottom: 0.6em;
+  color: #101114;
+}
+.cheq-card:nth-child(even) .service-icon {
+  color: #fff;
+}
+.cheq-card h3 {
+  font-family: 'Space Grotesk', 'Montserrat', Arial, sans-serif;
+  font-size: 1.17em;
+  font-weight: 900;
+  margin: 0.45em 0 0.48em 0;
+  letter-spacing: 1px;
+  color: inherit;
+}
+.cheq-card p {
+  color: inherit;
+  font-size: 1.07em;
+  margin-bottom: 0;
+}
+.cheq-card:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 18px 48px #10111422;
+}
+@media (max-width: 700px) {
+  .chequered-grid { grid-template-columns: 1fr; gap: 1.2rem;}
+  .chequered-section { padding: 1.3rem 0;}
+}
