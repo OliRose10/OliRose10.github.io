@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Contact | Oliver Rose Finance for Musicians & Creatives</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Contact Oliver Rose for expert finance and tax advice for musicians, indie labels, and creatives." />
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="images/favicon.ico">
+  <script src="https://kit.fontawesome.com/fe7fbe4e2b.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <header>
+    <div class="main-container header-content">
+      <a href="index.html" class="logo" aria-label="Oli Rose Home">
+        <img class="logo-img" src="images/logo-placeholder.png" alt="Oliver Rose Logo" />
+        <span class="logo-title">Oliver Rose</span>
+      </a>
+      <nav aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="services.html" class="nav-link">Services</a></li>
+          <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="privacy.html" class="nav-link">Privacy</a></li>
+          <li><a href="terms.html" class="nav-link">Terms</a></li>
+          <li><a href="contact.html" class="nav-link active">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main class="main-container" style="max-width:650px;">
+    <div class="ska-accent"></div>
+    <section id="contact">
+      <span class="section-subtitle">Let’s Talk</span>
+      <h1 class="section-title">Contact</h1>
+      <form id="contactForm" autocomplete="off" novalidate>
+        <div class="cards-container">
+          <div class="card" style="flex:2;">
+            <label for="contactName">Name</label>
+            <input id="contactName" name="contactName" type="text" placeholder="Your Name" required>
+            <label for="contactEmail" style="margin-top:0.7em;">Email</label>
+            <input id="contactEmail" name="contactEmail" type="email" placeholder="you@email.com" required>
+            <label for="contactMessage" style="margin-top:0.7em;">How can I help?</label>
+            <textarea id="contactMessage" name="contactMessage" placeholder="Tell me about your project or question" rows="4" required></textarea>
+            <button type="submit" class="btn" style="margin-top:1em;">Send Message <i class="fa-solid fa-paper-plane"></i></button>
+            <div id="form-success" style="display:none;color:var(--accent-highlight);margin-top:1em;font-weight:600;">Thank you! I’ll be in touch soon.</div>
+          </div>
+          <div class="card" style="flex:1;align-items:center;justify-content:center;text-align:center;">
+            <div style="font-size:2.5rem;margin-bottom:1em;"><i class="fa-solid fa-envelope"></i></div>
+            <p style="margin:0 0 0.6em 0;">Or email me directly:</p>
+            <a href="mailto:oliverrosefinance@gmail.com" style="font-size:1.13rem;color:#181818;font-weight:700;">oliverrosefinance@gmail.com</a>
+            <div style="margin-top:1.5em;color:var(--text-muted);font-size:0.97em;">Response within 48 hours.</div>
+          </div>
+        </div>
+      </form>
+      <script>
+        // CONTACT FORM SUCCESS MESSAGE
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+          e.preventDefault();
+          let valid = true;
+          this.querySelectorAll('input[required],textarea[required]').forEach(inp => {
+            if (!inp.value.trim()) {inp.classList.add('error'); valid=false;}
+            else {inp.classList.remove('error');}
+          });
+          if (valid) {
+            document.getElementById('form-success').style.display = 'block';
+            this.reset();
+          }
+        });
+      </script>
+    </section>
+  </main>
+  <footer>
+    <div class="ska-accent"></div>
+    <div class="main-container" style="text-align:center;">
+      <div class="footer-links">
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="contact.html" class="active">Contact</a>
+      </div>
+      <div class="social-icons">
+        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="mailto:oliverrosefinance@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+      </div>
+      <div style="margin-top:0.7em;">
+        &copy; 2025 Oliver Rose. Finance for Musicians & Creatives.<br>
+        <small>Professional freelance finance, built for artists.</small>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
