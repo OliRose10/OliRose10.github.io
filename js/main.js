@@ -88,6 +88,42 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
+  // --- Hamburger Navigation ---
+  const nav = document.querySelector('nav');
+  if (nav) {
+    // Create hamburger button if not present
+    let hamburger = document.querySelector('.hamburger');
+    if (!hamburger) {
+      hamburger = document.createElement('button');
+      hamburger.className = 'hamburger';
+      hamburger.setAttribute('aria-label', 'Open navigation menu');
+      hamburger.innerHTML = '<span></span><span></span><span></span>';
+      nav.parentNode.insertBefore(hamburger, nav);
+    }
+    hamburger.addEventListener('click', function () {
+      nav.classList.toggle('nav-open');
+      hamburger.classList.toggle('is-active');
+      // Accessibility: set aria-expanded
+      hamburger.setAttribute('aria-expanded', nav.classList.contains('nav-open'));
+      // Close menu when a link is clicked
+      nav.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+          nav.classList.remove('nav-open');
+          hamburger.classList.remove('is-active');
+          hamburger.setAttribute('aria-expanded', 'false');
+        });
+      });
+    });
+    // Accessibility: close menu on Escape
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && nav.classList.contains('nav-open')) {
+        nav.classList.remove('nav-open');
+        hamburger.classList.remove('is-active');
+        hamburger.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+
   // --- Nav active link (works for nav not using #navMenu id) ---
   document.querySelectorAll("nav .nav-link").forEach((link) => {
     link.addEventListener("click", function () {
@@ -111,19 +147,31 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-// --- Staggered scroll-fade-in animation ---
-function revealOnScroll() {
-  document.querySelectorAll('.scroll-fade-in').forEach((el, idx) => {
-    if (!el.classList.contains('revealed')) {
-      const rect = el.getBoundingClientRect();
-      if (rect.top < window.innerHeight - 40) {
-        setTimeout(() => el.classList.add('revealed'), idx * 90);
+// --- Fast, reliable scroll-fade-in using IntersectionObserver ---
+if ('IntersectionObserver' in window) {
+  const fadeEls = document.querySelectorAll('.scroll-fade-in');
+  const fadeObserver = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('revealed');
+        obs.unobserve(entry.target);
       }
-    }
-  });
+    });
+  }, { threshold: 0.12 });
+  fadeEls.forEach(el => fadeObserver.observe(el));
+} else {
+  // fallback for older browsers
+  function revealFallback() {
+    document.querySelectorAll('.scroll-fade-in').forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (!el.classList.contains('revealed') && rect.top < window.innerHeight - 40) {
+        el.classList.add('revealed');
+      }
+    });
+  }
+  window.addEventListener('scroll', revealFallback);
+  window.addEventListener('DOMContentLoaded', revealFallback);
 }
-window.addEventListener('scroll', revealOnScroll);
-window.addEventListener('DOMContentLoaded', revealOnScroll);
 
 // --- Parallax hero on scroll and mousemove ---
 const heroSection = document.querySelector('.hero-section');
