@@ -1,6 +1,8 @@
 /* =============================================
-   Global Styles & CSS Variables
+   Massively Improved CSS for Oliver's Finance for Musicians
    ============================================= */
+
+/* Global Variables & Base Style */
 :root {
   --primary-gradient: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
   --dark-gradient: linear-gradient(135deg, #0a1c2b 0%, #132f4c 100%);
@@ -17,13 +19,14 @@
   --text-dark: #333333;
   --accent-color: #00adb5;
   --error-color: #ff4f4f;
+  --box-shadow-intense: 0px 12px 24px rgba(0, 0, 0, 0.3);
+  --border-radius: 8px;
 }
 
-/* Global Resets */
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 html {
   scroll-behavior: smooth;
@@ -32,6 +35,8 @@ body {
   font-family: var(--font-primary);
   background: var(--primary-gradient);
   color: var(--text-color);
+  line-height: 1.6;
+  overflow-x: hidden;
   transition: background var(--transition-speed), color var(--transition-speed);
 }
 
@@ -41,7 +46,7 @@ body.dark-mode {
   color: #f4f4f4;
 }
 
-/* Focus & Accessibility */
+/* Accessibility Focus */
 button:focus,
 a:focus,
 input:focus,
@@ -59,9 +64,9 @@ textarea:focus {
   width: 100%; height: 100%;
   background: rgba(0,0,0,0.9);
   display: flex;
-  align-items: center;
   justify-content: center;
-  z-index: 1000;
+  align-items: center;
+  z-index: 10000;
   opacity: 1;
   transition: opacity 0.5s ease;
 }
@@ -74,8 +79,8 @@ textarea:focus {
   animation: spin 1s linear infinite;
 }
 @keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 /* =============================================
@@ -83,7 +88,7 @@ textarea:focus {
    ============================================= */
 header {
   background: var(--header-bg);
-  padding: 20px;
+  padding: 20px 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -97,23 +102,24 @@ header {
   text-align: left;
 }
 header h1 {
-  font-size: 32px;
+  font-size: 2.5rem;
+  margin-bottom: 5px;
 }
 header p {
-  font-size: 16px;
-  margin-top: 5px;
+  font-size: 1rem;
 }
 .header-controls {
   display: flex;
-  gap: 10px;
+  gap: 15px;
+  margin-top: 10px;
 }
 #darkModeToggle,
 #menuToggle {
   background: var(--nav-bg);
   color: var(--text-color);
   border: none;
-  padding: 10px 15px;
-  border-radius: 5px;
+  padding: 10px 20px;
+  border-radius: var(--border-radius);
   font-weight: bold;
   cursor: pointer;
   transition: background var(--transition-speed), transform var(--transition-speed);
@@ -121,7 +127,7 @@ header p {
 #darkModeToggle:hover,
 #menuToggle:hover {
   background: var(--nav-hover);
-  transform: scale(1.05);
+  transform: scale(1.1);
 }
 
 nav {
@@ -168,21 +174,26 @@ nav.active {
   padding: 80px 20px;
   margin: 20px auto;
   max-width: 1200px;
-  border-radius: 10px;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow-intense);
   background: var(--primary-gradient);
   overflow: hidden;
+  color: var(--text-color);
 }
 .hero-content {
   max-width: 800px;
   margin: 0 auto;
+  z-index: 10;
+  position: relative;
 }
 .hero h2 {
-  font-size: 36px;
+  font-size: 3rem;
   margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 .hero p {
-  font-size: 18px;
+  font-size: 1.2rem;
   margin-bottom: 30px;
 }
 .cta-button {
@@ -190,7 +201,7 @@ nav.active {
   background: var(--cta-bg);
   color: var(--cta-color);
   padding: 15px 30px;
-  border-radius: 8px;
+  border-radius: var(--border-radius);
   text-decoration: none;
   font-weight: bold;
   transition: transform var(--transition-speed), background var(--transition-speed), color var(--transition-speed);
@@ -209,13 +220,33 @@ nav.active {
   opacity: 0.2;
 }
 
+/* --- Typewriter Effect --- */
+.typewriter {
+  font-size: 1.5rem;
+  color: var(--accent-color);
+  border-right: 2px solid var(--accent-color);
+  white-space: nowrap;
+  overflow: hidden;
+  margin-bottom: 15px;
+}
+
 /* =============================================
-   Section Headings & Cards
+   Section Headings & Containers
    ============================================= */
+main section {
+  padding: 60px 20px;
+  margin: 40px auto;
+  max-width: 1200px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: var(--border-radius);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
 main section h2 {
+  font-size: 2rem;
   margin-bottom: 20px;
-  font-size: 32px;
   position: relative;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 main section h2::after {
   content: "";
@@ -226,6 +257,10 @@ main section h2::after {
   margin: 10px auto 0;
   border-radius: 2px;
 }
+
+/* =============================================
+   Grid Layout for Cards
+   ============================================= */
 .cards-container {
   display: flex;
   flex-wrap: wrap;
@@ -236,9 +271,9 @@ main section h2::after {
 .card {
   background: var(--card-bg);
   padding: 25px;
-  border-radius: 10px;
+  border-radius: var(--border-radius);
   box-shadow: var(--card-shadow);
-  transition: transform var(--transition-speed), background var(--transition-speed), color var(--transition-speed);
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
   color: var(--text-dark);
   max-width: 400px;
   flex: 1 1 280px;
@@ -246,28 +281,29 @@ main section h2::after {
 }
 .card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+  box-shadow: var(--box-shadow-intense);
 }
 
 /* =============================================
-   Tabs & Extra Details
+   Tabs & Portfolio Filters
    ============================================= */
-.tabs {
+.tabs, .portfolio-filters {
   display: flex;
   justify-content: center;
   gap: 10px;
   margin: 20px 0;
 }
-.tab-link {
+.tab-link, .filter-btn {
   background: var(--nav-bg);
   color: var(--text-color);
   padding: 10px 15px;
-  border-radius: 5px;
+  border-radius: 4px;
   border: none;
   cursor: pointer;
   transition: background var(--transition-speed);
 }
-.tab-link.active {
+.tab-link.active, .filter-btn.active,
+.tab-link:hover, .filter-btn:hover {
   background: var(--accent-color);
 }
 .tab-content {
@@ -275,7 +311,7 @@ main section h2::after {
   padding: 10px;
   background: var(--card-bg);
   color: var(--text-dark);
-  border-radius: 5px;
+  border-radius: 4px;
 }
 .tab-content.active {
   display: block;
@@ -298,7 +334,7 @@ main section h2::after {
 .faq-question {
   background: none;
   border: none;
-  font-size: 18px;
+  font-size: 1.125rem;
   font-weight: bold;
   width: 100%;
   text-align: left;
@@ -307,6 +343,10 @@ main section h2::after {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  transition: color var(--transition-speed);
+}
+.faq-question:hover {
+  color: var(--accent-color);
 }
 .faq-answer {
   max-height: 0;
@@ -342,6 +382,11 @@ form textarea {
   border-radius: 6px;
   border: 1px solid #ccc;
   font-size: 16px;
+  transition: border 0.3s ease;
+}
+form input:focus,
+form textarea:focus {
+  border: 1px solid var(--accent-color);
 }
 form button {
   background: var(--nav-bg);
@@ -375,10 +420,10 @@ form button:hover {
   background: var(--card-bg);
   color: var(--text-dark);
   padding: 30px;
-  border-radius: 8px;
-  position: relative;
+  border-radius: var(--border-radius);
   width: 90%;
   max-width: 400px;
+  position: relative;
 }
 .modal-content .close {
   position: absolute;
@@ -412,8 +457,8 @@ form button:hover {
 }
 .slide img {
   width: 100%;
-  border-radius: 10px;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow-intense);
 }
 .slide-caption {
   margin-top: 15px;
@@ -427,7 +472,7 @@ form button:hover {
   color: var(--text-color);
   border: none;
   padding: 10px;
-  font-size: 20px;
+  font-size: 1.25rem;
   cursor: pointer;
   border-radius: 50%;
   z-index: 10;
@@ -484,7 +529,7 @@ form button:hover {
   width: 100%;
   height: 100%;
   border: 0;
-  border-radius: 10px;
+  border-radius: var(--border-radius);
   box-shadow: 0 6px 15px rgba(0,0,0,0.2);
 }
 
@@ -522,7 +567,7 @@ form button:hover {
   background: var(--card-bg);
   color: var(--text-dark);
   width: 300px;
-  border-radius: 10px;
+  border-radius: var(--border-radius);
   box-shadow: var(--card-shadow);
   overflow: hidden;
 }
@@ -539,7 +584,7 @@ form button:hover {
 }
 .chat-header h3 {
   margin: 0;
-  font-size: 16px;
+  font-size: 1rem;
 }
 #chatClose {
   background: none;
@@ -558,7 +603,7 @@ form button:hover {
   padding: 8px;
   border-radius: 4px;
   margin-bottom: 8px;
-  font-size: 14px;
+  font-size: 0.875rem;
 }
 .chat-message.bot {
   background: var(--nav-bg);
@@ -578,7 +623,7 @@ form button:hover {
   flex: 1;
   border: none;
   padding: 10px;
-  font-size: 14px;
+  font-size: 0.875rem;
 }
 .chat-form button {
   background: var(--nav-bg);
@@ -600,7 +645,7 @@ form button:hover {
   border: none;
   padding: 12px 16px;
   border-radius: 50%;
-  font-size: 18px;
+  font-size: 1.125rem;
   cursor: pointer;
   display: none;
   transition: background var(--transition-speed), transform var(--transition-speed);
@@ -609,6 +654,45 @@ form button:hover {
 #backToTop:hover {
   background: var(--nav-hover);
   transform: scale(1.1);
+}
+
+/* =============================================
+   Statistics Section (Achievements Counters)
+   ============================================= */
+#statistics {
+  background: rgba(0, 0, 0, 0.05);
+  padding: 60px 20px;
+  border-radius: var(--border-radius);
+}
+.stats-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.stat-item {
+  text-align: center;
+}
+.stat-number {
+  font-size: 3rem;
+  font-weight: bold;
+  color: var(--accent-color);
+}
+
+/* =============================================
+   Scroll Progress Bar
+   ============================================= */
+#scrollProgress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4px;
+  background: var(--accent-color);
+  width: 0%;
+  z-index: 1200;
+  transition: width 0.1s ease;
 }
 
 /* =============================================
@@ -626,8 +710,19 @@ form button:hover {
   }
 }
 
+/* Extra Keyframe Animations */
+@keyframes bounceIn {
+  0% { transform: scale(0.5); opacity: 0; }
+  60% { transform: scale(1.05); opacity: 1; }
+  80% { transform: scale(0.95); }
+  100% { transform: scale(1); }
+}
+.animate-bounce {
+  animation: bounceIn 0.8s ease-out forwards;
+}
+
 /* =============================================
-   Responsive Adjustments
+   Responsive Design
    ============================================= */
 @media (max-width: 768px) {
   header {
@@ -642,8 +737,19 @@ form button:hover {
   }
   nav ul {
     flex-direction: column;
+    gap: 15px;
   }
   .cards-container {
     flex-direction: column;
+  }
+  .stats-container {
+    flex-direction: column;
+    gap: 30px;
+  }
+  .hero h2 {
+    font-size: 2rem;
+  }
+  .hero p, .typewriter {
+    font-size: 1rem;
   }
 }
