@@ -762,3 +762,14 @@ footer .ska-accent {
     font-size: 1.13rem;
   }
 }
+.ska-accent {
+  margin: 0 auto 1.2em auto;
+  width: 120px;
+  height: 14px;
+  background: repeating-linear-gradient(90deg, #222 0 14px, #fff 14px 28px);
+  border-radius: 8px;
+  opacity: 0.24;
+}
+@media (max-width: 600px) {
+  .ska-accent { width: 72px; height: 10px; }
+}
