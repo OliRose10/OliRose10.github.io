@@ -680,3 +680,6 @@ footer .social-icons a:hover {
   --shadow: 0 3px 16px rgba(108,122,255,0.08);
   --shadow-strong: 0 12px 48px rgba(108,122,255,0.10);
 }
+html, body {
+  transition: background 0.25s, color 0.25s;
+}
