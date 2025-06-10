@@ -113,4 +113,106 @@ document.addEventListener("DOMContentLoaded", () => {
   backToTop.addEventListener("click", () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
+
+  /* --- Typewriter Effect --- */
+  const typedElement = document.getElementById("typed");
+  const typewriterTexts = ["Expert Strategies", "Custom Solutions", "Inspiring Growth"];
+  let textIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+  const typeSpeed = 150;
+  const pauseSpeed = 2000;
+
+  function typewriter() {
+    const currentText = typewriterTexts[textIndex];
+    if (isDeleting) {
+      typedElement.textContent = currentText.substring(0, charIndex - 1);
+      charIndex--;
+      if (charIndex === 0) {
+        isDeleting = false;
+        textIndex = (textIndex + 1) % typewriterTexts.length;
+        setTimeout(typewriter, 500);
+      } else {
+        setTimeout(typewriter, typeSpeed / 2);
+      }
+    } else {
+      typedElement.textContent = currentText.substring(0, charIndex + 1);
+      charIndex++;
+      if (charIndex === currentText.length) {
+        isDeleting = true;
+        setTimeout(typewriter, pauseSpeed);
+      } else {
+        setTimeout(typewriter, typeSpeed);
+      }
+    }
+  }
+  if (typedElement) {
+    typewriter();
+  }
+
+  /* --- Portfolio Filter --- */
+  const filterButtons = document.querySelectorAll(".filter-btn");
+  const portfolioItems = document.querySelectorAll(".portfolio-item");
+  filterButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      filterButtons.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+
+      const filterValue = btn.getAttribute("data-filter");
+      portfolioItems.forEach(item => {
+        if (filterValue === "all" || item.getAttribute("data-category") === filterValue) {
+          item.style.display = "block";
+          item.classList.add("animate__animated", "animate__fadeIn");
+        } else {
+          item.style.display = "none";
+        }
+      });
+    });
+  });
+
+  /* --- Statistics Counter Animation --- */
+  const statNumbers = document.querySelectorAll(".stat-number");
+  const statsSection = document.getElementById("statistics");
+  let statsStarted = false;
+
+  const statsObserverOptions = {
+    root: null,
+    threshold: 0.5
+  };
+
+  const statsObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !statsStarted) {
+        statNumbers.forEach(number => {
+          const target = +number.getAttribute("data-target");
+          const updateCount = () => {
+            const current = +number.textContent;
+            const increment = target / 200;
+            if (current < target) {
+              number.textContent = Math.ceil(current + increment);
+              setTimeout(updateCount, 20);
+            } else {
+              number.textContent = target;
+            }
+          };
+          updateCount();
+        });
+        statsStarted = true;
+        observer.unobserve(statsSection);
+      }
+    });
+  }, statsObserverOptions);
+
+  if (statsSection) {
+    statsObserver.observe(statsSection);
+  }
+
+  /* --- Scroll Progress Bar Update --- */
+  const scrollProgress = document.getElementById("scrollProgress");
+  window.addEventListener("scroll", () => {
+    const scrollTop = window.pageYOffset;
+    const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrollPercent = (scrollTop / docHeight) * 100;
+    scrollProgress.style.width = scrollPercent + "%";
+  });
 });
