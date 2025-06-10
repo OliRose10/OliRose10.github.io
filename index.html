@@ -18,21 +18,8 @@
   <script src="https://kit.fontawesome.com/fe7fbe4e2b.js" crossorigin="anonymous"></script>
 </head>
 <body>
+  <!-- Single animated SVG background for depth (don't duplicate!) -->
   <svg class="background-svg" aria-hidden="true">
-  <defs>
-    <linearGradient id="bg-ska" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#3ee7fa" />
-      <stop offset="100%" stop-color="#fff" />
-    </linearGradient>
-  </defs>
-  <circle cx="80%" cy="120" r="180" fill="url(#bg-ska)" opacity="0.11">
-    <animate attributeName="cy" values="120;160;120" dur="8s" repeatCount="indefinite" />
-  </circle>
-  <rect x="0" y="0" width="100%" height="100%" fill="none"/>
-</svg>
-<div class="texture-overlay"></div>
-  <!-- Animated SVG Background for Depth -->
-  <svg class="background-svg" aria-hidden="true" style="position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:-1;pointer-events:none;">
     <defs>
       <linearGradient id="bg-ska" x1="0" y1="0" x2="1" y2="1">
         <stop offset="0%" stop-color="#3ee7fa" />
@@ -44,12 +31,16 @@
     </circle>
     <rect x="0" y="0" width="100%" height="100%" fill="none"/>
   </svg>
+  <div class="texture-overlay"></div>
+  <div id="floating-notes"></div>
+
   <!-- Free Guide Banner with Ska Accent -->
-  <div class="free-guide-banner" style="text-align:center;background:var(--bg-accent);padding:1.2em 0;box-shadow:0 2px 12px #0001;">
+  <div class="free-guide-banner" style="text-align:center;background:var(--bg-accent);padding:1.2em 0;box-shadow:0 2px 12px #0001; position:relative;">
     <a href="free-guide.pdf" class="btn" style="font-size:1.1rem;" download>
       <i class="fa-solid fa-book-open"></i> Download My Free Guide: “Finance for Musicians”
     </a>
   </div>
+
   <!-- Header -->
   <header>
     <div class="header-content">
@@ -91,17 +82,16 @@
         </p>
         <a href="#contact" class="hero-btn">Book a Free Consultation</a>
       </div>
+      <!-- Animated SVG Wave at top of hero -->
+      <div class="hero-wave">
+        <svg viewBox="0 0 1440 140" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+          <path d="M0,80 Q360,140 720,80T1440,80V0H0Z" fill="#3ee7fa" opacity="0.21">
+            <animate attributeName="d" dur="8s" repeatCount="indefinite"
+              values="M0,80 Q360,140 720,80T1440,80V0H0Z; M0,60 Q360,100 720,120T1440,80V0H0Z; M0,80 Q360,140 720,80T1440,80V0H0Z" />
+          </path>
+        </svg>
+      </div>
     </section>
-<!-- Animated SVG Wave at top of hero -->
-<div class="hero-wave">
-  <svg viewBox="0 0 1440 140" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-    <path d="M0,80 Q360,140 720,80T1440,80V0H0Z" fill="#3ee7fa" opacity="0.21">
-      <animate attributeName="d" dur="8s" repeatCount="indefinite"
-        values="M0,80 Q360,140 720,80T1440,80V0H0Z; M0,60 Q360,100 720,120T1440,80V0H0Z; M0,80 Q360,140 720,80T1440,80V0H0Z" />
-    </path>
-  </svg>
-</div>
-    <div id="floating-notes"></div>
     <div class="ska-divider"></div>
 
     <!-- IMPACT STATS (animated) -->
@@ -121,7 +111,6 @@
         </div>
       </div>
     </section>
-
     <div class="ska-divider"></div>
 
     <!-- ABOUT -->
@@ -148,7 +137,6 @@
         </div>
       </div>
     </section>
-
     <div class="ska-divider"></div>
 
     <!-- SERVICES -->
@@ -183,7 +171,6 @@
         </div>
       </div>
     </section>
-
     <div class="ska-divider"></div>
 
     <!-- TESTIMONIALS - CAROUSEL -->
@@ -221,7 +208,6 @@
         <span class="carousel-dot" tabindex="0" aria-label="Go to testimonial 4"></span>
       </div>
     </section>
-
     <div class="ska-divider"></div>
 
     <!-- FAQ -->
@@ -255,7 +241,6 @@
         </div>
       </div>
     </section>
-
     <div class="ska-divider"></div>
 
     <!-- CONTACT -->
@@ -308,149 +293,6 @@
       </div>
     </div>
   </footer>
-  <script>
-    // THEME TOGGLE
-    const themeToggleBtn = document.getElementById('themeToggleBtn');
-    const html = document.documentElement;
-    if(window.localStorage.getItem('theme')) {
-      html.setAttribute('data-theme', localStorage.getItem('theme'));
-      updateThemeBtn();
-    }
-    themeToggleBtn.addEventListener('click', function() {
-      const current = html.getAttribute('data-theme');
-      const next = current === 'dark' ? 'light' : 'dark';
-      html.setAttribute('data-theme', next);
-      localStorage.setItem('theme', next);
-      updateThemeBtn();
-    });
-    function updateThemeBtn() {
-      const mode = html.getAttribute('data-theme');
-      const icon = themeToggleBtn.querySelector('.theme-toggle-icon i');
-      const text = themeToggleBtn.querySelector('.theme-toggle-text');
-      if(mode === 'dark') {
-        icon.className = 'fa-solid fa-moon';
-        text.textContent = 'Dark';
-      } else {
-        icon.className = 'fa-solid fa-sun';
-        text.textContent = 'Light';
-      }
-    }
-    // FAQ Accessibility + Interaction
-    document.querySelectorAll('.faq-question').forEach(button => {
-      button.addEventListener('click', function() {
-        const item = this.closest('.faq-item');
-        const expanded = this.getAttribute('aria-expanded') === "true";
-        this.setAttribute('aria-expanded', !expanded);
-        item.classList.toggle('open');
-        document.querySelectorAll('.faq-item').forEach(other => {
-          if (other !== item) {
-            other.classList.remove('open');
-            other.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
-          }
-        });
-      });
-      button.addEventListener('keydown', function(e) {
-        if (e.key === "Enter" || e.key === " ") {
-          e.preventDefault();
-          this.click();
-        }
-      });
-    });
-    // CONTACT FORM SUCCESS MESSAGE
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      let valid = true;
-      this.querySelectorAll('input[required],textarea[required]').forEach(inp => {
-        if (!inp.value.trim()) {inp.classList.add('error'); valid=false;}
-        else {inp.classList.remove('error');}
-      });
-      if (valid) {
-        document.getElementById('form-success').style.display = 'block';
-        this.reset();
-      }
-    });
-
-    // Testimonial Carousel Script with Keyboard & Touch Support + Auto-advance
-    (function() {
-      const track = document.querySelector('.carousel-track');
-      const items = Array.from(document.querySelectorAll('.carousel-item'));
-      const dots = Array.from(document.querySelectorAll('.carousel-dot'));
-      let current = 0, timer;
-      function show(index) {
-        items.forEach((item, i) => item.classList.toggle('active', i === index));
-        dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
-        current = index;
-        clearTimeout(timer);
-        timer = setTimeout(() => show((current + 1) % items.length), 7000);
-      }
-      document.querySelector('.carousel-btn.prev').onclick = () => show((current - 1 + items.length) % items.length);
-      document.querySelector('.carousel-btn.next').onclick = () => show((current + 1) % items.length);
-      dots.forEach((dot, i) => dot.onclick = () => show(i));
-      document.querySelector('.testimonial-carousel').addEventListener('keydown', function(e) {
-        if(e.key === 'ArrowLeft') document.querySelector('.carousel-btn.prev').click();
-        if(e.key === 'ArrowRight') document.querySelector('.carousel-btn.next').click();
-      });
-      let startX = 0;
-      track.addEventListener('touchstart', e => startX = e.touches[0].clientX);
-      track.addEventListener('touchend', e => {
-        let endX = e.changedTouches[0].clientX;
-        if (endX - startX > 40) document.querySelector('.carousel-btn.prev').click();
-        if (startX - endX > 40) document.querySelector('.carousel-btn.next').click();
-      });
-      show(0);
-    })();
-
-    // Stats Counter Animation (with thousands separator and animation on scroll)
-    function animateStats() {
-      document.querySelectorAll('.stat-number').forEach(function(el) {
-        if (el.dataset.animated) return;
-        const target = parseInt(el.getAttribute('data-target'), 10);
-        if (isNaN(target)) return;
-        let start = 0;
-        let duration = 1300 + Math.random()*300;
-        let increment = Math.ceil(target / (duration / 20));
-        function run() {
-          start += increment;
-          if (start > target) start = target;
-          el.textContent = start.toLocaleString();
-          if (start < target) setTimeout(run, 20);
-          else el.dataset.animated = "true";
-        }
-        run();
-      });
-    }
-    function isInView(el) {
-      const rect = el.getBoundingClientRect();
-      return rect.top < window.innerHeight && rect.bottom > 0;
-    }
-    window.addEventListener('scroll', () => {
-      document.querySelectorAll('.stats-row').forEach(row => {
-        if (isInView(row)) animateStats();
-      });
-    });
-    window.addEventListener('DOMContentLoaded', () => {
-      document.querySelectorAll('.stats-row').forEach(row => {
-        if (isInView(row)) animateStats();
-      });
-    });
-
-    // Animated scroll reveal for cards/sections
-    function revealOnScroll() {
-      document.querySelectorAll('.scroll-fade-in').forEach(el => {
-        if (!el.classList.contains('revealed') && isInView(el)) {
-          el.classList.add('revealed');
-        }
-      });
-    }
-    window.addEventListener('scroll', revealOnScroll);
-    window.addEventListener('DOMContentLoaded', revealOnScroll);
-
-    // Register service worker for offline support
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js');
-      });
-    }
-  </script>
+  <script src="js/main.js"></script>
 </body>
 </html>
