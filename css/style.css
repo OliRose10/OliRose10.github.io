@@ -64,8 +64,8 @@ textarea:focus {
   width: 100%; height: 100%;
   background: rgba(0,0,0,0.9);
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   z-index: 10000;
   opacity: 1;
   transition: opacity 0.5s ease;
@@ -97,6 +97,7 @@ header {
   position: sticky;
   top: 0;
   z-index: 900;
+  transition: padding 0.3s ease;
 }
 .header-content {
   text-align: left;
@@ -128,6 +129,14 @@ header p {
 #menuToggle:hover {
   background: var(--nav-hover);
   transform: scale(1.1);
+}
+
+/* --- Header Shrink on Scroll --- */
+.header-shrink {
+  padding: 10px 40px !important;
+}
+.header-shrink h1 {
+  font-size: 2rem !important;
 }
 
 nav {
@@ -167,7 +176,7 @@ nav.active {
 }
 
 /* =============================================
-   Hero Section & Animated Background
+   Hero Section & Parallax Background
    ============================================= */
 .hero {
   position: relative;
@@ -218,6 +227,8 @@ nav.active {
   left: 0;
   width: 100%;
   opacity: 0.2;
+  transform: translateY(0);
+  transition: transform 0.5s ease-out;
 }
 
 /* --- Typewriter Effect --- */
@@ -693,6 +704,28 @@ form button:hover {
   width: 0%;
   z-index: 1200;
   transition: width 0.1s ease;
+}
+
+/* =============================================
+   Social Share Buttons (New)
+   ============================================= */
+.share-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+.share-btn {
+  background: var(--nav-bg);
+  color: var(--text-color);
+  border: none;
+  padding: 8px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.share-btn:hover {
+  background: var(--accent-color);
 }
 
 /* =============================================
