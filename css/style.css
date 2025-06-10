@@ -8,6 +8,34 @@
    - Accent: #C04F2A (vintage red), #1C87A1 (retro blue)
    - Record Label Pastel: #E9C27B, #99C1B9, #E98273
 */
+:root {
+  --bg-main: #fff;
+  --bg-section: #fafbfc;
+  --bg-card: #fff;
+  --border: #ebedf0;
+  --text-main: #16181c;
+  --text-muted: #5d6168;
+  --text-heading: #151515;
+  --accent: #7c5fff;
+  --accent-hover: #C04F2A;
+  --radius: 18px;
+  --shadow: 0 4px 32px #0002;
+  /* ...other vars */
+}
+
+[data-theme="dark"] {
+  --bg-main: #181A1B;
+  --bg-section: #1a1b1e;
+  --bg-card: #23262A;
+  --border: #23262A;
+  --text-main: #f7f7fa;
+  --text-muted: #b1b8c1;
+  --text-heading: #fff;
+  --accent: #7c5fff;
+  --accent-hover: #C04F2A;
+  --shadow: 0 6px 32px #0008;
+  /* ...other vars */
+}
 
 :root {
   --bg-main: #F6F0E7;
