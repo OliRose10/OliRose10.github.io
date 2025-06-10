@@ -1017,3 +1017,13 @@ nav .nav-link:focus {
   animation: pulse 2.8s infinite;
 }
 .hero-btn:hover, .btn.cta:hover { animation: none; }
+.texture-overlay {
+  pointer-events: none;
+  position: fixed;
+  z-index: 5;
+  width: 100vw; height: 100vh;
+  left:0; top:0;
+  opacity: 0.10;
+  background: url('https://transparenttextures.com/patterns/noise.png');
+  mix-blend-mode: multiply;
+}
