@@ -1,15 +1,14 @@
-/* ===== Retro Hi-Fi Carousel Styles Inspired by Image 1 ===== */
 .testimonial-carousel {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 1.2em;
   position: relative;
-  margin: 2.2em 0 2.7em 0;
-  background: linear-gradient(98deg, #F6F0E7 40%, #C9A06333 100%);
-  border-radius: 32px;
-  box-shadow: 0 4px 38px #A7763299, 0 0px 0px #fff0;
-  border: 2.5px solid #A77632;
+  margin: 2em 0 2em 0;
+  background: var(--bg-band);
+  border-radius: 22px;
+  box-shadow: 0 4px 18px #0002;
+  border: 1.5px solid var(--border);
   padding: 2.2em 1em 2.1em 1em;
   min-height: 230px;
 }
@@ -18,10 +17,10 @@
   max-width: 98vw;
   overflow: hidden;
   position: relative;
-  border-radius: 22px;
-  background: linear-gradient(112deg,#fff8f0 60%, #C9A06322 100%);
-  box-shadow: 0 2px 22px #684A2A12;
-  border: 1.5px solid #C9A063;
+  border-radius: 16px;
+  background: var(--bg-card);
+  box-shadow: 0 2px 22px #0001;
+  border: 1.5px solid var(--border);
   min-height: 172px;
   display: flex;
   flex-direction: row;
@@ -31,11 +30,11 @@
 .carousel-item {
   display: none;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  background: #FFF8F0;
-  border-radius: 22px;
-  box-shadow: 0 6px 22px #C9A06322;
+  background: var(--bg-card);
+  border-radius: 16px;
+  box-shadow: 0 6px 22px var(--accent)08;
   padding: 2.2em 2.1em 1.6em 2.1em;
   min-height: 172px;
   max-width: 420px;
@@ -44,7 +43,7 @@
   opacity: 0;
   transform: scale(0.98) translateY(14px);
   font-family: 'Montserrat', Arial, sans-serif;
-  color: #36281A;
+  color: var(--text-main);
   position: absolute;
   left: 0; right: 0;
   z-index: 2;
@@ -63,57 +62,57 @@
 }
 .carousel-item .service-icon {
   font-size: 2.3em;
-  color: #C04F2A;
+  color: var(--accent-hover);
   margin-bottom: 0.7em;
-  background: linear-gradient(112deg,#E9C27B22 40%, #C9A063 100%);
+  background: var(--bg-band);
   border-radius: 50%;
   padding: 0.23em;
-  box-shadow: 0 5px 22px #C9A06332;
+  box-shadow: 0 5px 22px var(--accent)12;
   transition: color .18s, box-shadow .22s;
 }
 .carousel-item.active .service-icon {
-  color: #1C87A1;
-  box-shadow: 0 8px 24px #1C87A133, 0 0 0px #fff0;
+  color: var(--accent);
+  box-shadow: 0 8px 24px var(--accent)15, 0 0 0px #fff0;
 }
 .carousel-item p {
   font-size: 1.09em;
   font-family: 'Montserrat', Arial, sans-serif;
-  color: #684A2A;
+  color: var(--text-main);
   margin-bottom: 0.5em;
   font-style: italic;
-  text-shadow: 0 1px 0 #FFF8F0;
+  text-shadow: 0 1px 0 var(--bg-card);
 }
 .carousel-item span {
   font-size: 1em;
   font-weight: 800;
-  color: #5C7B4D;
+  color: var(--accent-hover);
   letter-spacing: 0.7px;
   margin-top: 0.5em;
   font-family: 'Playfair Display', serif;
 }
 .carousel-btn {
-  background: #C9A063;
-  color: #36281A;
+  background: var(--accent);
+  color: #fff;
   border: none;
   border-radius: 50%;
   width: 48px;
   height: 48px;
   font-size: 1.6em;
   cursor: pointer;
-  box-shadow: 0 4px 22px #C9A06344;
+  box-shadow: 0 4px 16px var(--accent)08;
   transition: background .17s, color .15s, transform .19s;
   outline: none;
-  border: 1.5px solid #A77632;
+  border: 1.5px solid var(--accent-hover);
   margin: 0 0.5em;
   z-index: 5;
   position: relative;
 }
 .carousel-btn:hover, .carousel-btn:focus {
-  background: #5C7B4D;
-  color: #F6F0E7;
+  background: var(--accent-hover);
+  color: #fff;
   transform: scale(1.12);
-  box-shadow: 0 10px 36px #5C7B4D33;
-  border-color: #5C7B4D;
+  box-shadow: 0 10px 36px var(--accent-hover)09;
+  border-color: var(--accent);
 }
 .carousel-dots {
   display: flex;
@@ -127,17 +126,18 @@
   width: 18px;
   height: 18px;
   border-radius: 50%;
-  background: #E9C27B99;
-  border: 2.5px solid #A77632;
+  background: var(--accent-subtle);
+  border: 2.5px solid var(--accent);
   cursor: pointer;
   transition: background 0.15s, border-color 0.16s;
-  box-shadow: 0 2px 7px #C9A06322;
+  box-shadow: 0 2px 7px var(--accent)09;
 }
 .carousel-dot.active {
-  background: #5C7B4D;
-  border-color: #C04F2A;
-  box-shadow: 0 3px 9px #5C7B4D33;
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
+  box-shadow: 0 3px 9px var(--accent-hover)09;
 }
+
 @media (max-width: 600px) {
   .carousel-track {
     width: 99vw;
