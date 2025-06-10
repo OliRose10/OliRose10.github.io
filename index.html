@@ -14,21 +14,22 @@
   <link rel="manifest" href="manifest.json">
   <link rel="icon" href="images/favicon.ico">
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/carousel.css">
-  <link rel="stylesheet" href="css/stats.css">
   <script src="https://kit.fontawesome.com/fe7fbe4e2b.js" crossorigin="anonymous"></script>
 </head>
 <body>
-  <div class="free-guide-banner" style="text-align:center;background:var(--bg-accent-light);padding:1.2em 0;box-shadow:0 2px 12px #0001;">
+  <!-- Free Guide Banner with Ska Accent -->
+  <div class="free-guide-banner" style="text-align:center;background:var(--bg-accent);padding:1.2em 0;box-shadow:0 2px 12px #0001;">
     <a href="free-guide.pdf" class="btn" style="font-size:1.1rem;" download>
       <i class="fa-solid fa-book-open"></i> Download My Free Guide: “Finance for Musicians”
     </a>
   </div>
+  <!-- Header -->
   <header>
-    <div class="main-container header-content">
+    <div class="header-content">
       <a href="index.html" class="logo" aria-label="Oli Rose Home">
-        <img class="logo-img" src="images/logo-placeholder.png" alt="Oliver Rose Logo" />
-        <span class="logo-title">Oliver Rose</span>
+        <img class="logo-img" src="images/logo.png" alt="Oliver Rose Logo"
+          onerror="this.style.display='none';this.insertAdjacentHTML('afterend',`<svg width='48' height='48' aria-label='OR'><rect width='48' height='48' fill='#fff'/><text x='50%' y='55%' dominant-baseline='middle' text-anchor='middle' font-size='18' fill='#222' font-family='Montserrat,sans-serif'>OR</text></svg>`);" />
+        <span class="logo-title">OLIVER<br>ROSE</span>
       </a>
       <nav aria-label="Main navigation">
         <ul>
@@ -49,6 +50,7 @@
   <main class="main-container">
     <!-- SKA ACCENT -->
     <div class="ska-accent"></div>
+
     <!-- HERO -->
     <section class="hero-section" id="hero">
       <div class="hero-bg-float"></div>
@@ -57,12 +59,15 @@
         <h1 class="hero-title">Finance for Musicians & Creatives</h1>
         <p class="hero-desc">
           Specialist support in tax, accounts & business for artists, bands, and indie labels.<br>
-          Trusted, modern, and jargon-free. 
+          Trusted, modern, and jargon-free.
           <span class="text-muted">Your numbers, your style, your rules.</span>
         </p>
         <a href="#contact" class="hero-btn">Book a Free Consultation</a>
       </div>
     </section>
+
+    <div class="ska-divider"></div>
+
     <!-- IMPACT STATS -->
     <section>
       <div class="stats-row">
@@ -80,6 +85,9 @@
         </div>
       </div>
     </section>
+
+    <div class="ska-divider"></div>
+
     <!-- ABOUT -->
     <section id="about">
       <span class="section-subtitle">Who I Am</span>
@@ -91,8 +99,8 @@
         <div class="about-text">
           <p>
             <strong>Specialist adviser to musicians, indie labels & creative entrepreneurs.</strong>
-            <br>Years of experience, ICAEW ACA advanced, and a passion for making finance approachable for artists.
-            <br>I offer clarity, confidence, and practical support for your unique journey.
+            <br>Years of experience, ICAEW ACA advanced, and a passion for making finance approachable for artists.<br>
+            I offer clarity, confidence, and practical support for your unique journey.
           </p>
           <div class="about-highlight">
             <i class="fa-solid fa-music"></i>
@@ -104,6 +112,9 @@
         </div>
       </div>
     </section>
+
+    <div class="ska-divider"></div>
+
     <!-- SERVICES -->
     <section id="services">
       <span class="section-subtitle">How I Can Help</span>
@@ -136,6 +147,9 @@
         </div>
       </div>
     </section>
+
+    <div class="ska-divider"></div>
+
     <!-- TESTIMONIALS - CAROUSEL -->
     <section id="testimonials" class="fade-in section-band">
       <span class="section-subtitle">What Clients Say</span>
@@ -146,17 +160,17 @@
           <div class="carousel-item active">
             <span class="service-icon"><i class="fa-solid fa-heart"></i></span>
             <p>“Oliver’s advice gave me clarity and confidence about my music finances. Highly recommended!”</p>
-            <span>- Singer/Songwriter</span>
+            <span style="color:#3ee7fa;font-weight:700;">– Singer/Songwriter</span>
           </div>
           <div class="carousel-item">
             <span class="service-icon"><i class="fa-solid fa-thumbs-up"></i></span>
             <p>“Professional, responsive, and knows the music business inside out.”</p>
-            <span>- Indie Label Owner</span>
+            <span style="color:#3ee7fa;font-weight:700;">– Indie Label Owner</span>
           </div>
           <div class="carousel-item">
             <span class="service-icon"><i class="fa-solid fa-star"></i></span>
             <p>“Oliver made my tax return painless and helped me get organized for the year ahead.”</p>
-            <span>- Touring Musician</span>
+            <span style="color:#3ee7fa;font-weight:700;">– Touring Musician</span>
           </div>
           <div class="carousel-item">
             <p>Want to leave a testimonial? <a href="#contact">Get in touch!</a></p>
@@ -171,6 +185,9 @@
         <span class="carousel-dot" tabindex="0" aria-label="Go to testimonial 4"></span>
       </div>
     </section>
+
+    <div class="ska-divider"></div>
+
     <!-- FAQ -->
     <section id="faq" class="faq-section">
       <span class="section-subtitle">FAQ</span>
@@ -202,6 +219,9 @@
         </div>
       </div>
     </section>
+
+    <div class="ska-divider"></div>
+
     <!-- CONTACT -->
     <section id="contact">
       <span class="section-subtitle">Let’s Talk</span>
@@ -216,7 +236,7 @@
             <label for="contactMessage" style="margin-top:0.7em;">How can I help?</label>
             <textarea id="contactMessage" name="contactMessage" placeholder="Tell me about your project or question" rows="4" required></textarea>
             <button type="submit" class="btn" style="margin-top:1em;">Send Message <i class="fa-solid fa-paper-plane"></i></button>
-            <div id="form-success" style="display:none;color:var(--accent-highlight);margin-top:1em;font-weight:600;">Thank you! I’ll be in touch soon.</div>
+            <div id="form-success" style="display:none;color:var(--accent-hover);margin-top:1em;font-weight:600;">Thank you! I’ll be in touch soon.</div>
           </div>
           <div class="card" style="flex:1;align-items:center;justify-content:center;text-align:center;">
             <div style="font-size:2.5rem;margin-bottom:1em;"><i class="fa-solid fa-envelope"></i></div>
