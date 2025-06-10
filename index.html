@@ -279,5 +279,33 @@
       }
     });
   </script>
+  <script>
+  const themeToggleBtn = document.getElementById('themeToggleBtn');
+  const html = document.documentElement;
+  // Set initial state from localStorage if exists
+  if(window.localStorage.getItem('theme')) {
+    html.setAttribute('data-theme', localStorage.getItem('theme'));
+    updateThemeBtn();
+  }
+  themeToggleBtn.addEventListener('click', function() {
+    const current = html.getAttribute('data-theme');
+    const next = current === 'dark' ? 'light' : 'dark';
+    html.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+    updateThemeBtn();
+  });
+  function updateThemeBtn() {
+    const mode = html.getAttribute('data-theme');
+    const icon = themeToggleBtn.querySelector('.theme-toggle-icon i');
+    const text = themeToggleBtn.querySelector('.theme-toggle-text');
+    if(mode === 'dark') {
+      icon.className = 'fa-solid fa-moon';
+      text.textContent = 'Dark';
+    } else {
+      icon.className = 'fa-solid fa-sun';
+      text.textContent = 'Light';
+    }
+  }
+</script>
 </body>
 </html>
