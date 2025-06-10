@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Oliver Rose | Expert Finance for Musicians & Creatives</title>
   <meta name="description" content="Finance, tax, and business support for musicians, indie labels & creatives by Oliver Rose. Modern, interactive, trusted.">
-  <!-- Open Graph & Twitter Card -->
+  <!-- OG & Twitter Card -->
   <meta property="og:title" content="Oliver Rose | Finance for Musicians & Creatives">
   <meta property="og:description" content="Finance, tax, and business support for musicians, indie labels & creatives by Oliver Rose.">
   <meta property="og:image" content="https://olirose10.github.io/images/oliver-profile.jpg">
@@ -21,428 +21,517 @@
   <link rel="stylesheet" href="css/carousel.css">
   <script src="https://kit.fontawesome.com/fe7fbe4e2b.js" crossorigin="anonymous"></script>
   <style>
-    .narrow-container {
-      width: 100%;
-      max-width: 870px;
+    :root {
+      --main-bg: #181a21;
+      --section-bg: #20222a;
+      --card-bg: #23243a;
+      --accent: #bdb8ff;
+      --accent-dark: #5546a3;
+      --radius: 16px;
+      --max-width: 920px;
+      --container-padding: 2rem;
+    }
+    .main-boxed {
+      background: var(--main-bg);
+      max-width: var(--max-width);
       margin: 0 auto;
-      padding-left: 2rem;
-      padding-right: 2rem;
+      padding: 0;
+      border-radius: var(--radius);
+      box-shadow: 0 8px 60px -16px #0004;
+      min-height: 100vh;
+      position: relative;
+    }
+    header {
+      background: var(--section-bg);
+      border-radius: var(--radius) var(--radius) 0 0;
+      border-bottom: 2px solid var(--accent);
+      box-shadow: 0 2px 24px #0002;
+      padding-bottom: 0.3em;
+    }
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0.7em var(--container-padding);
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.7em;
+    }
+    .logo-img {
+      width: 48px;
+      height: 48px;
+      border-radius: 9px;
+      background: #cfcfff;
+      object-fit: cover;
+      border: 2px solid var(--accent);
+    }
+    .logo-title {
+      font-size: 1.45rem;
+      font-weight: 900;
+      color: var(--accent);
+      letter-spacing: 1.1px;
+      margin: 0;
+      font-family: 'Montserrat', Arial, sans-serif;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.05rem;
+      margin: 0;
+      padding: 0;
+    }
+    nav .nav-link {
+      color: #fff;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 0.3em 1.1em;
+      border-radius: 22px;
+      border-bottom: 2.5px solid transparent;
+      transition: all 0.16s;
+      font-size: 1rem;
+    }
+    nav .nav-link.active, nav .nav-link:hover {
+      color: var(--accent);
+      border-bottom: 2.5px solid var(--accent);
+      background: var(--card-bg);
+    }
+    /* Slideshow */
+    .slideshow-wrap {
+      width: 100%;
+      position: relative;
+      margin: 0 auto 2.3rem auto;
+      border-radius: var(--radius);
+      overflow: hidden;
+      min-height: 320px;
+      background: #23243a;
+      box-shadow: 0 2px 48px #0003;
+    }
+    .slide {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-start;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transition: opacity 0.7s;
+      z-index: 1;
+      min-height: 320px;
+      height: 420px;
+      width: 100%;
+    }
+    .slide.active {
+      opacity: 1;
+      z-index: 2;
+    }
+    .slide-overlay {
+      background: linear-gradient(0deg, #23243add 60%, #0000 100%);
+      padding: 2.3rem 2rem 1.3rem 2rem;
+      border-radius: 0 0 var(--radius) var(--radius);
+      color: #fff;
+      max-width: 600px;
+      width: 90%;
       box-sizing: border-box;
     }
-    @media (max-width: 900px) {
-      .narrow-container { padding-left: 1rem; padding-right: 1rem; }
+    .slide-title {
+      font-size: 2.1rem;
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-weight: 800;
+      margin: 0 0 0.5em 0;
+      letter-spacing: 1.1px;
+    }
+    .slide-desc {
+      font-size: 1.13rem;
+      margin-bottom: 1.1em;
+      color: #e8e8ff;
+    }
+    .slide-btn {
+      display: inline-block;
+      background: var(--accent);
+      color: var(--main-bg);
+      padding: 0.7em 2.1em;
+      border-radius: 30px;
+      font-size: 1.07rem;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      transition: background 0.16s;
+      text-decoration: none;
+      margin-top: 0.4em;
+    }
+    .slide-btn:hover { background: var(--accent-dark); color: #fff; }
+    .slideshow-controls {
+      position: absolute;
+      bottom: 20px;
+      right: 26px;
+      display: flex;
+      gap: 0.7em;
+      z-index: 10;
+    }
+    .slideshow-dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: #fff7;
+      border: 2px solid var(--accent);
+      cursor: pointer;
+      transition: background 0.14s;
+    }
+    .slideshow-dot.active { background: var(--accent); border-color: var(--accent-dark); }
+    .slideshow-arrow {
+      background: var(--accent);
+      color: var(--main-bg);
+      border: none;
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      cursor: pointer;
+      margin: 0 0.25em;
+      box-shadow: 0 2px 14px #0002;
+      transition: background 0.14s;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 11;
+    }
+    .slideshow-arrow.left { left: 16px; }
+    .slideshow-arrow.right { right: 16px; }
+    .slideshow-arrow:hover { background: var(--accent-dark); color: #fff; }
+    /* Section Styles */
+    section {
+      box-sizing: border-box;
+      margin: 2.8rem 0;
+      background: var(--section-bg);
+      border-radius: var(--radius);
+      padding: 2.2rem var(--container-padding) 2.4rem var(--container-padding);
+      box-shadow: 0 2px 32px #0001;
+      border: 1.5px solid var(--card-bg);
+    }
+    .section-title {
+      font-size: 2.1rem;
+      font-weight: 800;
+      color: var(--accent);
+      margin-bottom: 0.5em;
+      letter-spacing: 1.1px;
+    }
+    .section-desc {
+      font-size: 1.14rem;
+      color: #b4b7c5;
+      margin-bottom: 1.5em;
+    }
+    .cards-container {
+      display: flex;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      align-items: stretch;
+      margin-top: 1.3rem;
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1.5px solid var(--accent-dark);
+      border-radius: 11px;
+      box-shadow: 0 2px 14px #0003;
+      padding: 1.3rem 1.1rem;
+      flex: 1 1 220px;
+      min-width: 180px;
+      max-width: 300px;
+      margin-bottom: 1.1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .card h3 {
+      font-size: 1.13rem;
+      color: var(--accent);
+      margin-top: 0;
+      margin-bottom: 0.6em;
+      font-weight: 700;
+    }
+    .card p, .card ul {
+      color: #fff;
+      font-size: 1rem;
+    }
+    .card .service-icon {
+      font-size: 2rem;
+      margin-bottom: 0.7em;
+      color: var(--accent-dark);
+    }
+    /* Testimonial carousel */
+    .testimonial-slider {
+      position: relative;
+      width: 100%;
+      min-height: 170px;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .testimonial-slide {
+      display: none;
+      opacity: 0;
+      transition: opacity 0.7s;
+      position: absolute;
+      left: 0; right: 0; top: 0; bottom: 0;
+      padding: 2.2rem 1.2rem;
+      box-sizing: border-box;
+    }
+    .testimonial-slide.active {
+      display: block;
+      opacity: 1;
+      position: relative;
+      background: var(--card-bg);
+      border-radius: 11px;
+      box-shadow: 0 2px 16px #0002;
+    }
+    .testimonial-quote {
+      font-size: 1.12rem;
+      color: #fff;
+      margin-bottom: 0.8em;
+      font-style: italic;
+    }
+    .testimonial-author {
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 1rem;
+      margin-top: 0.6em;
+    }
+    .testimonial-controls {
+      display: flex;
+      gap: 0.5em;
+      justify-content: center;
+      align-items: center;
+      margin-top: 1em;
+    }
+    .testimonial-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #fff7;
+      border: 2px solid var(--accent);
+      cursor: pointer;
+      transition: background 0.14s;
+    }
+    .testimonial-dot.active { background: var(--accent); border-color: var(--accent-dark); }
+    /* Footer */
+    footer {
+      background: var(--card-bg);
+      color: #b4b7c5;
+      text-align: center;
+      padding: 2rem 0 1rem 0;
+      border-radius: 0 0 var(--radius) var(--radius);
+      margin-top: 3rem;
+    }
+    .footer-links {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 1.2em; margin-bottom: 1.2em;
+    }
+    .footer-links a {
+      color: #b4b7c5;
+      font-size: 1em;
+      transition: color .13s, text-shadow .13s;
+      text-decoration: none;
+    }
+    .footer-links a:hover { color: var(--accent); text-shadow: 0 1px 6px var(--accent)22; }
+    .social-icons {
+      display: flex; gap: 1em; justify-content: center; align-items: center; margin-bottom: 0.9em;
+    }
+    .social-icons a {
+      color: var(--accent);
+      margin: 0 0.7em;
+      font-size: 1.3rem;
+      transition: color .14s, transform .14s;
+      text-decoration: none;
+    }
+    .social-icons a:hover {
+      color: var(--accent-dark);
+      transform: scale(1.10) rotate(-5deg);
+    }
+    @media (max-width: 1070px) {
+      .main-boxed { max-width: 99vw; }
+      .header-content { max-width: 99vw; }
+    }
+    @media (max-width: 700px) {
+      .main-boxed { padding: 0 0.3rem; }
+      .header-content, nav ul { flex-direction: column; gap: 0.6em; }
+      .cards-container { flex-direction: column; }
+      .slideshow .slide-overlay { padding: 1.5rem 1rem 0.7rem 1rem; }
     }
   </style>
 </head>
 <body>
-  <!-- Animated Blobs Background -->
-  <div class="animated-blobs" aria-hidden="true">
-    <div class="blob blob1"></div>
-    <div class="blob blob2"></div>
-    <div class="blob blob3"></div>
-  </div>
-  <!-- Particles for Hero -->
-  <div class="particles" id="particles-hero" aria-hidden="true">
-    <div class="particle p1"></div>
-    <div class="particle p2"></div>
-    <div class="particle p3"></div>
-    <div class="particle p4"></div>
-    <div class="particle p5"></div>
-  </div>
-  <a href="#mainContent" class="skip-link">Skip to main content</a>
-  <div id="preloader" class="preloader" aria-hidden="true">
-    <div class="spinner"></div>
-    <span class="sr-only">Loading...</span>
-  </div>
-  <header role="banner">
-    <div class="narrow-container header-content">
-      <div class="logo">
-        <img src="images/logo.png" alt="Oliver Rose Logo" />
-        <h1>Oliver Rose</h1>
+  <a href="#main" class="skip-link">Skip to main content</a>
+  <div class="main-boxed">
+    <header>
+      <div class="header-content">
+        <a href="/" class="logo">
+          <div class="logo-img" style="background:#bdb8ff;"> <!-- Placeholder for logo --></div>
+          <span class="logo-title">Oliver Rose</span>
+        </a>
+        <nav aria-label="Main navigation">
+          <ul>
+            <li><a href="#hero" class="nav-link active">Home</a></li>
+            <li><a href="#about" class="nav-link">About</a></li>
+            <li><a href="#services" class="nav-link">Services</a></li>
+            <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
+          </ul>
+        </nav>
       </div>
-      <div class="header-controls">
-        <button id="themeToggleBtn" class="theme-toggle" aria-label="Toggle light/dark mode" title="Switch theme">
-          <i class="fa-solid fa-moon"></i>
-          <span>Dark Mode</span>
-        </button>
-        <button id="menuToggleBtn" class="theme-toggle" aria-label="Open menu" title="Open navigation">
-          <i class="fa-solid fa-bars"></i>
-        </button>
-      </div>
-    </div>
-    <nav id="navMenu" role="navigation" aria-label="Main navigation">
-      <div class="narrow-container">
-        <ul>
-          <li><a href="#hero" class="nav-link active" aria-current="page">Home</a></li>
-          <li><a href="#about" class="nav-link">About</a></li>
-          <li><a href="#whyme" class="nav-link">Why Me</a></li>
-          <li><a href="#services" class="nav-link">Services</a></li>
-          <li><a href="#faq" class="nav-link">FAQ</a></li>
-          <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
-          <li><a href="#blog" class="nav-link">Blog</a></li>
-          <li><a href="#case-studies" class="nav-link">Case Studies</a></li>
-          <li><a href="#contact" class="nav-link">Contact</a></li>
-        </ul>
-      </div>
-    </nav>
-  </header>
-  <main id="mainContent">
-    <!-- HERO -->
-    <section class="hero fade-in" id="hero">
-      <div class="narrow-container">
-        <div class="hero-content">
-          <span class="section-subtitle">Finance for Musicians & Creatives</span>
-          <h2>Expert Guidance, Real Results</h2>
-          <p id="typewriterText" class="typewriter" aria-live="polite"></p>
-          <a href="#contact" class="cta-button" aria-label="Book your free call">
-            Book a Free Consultation <i class="fa-solid fa-arrow-right"></i>
-          </a>
-          <a href="#case-studies" class="cta-button outline" style="margin-left:1em;">See Success Stories</a>
-        </div>
-        <!-- Music Note Decorations -->
-        <div class="hero-graphics" aria-hidden="true">
-          <i class="fa-solid fa-music note note1"></i>
-          <i class="fa-solid fa-music note note2"></i>
-          <i class="fa-solid fa-music note note3"></i>
-          <i class="fa-solid fa-music note note4"></i>
-        </div>
-      </div>
-      <!-- SVG Divider -->
-      <div class="svg-divider" aria-hidden="true">
-        <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path fill="#6c7aff" fill-opacity="0.12" d="M0,64L60,69.3C120,75,240,85,360,90.7C480,96,600,96,720,85.3C840,75,960,53,1080,42.7C1200,32,1320,32,1380,32L1440,32L1440,120L1380,120C1320,120,1200,120,1080,120C960,120,840,120,720,120C600,120,480,120,360,120C240,120,120,120,60,120L0,120Z"/>
-        </svg>
-      </div>
-    </section>
-    <!-- ABOUT -->
-    <section id="about" class="fade-in">
-      <div class="narrow-container">
-        <span class="section-subtitle">Meet Oliver</span>
-        <h2>About Me</h2>
-        <div class="bio-flex">
-          <picture>
-            <source srcset="images/oliver-profile.webp" type="image/webp">
-            <img src="images/oliver-profile.jpg" alt="Oliver Rose portrait" class="profile-img" loading="lazy">
-          </picture>
-          <div class="bio-card">
-            <h3>Hi, I’m <b>Oliver Rose</b> <span style="font-size:0.7em;color:var(--text-muted);">(he/him)</span></h3>
-            <p>
-              I’m a finance specialist with proven experience in the music and creative industries.<br><br>
-              Over the past several years, I’ve helped dozens of musicians, bands, and creatives take control of their finances and thrive.<br><br>
-              I’m passionate about making finance approachable, effective, and fully tailored to the unique needs of artists like you.<br><br>
-              <b>Qualifications:</b> Advanced stage of ICAEW ACA training, up-to-date with modern tax law and digital tools.<br>
-              <b>Mission:</b> Clarity, trust, and results—so you can focus on your craft.
-            </p>
-            <div class="about-graphics">
-              <i class="fa-solid fa-guitar" aria-hidden="true"></i>
-              <i class="fa-solid fa-headphones" aria-hidden="true"></i>
-              <i class="fa-solid fa-microphone" aria-hidden="true"></i>
-              <i class="fa-solid fa-wave-square" aria-hidden="true"></i>
-            </div>
+    </header>
+    <main id="main">
+      <!-- SLIDESHOW -->
+      <div class="slideshow-wrap">
+        <div class="slide active" style="background: linear-gradient(120deg, #5546a3 60%, #bdb8ff 100%);">
+          <div class="slide-overlay">
+            <h2 class="slide-title">Finance for Musicians & Creatives</h2>
+            <p class="slide-desc">Specialist support in tax, accounts & business for artists, bands, and indie labels. Trusted, modern, and jargon-free.</p>
+            <a href="#contact" class="slide-btn">Book a Free Consultation</a>
           </div>
         </div>
+        <div class="slide" style="background: #e4e2f7;">
+          <div class="slide-overlay">
+            <h2 class="slide-title">Personal, Professional, Proven</h2>
+            <p class="slide-desc">Every client gets a tailored, friendly service. See why so many creatives trust Oliver Rose with their finances.</p>
+            <a href="#testimonials" class="slide-btn">See Testimonials</a>
+          </div>
+        </div>
+        <div class="slide" style="background: #5546a3;">
+          <div class="slide-overlay">
+            <h2 class="slide-title">Get Organised & Focus on Your Art</h2>
+            <p class="slide-desc">Tax returns, budgeting, royalty tracking and growth advice—so you can do what you do best: create.</p>
+            <a href="#services" class="slide-btn">View Services</a>
+          </div>
+        </div>
+        <button class="slideshow-arrow left" id="slidePrev" aria-label="Previous slide"><i class="fa fa-chevron-left"></i></button>
+        <button class="slideshow-arrow right" id="slideNext" aria-label="Next slide"><i class="fa fa-chevron-right"></i></button>
+        <div class="slideshow-controls">
+          <span class="slideshow-dot active" data-slide="0"></span>
+          <span class="slideshow-dot" data-slide="1"></span>
+          <span class="slideshow-dot" data-slide="2"></span>
+        </div>
       </div>
-      <div class="svg-divider" aria-hidden="true">
-        <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path fill="#6c7aff" fill-opacity="0.12" d="M0,64L60,69.3C120,75,240,85,360,90.7C480,96,600,96,720,85.3C840,75,960,53,1080,42.7C1200,32,1320,32,1380,32L1440,32L1440,120L1380,120C1320,120,1200,120,1080,120C960,120,840,120,720,120C600,120,480,120,360,120C240,120,120,120,60,120L0,120Z"/>
-        </svg>
-      </div>
-    </section>
-    <div class="narrow-container">
-      <div class="stats-row">
-        <div class="stat">
-          <span class="stat-number" data-count="35">0</span>
-          <span class="stat-label">Musicians Helped</span>
+
+      <!-- ABOUT -->
+      <section id="about">
+        <h2 class="section-title">About Oliver</h2>
+        <div class="section-desc">
+          <strong>Specialist adviser to musicians, indie labels & creative entrepreneurs.</strong><br>
+          Years of experience, ICAEW ACA advanced, and a passion for making finance approachable for artists. I offer clarity, confidence, and practical support for your unique journey.
         </div>
-        <div class="stat">
-          <span class="stat-number" data-count="120">0</span>
-          <span class="stat-label">Tax Returns Filed</span>
-        </div>
-        <div class="stat">
-          <span class="stat-number" data-count="95000">0</span>
-          <span class="stat-label">Pounds Saved</span>
-        </div>
-      </div>
-    </div>
-    <!-- WHY WORK WITH ME -->
-    <section id="whyme" class="fade-in section-band">
-      <div class="narrow-container">
-        <div class="particles" id="particles-why" aria-hidden="true">
-          <div class="particle p1"></div>
-          <div class="particle p2"></div>
-          <div class="particle p3"></div>
-          <div class="particle p4"></div>
-          <div class="particle p5"></div>
-        </div>
-        <span class="section-subtitle">Why Work With Me?</span>
-        <h2>Trusted. Professional. Creative-Focused.</h2>
         <div class="cards-container">
           <div class="card">
-            <span class="service-icon"><i class="fa-solid fa-music" aria-hidden="true"></i></span>
-            <h3>Industry Expertise</h3>
-            <p>I specialize in supporting musicians, labels, and creatives. I understand your challenges and opportunities, and offer solutions that work in the real world.</p>
+            <span class="service-icon"><i class="fa-solid fa-music"></i></span>
+            <h3>Music Industry Focus</h3>
+            <p>Decades in the scene means I understand the ups and downs of creative income, royalties, and band life.</p>
           </div>
           <div class="card">
-            <span class="service-icon"><i class="fa-solid fa-star" aria-hidden="true"></i></span>
-            <h3>Proven Results</h3>
-            <p>Clients consistently see clearer finances, lower stress, and more time for their art. I pride myself on practical, actionable advice—not jargon.</p>
+            <span class="service-icon"><i class="fa-solid fa-certificate"></i></span>
+            <h3>Fully Qualified</h3>
+            <p>ICAEW ACA advanced, up-to-date on tax, digital tools, and creative business best practices.</p>
           </div>
           <div class="card">
-            <span class="service-icon"><i class="fa-solid fa-handshake" aria-hidden="true"></i></span>
-            <h3>Tailored Service</h3>
-            <p>Every client receives a personal, one-to-one approach. Flexible, friendly, and always on your side.</p>
-          </div>
-          <div class="card">
-            <span class="service-icon"><i class="fa-solid fa-award" aria-hidden="true"></i></span>
-            <h3>Professional Standards</h3>
-            <p>I combine technical knowledge with a creative mindset, so your finances are handled with care, accuracy, and integrity.</p>
+            <span class="service-icon"><i class="fa-solid fa-handshake"></i></span>
+            <h3>Personal Approach</h3>
+            <p>No jargon. No one-size-fits-all. Just honest, warm support tailored to you.</p>
           </div>
         </div>
-      </div>
-      <div class="svg-divider" aria-hidden="true">
-        <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path fill="#6c7aff" fill-opacity="0.12" d="M0,64L60,69.3C120,75,240,85,360,90.7C480,96,600,96,720,85.3C840,75,960,53,1080,42.7C1200,32,1320,32,1380,32L1440,32L1440,120L1380,120C1320,120,1200,120,1080,120C960,120,840,120,720,120C600,120,480,120,360,120C240,120,120,120,60,120L0,120Z"/>
-        </svg>
-      </div>
-    </section>
-    <!-- SERVICES -->
-    <section id="services" class="fade-in">
-      <div class="narrow-container">
-        <span class="section-subtitle">How I Can Help</span>
-        <h2>Finance Services for Creatives</h2>
+      </section>
+
+      <!-- SERVICES -->
+      <section id="services">
+        <h2 class="section-title">Services</h2>
+        <div class="section-desc">
+          <ul>
+            <li>Tax Returns, Self-Assessment & HMRC Liaison</li>
+            <li>Bookkeeping, Accounts & Cloud Solutions</li>
+            <li>Royalties, Income Streams & Project Budgets</li>
+            <li>Business Advice for Labels, Creatives & Musicians</li>
+            <li>Funding, Grants, and Growth Strategy</li>
+          </ul>
+        </div>
         <div class="cards-container">
           <div class="card">
-            <span class="service-icon"><i class="fa-solid fa-file-invoice" aria-hidden="true"></i></span>
-            <h3>Bookkeeping & Accounts</h3>
-            <p>From DIY spreadsheets to cloud accounting, I set up and manage your books so you always know where you stand.</p>
+            <span class="service-icon"><i class="fa-solid fa-file-invoice"></i></span>
+            <h3>Tax & Compliance</h3>
+            <p>Stress-free returns, maximising your deductions, and never missing a deadline.</p>
           </div>
           <div class="card">
-            <span class="service-icon"><i class="fa-solid fa-coins" aria-hidden="true"></i></span>
-            <h3>Tax Returns & Self-Assessment</h3>
-            <p>Stress-free tax returns—guiding you through every step, maximizing your deductions, and making sure you never miss a deadline.</p>
+            <span class="service-icon"><i class="fa-solid fa-chart-line"></i></span>
+            <h3>Growth & Budgeting</h3>
+            <p>Budgeting, cash flow, and growth strategies for the unpredictable creative world.</p>
           </div>
           <div class="card">
-            <span class="service-icon"><i class="fa-solid fa-chart-line" aria-hidden="true"></i></span>
-            <h3>Royalty, Streaming & Income Tracking</h3>
-            <p>Transparent reports for all your income streams. Understand your royalties, merch, sync, and more.</p>
-          </div>
-          <div class="card">
-            <span class="service-icon"><i class="fa-solid fa-lightbulb" aria-hidden="true"></i></span>
-            <h3>Financial Strategy & Advice</h3>
-            <p>Custom advice sessions: budgeting, project planning, and making your creative career sustainable.</p>
-          </div>
-          <div class="card">
-            <span class="service-icon"><i class="fa-solid fa-comments" aria-hidden="true"></i></span>
-            <h3>“Ask Me Anything” Sessions</h3>
-            <p>Clear, candid conversations to answer your finance questions—big or small. Available one-off or ongoing.</p>
+            <span class="service-icon"><i class="fa-solid fa-lightbulb"></i></span>
+            <h3>Business Advice</h3>
+            <p>Band agreements, label setup, contracts and practical support for creative businesses at every stage.</p>
           </div>
         </div>
-        <div class="service-arrows" aria-hidden="true">
-          <i class="fa-solid fa-arrow-down-long arrow1"></i>
-          <i class="fa-solid fa-arrow-down-long arrow2"></i>
-          <i class="fa-solid fa-arrow-down-long arrow3"></i>
-        </div>
-      </div>
-      <div class="svg-divider" aria-hidden="true">
-        <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path fill="#6c7aff" fill-opacity="0.12" d="M0,64L60,69.3C120,75,240,85,360,90.7C480,96,600,96,720,85.3C840,75,960,53,1080,42.7C1200,32,1320,32,1380,32L1440,32L1440,120L1380,120C1320,120,1200,120,1080,120C960,120,840,120,720,120C600,120,480,120,360,120C240,120,120,120,60,120L0,120Z"/>
-        </svg>
-      </div>
-    </section>
-    <!-- FAQ -->
-    <section id="faq" class="fade-in">
-      <div class="narrow-container">
-        <span class="section-subtitle">Questions</span>
-        <h2>Frequently Asked Questions</h2>
-        <div class="faq-list">
-          <div class="faq-item">
-            <button class="faq-question">How much experience do you have with musicians and creatives? <i class="fa-solid fa-chevron-down"></i></button>
-            <div class="faq-answer"><p>I have years of hands-on experience supporting musicians, bands, and independent labels with their finances, tax returns, and business growth. My client list spans emerging artists to established acts.</p></div>
+      </section>
+
+      <!-- TESTIMONIALS -->
+      <section id="testimonials">
+        <h2 class="section-title">Testimonials</h2>
+        <div class="testimonial-slider" aria-label="Client Testimonials">
+          <div class="testimonial-slide active">
+            <div class="testimonial-quote">“Oliver’s advice gave me clarity and confidence about my music finances. Highly recommended!”</div>
+            <div class="testimonial-author">Singer/Songwriter</div>
           </div>
-          <div class="faq-item">
-            <button class="faq-question">Are you fully qualified? <i class="fa-solid fa-chevron-down"></i></button>
-            <div class="faq-answer"><p>I am at an advanced stage of my ACA qualification (ICAEW), continuously updating my professional knowledge and working to the highest standards.</p></div>
+          <div class="testimonial-slide">
+            <div class="testimonial-quote">“Professional, responsive, and knows the music business inside out.”</div>
+            <div class="testimonial-author">Indie Label Owner</div>
           </div>
-          <div class="faq-item">
-            <button class="faq-question">Can you help if I’m just starting out? <i class="fa-solid fa-chevron-down"></i></button>
-            <div class="faq-answer"><p>Absolutely! Whether you’re releasing your first single or building a label, I provide advice and support for all stages.</p></div>
+          <div class="testimonial-slide">
+            <div class="testimonial-quote">“Oliver made my tax return painless and helped me get organized for the year ahead.”</div>
+            <div class="testimonial-author">Touring Musician</div>
           </div>
-          <div class="faq-item">
-            <button class="faq-question">What’s your process? <i class="fa-solid fa-chevron-down"></i></button>
-            <div class="faq-answer"><p>It starts with a free, friendly consultation. Then I create a tailored plan and quote based on your needs—no hidden fees, ever.</p></div>
+          <div class="testimonial-controls">
+            <span class="testimonial-dot active" data-slide="0"></span>
+            <span class="testimonial-dot" data-slide="1"></span>
+            <span class="testimonial-dot" data-slide="2"></span>
           </div>
         </div>
-        <div class="faq-graphic" aria-hidden="true">
-          <i class="fa-solid fa-question-circle"></i>
-          <i class="fa-solid fa-lightbulb"></i>
-          <i class="fa-solid fa-brain"></i>
-        </div>
-      </div>
-      <div class="svg-divider" aria-hidden="true">
-        <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path fill="#6c7aff" fill-opacity="0.12" d="M0,64L60,69.3C120,75,240,85,360,90.7C480,96,600,96,720,85.3C840,75,960,53,1080,42.7C1200,32,1320,32,1380,32L1440,32L1440,120L1380,120C1320,120,1200,120,1080,120C960,120,840,120,720,120C600,120,480,120,360,120C240,120,120,120,60,120L0,120Z"/>
-        </svg>
-      </div>
-    </section>
-    <!-- TESTIMONIALS CAROUSEL -->
-    <section id="testimonials" class="fade-in section-band">
-      <div class="narrow-container">
-        <span class="section-subtitle">What Clients Say</span>
-        <h2>Testimonials</h2>
-        <div class="testimonial-carousel">
-          <button class="carousel-btn prev" aria-label="Previous testimonial"><i class="fa-solid fa-chevron-left"></i></button>
-          <div class="carousel-track">
-            <div class="carousel-item active">
-              <span class="service-icon"><i class="fa-solid fa-heart" aria-hidden="true"></i></span>
-              <p>“Oliver’s advice gave me clarity and confidence about my music finances. Highly recommended!”</p>
-              <span>- Singer/Songwriter</span>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact">
+        <h2 class="section-title">Contact</h2>
+        <form id="contactForm" autocomplete="off" novalidate>
+          <div class="cards-container">
+            <div class="card" style="flex:2">
+              <label for="contactName">Name</label>
+              <input id="contactName" name="contactName" type="text" placeholder="Your Name" required>
+              <label for="contactEmail" style="margin-top:0.7em;">Email</label>
+              <input id="contactEmail" name="contactEmail" type="email" placeholder="you@email.com" required>
+              <label for="contactMessage" style="margin-top:0.7em;">How can I help?</label>
+              <textarea id="contactMessage" name="contactMessage" placeholder="Tell me about your project or question" rows="4" required></textarea>
+              <button type="submit" class="slide-btn" style="margin-top:1em;">Send Message <i class="fa-solid fa-paper-plane"></i></button>
+              <div id="form-success" style="display:none;color:var(--accent);margin-top:1em;font-weight:600;">Thank you! I’ll be in touch soon.</div>
             </div>
-            <div class="carousel-item">
-              <span class="service-icon"><i class="fa-solid fa-thumbs-up" aria-hidden="true"></i></span>
-              <p>“Professional, responsive, and knows the music business inside out.”</p>
-              <span>- Indie Label Owner</span>
-            </div>
-            <div class="carousel-item">
-              <span class="service-icon"><i class="fa-solid fa-star" aria-hidden="true"></i></span>
-              <p>“Oliver made my tax return painless and helped me get organized for the year ahead.”</p>
-              <span>- Touring Musician</span>
-            </div>
-            <div class="carousel-item">
-              <p>Want to leave a testimonial? <a href="#contact">Get in touch!</a></p>
+            <div class="card" style="flex:1;align-items:center;justify-content:center;text-align:center;">
+              <div style="font-size:2.5rem;margin-bottom:1em;"><i class="fa-solid fa-envelope"></i></div>
+              <p style="margin:0 0 0.6em 0;">Or email me directly:</p>
+              <a href="mailto:oliverrosefinance@gmail.com" style="font-size:1.13rem;color:var(--accent);font-weight:700;">oliverrosefinance@gmail.com</a>
+              <div style="margin-top:1.5em;color:#b4b7c5;font-size:0.97em;">Response within 48 hours.</div>
             </div>
           </div>
-          <button class="carousel-btn next" aria-label="Next testimonial"><i class="fa-solid fa-chevron-right"></i></button>
-        </div>
-        <div class="testimonials-graphic" aria-hidden="true">
-          <i class="fa-solid fa-users"></i>
-          <i class="fa-solid fa-microphone"></i>
-          <i class="fa-solid fa-music"></i>
-        </div>
-      </div>
-      <div class="svg-divider" aria-hidden="true">
-        <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path fill="#6c7aff" fill-opacity="0.12" d="M0,64L60,69.3C120,75,240,85,360,90.7C480,96,600,96,720,85.3C840,75,960,53,1080,42.7C1200,32,1320,32,1380,32L1440,32L1440,120L1380,120C1320,120,1200,120,1080,120C960,120,840,120,720,120C600,120,480,120,360,120C240,120,120,120,60,120L0,120Z"/>
-        </svg>
-      </div>
-    </section>
-    <!-- BLOG SECTION -->
-    <section id="blog" class="fade-in">
-      <div class="narrow-container">
-        <span class="section-subtitle">Resources & Tips</span>
-        <h2>Blog & Free Guides</h2>
-        <div class="blog-grid">
-          <article class="blog-card">
-            <img src="images/blog1.jpg" alt="Finance tips for musicians illustration" loading="lazy">
-            <h3><a href="blog-post-1.html">5 Tax Essentials for Musicians</a></h3>
-            <p>Confused by self-assessment? Here are 5 things every artist should know to stay stress-free at tax time.</p>
-            <a class="button ghost" href="blog-post-1.html">Read More</a>
-          </article>
-          <article class="blog-card">
-            <img src="images/blog2.jpg" alt="Budgeting illustration" loading="lazy">
-            <h3><a href="blog-post-2.html">How to Budget a Music Release</a></h3>
-            <p>Step-by-step guide for planning your next single, album, or tour—without breaking the bank.</p>
-            <a class="button ghost" href="blog-post-2.html">Read More</a>
-          </article>
-          <article class="blog-card">
-            <img src="images/blog3.jpg" alt="Royalty tracking illustration" loading="lazy">
-            <h3><a href="blog-post-3.html">Royalty Tracking Made Simple</a></h3>
-            <p>Track your streaming, merch, and sync income—in plain English, with free spreadsheet templates.</p>
-            <a class="button ghost" href="blog-post-3.html">Read More</a>
-          </article>
-        </div>
-        <div class="centered" style="margin-top:2em;">
-          <a href="free-guide.pdf" class="cta-button" download>
-            <i class="fa-solid fa-download"></i> Download Free Guide: "Music Finance Checklist"
-          </a>
-        </div>
-      </div>
-      <div class="svg-divider" aria-hidden="true">
-        <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path fill="#6c7aff" fill-opacity="0.12" d="M0,64L60,69.3C120,75,240,85,360,90.7C480,96,600,96,720,85.3C840,75,960,53,1080,42.7C1200,32,1320,32,1380,32L1440,32L1440,120L1380,120C1320,120,1200,120,1080,120C960,120,840,120,720,120C600,120,480,120,360,120C240,120,120,120,60,120L0,120Z"/>
-        </svg>
-      </div>
-    </section>
-    <!-- CASE STUDIES SECTION -->
-    <section id="case-studies" class="fade-in section-band">
-      <div class="narrow-container">
-        <span class="section-subtitle">Real Results</span>
-        <h2>Success Stories</h2>
-        <div class="case-grid">
-          <div class="case-card">
-            <span class="service-icon"><i class="fa-solid fa-user" aria-hidden="true"></i></span>
-            <h3>Indie Singer-Songwriter</h3>
-            <ul>
-              <li>Saved £1,200 on tax by optimizing expense claims</li>
-              <li>Set up first-ever tour budget</li>
-              <li>Now releasing music stress-free!</li>
-            </ul>
-          </div>
-          <div class="case-card">
-            <span class="service-icon"><i class="fa-solid fa-users" aria-hidden="true"></i></span>
-            <h3>Small Label</h3>
-            <ul>
-              <li>Automated royalty tracking for 8 artists</li>
-              <li>Quarterly reports in plain English</li>
-              <li>Financial strategy for next-year growth</li>
-            </ul>
-          </div>
-          <div class="case-card">
-            <span class="service-icon"><i class="fa-solid fa-guitar" aria-hidden="true"></i></span>
-            <h3>Touring Band</h3>
-            <ul>
-              <li>Built custom cashflow spreadsheet</li>
-              <li>Advice on VAT, merch, and gig contracts</li>
-              <li>Band now manages money with confidence</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="svg-divider" aria-hidden="true">
-        <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path fill="#6c7aff" fill-opacity="0.12" d="M0,64L60,69.3C120,75,240,85,360,90.7C480,96,600,96,720,85.3C840,75,960,53,1080,42.7C1200,32,1320,32,1380,32L1440,32L1440,120L1380,120C1320,120,1200,120,1080,120C960,120,840,120,720,120C600,120,480,120,360,120C240,120,120,120,60,120L0,120Z"/>
-        </svg>
-      </div>
-    </section>
-    <!-- CONTACT -->
-    <section id="contact" class="fade-in">
-      <div class="narrow-container">
-        <span class="section-subtitle">Let’s Talk</span>
-        <h2>Contact</h2>
-        <form id="contactForm" autocomplete="on" novalidate>
-          <div class="form-group">
-            <label for="contactName">Your Name</label>
-            <input id="contactName" name="contactName" type="text" placeholder="Your Name" required>
-          </div>
-          <div class="form-group">
-            <label for="contactEmail">Your Email</label>
-            <input id="contactEmail" name="contactEmail" type="email" placeholder="you@email.com" required autocomplete="email">
-          </div>
-          <div class="form-group">
-            <label for="contactMessage">How can I help?</label>
-            <textarea id="contactMessage" name="contactMessage" placeholder="Tell me about your project or question" required></textarea>
-          </div>
-          <button type="submit" class="cta-button">Send Message <i class="fa-solid fa-paper-plane"></i></button>
         </form>
-        <div id="form-success">Thank you! I’ll be in touch soon.</div>
-        <div class="text-center" style="margin-top:1em;">
-          <p>Or email me: <a href="mailto:oliverrosefinance@gmail.com">oliverrosefinance@gmail.com</a></p>
-        </div>
-        <div class="contact-graphic" aria-hidden="true">
-          <i class="fa-solid fa-envelope"></i>
-          <i class="fa-solid fa-calendar-days"></i>
-          <i class="fa-solid fa-arrow-right"></i>
-        </div>
-      </div>
-    </section>
-  </main>
-  <button id="backToTop" aria-label="Back to Top" title="Back to Top">↑</button>
-  <footer role="contentinfo">
-    <div class="narrow-container">
+      </section>
+    </main>
+    <footer>
       <div class="footer-links">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="#contact">Contact</a>
         <a href="privacy.html">Privacy</a>
         <a href="terms.html">Terms</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
       </div>
       <div class="social-icons">
         <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
@@ -450,33 +539,55 @@
         <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
         <a href="mailto:oliverrosefinance@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
       </div>
-      <p>&copy; 2025 Oliver Rose. Finance for Musicians & Creatives.<br>
-        <small>Professional freelance finance, built for artists.</small></p>
-    </div>
-  </footer>
-  <script src="js/main.js"></script>
-  <script src="js/stats.js"></script>
-  <script src="js/carousel.js"></script>
+      <div style="margin-top:0.8em;">
+        &copy; 2025 Oliver Rose. Finance for Musicians & Creatives.
+        <br>
+        <small>Professional freelance finance, built for artists.</small>
+      </div>
+    </footer>
+  </div>
   <script>
-    // Contact form success message
-    document.addEventListener("DOMContentLoaded", function() {
-      var form = document.getElementById('contactForm');
-      if(form) {
-        form.addEventListener('submit', function(e) {
-          e.preventDefault();
-          var valid = true;
-          form.querySelectorAll('input[required],textarea[required]').forEach(inp => {
-            if (!inp.value.trim()) {
-              inp.classList.add('error'); valid = false;
-            } else {
-              inp.classList.remove('error');
-            }
-          });
-          if (valid) {
-            document.getElementById('form-success').style.display = 'block';
-            form.reset();
-          }
-        });
+    // SLIDESHOW LOGIC
+    const slides = document.querySelectorAll('.slideshow-wrap .slide');
+    const dots = document.querySelectorAll('.slideshow-dot');
+    let currentSlide = 0;
+    function showSlide(n) {
+      slides.forEach((slide, idx) => {
+        slide.classList.toggle('active', idx === n);
+        dots[idx].classList.toggle('active', idx === n);
+      });
+      currentSlide = n;
+    }
+    function nextSlide() { showSlide((currentSlide + 1) % slides.length); }
+    function prevSlide() { showSlide((currentSlide - 1 + slides.length) % slides.length); }
+    document.getElementById('slidePrev').onclick = prevSlide;
+    document.getElementById('slideNext').onclick = nextSlide;
+    dots.forEach((dot, idx) => dot.onclick = () => showSlide(idx));
+    setInterval(nextSlide, 7000);
+    // TESTIMONIAL SLIDER LOGIC
+    const tSlides = document.querySelectorAll('.testimonial-slide');
+    const tDots = document.querySelectorAll('.testimonial-dot');
+    let tCurrent = 0;
+    function showT(n) {
+      tSlides.forEach((slide, idx) => {
+        slide.classList.toggle('active', idx === n);
+        if (tDots[idx]) tDots[idx].classList.toggle('active', idx === n);
+      });
+      tCurrent = n;
+    }
+    tDots.forEach((dot, idx) => dot.onclick = () => showT(idx));
+    setInterval(() => showT((tCurrent+1)%tSlides.length), 9000);
+    // CONTACT FORM SUCCESS MESSAGE
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      let valid = true;
+      this.querySelectorAll('input[required],textarea[required]').forEach(inp => {
+        if (!inp.value.trim()) {inp.classList.add('error'); valid=false;}
+        else {inp.classList.remove('error');}
+      });
+      if (valid) {
+        document.getElementById('form-success').style.display = 'block';
+        this.reset();
       }
     });
   </script>
