@@ -1,41 +1,92 @@
+/* ===== Retro Hi-Fi Blog Styles Inspired by Image 1 ===== */
 .blog-grid {
   display: flex;
-  gap: 2em;
+  gap: 2.3em;
   flex-wrap: wrap;
   justify-content: center;
+  margin-bottom: 1.5em;
 }
 .blog-card {
-  background: var(--bg-card);
-  border-radius: var(--radius);
-  box-shadow: 0 4px 18px var(--accent)14;
-  padding: 1.2em 1.2em 1.5em 1.2em;
-  max-width: 320px;
+  background: linear-gradient(110deg,#FFF8F0 85%,#C9A06322 100%);
+  border-radius: 20px;
+  box-shadow: 0 6px 30px #A7763299, 0 0px 0px #fff0;
+  padding: 1.45em 1.35em 1.6em 1.35em;
+  max-width: 340px;
   min-width: 210px;
-  transition: box-shadow .3s, transform .3s;
+  border: 2.5px solid #C9A063;
+  transition: box-shadow .33s, transform .33s, border .21s;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  margin-bottom: 1.1em;
+  position: relative;
+  z-index: 2;
 }
 .blog-card:hover {
-  box-shadow: 0 8px 28px var(--accent)26;
-  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 16px 48px #5C7B4D33, 0 1px 0px #fff0;
+  transform: translateY(-10px) scale(1.035);
+  border-color: #5C7B4D;
+  background: linear-gradient(110deg,#E9C27B11 20%,#FFF8F0 100%);
 }
 .blog-card img {
-  border-radius: 12px;
-  margin-bottom: 1em;
+  border-radius: 15px;
+  margin-bottom: 1.2em;
   width: 100%;
-  max-height: 120px;
+  max-height: 140px;
   object-fit: cover;
+  box-shadow: 0 3px 16px #C9A06344;
+  border: 1.5px solid #A77632;
 }
 .blog-card h3 {
   margin: 0.5em 0 0.2em 0;
-  font-size: 1.15em;
+  font-size: 1.17em;
+  font-family: 'Playfair Display', serif;
+  color: #5C7B4D;
+  letter-spacing: 0.8px;
+  font-weight: 800;
+}
+.blog-card h3 a {
+  color: #1C87A1;
+  border-bottom: 2px solid #5C7B4D;
+}
+.blog-card h3 a:hover {
+  color: #C04F2A;
+  border-bottom: 2px solid #C04F2A;
 }
 .blog-card p {
-  color: var(--text-muted);
-  font-size: 1em;
+  color: #684A2A;
+  font-size: 1.08em;
   margin-bottom: 1em;
+  font-family: 'Montserrat', Arial, sans-serif;
+}
+.button.ghost, .blog-card .button.ghost {
+  background: none;
+  color: #C04F2A;
+  border: 2px solid #C04F2A;
+  border-radius: 100px;
+  font-weight: 900;
+  padding: 0.55em 1.5em;
+  font-size: 1em;
+  box-shadow: none;
+  transition: background 0.15s, color 0.15s, border 0.15s;
+  margin-top: 0.8em;
+}
+.button.ghost:hover, .blog-card .button.ghost:hover {
+  background: #C04F2A;
+  color: #fff;
+  border-color: #C9A063;
 }
 .centered {
   text-align: center;
+  margin-top: 2em;
+}
+@media (max-width: 600px) {
+  .blog-grid {
+    gap: 1em;
+  }
+  .blog-card {
+    max-width: 98vw;
+    min-width: 0;
+    padding: 1em 0.5em 1.1em 0.5em;
+  }
 }
