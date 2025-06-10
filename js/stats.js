@@ -1,3 +1,4 @@
+// Animate stats on scroll
 document.addEventListener("DOMContentLoaded", function () {
   const stats = document.querySelectorAll('.stat-number');
   let animated = false;
@@ -6,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
     stats.forEach(stat => {
       const end = +stat.getAttribute('data-count');
       let start = 0;
-      const inc = Math.max(1, Math.floor(end / 100));
+      const inc = Math.max(1, Math.floor(end / 90));
       function update() {
         start += inc;
         if (start >= end) {
