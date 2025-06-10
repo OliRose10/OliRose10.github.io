@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -14,18 +14,9 @@
   <link rel="icon" href="images/favicon.ico">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/stats.css">
-  <link rel="stylesheet" href="css/blog.css">
-  <link rel="stylesheet" href="css/case-studies.css">
-  <link rel="stylesheet" href="css/carousel.css">
   <script src="https://kit.fontawesome.com/fe7fbe4e2b.js" crossorigin="anonymous"></script>
 </head>
 <body>
-  <div class="animated-blobs">
-    <div class="blob blob1"></div>
-    <div class="blob blob2"></div>
-    <div class="blob blob3"></div>
-  </div>
   <header>
     <div class="main-container header-content">
       <a href="/" class="logo" aria-label="Oli Rose Home">
@@ -46,60 +37,27 @@
         <span class="theme-toggle-text">Dark</span>
       </button>
     </div>
-    <div class="svg-divider">
-      <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path fill="#7c5fff" fill-opacity="0.11" d="M0,32L60,38C120,44,240,56,360,57C480,59,600,48,720,41C840,34,960,32,1080,28C1200,24,1320,26,1380,26L1440,26L1440,60L1380,60C1320,60,1200,60,1080,60C960,60,840,60,720,60C600,60,480,60,360,60C240,60,120,60,60,60L0,60Z"/>
-      </svg>
-    </div>
   </header>
-  <main class="main-container">
+  <main>
     <!-- HERO / SLIDESHOW -->
-    <section class="hero-section" id="hero">
-      <div class="hero-slideshow slideshow" aria-label="Main Highlights">
-        <div class="slide active" style="background: linear-gradient(120deg, #cb2d3e 60%, #2c5364 100%);">
-          <div class="slide-overlay">
-            <h2 class="slide-title">Finance for Musicians & Creatives</h2>
-            <p class="slide-desc">Specialist support in tax, accounts & business for artists, bands, and indie labels. Trusted, modern, and jargon-free.</p>
-            <a href="#contact" class="slide-btn">Book a Free Consultation</a>
-          </div>
-        </div>
-        <div class="slide" style="background: url('images/slide2-placeholder.jpg') center/cover, #2c5364;">
-          <div class="slide-overlay">
-            <h2 class="slide-title">Personal, Professional, Proven</h2>
-            <p class="slide-desc">Every client gets a tailored, friendly service. See why so many creatives trust Oliver Rose with their finances.</p>
-            <a href="#testimonials" class="slide-btn">See Testimonials</a>
-          </div>
-        </div>
-        <div class="slide" style="background: url('images/slide3-placeholder.jpg') center/cover, #f7971e;">
-          <div class="slide-overlay">
-            <h2 class="slide-title">Get Organised & Focus on Your Art</h2>
-            <p class="slide-desc">Tax returns, budgeting, royalty tracking and growth advice—so you can do what you do best: create.</p>
-            <a href="#services" class="slide-btn">View Services</a>
-          </div>
-        </div>
-        <button class="slideshow-arrow left" aria-label="Previous slide"><i class="fa fa-chevron-left"></i></button>
-        <button class="slideshow-arrow right" aria-label="Next slide"><i class="fa fa-chevron-right"></i></button>
-        <div class="slideshow-progress"></div>
-        <div class="slideshow-controls">
-          <span class="slideshow-dot active" tabindex="0" aria-label="Go to slide 1"></span>
-          <span class="slideshow-dot" tabindex="0" aria-label="Go to slide 2"></span>
-          <span class="slideshow-dot" tabindex="0" aria-label="Go to slide 3"></span>
-        </div>
+    <section class="hero-section">
+      <div class="hero-chequer"></div>
+      <div class="hero-content">
+        <h1 class="hero-title">Finance for Musicians & Creatives</h1>
+        <p class="hero-desc">
+          Specialist support in tax, accounts & business for artists, bands, and indie labels.<br>
+          Trusted, modern, and jargon-free.
+        </p>
+        <a href="#contact" class="hero-btn">Book a Free Consultation</a>
       </div>
     </section>
-    <!-- SVG DIVIDER -->
-    <div class="svg-divider">
-      <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path fill="#2c5364" fill-opacity="0.13" d="M0,32L60,38C120,44,240,56,360,57C480,59,600,48,720,41C840,34,960,32,1080,28C1200,24,1320,26,1380,26L1440,26L1440,60L1380,60C1320,60,1200,60,1080,60C960,60,840,60,720,60C600,60,480,60,360,60C240,60,120,60,60,60L0,60Z"/>
-      </svg>
-    </div>
-    <!-- ABOUT SECTION -->
-    <section id="about">
+    <!-- ABOUT SECTION with checkerboard border -->
+    <section id="about" class="checkerboard-border">
       <span class="section-subtitle">Who I Am</span>
       <h2 class="section-title">About Oliver</h2>
       <div class="about-flex">
-        <div class="about-img" style="background:linear-gradient(120deg,#cb2d3e,#2c5364);border-radius:50%;width:140px;height:140px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 26px #4a90e244;">
-          <img src="images/oliver-profile.jpg" alt="Oliver Rose" style="border-radius:50%;width:120px;height:120px;object-fit:cover;">
+        <div class="about-img">
+          <img src="images/oliver-profile.jpg" alt="Oliver Rose">
         </div>
         <div class="about-text">
           <p>
@@ -117,140 +75,89 @@
         </div>
       </div>
     </section>
-    <div class="svg-divider">
-      <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path fill="#f7971e" fill-opacity="0.08" d="M0,32L60,38C120,44,240,56,360,57C480,59,600,48,720,41C840,34,960,32,1080,28C1200,24,1320,26,1380,26L1440,26L1440,60L1380,60C1320,60,1200,60,1080,60C960,60,840,60,720,60C600,60,480,60,360,60C240,60,120,60,60,60L0,60Z"/>
-      </svg>
-    </div>
-    <!-- SERVICES SECTION -->
-    <section id="services" class="section-band" style="background:linear-gradient(110deg,#2c5364 70%,#f7971e22 100%);">
+    <!-- SERVICES SECTION with checkerboard border and checkerboard cards -->
+    <section id="services" class="checkerboard-border">
       <span class="section-subtitle">How I Can Help</span>
       <h2 class="section-title">Services</h2>
       <div class="cards-container">
-        <div class="card">
+        <div class="card checkerboard-card">
           <span class="service-icon"><i class="fa-solid fa-file-invoice"></i></span>
           <h3>Tax & Compliance</h3>
           <p>Stress-free returns, maximising your deductions, and never missing a deadline.</p>
         </div>
-        <div class="card">
+        <div class="card checkerboard-card">
           <span class="service-icon"><i class="fa-solid fa-chart-line"></i></span>
           <h3>Growth & Budgeting</h3>
           <p>Budgeting, cash flow, and growth strategies for the unpredictable creative world.</p>
         </div>
-        <div class="card">
+        <div class="card checkerboard-card">
           <span class="service-icon"><i class="fa-solid fa-lightbulb"></i></span>
           <h3>Business Advice</h3>
           <p>Band agreements, label setup, contracts and practical support for creative businesses at every stage.</p>
         </div>
-        <div class="card">
+        <div class="card checkerboard-card">
           <span class="service-icon"><i class="fa-solid fa-coins"></i></span>
           <h3>Royalty & Income Tracking</h3>
           <p>Clear, actionable reports for all your income streams—royalties, merch, sync, and more.</p>
         </div>
-        <div class="card">
+        <div class="card checkerboard-card">
           <span class="service-icon"><i class="fa-solid fa-comments"></i></span>
           <h3>“Ask Me Anything” Sessions</h3>
           <p>Transparent, jargon-free answers to your questions—big or small. One-off or ongoing.</p>
         </div>
       </div>
     </section>
-    <div class="svg-divider">
-      <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path fill="#ff5978" fill-opacity="0.1" d="M0,32L60,38C120,44,240,56,360,57C480,59,600,48,720,41C840,34,960,32,1080,28C1200,24,1320,26,1380,26L1440,26L1440,60L1380,60C1320,60,1200,60,1080,60C960,60,840,60,720,60C600,60,480,60,360,60C240,60,120,60,60,60L0,60Z"/>
-      </svg>
-    </div>
-    <!-- TESTIMONIALS SECTION -->
-    <section id="testimonials" class="fade-in section-band">
+    <!-- TESTIMONIALS SECTION with checkerboard border -->
+    <section id="testimonials" class="checkerboard-border">
       <span class="section-subtitle">What Clients Say</span>
       <h2 class="section-title">Testimonials</h2>
-      <div class="testimonial-carousel" aria-label="Client Testimonials" tabindex="0">
-        <button class="carousel-btn prev" aria-label="Previous testimonial"><i class="fa-solid fa-chevron-left"></i></button>
-        <div class="carousel-track">
-          <div class="carousel-item active">
-            <span class="service-icon"><i class="fa-solid fa-heart"></i></span>
-            <p>“Oliver’s advice gave me clarity and confidence about my music finances. Highly recommended!”</p>
-            <span>- Singer/Songwriter</span>
-          </div>
-          <div class="carousel-item">
-            <span class="service-icon"><i class="fa-solid fa-thumbs-up"></i></span>
-            <p>“Professional, responsive, and knows the music business inside out.”</p>
-            <span>- Indie Label Owner</span>
-          </div>
-          <div class="carousel-item">
-            <span class="service-icon"><i class="fa-solid fa-star"></i></span>
-            <p>“Oliver made my tax return painless and helped me get organized for the year ahead.”</p>
-            <span>- Touring Musician</span>
-          </div>
-          <div class="carousel-item">
-            <p>Want to leave a testimonial? <a href="#contact">Get in touch!</a></p>
-          </div>
+      <div class="cards-container">
+        <div class="card checkerboard-card">
+          <span class="service-icon"><i class="fa-solid fa-heart"></i></span>
+          <h3>“Clarity & Confidence”</h3>
+          <p>“Oliver’s advice gave me clarity and confidence about my music finances. Highly recommended!”<br><i>- Singer/Songwriter</i></p>
         </div>
-        <button class="carousel-btn next" aria-label="Next testimonial"><i class="fa-solid fa-chevron-right"></i></button>
-      </div>
-      <div class="carousel-dots" aria-label="Testimonial carousel navigation">
-        <span class="carousel-dot active" tabindex="0" aria-label="Go to testimonial 1"></span>
-        <span class="carousel-dot" tabindex="0" aria-label="Go to testimonial 2"></span>
-        <span class="carousel-dot" tabindex="0" aria-label="Go to testimonial 3"></span>
-        <span class="carousel-dot" tabindex="0" aria-label="Go to testimonial 4"></span>
+        <div class="card checkerboard-card">
+          <span class="service-icon"><i class="fa-solid fa-thumbs-up"></i></span>
+          <h3>“Knows the Business”</h3>
+          <p>“Professional, responsive, and knows the music business inside out.”<br><i>- Indie Label Owner</i></p>
+        </div>
+        <div class="card checkerboard-card">
+          <span class="service-icon"><i class="fa-solid fa-star"></i></span>
+          <h3>“Painless Tax Return”</h3>
+          <p>“Oliver made my tax return painless and helped me get organized for the year ahead.”<br><i>- Touring Musician</i></p>
+        </div>
+        <div class="card checkerboard-card">
+          <h3>Want to leave a testimonial?</h3>
+          <p><a href="#contact">Get in touch!</a></p>
+        </div>
       </div>
     </section>
-    <div class="svg-divider">
-      <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path fill="#7c5fff" fill-opacity="0.11" d="M0,32L60,38C120,44,240,56,360,57C480,59,600,48,720,41C840,34,960,32,1080,28C1200,24,1320,26,1380,26L1440,26L1440,60L1380,60C1320,60,1200,60,1080,60C960,60,840,60,720,60C600,60,480,60,360,60C240,60,120,60,60,60L0,60Z"/>
-      </svg>
-    </div>
-    <!-- CONTACT SECTION -->
-    <section id="contact">
+    <!-- CONTACT SECTION with checkerboard border -->
+    <section id="contact" class="checkerboard-border">
       <span class="section-subtitle">Let’s Talk</span>
       <h2 class="section-title">Contact</h2>
       <form id="contactForm" autocomplete="off" novalidate>
         <div class="cards-container">
-          <div class="card" style="flex:2;">
+          <div class="card checkerboard-card" style="flex:2;">
             <label for="contactName">Name</label>
             <input id="contactName" name="contactName" type="text" placeholder="Your Name" required>
             <label for="contactEmail" style="margin-top:0.7em;">Email</label>
             <input id="contactEmail" name="contactEmail" type="email" placeholder="you@email.com" required>
             <label for="contactMessage" style="margin-top:0.7em;">How can I help?</label>
             <textarea id="contactMessage" name="contactMessage" placeholder="Tell me about your project or question" rows="4" required></textarea>
-            <button type="submit" class="slide-btn" style="margin-top:1em;">Send Message <i class="fa-solid fa-paper-plane"></i></button>
+            <button type="submit" class="hero-btn" style="margin-top:1em;">Send Message <i class="fa-solid fa-paper-plane"></i></button>
             <div id="form-success" style="display:none;color:var(--accent-highlight);margin-top:1em;font-weight:600;">Thank you! I’ll be in touch soon.</div>
           </div>
-          <div class="card" style="flex:1;align-items:center;justify-content:center;text-align:center;">
+          <div class="card checkerboard-card" style="flex:1;align-items:center;justify-content:center;text-align:center;">
             <div style="font-size:2.5rem;margin-bottom:1em;"><i class="fa-solid fa-envelope"></i></div>
             <p style="margin:0 0 0.6em 0;">Or email me directly:</p>
-            <a href="mailto:oliverrosefinance@gmail.com" style="font-size:1.13rem;color:var(--accent);font-weight:700;">oliverrosefinance@gmail.com</a>
+            <a href="mailto:oliverrosefinance@gmail.com" style="font-size:1.13rem;color:#000;font-weight:700;">oliverrosefinance@gmail.com</a>
             <div style="margin-top:1.5em;color:var(--text-muted);font-size:0.97em;">Response within 48 hours.</div>
           </div>
         </div>
       </form>
     </section>
-<section class="chequered-flag-section">
-  <div class="main-container">
-    <h2 class="section-title cheq-on-black">2 Tone / Chequered Flag Section</h2>
-    <div class="chequered-flag-grid">
-      <div class="cheq-flag-card">
-        <span class="service-icon"><i class="fa-solid fa-music"></i></span>
-        <h3>Real Indie Style</h3>
-        <p>Sharp, bold, unmistakable—like the best records.</p>
-      </div>
-      <div class="cheq-flag-card">
-        <span class="service-icon"><i class="fa-solid fa-guitar"></i></span>
-        <h3>2 Tone Spirit</h3>
-        <p>Creativity and clarity in black and white.</p>
-      </div>
-      <div class="cheq-flag-card">
-        <span class="service-icon"><i class="fa-solid fa-star"></i></span>
-        <h3>Stand Out</h3>
-        <p>Visual punch, undeniable confidence.</p>
-      </div>
-      <div class="cheq-flag-card">
-        <span class="service-icon"><i class="fa-solid fa-headphones"></i></span>
-        <h3>For Musicians</h3>
-        <p>Your numbers, your style, your rules.</p>
-      </div>
-    </div>
-  </div>
-</section>
   </main>
   <footer>
     <div class="main-container" style="text-align:center;">
@@ -274,9 +181,6 @@
       </div>
     </div>
   </footer>
-  <!-- SCRIPTS -->
-  <script src="js/slideshow.js"></script>
-  <script src="js/testimonial-carousel.js"></script>
   <script>
     // THEME TOGGLE
     const themeToggleBtn = document.getElementById('themeToggleBtn');
