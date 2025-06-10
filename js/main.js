@@ -1,7 +1,7 @@
-// Fully improved main.js for OliRose10.github.io
+// Indie Rock Movement & Interactivity
 
 document.addEventListener("DOMContentLoaded", function () {
-  // ==== Typewriter Effect for Hero ====
+  // Typewriter effect with indie-rock rawness
   const typewriter = document.getElementById("typewriterText");
   if (typewriter) {
     const text = "Specialist finance, tax & business support for musicians, indie labels & creatives.";
@@ -19,26 +19,37 @@ document.addEventListener("DOMContentLoaded", function () {
     typing();
   }
 
-  // ==== FAQ Accordion ====
+  // Movement: Fade-in on scroll for .fade-in
+  function handleFadeIn() {
+    document.querySelectorAll('.fade-in').forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 60) {
+        el.classList.add('visible');
+      }
+    });
+  }
+  window.addEventListener('scroll', handleFadeIn);
+  window.addEventListener('resize', handleFadeIn);
+  handleFadeIn();
+
+  // FAQ: Accordion with punk snap
   document.querySelectorAll(".faq-question").forEach((btn) => {
     btn.addEventListener("click", function () {
       const item = btn.closest(".faq-item");
       const isOpen = item.classList.toggle("open");
-      // Close other open items
       document.querySelectorAll(".faq-item").forEach((other) => {
         if (other !== item) other.classList.remove("open");
       });
-      // Accessibility: toggle aria-expanded
       btn.setAttribute("aria-expanded", isOpen);
     });
     btn.setAttribute("aria-expanded", "false");
   });
 
-  // ==== Back to Top Button ====
+  // Back to Top Button: Slides up
   const backToTop = document.getElementById("backToTop");
   if (backToTop) {
     window.addEventListener("scroll", () => {
-      if (window.scrollY > 400) {
+      if (window.scrollY > 320) {
         backToTop.classList.add("show");
       } else {
         backToTop.classList.remove("show");
@@ -49,7 +60,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // ==== Theme Toggle (Light/Dark) ====
+  // Theme toggle (light/dark)
   const themeBtn = document.getElementById("themeToggleBtn");
   function setTheme(theme) {
     document.documentElement.setAttribute("data-theme", theme);
@@ -71,7 +82,6 @@ document.addEventListener("DOMContentLoaded", function () {
       let theme = document.documentElement.getAttribute("data-theme");
       setTheme(theme === "light" ? "dark" : "light");
     });
-    // On load: use saved, then system preference
     let saved = localStorage.getItem("olirose-theme");
     if (saved) {
       setTheme(saved);
@@ -80,7 +90,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // ==== Nav Active Link & ARIA ====
+  // Nav active link
   document.querySelectorAll("nav#navMenu .nav-link").forEach((link) => {
     link.addEventListener("click", function () {
       document.querySelectorAll("nav#navMenu .nav-link").forEach((l) => {
@@ -92,7 +102,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // ==== Skip-link Accessibility ====
+  // Skip-link Accessibility
   const skipLink = document.querySelector('.skip-link');
   if (skipLink) {
     skipLink.addEventListener('click', function (e) {
