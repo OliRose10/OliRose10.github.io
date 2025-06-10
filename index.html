@@ -18,6 +18,18 @@
   <script src="https://kit.fontawesome.com/fe7fbe4e2b.js" crossorigin="anonymous"></script>
 </head>
 <body>
+  <svg class="background-svg" aria-hidden="true">
+  <defs>
+    <linearGradient id="bg-ska" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#3ee7fa" />
+      <stop offset="100%" stop-color="#fff" />
+    </linearGradient>
+  </defs>
+  <circle cx="80%" cy="120" r="180" fill="url(#bg-ska)" opacity="0.11">
+    <animate attributeName="cy" values="120;160;120" dur="8s" repeatCount="indefinite" />
+  </circle>
+  <rect x="0" y="0" width="100%" height="100%" fill="none"/>
+</svg>
   <!-- Animated SVG Background for Depth -->
   <svg class="background-svg" aria-hidden="true" style="position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:-1;pointer-events:none;">
     <defs>
