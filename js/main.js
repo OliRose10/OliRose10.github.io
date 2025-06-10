@@ -1,21 +1,19 @@
 // main.js — Modern, expanded, modular, and practical
 // Author: OliRose10 | Last updated: 2025-06-10
 
-// ========== PRELOADER ========== //
+// Preloader
 window.addEventListener('load', function () {
   setTimeout(() => {
     document.getElementById('preloader').style.display = 'none';
   }, 800);
 });
 
-// ========== THEME SWITCHER ========== //
-(function() {
+// Theme Switcher
+(function(){
   const root = document.documentElement;
   const themeToggleBtn = document.getElementById('themeToggleBtn');
   const themeIcon = themeToggleBtn.querySelector('i');
   const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-  // Get theme preference from localStorage or system
   let userTheme = localStorage.getItem('theme') || (prefersDark ? 'dark' : 'light');
   setTheme(userTheme);
 
@@ -39,24 +37,19 @@ window.addEventListener('load', function () {
   }
 })();
 
-// ========== STICKY NAV & MOBILE MENU ========== //
-(function() {
+// Mobile Menu Toggle
+(function(){
   const menuToggleBtn = document.getElementById('menuToggleBtn');
   const navMenu = document.getElementById('navMenu');
   let navOpen = false;
-
   menuToggleBtn.addEventListener('click', () => {
     navOpen = !navOpen;
     navMenu.classList.toggle('show', navOpen);
     menuToggleBtn.setAttribute('aria-expanded', navOpen);
     menuToggleBtn.querySelector('i').classList.toggle('fa-bars', !navOpen);
     menuToggleBtn.querySelector('i').classList.toggle('fa-xmark', navOpen);
-    if (navOpen) {
-      navMenu.scrollIntoView({behavior: 'smooth'});
-    }
+    if (navOpen) navMenu.scrollIntoView({behavior: 'smooth'});
   });
-
-  // Hide menu on link click (mobile UX)
   navMenu.querySelectorAll('.nav-link').forEach(link =>
     link.addEventListener('click', () => {
       if (window.innerWidth < 900 && navOpen) {
@@ -70,15 +63,15 @@ window.addEventListener('load', function () {
   );
 })();
 
-// ========== TYPEWRITER EFFECT ========== //
-(function() {
+// Typewriter Effect
+(function(){
   const el = document.getElementById('typewriterText');
   if (!el) return;
   const phrases = [
-    "Bespoke strategies for music professionals.",
-    "Enjoy clarity in your creative finances.",
-    "Modern, practical, and easy.",
-    "Light & dark mode for your vibe.",
+    "Finance, tax, and business for indie musicians.",
+    "Clarity, trust, and real music industry expertise.",
+    "Bookkeeping, tax returns, royalty management.",
+    "Light & dark mode for your creative flow.",
     "Let’s make your money sing."
   ];
   let idx = 0, char = 0, erasing = false, pause = false;
@@ -92,7 +85,7 @@ window.addEventListener('load', function () {
       if (char === phrase.length) {
         erasing = true;
         pause = true;
-        setTimeout(typeLoop, 1200);
+        setTimeout(typeLoop, 1600);
         return;
       }
     } else {
@@ -102,18 +95,42 @@ window.addEventListener('load', function () {
         erasing = false;
         idx = (idx + 1) % phrases.length;
         pause = true;
-        setTimeout(typeLoop, 800);
+        setTimeout(typeLoop, 900);
         return;
       }
     }
-    setTimeout(typeLoop, pause ? 50 : (erasing ? 32 : 60));
+    setTimeout(typeLoop, pause ? 40 : (erasing ? 22 : 55));
     pause = false;
   }
   typeLoop();
 })();
 
-// ========== TABS FOR SERVICES ========== //
-(function() {
+// Stats Counter Animation (Hero)
+(function(){
+  function animateCount(el, target, duration) {
+    let start = 0;
+    const step = () => {
+      let now = +el.textContent.replace(/[^0-9]/g,"");
+      let increment = Math.ceil((target - now) / 7);
+      if (now < target) {
+        el.textContent = now + increment;
+        setTimeout(step, Math.max(10, duration / (target-now+1)));
+      } else {
+        el.textContent = target;
+      }
+    };
+    step();
+  }
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.stat-number').forEach(el => {
+      let val = parseInt(el.getAttribute('data-count'), 10);
+      animateCount(el, val, 1200);
+    });
+  });
+})();
+
+// Tabs
+(function(){
   const tabLinks = document.querySelectorAll('.tab-link');
   const tabContents = document.querySelectorAll('.tab-content');
   tabLinks.forEach(btn => btn.addEventListener('click', function () {
@@ -125,8 +142,8 @@ window.addEventListener('load', function () {
   }));
 })();
 
-// ========== FAQ ACCORDION ========== //
-(function() {
+// FAQ Accordion
+(function(){
   const faqs = document.querySelectorAll('.faq-item');
   faqs.forEach(item => {
     const btn = item.querySelector('.faq-question');
@@ -138,10 +155,26 @@ window.addEventListener('load', function () {
   });
 })();
 
-// ========== TESTIMONIALS CAROUSEL ========== //
-(function() {
+// Portfolio Filter
+(function(){
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const items = document.querySelectorAll('.portfolio-item');
+  filterBtns.forEach(btn => btn.addEventListener('click', function() {
+    filterBtns.forEach(b => b.classList.remove('active'));
+    this.classList.add('active');
+    const filter = this.getAttribute('data-filter');
+    items.forEach(it => {
+      if (filter === 'all' || it.dataset.category === filter) it.style.display = '';
+      else it.style.display = 'none';
+    });
+  }));
+})();
+
+// Testimonials Carousel
+(function(){
   const track = document.querySelector('.carousel-track');
-  const items = document.querySelectorAll('.carousel-item');
+  if (!track) return;
+  const items = track.querySelectorAll('.carousel-item');
   const prevBtn = document.querySelector('.carousel-btn.prev');
   const nextBtn = document.querySelector('.carousel-btn.next');
   let idx = 0;
@@ -152,28 +185,14 @@ window.addEventListener('load', function () {
     prevBtn.addEventListener('click', () => { idx = (idx-1+items.length)%items.length; update(); });
     nextBtn.addEventListener('click', () => { idx = (idx+1)%items.length; update(); });
   }
+  // Auto-advance every 6s
+  setInterval(() => {
+    idx = (idx+1)%items.length; update();
+  }, 6000);
 })();
 
-// ========== PORTFOLIO FILTER ========== //
-(function() {
-  const filterBtns = document.querySelectorAll('.filter-btn');
-  const items = document.querySelectorAll('.portfolio-item');
-  filterBtns.forEach(btn => btn.addEventListener('click', function() {
-    filterBtns.forEach(b => b.classList.remove('active'));
-    this.classList.add('active');
-    const filter = this.getAttribute('data-filter');
-    items.forEach(it => {
-      if (filter === 'all' || it.dataset.category === filter) {
-        it.style.display = '';
-      } else {
-        it.style.display = 'none';
-      }
-    });
-  }));
-})();
-
-// ========== SMOOTH SCROLL TO ANCHORS ========== //
-(function() {
+// Smooth Scroll to Anchors
+(function(){
   document.querySelectorAll('a[href^="#"]').forEach(link => {
     link.addEventListener('click', function(e) {
       const target = document.querySelector(this.getAttribute('href'));
@@ -185,21 +204,19 @@ window.addEventListener('load', function () {
   });
 })();
 
-// ========== NEWSLETTER MODAL ========== //
-(function() {
+// Newsletter Modal
+(function(){
   const modal = document.getElementById('newsletterModal');
   const closeBtn = document.getElementById('modalClose');
   const showNewsletter = () => modal.classList.remove('hide');
   const hideNewsletter = () => modal.classList.add('hide');
   if (closeBtn) closeBtn.addEventListener('click', hideNewsletter);
-  // Show modal after delay, but only once per session
   if (modal && !sessionStorage.getItem('newsletter_shown')) {
     setTimeout(() => {
       showNewsletter();
       sessionStorage.setItem('newsletter_shown', 'yes');
-    }, 6000);
+    }, 9000);
   }
-  // Newsletter form
   const subForm = document.getElementById('modalSubscribeForm');
   if (subForm) {
     subForm.addEventListener('submit', function(e) {
@@ -210,8 +227,25 @@ window.addEventListener('load', function () {
   }
 })();
 
-// ========== LIVE CHAT WIDGET ========== //
-(function() {
+// Standalone Newsletter Subscribe Section
+(function(){
+  const form = document.getElementById('subscribeForm');
+  if (form) {
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      const inp = form.querySelector('input[name="newsletterEmail"]');
+      if (inp.value.trim().length > 3 && inp.value.includes('@')) {
+        alert("Thank you for subscribing!");
+        form.reset();
+      } else {
+        inp.classList.add('error');
+      }
+    });
+  }
+})();
+
+// Live Chat Widget
+(function(){
   const chatBtn = document.getElementById('chatToggle');
   const chatBox = document.getElementById('chatBox');
   const chatWidget = document.getElementById('liveChat');
@@ -251,8 +285,8 @@ window.addEventListener('load', function () {
   }
 })();
 
-// ========== BACK TO TOP BUTTON ========== //
-(function() {
+// Back to Top Button
+(function(){
   const btn = document.getElementById('backToTop');
   window.addEventListener('scroll', () => {
     if (window.scrollY > 500) btn.classList.add('show');
@@ -261,8 +295,8 @@ window.addEventListener('load', function () {
   btn.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
 })();
 
-// ========== CONTACT FORM VALIDATION ========== //
-(function() {
+// Contact Form Validation
+(function(){
   const form = document.getElementById('contactForm');
   if (!form) return;
   form.addEventListener('submit', function(e) {
@@ -283,8 +317,8 @@ window.addEventListener('load', function () {
   });
 })();
 
-// ========== ACCESSIBILITY: Skip Link Focus ========== //
-(function() {
+// Accessibility: Skip Link Focus
+(function(){
   const skip = document.querySelector('.skip-link');
   if (skip) {
     skip.addEventListener('focus', () => skip.style.top = '0');
@@ -292,8 +326,8 @@ window.addEventListener('load', function () {
   }
 })();
 
-// ========== ANIMATE SECTIONS ON SCROLL ========== //
-(function() {
+// Animate Sections on Scroll
+(function(){
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
