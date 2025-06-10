@@ -144,3 +144,19 @@ if(heroSection) {
     heroSection.querySelector('.hero-title').style.transform = '';
   });
 }
+// Floating notes/music icons
+const notes = ['<i class="fa-solid fa-music"></i>', '<i class="fa-solid fa-guitar"></i>', '<i class="fa-solid fa-headphones"></i>', '<i class="fa-solid fa-star"></i>'];
+const container = document.getElementById('floating-notes');
+function spawnNote() {
+  if(!container) return;
+  const el = document.createElement('div');
+  el.className = 'floating-note';
+  el.innerHTML = notes[Math.floor(Math.random()*notes.length)];
+  el.style.left = Math.random()*96 + 'vw';
+  el.style.fontSize = (1 + Math.random()*1.8) + 'em';
+  el.style.animationDuration = (12 + Math.random()*12) + 's';
+  container.appendChild(el);
+  setTimeout(() => el.remove(), 18000);
+}
+setInterval(spawnNote, 1300);
+for(let i=0;i<6;i++) spawnNote();
