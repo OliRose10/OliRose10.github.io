@@ -987,3 +987,10 @@ nav .nav-link:focus {
 [data-theme="dark"] .faq-question:focus {
   background: #23242a;
 }
+.hero-wave {
+  position: absolute;
+  top: -1px; left: 0; width: 100%; z-index: 2;
+  pointer-events: none;
+  line-height: 0;
+}
+.hero-section { position: relative; overflow: hidden; }
