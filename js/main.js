@@ -112,17 +112,19 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
-// Animated section/card reveal
+// Staggered scroll-fade-in animation
 function revealOnScroll() {
-  document.querySelectorAll('.scroll-fade-in').forEach(el => {
+  document.querySelectorAll('.scroll-fade-in').forEach((el, idx) => {
     if (!el.classList.contains('revealed')) {
       const rect = el.getBoundingClientRect();
       if (rect.top < window.innerHeight - 40) {
-        el.classList.add('revealed');
+        setTimeout(() => el.classList.add('revealed'), idx*90);
       }
     }
   });
 }
+window.addEventListener('scroll', revealOnScroll);
+window.addEventListener('DOMContentLoaded', revealOnScroll);
 window.addEventListener('scroll', revealOnScroll);
 window.addEventListener('DOMContentLoaded', revealOnScroll);
 // Parallax hero on scroll and mousemove
