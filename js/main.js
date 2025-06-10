@@ -1,4 +1,4 @@
-// Enhanced main.js for OliRose10.github.io
+// Fully improved main.js for OliRose10.github.io
 
 document.addEventListener("DOMContentLoaded", function () {
   // ==== Typewriter Effect for Hero ====
@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
   if (typewriter) {
     const text = "Specialist finance, tax & business support for musicians, indie labels & creatives.";
     let i = 0;
+    typewriter.textContent = "";
     function typing() {
       if (i < text.length) {
         typewriter.textContent += text.charAt(i);
@@ -15,7 +16,6 @@ document.addEventListener("DOMContentLoaded", function () {
         typewriter.textContent += " ";
       }
     }
-    typewriter.textContent = ""; // Clear on reload
     typing();
   }
 
@@ -31,13 +31,12 @@ document.addEventListener("DOMContentLoaded", function () {
       // Accessibility: toggle aria-expanded
       btn.setAttribute("aria-expanded", isOpen);
     });
-    // ARIA setup
     btn.setAttribute("aria-expanded", "false");
   });
 
   // ==== Back to Top Button ====
   const backToTop = document.getElementById("backToTop");
-  if(backToTop) {
+  if (backToTop) {
     window.addEventListener("scroll", () => {
       if (window.scrollY > 400) {
         backToTop.classList.add("show");
@@ -95,8 +94,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // ==== Skip-link Accessibility ====
   const skipLink = document.querySelector('.skip-link');
-  if(skipLink) {
-    skipLink.addEventListener('click', function(e) {
+  if (skipLink) {
+    skipLink.addEventListener('click', function (e) {
       const mainContent = document.getElementById('mainContent');
       if (mainContent) mainContent.setAttribute('tabindex', '-1');
       setTimeout(() => mainContent && mainContent.focus(), 10);
