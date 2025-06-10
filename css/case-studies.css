@@ -1,0 +1,33 @@
+.case-grid {
+  display: flex;
+  gap: 2em;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.case-card {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  box-shadow: 0 4px 18px var(--accent)14;
+  padding: 1.7em 1.2em 1.3em 1.2em;
+  max-width: 330px;
+  min-width: 210px;
+  transition: box-shadow .3s, transform .3s;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.case-card:hover {
+  box-shadow: 0 12px 32px var(--accent)19;
+  transform: translateY(-7px) scale(1.04);
+}
+.case-card h3 {
+  margin-top: 0.3em;
+  font-size: 1.13em;
+  color: var(--accent);
+}
+.case-card ul {
+  margin-top: 0.8em;
+  color: var(--text-main);
+  font-size: 1em;
+  padding-left: 1.2em;
+}
