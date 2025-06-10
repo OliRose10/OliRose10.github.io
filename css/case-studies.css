@@ -1,33 +1,64 @@
+/* ===== Retro Hi-Fi Case Study Styles Inspired by Image 1 ===== */
 .case-grid {
   display: flex;
-  gap: 2em;
+  gap: 2.2em;
   flex-wrap: wrap;
   justify-content: center;
+  padding-bottom: 1.2em;
 }
 .case-card {
-  background: var(--bg-card);
-  border-radius: var(--radius);
-  box-shadow: 0 4px 18px var(--accent)14;
-  padding: 1.7em 1.2em 1.3em 1.2em;
-  max-width: 330px;
+  background: linear-gradient(107deg,#FFF8F0 75%,#C9A06317 100%);
+  border-radius: 22px;
+  box-shadow: 0 6px 32px #C9A06333;
+  padding: 1.8em 1.3em 1.5em 1.3em;
+  max-width: 340px;
   min-width: 210px;
-  transition: box-shadow .3s, transform .3s;
+  border: 2.5px solid #A77632;
+  transition: box-shadow .33s, transform .33s, border .17s;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  margin-bottom: 1.2em;
+  z-index: 3;
+  position: relative;
 }
 .case-card:hover {
-  box-shadow: 0 12px 32px var(--accent)19;
-  transform: translateY(-7px) scale(1.04);
+  box-shadow: 0 20px 54px #5C7B4D33, 0 1px 0px #fff0;
+  transform: translateY(-11px) scale(1.04);
+  border-color: #5C7B4D;
+  background: linear-gradient(110deg,#E9C27B09 20%,#FFF8F0 100%);
 }
 .case-card h3 {
   margin-top: 0.3em;
-  font-size: 1.13em;
-  color: var(--accent);
+  font-size: 1.17em;
+  color: #1C87A1;
+  font-family: 'Playfair Display', serif;
+  font-weight: 800;
+  letter-spacing: 0.7px;
 }
 .case-card ul {
   margin-top: 0.8em;
-  color: var(--text-main);
-  font-size: 1em;
+  color: #684A2A;
+  font-size: 1.03em;
   padding-left: 1.2em;
+  font-family: 'Montserrat', Arial, sans-serif;
+  list-style-type: disc;
+}
+.case-card .service-icon {
+  font-size: 2em;
+  color: #C04F2A;
+  margin-bottom: 0.6em;
+  background: #FFF8F0;
+  border-radius: 50%;
+  padding: 0.13em;
+  box-shadow: 0 2px 7px #A7763233;
+  transition: color .15s, box-shadow .17s;
+}
+.case-card:hover .service-icon {
+  color: #5C7B4D;
+  box-shadow: 0 7px 20px #5C7B4D30;
+}
+@media (max-width: 600px) {
+  .case-grid { gap: 1em; }
+  .case-card { max-width: 99vw; padding: 1em 0.3em 1.1em 0.4em;}
 }
