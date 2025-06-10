@@ -785,3 +785,78 @@ footer .ska-accent {
 @media (max-width: 600px) {
   .ska-accent { width: 72px; height: 10px; }
 }
+/* === ADDED POLISH & ACCESSIBILITY === */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+a:focus, button:focus, input:focus, textarea:focus {
+  outline: 2.5px solid #3ee7fa;
+  outline-offset: 2px;
+  transition: outline 0.07s;
+}
+/* Ska checkerboard divider for between sections */
+.ska-divider {
+  margin: 2em auto 2.5em auto;
+  width: 180px;
+  height: 12px;
+  background: repeating-linear-gradient(90deg, #222 0 12px, #fff 12px 24px);
+  border-radius: 8px;
+  opacity: .28;
+}
+/* Improved accent card for "Business Advice" */
+.card.card-accent {
+  background: repeating-linear-gradient(135deg, #222 0 18px, #fff 18px 36px) !important;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+.card.card-accent::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(20,20,20,0.18);
+}
+.card.card-accent h3,
+.card.card-accent p {
+  position: relative;
+  z-index: 2;
+  color: #fff !important;
+  text-shadow: 1px 2px 8px #0008;
+}
+.card.card-accent:hover {
+  filter: brightness(1.1) contrast(1.05);
+}
+/* Button & banner tweak: more ska, sharper */
+.btn, .hero-btn {
+  border-radius: 16px;
+  padding: 0.9em 2.5em;
+  font-size: 1.08rem;
+  transition: background 0.15s, color 0.15s, box-shadow 0.2s;
+  box-shadow: 0 2px 10px #0001;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+.btn:hover, .hero-btn:hover {
+  background: #3ee7fa;
+  color: #181818;
+}
+/* Free guide banner ska stripe */
+.free-guide-banner::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 50%; transform: translateX(-50%);
+  bottom: 0;
+  width: 220px; height: 12px;
+  background: repeating-linear-gradient(90deg, #fff 0 12px, #111 12px 24px);
+  border-radius: 6px;
+  opacity: 0.35;
+}
+/* Card/section depth */
+.panel, .card, .stats-row > div {
+  border: 1.5px solid #e4e4e4;
+  box-shadow: 0 4px 24px #0001;
+  border-radius: 18px;
+  background: #fff;
+}
