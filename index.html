@@ -1,367 +1,285 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-7EF5WTNETK"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-7EF5WTNETK');
-</script>
-
-  <link rel="manifest" href="manifest.json">
-
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Oliver's Finance for Musicians",
-  "url": "https://olirose10.github.io/",
-  "logo": "https://olirose10.github.io/images/logo.png",
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "telephone": "+44-123-456-7890",
-    "contactType": "Customer Service",
-    "areaServed": "GB",
-    "availableLanguage": "English"
-  },
-  "sameAs": [
-    "https://twitter.com/yourhandle",
-    "https://www.facebook.com/yourprofile",
-    "https://www.instagram.com/yourprofile",
-    "https://www.linkedin.com/in/yourprofile"
-  ]
-}
-</script>
-
+  <!-- Meta & Core -->
   <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- SEO & Social Meta Tags -->
-  <meta name="description" content="Oliver's Finance for Musicians: Expert bookkeeping, tax planning, and financial strategies for musicians, labels, and creatives." />
-  <meta name="keywords" content="Finance, Bookkeeping, Musicians, Tax Planning, Financial Strategy" />
-  <meta name="author" content="Oliver" />
-  <meta name="theme-color" content="#1e3c72" />
-  <title>Oliver's Finance for Musicians</title>
-  <link rel="stylesheet" href="css/style.css" />
-  <!-- Google Fonts & Font Awesome -->
-  <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" 
-        integrity="sha512-HHsOCqnpXSXwd/q8b6xZeXKfGJiA9bC09XQCD3OUwE/o5F/qvh22oX7rO1X6zYyQ780pK3zV6hGVEF4c2PZS3w==" 
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <!-- Optional: Animate.css for extra entrance animations -->
+  <title>Oliver's Finance for Musicians | Modern, Sleek, Practical Solutions</title>
+  <meta name="description" content="Modern finance, tax, and business services for musicians and creatives. Accessible, easy, and beautiful.">
+  <meta name="keywords" content="Finance, Musicians, Tax, Bookkeeping, Creative, Consulting, Modern, Business">
+  <meta name="theme-color" content="#0b68ff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#181b23" media="(prefers-color-scheme: dark)">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="images/favicon.ico">
+
+  <!-- Styles & Fonts -->
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Urbanist:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-  
-  <!-- New: Structured Data for SEO -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Oliver's Finance for Musicians",
-    "url": "https://olirose10.github.io",
-    "logo": "https://olirose10.github.io/images/logo.png",
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "telephone": "+44-123-456-7890",
-      "contactType": "Customer Service"
-    },
-    "sameAs": [
-      "https://twitter.com/yourhandle",
-      "https://www.facebook.com/yourprofile",
-      "https://www.instagram.com/yourprofile",
-      "https://www.linkedin.com/in/yourprofile"
-    ]
-  }
-  </script>
-  
+
+  <!-- Accessibility -->
+  <link rel="canonical" href="https://olirose10.github.io/"/>
+  <meta name="robots" content="index, follow">
 </head>
 <body>
   <!-- Preloader -->
   <div id="preloader" class="preloader">
     <div class="spinner"></div>
+    <span class="sr-only">Loading...</span>
   </div>
 
-  <!-- Modal for Newsletter Subscription -->
-  <div id="newsletterModal" class="modal">
-    <div class="modal-content animate__animated animate__zoomIn">
-      <span id="modalClose" class="close">&times;</span>
-      <h2>Subscribe to Our Newsletter!</h2>
-      <p>Don't miss our latest financial tips and updates.</p>
-      <form id="modalSubscribeForm">
-        <input type="email" name="modalEmail" placeholder="Enter your email" required>
-        <button type="submit">Subscribe</button>
-      </form>
-    </div>
-  </div>
-
-  <!-- Scroll Progress Bar -->
-  <div id="scrollProgress"></div>
+  <!-- Accessibility Skip -->
+  <a href="#mainContent" class="skip-link">Skip to main content</a>
 
   <!-- Header -->
   <header>
     <div class="header-content">
-      <h1>🎸 Oliver’s Finance for Musicians 🎶</h1>
-      <p>Expert finance strategies for musicians, labels &amp; creatives.</p>
+      <h1>
+        <span class="badge" aria-hidden="true">🎧</span>
+        Oliver's Finance for Musicians
+        <span class="badge" aria-hidden="true">🎶</span>
+      </h1>
+      <p>Modern finance & tax strategies for musicians, labels & creative professionals.</p>
+      <div class="header-controls">
+        <button id="themeToggleBtn" class="theme-toggle" aria-label="Toggle light/dark mode" title="Switch theme"><i class="fa-solid fa-moon"></i> <span>Dark Mode</span></button>
+        <button id="menuToggleBtn" class="theme-toggle" aria-label="Open menu" title="Open navigation"><i class="fa-solid fa-bars"></i></button>
+      </div>
     </div>
-    <div class="header-controls">
-      <button id="darkModeToggle" aria-label="Toggle Dark Mode">Dark Mode</button>
-      <button id="menuToggle" aria-label="Toggle Navigation Menu" aria-expanded="false" aria-controls="navMenu">&#9776;</button>
-    </div>
+    <!-- Navigation -->
+    <nav id="navMenu" role="navigation" aria-label="Main navigation">
+      <ul>
+        <li><a href="index.html" class="nav-link active" aria-current="page">Home</a></li>
+        <li><a href="services.html" class="nav-link">Services</a></li>
+        <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+        <li><a href="testimonials.html" class="nav-link">Testimonials</a></li>
+        <li><a href="blog.html" class="nav-link">Blog</a></li>
+        <li><a href="pricing.html" class="nav-link">Pricing</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="faq.html" class="nav-link">FAQ</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+        <li><a href="subscribe.html" class="nav-link">Subscribe</a></li>
+        <li><a href="team.html" class="nav-link">Team</a></li>
+        <li><a href="case-studies.html" class="nav-link">Case Studies</a></li>
+        <li><a href="partners.html" class="nav-link">Partners</a></li>
+        <li><a href="video.html" class="nav-link">Video</a></li>
+        <li><a href="press.html" class="nav-link">Press</a></li>
+        <li><a href="awards.html" class="nav-link">Awards</a></li>
+        <li><a href="careers.html" class="nav-link">Careers</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <!-- Navigation (Multi‑page links) -->
-  <nav id="navMenu" role="navigation">
-    <ul>
-      <li><a href="index.html" class="nav-link active">Home</a></li>
-      <li><a href="services.html" class="nav-link">Services</a></li>
-      <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
-      <li><a href="testimonials.html" class="nav-link">Testimonials</a></li>
-      <li><a href="blog.html" class="nav-link">Blog</a></li>
-      <li><a href="pricing.html" class="nav-link">Pricing</a></li>
-      <li><a href="about.html" class="nav-link">About</a></li>
-      <li><a href="faq.html" class="nav-link">FAQ</a></li>
-      <li><a href="contact.html" class="nav-link">Contact</a></li>
-      <li><a href="subscribe.html" class="nav-link">Subscribe</a></li>
-      <li><a href="team.html" class="nav-link">Team</a></li>
-      <li><a href="case-studies.html" class="nav-link">Case Studies</a></li>
-      <li><a href="partners.html" class="nav-link">Partners</a></li>
-      <li><a href="video.html" class="nav-link">Video</a></li>
-      <li><a href="press.html" class="nav-link">Press</a></li>
-      <li><a href="awards.html" class="nav-link">Awards</a></li>
-      <li><a href="careers.html" class="nav-link">Careers</a></li>
-    </ul>
-  </nav>
-
-  <main>
-    <!-- Hero Section with Typewriter Effect -->
-    <section id="hero" class="hero fade-in">
-      <div class="hero-content animate__animated animate__fadeInDown">
-        <h2>Take Control of Your Finances</h2>
-        <!-- New Typewriter Tagline -->
-        <p id="typed" class="typewriter"></p>
-        <p>Offering expert bookkeeping, tax planning, and financial strategies tailored for the music industry.</p>
-        <a href="contact.html" class="cta-button">Get Started</a>
+  <!-- Main Content -->
+  <main id="mainContent">
+    <!-- Hero / Banner -->
+    <section class="hero fade-in" id="hero">
+      <div class="hero-content">
+        <h2>Take Control of Your Creative Finances</h2>
+        <p id="typewriterText" class="typewriter" aria-live="polite"></p>
+        <a href="contact.html" class="cta-button" aria-label="Get Started with a Consultation">Get Started</a>
       </div>
       <div class="hero-background">
-        <!-- Animated SVG background -->
-        <svg class="hero-svg" viewBox="0 0 800 200">
-          <path d="M0,100 C200,0 600,200 800,100" stroke="#fff" stroke-width="5" fill="none" />
-        </svg>
+        <svg width="100%" height="160" viewBox="0 0 1200 160" fill="none"><path d="M0,100 C300,0 900,200 1200,100" stroke="#0b68ff" stroke-width="10" fill="none" /></svg>
       </div>
     </section>
 
-    <!-- Services Section -->
+    <!-- Services -->
     <section id="services" class="fade-in">
-      <h2>Services</h2>
+      <h2 class="text-center">Our Services</h2>
       <div class="cards-container">
-        <div class="card service-box animate__animated animate__fadeInLeft">
+        <div class="card service-box">
           <h3>Bookkeeping</h3>
-          <p>Accurate financial tracking and reporting for musicians and labels.</p>
+          <p>Professional, musician-focused bookkeeping for total financial clarity.</p>
         </div>
-        <div class="card service-box animate__animated animate__fadeInUp">
+        <div class="card service-box">
           <h3>Tax Planning</h3>
-          <p>Maximize deductions with expert guidance to simplify your tax process.</p>
+          <p>Smart, creative-friendly tax planning to maximize your savings.</p>
         </div>
-        <div class="card service-box animate__animated animate__fadeInRight">
+        <div class="card service-box">
           <h3>Financial Strategy</h3>
-          <p>Customized strategies to help you grow your finances while empowering your creative vision.</p>
+          <p>Personalized financial strategy to help you hit all the right notes in business.</p>
+        </div>
+        <div class="card service-box">
+          <h3>Royalty Management</h3>
+          <p>Track, manage, and optimize your music royalties with ease and transparency.</p>
         </div>
       </div>
-      <!-- Additional Interactive Tabbed Content -->
+
+      <!-- Tabbed extra info -->
       <div class="tabs extra-tabs">
-        <button class="tab-link active" data-tab="serviceTab1">Overview</button>
-        <button class="tab-link" data-tab="serviceTab2">Case Studies</button>
-        <button class="tab-link" data-tab="serviceTab3">Testimonials</button>
+        <button class="tab-link active" data-tab="overview">Overview</button>
+        <button class="tab-link" data-tab="case">Case Studies</button>
+        <button class="tab-link" data-tab="testimonials">Testimonials</button>
+        <button class="tab-link" data-tab="extras">Extras</button>
       </div>
-      <div class="tab-content active" id="serviceTab1">
-        <p>We cover every aspect of your financial needs—from setup to strategy, so you hit all the right notes.</p>
+      <div class="tab-content active" id="overview">
+        <p>From setup to long-term strategy, we help musicians and creatives thrive financially—without the jargon.</p>
       </div>
-      <div class="tab-content" id="serviceTab2">
-        <p>Discover how we have helped creative professionals with our bespoke financial solutions.</p>
+      <div class="tab-content" id="case">
+        <ul>
+          <li>Helped an indie label reduce taxes by 35% in one year.</li>
+          <li>Developed automated reporting for a touring musician.</li>
+          <li>Created custom royalty dashboards for producers.</li>
+        </ul>
       </div>
-      <div class="tab-content" id="serviceTab3">
-        <p>Our clients love our work! Read their inspiring stories.</p>
+      <div class="tab-content" id="testimonials">
+        <blockquote>“I finally understand my finances, and I’m actually excited for tax season!” — <strong>DJ Echo</strong></blockquote>
+        <blockquote>“The royalty manager feature is a game changer.” — <strong>Indie Label Owner</strong></blockquote>
+      </div>
+      <div class="tab-content" id="extras">
+        <p>Ask us about our exclusive webinars, free resources, and member discounts!</p>
       </div>
     </section>
 
-    <!-- Portfolio Section with Filter Options -->
+    <!-- Portfolio -->
     <section id="portfolio" class="fade-in">
-      <h2>Portfolio</h2>
-      <p>A selection of projects and clients we’ve worked with.</p>
-      <!-- New Portfolio Filter Buttons -->
+      <h2 class="text-center">Portfolio</h2>
       <div class="portfolio-filters">
         <button class="filter-btn active" data-filter="all">All</button>
         <button class="filter-btn" data-filter="artist">Artists</button>
         <button class="filter-btn" data-filter="label">Labels</button>
         <button class="filter-btn" data-filter="creative">Creatives</button>
+        <button class="filter-btn" data-filter="bands">Bands</button>
       </div>
       <div class="cards-container portfolio-grid">
-        <div class="card portfolio-item animate__animated animate__zoomIn" data-category="artist">
-          <h3>Artist A</h3>
-          <p>Financial Planning</p>
-        </div>
-        <div class="card portfolio-item animate__animated animate__zoomIn" data-category="label">
-          <h3>Label B</h3>
-          <p>Tax Optimization</p>
-        </div>
-        <div class="card portfolio-item animate__animated animate__zoomIn" data-category="creative">
-          <h3>Creative C</h3>
-          <p>Budget Strategy</p>
-        </div>
+        <div class="card portfolio-item" data-category="artist"><h3>Artist A</h3><p>Financial Planning</p></div>
+        <div class="card portfolio-item" data-category="label"><h3>Label B</h3><p>Tax Optimization</p></div>
+        <div class="card portfolio-item" data-category="creative"><h3>Creative C</h3><p>Budget Strategy</p></div>
+        <div class="card portfolio-item" data-category="bands"><h3>Band D</h3><p>Touring Finances</p></div>
       </div>
     </section>
 
-    <!-- Testimonials Section -->
+    <!-- Testimonials Carousel -->
     <section id="testimonials" class="fade-in">
-      <h2>Testimonials</h2>
-      <p>What our clients have to say:</p>
-      <div class="cards-container">
-        <div class="card testimonial animate__animated animate__fadeInUp">
-          <p>"Oliver's expertise transformed my financial management. Truly exceptional!"</p>
-          <span>- Artist X</span>
+      <h2 class="text-center">Testimonials</h2>
+      <div class="carousel-container">
+        <button class="carousel-btn prev" aria-label="Previous testimonial"><i class="fa-solid fa-chevron-left"></i></button>
+        <div class="carousel-track">
+          <div class="carousel-item active">
+            <p>“Oliver’s advice transformed my accounting and my confidence.”</p>
+            <span>- Singer/Songwriter Z</span>
+          </div>
+          <div class="carousel-item">
+            <p>“Our label’s finances have never been so organized—or so easy!”</p>
+            <span>- Label CEO Q</span>
+          </div>
+          <div class="carousel-item">
+            <p>“The team is responsive, modern, and totally understands musicians.”</p>
+            <span>- Indie Producer S</span>
+          </div>
         </div>
-        <div class="card testimonial animate__animated animate__fadeInUp">
-          <p>"The tax planning advice saved our company a fortune. Highly recommended!"</p>
-          <span>- Label Y</span>
-        </div>
+        <button class="carousel-btn next" aria-label="Next testimonial"><i class="fa-solid fa-chevron-right"></i></button>
       </div>
     </section>
 
-    <!-- Blog Section with Social Share Buttons -->
+    <!-- Blog Highlights -->
     <section id="blog" class="fade-in">
-      <h2>Blog</h2>
-      <p>Latest insights on managing finances in the music industry.</p>
+      <h2 class="text-center">Latest Blog Insights</h2>
       <div class="cards-container">
-        <div class="card blog-post animate__animated animate__fadeInLeft">
+        <div class="card blog-post">
           <h3>How to Budget as a Musician</h3>
-          <p>Effective strategies for managing income and expenses.</p>
+          <p>Effective strategies for managing income and expenses as a performer or creator.</p>
           <a href="blog.html" class="read-more">Read More <i class="fa-solid fa-arrow-right"></i></a>
-          <!-- New Social Share Buttons -->
-          <div class="share-buttons">
-            <button class="share-btn" data-platform="facebook"><i class="fab fa-facebook-f"></i></button>
-            <button class="share-btn" data-platform="twitter"><i class="fab fa-twitter"></i></button>
-            <button class="share-btn" data-platform="linkedin"><i class="fab fa-linkedin-in"></i></button>
-          </div>
         </div>
-        <div class="card blog-post animate__animated animate__fadeInRight">
+        <div class="card blog-post">
           <h3>Tax Tips for Independent Artists</h3>
-          <p>Maximize your deductions and stay compliant with tax laws.</p>
+          <p>How to maximize deductions and stay compliant in an evolving industry.</p>
           <a href="blog.html" class="read-more">Read More <i class="fa-solid fa-arrow-right"></i></a>
-          <!-- New Social Share Buttons -->
-          <div class="share-buttons">
-            <button class="share-btn" data-platform="facebook"><i class="fab fa-facebook-f"></i></button>
-            <button class="share-btn" data-platform="twitter"><i class="fab fa-twitter"></i></button>
-            <button class="share-btn" data-platform="linkedin"><i class="fab fa-linkedin-in"></i></button>
-          </div>
+        </div>
+        <div class="card blog-post">
+          <h3>Digital Royalties: The New Frontier</h3>
+          <p>Everything you need to know about tracking and growing your digital income.</p>
+          <a href="blog.html" class="read-more">Read More <i class="fa-solid fa-arrow-right"></i></a>
         </div>
       </div>
     </section>
 
-    <!-- Pricing Section -->
+    <!-- Pricing -->
     <section id="pricing" class="fade-in">
-      <h2>Pricing</h2>
-      <p>Simple, transparent pricing for our services.</p>
+      <h2 class="text-center">Pricing</h2>
       <div class="cards-container">
-        <div class="card pricing-box animate__animated animate__fadeInUp">
-          <h3>Basic Package</h3>
+        <div class="card pricing-box">
+          <h3>Starter</h3>
           <ul>
             <li>Bookkeeping Setup</li>
-            <li>Monthly Financial Reports</li>
-            <li>Tax Guidance</li>
+            <li>Monthly Reports</li>
+            <li>Email Support</li>
           </ul>
-          <p class="price">£99/month</p>
+          <p class="price">£49/month</p>
         </div>
-        <div class="card pricing-box animate__animated animate__fadeInUp">
-          <h3>Premium Package</h3>
+        <div class="card pricing-box">
+          <h3>Pro</h3>
           <ul>
-            <li>Everything in Basic</li>
-            <li>Personalized Financial Strategy</li>
-            <li>One-on-One Consultations</li>
+            <li>All Starter Features</li>
+            <li>Personal Tax Planning</li>
+            <li>Quarterly Strategy Call</li>
+          </ul>
+          <p class="price">£109/month</p>
+        </div>
+        <div class="card pricing-box">
+          <h3>Premium</h3>
+          <ul>
+            <li>All Pro Features</li>
+            <li>Royalty Management</li>
+            <li>Priority Support</li>
           </ul>
           <p class="price">£199/month</p>
         </div>
       </div>
     </section>
 
-    <!-- About Section -->
+    <!-- About & Team -->
     <section id="about" class="fade-in">
-      <h2>About Us</h2>
-      <p>
-        We’re passionate about turning financial chaos into harmony. Combining a love for music with financial expertise, we empower musicians, labels, and creatives to thrive.
-      </p>
-      <div class="about-content">
-        <img src="images/about.jpg" alt="About Oliver's Finance" class="about-img" />
-        <div class="about-text">
-          <p>
-            Our journey started with the belief that creative professionals deserve tailored financial strategies. We blend innovation with proven techniques to deliver solutions that resonate with your artistic vision.
-          </p>
+      <h2 class="text-center">About Us</h2>
+      <div class="about-content cards-container">
+        <div class="card about-card">
+          <img src="images/about.jpg" alt="About Oliver's Finance" class="about-img" />
+          <div class="about-text">
+            <p>We help creatives and musicians thrive in the business side of music. Our team combines financial expertise, tech, and a love of music for world-class service.</p>
+          </div>
+        </div>
+        <div class="card team-card">
+          <h3>Meet the Team</h3>
+          <ul>
+            <li><strong>Alexandra Stone</strong> - CFO</li>
+            <li><strong>Benjamin King</strong> - Tax Specialist</li>
+            <li><strong>Cassandra Lee</strong> - Bookkeeping Expert</li>
+            <li><strong>Jordan Cruz</strong> - Royalties Analyst</li>
+          </ul>
         </div>
       </div>
     </section>
 
-    <!-- FAQ Section -->
+    <!-- FAQ -->
     <section id="faq" class="fade-in">
-      <h2>Frequently Asked Questions</h2>
-      <div class="faq-item">
-        <button class="faq-question">
-          What services do you offer?
-          <i class="fa-solid fa-chevron-down"></i>
-        </button>
-        <div class="faq-answer">
-          <p>
-            Comprehensive bookkeeping, tax planning, and tailored financial strategies for creative professionals.
-          </p>
+      <h2 class="text-center">Frequently Asked Questions</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question">What services do you offer? <i class="fa-solid fa-chevron-down"></i></button>
+          <div class="faq-answer"><p>Comprehensive bookkeeping, tax planning, royalty management, and custom financial strategy for creatives.</p></div>
         </div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question">
-          How do I get started?
-          <i class="fa-solid fa-chevron-down"></i>
-        </button>
-        <div class="faq-answer">
-          <p>
-            Simply fill out our contact form below and we’ll schedule a consultation to assess your needs.
-          </p>
+        <div class="faq-item">
+          <button class="faq-question">How do I get started? <i class="fa-solid fa-chevron-down"></i></button>
+          <div class="faq-answer"><p>Just fill out the contact form below, and we’ll schedule your free consultation.</p></div>
         </div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question">
-          Do you offer custom packages?
-          <i class="fa-solid fa-chevron-down"></i>
-        </button>
-        <div class="faq-answer">
-          <p>
-            Absolutely! Our Premium Package is fully customizable to suit your specific financial goals.
-          </p>
+        <div class="faq-item">
+          <button class="faq-question">Do you offer custom packages? <i class="fa-solid fa-chevron-down"></i></button>
+          <div class="faq-answer"><p>Absolutely! We tailor all services to your needs—just ask during your consultation.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Can I switch between light and dark mode? <i class="fa-solid fa-chevron-down"></i></button>
+          <div class="faq-answer"><p>Yes! Use the theme toggle at the top to choose your preferred mode anytime.</p></div>
         </div>
       </div>
     </section>
 
-    <!-- New: Statistics Section (Achievements Counters) -->
-    <section id="statistics" class="fade-in">
-      <h2>Our Achievements</h2>
-      <div class="stats-container">
-        <div class="stat-item">
-          <span class="stat-number" data-target="100">0</span>
-          <p>Clients Served</p>
-        </div>
-        <div class="stat-item">
-          <span class="stat-number" data-target="50">0</span>
-          <p>Projects Completed</p>
-        </div>
-        <div class="stat-item">
-          <span class="stat-number" data-target="20">0</span>
-          <p>Awards Won</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact Section -->
+    <!-- Contact & Newsletter -->
     <section id="contact" class="fade-in">
-      <h2>Contact</h2>
-      <p>Let’s work together! Fill out the form below:</p>
-      <form action="contact.html" method="post">
+      <h2 class="text-center">Contact</h2>
+      <p class="text-center">Let’s work together! Fill out the form below, and we’ll get in touch.</p>
+      <form id="contactForm" autocomplete="on" novalidate>
         <div class="form-group">
           <label for="contactName">Your Name</label>
           <input id="contactName" name="contactName" type="text" placeholder="Your Name" required>
@@ -374,142 +292,44 @@
           <label for="contactMessage">Your Message</label>
           <textarea id="contactMessage" name="contactMessage" placeholder="Your Message" required></textarea>
         </div>
-        <button type="submit">Send Message</button>
+        <button type="submit" class="cta-button">Send Message</button>
       </form>
     </section>
 
-    <!-- Subscribe Section -->
-    <section id="subscribe" class="fade-in">
-      <h2>Stay in the Loop</h2>
-      <p>Join our newsletter for the latest financial tips and insights.</p>
-      <form id="subscribeForm">
-        <input type="email" placeholder="Enter your email" required autocomplete="email">
-        <button type="submit">Subscribe <i class="fa-solid fa-paper-plane"></i></button>
-      </form>
-    </section>
-
-    <!-- Team Section -->
-    <section id="team" class="fade-in">
-      <h2>Meet The Team</h2>
-      <p>Our creative and experienced team is here to empower your success.</p>
-      <div class="cards-container team-cards">
-        <div class="card team-member animate__animated animate__flipInY">
-          <img src="images/team1.jpg" alt="Alexandra Stone">
-          <h3>Alexandra Stone</h3>
-          <p>Chief Financial Officer</p>
-          <div class="social-icons">
-            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-          </div>
-        </div>
-        <div class="card team-member animate__animated animate__flipInY">
-          <img src="images/team2.jpg" alt="Benjamin King">
-          <h3>Benjamin King</h3>
-          <p>Tax Specialist</p>
-          <div class="social-icons">
-            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-          </div>
-        </div>
-        <div class="card team-member animate__animated animate__flipInY">
-          <img src="images/team3.jpg" alt="Cassandra Lee">
-          <h3>Cassandra Lee</h3>
-          <p>Bookkeeping Expert</p>
-          <div class="social-icons">
-            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Case Studies Slider Section -->
-    <section id="case-studies" class="fade-in">
-      <h2>Case Studies</h2>
-      <p>Read our success stories from real creative professionals.</p>
-      <div class="slider-container">
-        <button class="slider-btn prev-btn" aria-label="Previous">&lt;</button>
-        <div class="slider">
-          <div class="slide active">
-            <img src="images/case1.jpg" alt="Case Study 1">
-            <div class="slide-caption">
-              <h3>Case Study 1</h3>
-              <p>How we helped an indie band streamline their finances.</p>
-            </div>
-          </div>
-          <div class="slide">
-            <img src="images/case2.jpg" alt="Case Study 2">
-            <div class="slide-caption">
-              <h3>Case Study 2</h3>
-              <p>Optimizing tax strategies for a record label.</p>
-            </div>
-          </div>
-          <div class="slide">
-            <img src="images/case3.jpg" alt="Case Study 3">
-            <div class="slide-caption">
-              <h3>Case Study 3</h3>
-              <p>Transforming financial processes for creative professionals.</p>
-            </div>
-          </div>
-        </div>
-        <button class="slider-btn next-btn" aria-label="Next">&gt;</button>
-      </div>
-    </section>
-
-    <!-- Partners Section -->
-    <section id="partners" class="fade-in">
-      <h2>Our Partners</h2>
-      <p>Trusted by leading industry players.</p>
-      <div class="partners-logos">
-        <img src="images/partner1.png" alt="Partner 1">
-        <img src="images/partner2.png" alt="Partner 2">
-        <img src="images/partner3.png" alt="Partner 3">
-        <img src="images/partner4.png" alt="Partner 4">
-      </div>
-    </section>
-
-    <!-- Video Section -->
-    <section id="video" class="fade-in">
-      <h2>Watch Our Webinar</h2>
-      <p>Learn more about managing your finances in the digital age.</p>
-      <div class="video-container">
-        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Financial Strategy Webinar" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      </div>
-    </section>
-
-    <!-- Press & Awards Section -->
-    <section id="press" class="fade-in">
-      <h2>Press & Awards</h2>
-      <p>As seen in the media.</p>
-      <div class="press-logos">
-        <img src="images/press1.png" alt="Press Logo 1">
-        <img src="images/press2.png" alt="Press Logo 2">
-        <img src="images/press3.png" alt="Press Logo 3">
-        <img src="images/press4.png" alt="Press Logo 4">
-      </div>
-    </section>
-
-    <!-- Live Chat Widget -->
-    <div id="liveChat" class="live-chat">
-      <button id="chatToggle" aria-label="Toggle Chat"><i class="fa-solid fa-comment"></i></button>
-      <div id="chatBox" class="chat-box">
-        <div class="chat-header">
-          <h3>Live Chat</h3>
-          <button id="chatClose" aria-label="Close Chat">&times;</button>
-        </div>
-        <div class="chat-messages">
-          <p class="chat-message bot">Hello, how can we help you?</p>
-        </div>
-        <form id="chatForm" class="chat-form">
-          <input type="text" placeholder="Type your message..." required>
-          <button type="submit"><i class="fa-solid fa-paper-plane"></i></button>
+    <!-- Newsletter Modal -->
+    <div id="newsletterModal" class="modal hide" role="dialog" aria-modal="true" aria-labelledby="newsletterTitle">
+      <div class="modal-content animate__animated animate__zoomIn">
+        <button id="modalClose" class="close" aria-label="Close newsletter modal">&times;</button>
+        <h2 id="newsletterTitle">Subscribe to Our Newsletter!</h2>
+        <p>Don't miss our latest financial tips and updates.</p>
+        <form id="modalSubscribeForm">
+          <input type="email" name="modalEmail" placeholder="Enter your email" required>
+          <button type="submit" class="cta-button">Subscribe</button>
         </form>
       </div>
     </div>
   </main>
 
+  <!-- Live Chat Widget -->
+  <div id="liveChat" class="live-chat hide" aria-live="polite">
+    <button id="chatToggle" aria-label="Open chat"><i class="fa-solid fa-comment"></i></button>
+    <div id="chatBox" class="chat-box hide" role="region" aria-label="Live Chat">
+      <div class="chat-header">
+        <h3>Live Chat</h3>
+        <button id="chatClose" aria-label="Close chat">&times;</button>
+      </div>
+      <div class="chat-messages">
+        <p class="chat-message bot">Hello! How can we help you?</p>
+      </div>
+      <form id="chatForm" class="chat-form">
+        <input type="text" placeholder="Type your message..." required>
+        <button type="submit"><i class="fa-solid fa-paper-plane"></i></button>
+      </form>
+    </div>
+  </div>
+
   <!-- Back to Top Button -->
-  <button id="backToTop" aria-label="Back to Top">↑</button>
+  <button id="backToTop" aria-label="Back to Top" title="Back to Top">↑</button>
 
   <!-- Footer -->
   <footer>
@@ -518,6 +338,7 @@
       <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
       <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
       <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      <a href="mailto:contact@olirose10.github.io" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
     </div>
     <p>&copy; 2025 Oliver's Finance for Musicians. All Rights Reserved.</p>
   </footer>
