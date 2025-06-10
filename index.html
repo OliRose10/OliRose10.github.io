@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="css/stats.css">
   <link rel="stylesheet" href="css/blog.css">
   <link rel="stylesheet" href="css/case-studies.css">
+  <link rel="stylesheet" href="css/carousel.css">
   <script src="https://kit.fontawesome.com/fe7fbe4e2b.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -58,6 +59,8 @@
         <li><a href="#services" class="nav-link">Services</a></li>
         <li><a href="#faq" class="nav-link">FAQ</a></li>
         <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
+        <li><a href="#blog" class="nav-link">Blog</a></li>
+        <li><a href="#case-studies" class="nav-link">Case Studies</a></li>
         <li><a href="#contact" class="nav-link">Contact</a></li>
       </ul>
     </nav>
@@ -116,19 +119,19 @@
       </svg>
     </div>
     <div class="stats-row">
-  <div class="stat">
-    <span class="stat-number" data-count="35">0</span>
-    <span class="stat-label">Musicians Helped</span>
-  </div>
-  <div class="stat">
-    <span class="stat-number" data-count="120">0</span>
-    <span class="stat-label">Tax Returns Filed</span>
-  </div>
-  <div class="stat">
-    <span class="stat-number" data-count="95000">0</span>
-    <span class="stat-label">Pounds Saved</span>
-  </div>
-</div>
+      <div class="stat">
+        <span class="stat-number" data-count="35">0</span>
+        <span class="stat-label">Musicians Helped</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number" data-count="120">0</span>
+        <span class="stat-label">Tax Returns Filed</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number" data-count="95000">0</span>
+        <span class="stat-label">Pounds Saved</span>
+      </div>
+    </div>
     <!-- WHY WORK WITH ME -->
     <section id="whyme" class="fade-in section-band">
       <div class="particles" id="particles-why">
@@ -244,29 +247,33 @@
         <path fill="#6c7aff" fill-opacity="0.12" d="M0,64L60,69.3C120,75,240,85,360,90.7C480,96,600,96,720,85.3C840,75,960,53,1080,42.7C1200,32,1320,32,1380,32L1440,32L1440,120L1380,120C1320,120,1200,120,1080,120C960,120,840,120,720,120C600,120,480,120,360,120C240,120,120,120,60,120L0,120Z"/>
       </svg>
     </div>
-    <!-- TESTIMONIALS -->
+    <!-- TESTIMONIALS CAROUSEL -->
     <section id="testimonials" class="fade-in section-band">
       <span class="section-subtitle">What Clients Say</span>
       <h2>Testimonials</h2>
-      <div class="cards-container">
-        <div class="card testimonial">
-          <span class="service-icon"><i class="fa-solid fa-heart"></i></span>
-          <p>“Oliver’s advice gave me clarity and confidence about my music finances. Highly recommended!”</p>
-          <span>- Singer/Songwriter</span>
+      <div class="testimonial-carousel">
+        <button class="carousel-btn prev" aria-label="Previous testimonial"><i class="fa-solid fa-chevron-left"></i></button>
+        <div class="carousel-track">
+          <div class="carousel-item active">
+            <span class="service-icon"><i class="fa-solid fa-heart"></i></span>
+            <p>“Oliver’s advice gave me clarity and confidence about my music finances. Highly recommended!”</p>
+            <span>- Singer/Songwriter</span>
+          </div>
+          <div class="carousel-item">
+            <span class="service-icon"><i class="fa-solid fa-thumbs-up"></i></span>
+            <p>“Professional, responsive, and knows the music business inside out.”</p>
+            <span>- Indie Label Owner</span>
+          </div>
+          <div class="carousel-item">
+            <span class="service-icon"><i class="fa-solid fa-star"></i></span>
+            <p>“Oliver made my tax return painless and helped me get organized for the year ahead.”</p>
+            <span>- Touring Musician</span>
+          </div>
+          <div class="carousel-item">
+            <p>Want to leave a testimonial? <a href="#contact">Get in touch!</a></p>
+          </div>
         </div>
-        <div class="card testimonial">
-          <span class="service-icon"><i class="fa-solid fa-thumbs-up"></i></span>
-          <p>“Professional, responsive, and knows the music business inside out.”</p>
-          <span>- Indie Label Owner</span>
-        </div>
-        <div class="card testimonial">
-          <span class="service-icon"><i class="fa-solid fa-star"></i></span>
-          <p>“Oliver made my tax return painless and helped me get organized for the year ahead.”</p>
-          <span>- Touring Musician</span>
-        </div>
-        <div class="card testimonial">
-          <p>Want to leave a testimonial? <a href="#contact">Get in touch!</a></p>
-        </div>
+        <button class="carousel-btn next" aria-label="Next testimonial"><i class="fa-solid fa-chevron-right"></i></button>
       </div>
       <div class="testimonials-graphic">
         <i class="fa-solid fa-users"></i>
@@ -279,68 +286,80 @@
         <path fill="#6c7aff" fill-opacity="0.12" d="M0,64L60,69.3C120,75,240,85,360,90.7C480,96,600,96,720,85.3C840,75,960,53,1080,42.7C1200,32,1320,32,1380,32L1440,32L1440,120L1380,120C1320,120,1200,120,1080,120C960,120,840,120,720,120C600,120,480,120,360,120C240,120,120,120,60,120L0,120Z"/>
       </svg>
     </div>
+    <!-- BLOG SECTION -->
     <section id="blog" class="fade-in">
-  <span class="section-subtitle">Resources & Tips</span>
-  <h2>Blog & Free Guides</h2>
-  <div class="blog-grid">
-    <article class="blog-card">
-      <img src="images/blog1.jpg" alt="Finance tips for musicians illustration">
-      <h3><a href="blog-post-1.html">5 Tax Essentials for Musicians</a></h3>
-      <p>Confused by self-assessment? Here are 5 things every artist should know to stay stress-free at tax time.</p>
-      <a class="button ghost" href="blog-post-1.html">Read More</a>
-    </article>
-    <article class="blog-card">
-      <img src="images/blog2.jpg" alt="Budgeting illustration">
-      <h3><a href="blog-post-2.html">How to Budget a Music Release</a></h3>
-      <p>Step-by-step guide for planning your next single, album, or tour—without breaking the bank.</p>
-      <a class="button ghost" href="blog-post-2.html">Read More</a>
-    </article>
-    <article class="blog-card">
-      <img src="images/blog3.jpg" alt="Royalty tracking illustration">
-      <h3><a href="blog-post-3.html">Royalty Tracking Made Simple</a></h3>
-      <p>Track your streaming, merch, and sync income—in plain English, with free spreadsheet templates.</p>
-      <a class="button ghost" href="blog-post-3.html">Read More</a>
-    </article>
-  </div>
-  <div class="centered" style="margin-top:2em;">
-    <a href="free-guide.pdf" class="cta-button" download>
-      <i class="fa-solid fa-download"></i> Download Free Guide: "Music Finance Checklist"
-    </a>
-  </div>
-</section>
+      <span class="section-subtitle">Resources & Tips</span>
+      <h2>Blog & Free Guides</h2>
+      <div class="blog-grid">
+        <article class="blog-card">
+          <img src="images/blog1.jpg" alt="Finance tips for musicians illustration">
+          <h3><a href="blog-post-1.html">5 Tax Essentials for Musicians</a></h3>
+          <p>Confused by self-assessment? Here are 5 things every artist should know to stay stress-free at tax time.</p>
+          <a class="button ghost" href="blog-post-1.html">Read More</a>
+        </article>
+        <article class="blog-card">
+          <img src="images/blog2.jpg" alt="Budgeting illustration">
+          <h3><a href="blog-post-2.html">How to Budget a Music Release</a></h3>
+          <p>Step-by-step guide for planning your next single, album, or tour—without breaking the bank.</p>
+          <a class="button ghost" href="blog-post-2.html">Read More</a>
+        </article>
+        <article class="blog-card">
+          <img src="images/blog3.jpg" alt="Royalty tracking illustration">
+          <h3><a href="blog-post-3.html">Royalty Tracking Made Simple</a></h3>
+          <p>Track your streaming, merch, and sync income—in plain English, with free spreadsheet templates.</p>
+          <a class="button ghost" href="blog-post-3.html">Read More</a>
+        </article>
+      </div>
+      <div class="centered" style="margin-top:2em;">
+        <a href="free-guide.pdf" class="cta-button" download>
+          <i class="fa-solid fa-download"></i> Download Free Guide: "Music Finance Checklist"
+        </a>
+      </div>
+    </section>
+    <div class="svg-divider">
+      <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill="#6c7aff" fill-opacity="0.12" d="M0,64L60,69.3C120,75,240,85,360,90.7C480,96,600,96,720,85.3C840,75,960,53,1080,42.7C1200,32,1320,32,1380,32L1440,32L1440,120L1380,120C1320,120,1200,120,1080,120C960,120,840,120,720,120C600,120,480,120,360,120C240,120,120,120,60,120L0,120Z"/>
+      </svg>
+    </div>
+    <!-- CASE STUDIES SECTION -->
     <section id="case-studies" class="fade-in section-band">
-  <span class="section-subtitle">Real Results</span>
-  <h2>Success Stories</h2>
-  <div class="case-grid">
-    <div class="case-card">
-      <span class="service-icon"><i class="fa-solid fa-user"></i></span>
-      <h3>Indie Singer-Songwriter</h3>
-      <ul>
-        <li>Saved £1,200 on tax by optimizing expense claims</li>
-        <li>Set up first-ever tour budget</li>
-        <li>Now releasing music stress-free!</li>
-      </ul>
+      <span class="section-subtitle">Real Results</span>
+      <h2>Success Stories</h2>
+      <div class="case-grid">
+        <div class="case-card">
+          <span class="service-icon"><i class="fa-solid fa-user"></i></span>
+          <h3>Indie Singer-Songwriter</h3>
+          <ul>
+            <li>Saved £1,200 on tax by optimizing expense claims</li>
+            <li>Set up first-ever tour budget</li>
+            <li>Now releasing music stress-free!</li>
+          </ul>
+        </div>
+        <div class="case-card">
+          <span class="service-icon"><i class="fa-solid fa-users"></i></span>
+          <h3>Small Label</h3>
+          <ul>
+            <li>Automated royalty tracking for 8 artists</li>
+            <li>Quarterly reports in plain English</li>
+            <li>Financial strategy for next-year growth</li>
+          </ul>
+        </div>
+        <div class="case-card">
+          <span class="service-icon"><i class="fa-solid fa-guitar"></i></span>
+          <h3>Touring Band</h3>
+          <ul>
+            <li>Built custom cashflow spreadsheet</li>
+            <li>Advice on VAT, merch, and gig contracts</li>
+            <li>Band now manages money with confidence</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <div class="svg-divider">
+      <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill="#6c7aff" fill-opacity="0.12" d="M0,64L60,69.3C120,75,240,85,360,90.7C480,96,600,96,720,85.3C840,75,960,53,1080,42.7C1200,32,1320,32,1380,32L1440,32L1440,120L1380,120C1320,120,1200,120,1080,120C960,120,840,120,720,120C600,120,480,120,360,120C240,120,120,120,60,120L0,120Z"/>
+      </svg>
     </div>
-    <div class="case-card">
-      <span class="service-icon"><i class="fa-solid fa-users"></i></span>
-      <h3>Small Label</h3>
-      <ul>
-        <li>Automated royalty tracking for 8 artists</li>
-        <li>Quarterly reports in plain English</li>
-        <li>Financial strategy for next-year growth</li>
-      </ul>
-    </div>
-    <div class="case-card">
-      <span class="service-icon"><i class="fa-solid fa-guitar"></i></span>
-      <h3>Touring Band</h3>
-      <ul>
-        <li>Built custom cashflow spreadsheet</li>
-        <li>Advice on VAT, merch, and gig contracts</li>
-        <li>Band now manages money with confidence</li>
-      </ul>
-    </div>
-  </div>
-</section>
     <!-- CONTACT -->
     <section id="contact" class="fade-in">
       <span class="section-subtitle">Let’s Talk</span>
@@ -391,5 +410,6 @@
   </footer>
   <script src="js/main.js"></script>
   <script src="js/stats.js"></script>
+  <script src="js/carousel.js"></script>
 </body>
 </html>
