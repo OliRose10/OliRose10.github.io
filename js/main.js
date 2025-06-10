@@ -112,3 +112,16 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
+// Animated section/card reveal
+function revealOnScroll() {
+  document.querySelectorAll('.scroll-fade-in').forEach(el => {
+    if (!el.classList.contains('revealed')) {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 40) {
+        el.classList.add('revealed');
+      }
+    }
+  });
+}
+window.addEventListener('scroll', revealOnScroll);
+window.addEventListener('DOMContentLoaded', revealOnScroll);
