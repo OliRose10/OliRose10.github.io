@@ -12,11 +12,34 @@
   <link rel="stylesheet" href="css/style.css" />
   <!-- Google Fonts & Font Awesome -->
   <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
-        integrity="sha512-HHsOCqnpXSXwd/q8b6xZeXKfGJiA9bC09XQCD3OUwE/o5F/qvh22oX7rO1X6zYyQ780pK3zV6hGVEF4c2PZS3w=="
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" 
+        integrity="sha512-HHsOCqnpXSXwd/q8b6xZeXKfGJiA9bC09XQCD3OUwE/o5F/qvh22oX7rO1X6zYyQ780pK3zV6hGVEF4c2PZS3w==" 
         crossorigin="anonymous" referrerpolicy="no-referrer" />
   <!-- Optional: Animate.css for extra entrance animations -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  
+  <!-- New: Structured Data for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Oliver's Finance for Musicians",
+    "url": "https://olirose10.github.io",
+    "logo": "https://olirose10.github.io/images/logo.png",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+44-123-456-7890",
+      "contactType": "Customer Service"
+    },
+    "sameAs": [
+      "https://twitter.com/yourhandle",
+      "https://www.facebook.com/yourprofile",
+      "https://www.instagram.com/yourprofile",
+      "https://www.linkedin.com/in/yourprofile"
+    ]
+  }
+  </script>
+  
 </head>
 <body>
   <!-- Preloader -->
@@ -93,7 +116,7 @@
       </div>
     </section>
 
-    <!-- Services Section (as originally provided, plus additional interactive tabs) -->
+    <!-- Services Section -->
     <section id="services" class="fade-in">
       <h2>Services</h2>
       <div class="cards-container">
@@ -170,7 +193,7 @@
       </div>
     </section>
 
-    <!-- Blog Section (unchanged from your original content) -->
+    <!-- Blog Section with Social Share Buttons -->
     <section id="blog" class="fade-in">
       <h2>Blog</h2>
       <p>Latest insights on managing finances in the music industry.</p>
@@ -179,11 +202,23 @@
           <h3>How to Budget as a Musician</h3>
           <p>Effective strategies for managing income and expenses.</p>
           <a href="blog.html" class="read-more">Read More <i class="fa-solid fa-arrow-right"></i></a>
+          <!-- New Social Share Buttons -->
+          <div class="share-buttons">
+            <button class="share-btn" data-platform="facebook"><i class="fab fa-facebook-f"></i></button>
+            <button class="share-btn" data-platform="twitter"><i class="fab fa-twitter"></i></button>
+            <button class="share-btn" data-platform="linkedin"><i class="fab fa-linkedin-in"></i></button>
+          </div>
         </div>
         <div class="card blog-post animate__animated animate__fadeInRight">
           <h3>Tax Tips for Independent Artists</h3>
           <p>Maximize your deductions and stay compliant with tax laws.</p>
           <a href="blog.html" class="read-more">Read More <i class="fa-solid fa-arrow-right"></i></a>
+          <!-- New Social Share Buttons -->
+          <div class="share-buttons">
+            <button class="share-btn" data-platform="facebook"><i class="fab fa-facebook-f"></i></button>
+            <button class="share-btn" data-platform="twitter"><i class="fab fa-twitter"></i></button>
+            <button class="share-btn" data-platform="linkedin"><i class="fab fa-linkedin-in"></i></button>
+          </div>
         </div>
       </div>
     </section>
@@ -268,7 +303,7 @@
       </div>
     </section>
 
-    <!-- New Statistics Section (Achievements Counter) -->
+    <!-- New: Statistics Section (Achievements Counters) -->
     <section id="statistics" class="fade-in">
       <h2>Our Achievements</h2>
       <div class="stats-container">
@@ -452,7 +487,7 @@
     <p>&copy; 2025 Oliver's Finance for Musicians. All Rights Reserved.</p>
   </footer>
 
-  <!-- Include JavaScript Files -->
+  <!-- JavaScript -->
   <script src="js/main.js"></script>
 </body>
 </html>
