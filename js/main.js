@@ -162,3 +162,51 @@ function spawnNote() {
 }
 setInterval(spawnNote, 1300);
 for(let i=0;i<6;i++) spawnNote();
+// Improved Testimonial Carousel: auto-scroll, pause on hover/focus, keyboard/swipe
+(function() {
+  const track = document.querySelector('.carousel-track');
+  const items = Array.from(document.querySelectorAll('.carousel-item'));
+  const dots = Array.from(document.querySelectorAll('.carousel-dot'));
+  let current = 0, timer = null, paused = false;
+
+  function show(index) {
+    items.forEach((item, i) => item.classList.toggle('active', i === index));
+    dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
+    current = index;
+    resetTimer();
+  }
+  function next() { show((current + 1) % items.length); }
+  function prev() { show((current - 1 + items.length) % items.length); }
+
+  function resetTimer() {
+    if(timer) clearTimeout(timer);
+    if(!paused) timer = setTimeout(next, 6000);
+  }
+
+  document.querySelector('.carousel-btn.prev').onclick = prev;
+  document.querySelector('.carousel-btn.next').onclick = next;
+  dots.forEach((dot, i) => dot.onclick = () => show(i));
+  document.querySelector('.testimonial-carousel').addEventListener('keydown', function(e) {
+    if(e.key === 'ArrowLeft') prev();
+    if(e.key === 'ArrowRight') next();
+  });
+
+  // Pause auto scroll on hover/focus
+  ['mouseenter','focusin'].forEach(evt =>
+    track.parentElement.addEventListener(evt, () => { paused=true; if(timer) clearTimeout(timer); })
+  );
+  ['mouseleave','focusout'].forEach(evt =>
+    track.parentElement.addEventListener(evt, () => { paused=false; resetTimer(); })
+  );
+
+  // Touch swipe
+  let startX = 0;
+  track.addEventListener('touchstart', e => startX = e.touches[0].clientX);
+  track.addEventListener('touchend', e => {
+    let endX = e.changedTouches[0].clientX;
+    if (endX - startX > 40) prev();
+    if (startX - endX > 40) next();
+  });
+
+  show(0);
+})();
