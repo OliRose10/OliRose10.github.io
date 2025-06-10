@@ -994,3 +994,18 @@ nav .nav-link:focus {
   line-height: 0;
 }
 .hero-section { position: relative; overflow: hidden; }
+#floating-notes {
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 1;
+}
+.floating-note {
+  position: absolute;
+  font-size: 1.6em;
+  color: #3ee7fa;
+  opacity: 0.10;
+  animation: floatNotes 18s linear infinite;
+}
+@keyframes floatNotes {
+  0% { transform: translateY(100vh) scale(0.9) rotate(0deg);}
+  100% { transform: translateY(-18vh) scale(1.15) rotate(40deg);}
+}
