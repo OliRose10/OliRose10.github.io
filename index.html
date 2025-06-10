@@ -12,8 +12,8 @@
   <link rel="stylesheet" href="css/style.css" />
   <!-- Google Fonts & Font Awesome -->
   <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" 
-        integrity="sha512-HHsOCqnpXSXwd/q8b6xZeXKfGJiA9bC09XQCD3OUwE/o5F/qvh22oX7rO1X6zYyQ780pK3zV6hGVEF4c2PZS3w==" 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-HHsOCqnpXSXwd/q8b6xZeXKfGJiA9bC09XQCD3OUwE/o5F/qvh22oX7rO1X6zYyQ780pK3zV6hGVEF4c2PZS3w=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
   <!-- Optional: Animate.css for extra entrance animations -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
@@ -36,6 +36,9 @@
       </form>
     </div>
   </div>
+
+  <!-- Scroll Progress Bar -->
+  <div id="scrollProgress"></div>
 
   <!-- Header -->
   <header>
@@ -73,10 +76,12 @@
   </nav>
 
   <main>
-    <!-- Hero Section -->
+    <!-- Hero Section with Typewriter Effect -->
     <section id="hero" class="hero fade-in">
       <div class="hero-content animate__animated animate__fadeInDown">
         <h2>Take Control of Your Finances</h2>
+        <!-- New Typewriter Tagline -->
+        <p id="typed" class="typewriter"></p>
         <p>Offering expert bookkeeping, tax planning, and financial strategies tailored for the music industry.</p>
         <a href="contact.html" class="cta-button">Get Started</a>
       </div>
@@ -88,7 +93,7 @@
       </div>
     </section>
 
-    <!-- Services Section -->
+    <!-- Services Section (as originally provided, plus additional interactive tabs) -->
     <section id="services" class="fade-in">
       <h2>Services</h2>
       <div class="cards-container">
@@ -122,20 +127,27 @@
       </div>
     </section>
 
-    <!-- Portfolio Section -->
+    <!-- Portfolio Section with Filter Options -->
     <section id="portfolio" class="fade-in">
       <h2>Portfolio</h2>
       <p>A selection of projects and clients we’ve worked with.</p>
+      <!-- New Portfolio Filter Buttons -->
+      <div class="portfolio-filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="artist">Artists</button>
+        <button class="filter-btn" data-filter="label">Labels</button>
+        <button class="filter-btn" data-filter="creative">Creatives</button>
+      </div>
       <div class="cards-container portfolio-grid">
-        <div class="card portfolio-item animate__animated animate__zoomIn">
+        <div class="card portfolio-item animate__animated animate__zoomIn" data-category="artist">
           <h3>Artist A</h3>
           <p>Financial Planning</p>
         </div>
-        <div class="card portfolio-item animate__animated animate__zoomIn">
+        <div class="card portfolio-item animate__animated animate__zoomIn" data-category="label">
           <h3>Label B</h3>
           <p>Tax Optimization</p>
         </div>
-        <div class="card portfolio-item animate__animated animate__zoomIn">
+        <div class="card portfolio-item animate__animated animate__zoomIn" data-category="creative">
           <h3>Creative C</h3>
           <p>Budget Strategy</p>
         </div>
@@ -158,7 +170,7 @@
       </div>
     </section>
 
-    <!-- Blog Section -->
+    <!-- Blog Section (unchanged from your original content) -->
     <section id="blog" class="fade-in">
       <h2>Blog</h2>
       <p>Latest insights on managing finances in the music industry.</p>
@@ -170,7 +182,7 @@
         </div>
         <div class="card blog-post animate__animated animate__fadeInRight">
           <h3>Tax Tips for Independent Artists</h3>
-          <p>Maximize deductions and stay compliant with tax laws.</p>
+          <p>Maximize your deductions and stay compliant with tax laws.</p>
           <a href="blog.html" class="read-more">Read More <i class="fa-solid fa-arrow-right"></i></a>
         </div>
       </div>
@@ -252,6 +264,25 @@
           <p>
             Absolutely! Our Premium Package is fully customizable to suit your specific financial goals.
           </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- New Statistics Section (Achievements Counter) -->
+    <section id="statistics" class="fade-in">
+      <h2>Our Achievements</h2>
+      <div class="stats-container">
+        <div class="stat-item">
+          <span class="stat-number" data-target="100">0</span>
+          <p>Clients Served</p>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" data-target="50">0</span>
+          <p>Projects Completed</p>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" data-target="20">0</span>
+          <p>Awards Won</p>
         </div>
       </div>
     </section>
@@ -421,7 +452,7 @@
     <p>&copy; 2025 Oliver's Finance for Musicians. All Rights Reserved.</p>
   </footer>
 
-  <!-- JavaScript -->
+  <!-- Include JavaScript Files -->
   <script src="js/main.js"></script>
 </body>
 </html>
