@@ -944,3 +944,46 @@ a:focus, button:focus, input:focus, textarea:focus {
   border-radius: 18px;
   background: #fff;
 }
+/* Section/Card Fade-In Animation */
+.scroll-fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity .7s cubic-bezier(.7,.1,.4,1.3), transform .7s cubic-bezier(.7,.1,.4,1.3);
+}
+.scroll-fade-in.revealed {
+  opacity: 1;
+  transform: none;
+}
+/* Animated SVG background for ska vibe */
+.background-svg {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Add glowing focus for important controls */
+.btn:focus, .theme-toggle:focus, .nav-link:focus {
+  box-shadow: 0 0 0 4px #3ee7fa44;
+  outline: none;
+}
+nav .nav-link:focus {
+  outline: 2.5px solid #3ee7fa;
+  background: #e9e9e9;
+}
+[data-theme="dark"] nav .nav-link:focus {
+  background: #23242a;
+}
+.carousel-btn:focus,
+.carousel-dot:focus,
+.faq-question:focus {
+  outline: 2px solid #3ee7fa;
+  outline-offset: 2px;
+  background: #e9e9e9;
+}
+[data-theme="dark"] .carousel-btn:focus,
+[data-theme="dark"] .carousel-dot:focus,
+[data-theme="dark"] .faq-question:focus {
+  background: #23242a;
+}
