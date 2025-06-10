@@ -13,518 +13,177 @@
   <meta property="og:url" content="https://olirose10.github.io/">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="images/favicon.ico">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Inter:wght@600;900&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/stats.css">
   <link rel="stylesheet" href="css/blog.css">
   <link rel="stylesheet" href="css/case-studies.css">
   <link rel="stylesheet" href="css/carousel.css">
   <script src="https://kit.fontawesome.com/fe7fbe4e2b.js" crossorigin="anonymous"></script>
-  <style>
-    :root {
-      --main-bg: #181a21;
-      --section-bg: #20222a;
-      --card-bg: #23243a;
-      --accent: #bdb8ff;
-      --accent-dark: #5546a3;
-      --radius: 16px;
-      --max-width: 920px;
-      --container-padding: 2rem;
-    }
-    .main-boxed {
-      background: var(--main-bg);
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 0;
-      border-radius: var(--radius);
-      box-shadow: 0 8px 60px -16px #0004;
-      min-height: 100vh;
-      position: relative;
-    }
-    header {
-      background: var(--section-bg);
-      border-radius: var(--radius) var(--radius) 0 0;
-      border-bottom: 2px solid var(--accent);
-      box-shadow: 0 2px 24px #0002;
-      padding-bottom: 0.3em;
-    }
-    .header-content {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 0.7em var(--container-padding);
-    }
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 0.7em;
-    }
-    .logo-img {
-      width: 48px;
-      height: 48px;
-      border-radius: 9px;
-      background: #cfcfff;
-      object-fit: cover;
-      border: 2px solid var(--accent);
-    }
-    .logo-title {
-      font-size: 1.45rem;
-      font-weight: 900;
-      color: var(--accent);
-      letter-spacing: 1.1px;
-      margin: 0;
-      font-family: 'Montserrat', Arial, sans-serif;
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 1.05rem;
-      margin: 0;
-      padding: 0;
-    }
-    nav .nav-link {
-      color: #fff;
-      font-weight: 600;
-      text-decoration: none;
-      padding: 0.3em 1.1em;
-      border-radius: 22px;
-      border-bottom: 2.5px solid transparent;
-      transition: all 0.16s;
-      font-size: 1rem;
-    }
-    nav .nav-link.active, nav .nav-link:hover {
-      color: var(--accent);
-      border-bottom: 2.5px solid var(--accent);
-      background: var(--card-bg);
-    }
-    /* Slideshow */
-    .slideshow-wrap {
-      width: 100%;
-      position: relative;
-      margin: 0 auto 2.3rem auto;
-      border-radius: var(--radius);
-      overflow: hidden;
-      min-height: 320px;
-      background: #23243a;
-      box-shadow: 0 2px 48px #0003;
-    }
-    .slide {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: flex-end;
-      justify-content: flex-start;
-      background-size: cover;
-      background-position: center;
-      opacity: 0;
-      transition: opacity 0.7s;
-      z-index: 1;
-      min-height: 320px;
-      height: 420px;
-      width: 100%;
-    }
-    .slide.active {
-      opacity: 1;
-      z-index: 2;
-    }
-    .slide-overlay {
-      background: linear-gradient(0deg, #23243add 60%, #0000 100%);
-      padding: 2.3rem 2rem 1.3rem 2rem;
-      border-radius: 0 0 var(--radius) var(--radius);
-      color: #fff;
-      max-width: 600px;
-      width: 90%;
-      box-sizing: border-box;
-    }
-    .slide-title {
-      font-size: 2.1rem;
-      font-family: 'Montserrat', Arial, sans-serif;
-      font-weight: 800;
-      margin: 0 0 0.5em 0;
-      letter-spacing: 1.1px;
-    }
-    .slide-desc {
-      font-size: 1.13rem;
-      margin-bottom: 1.1em;
-      color: #e8e8ff;
-    }
-    .slide-btn {
-      display: inline-block;
-      background: var(--accent);
-      color: var(--main-bg);
-      padding: 0.7em 2.1em;
-      border-radius: 30px;
-      font-size: 1.07rem;
-      font-weight: 700;
-      border: none;
-      cursor: pointer;
-      transition: background 0.16s;
-      text-decoration: none;
-      margin-top: 0.4em;
-    }
-    .slide-btn:hover { background: var(--accent-dark); color: #fff; }
-    .slideshow-controls {
-      position: absolute;
-      bottom: 20px;
-      right: 26px;
-      display: flex;
-      gap: 0.7em;
-      z-index: 10;
-    }
-    .slideshow-dot {
-      width: 14px;
-      height: 14px;
-      border-radius: 50%;
-      background: #fff7;
-      border: 2px solid var(--accent);
-      cursor: pointer;
-      transition: background 0.14s;
-    }
-    .slideshow-dot.active { background: var(--accent); border-color: var(--accent-dark); }
-    .slideshow-arrow {
-      background: var(--accent);
-      color: var(--main-bg);
-      border: none;
-      border-radius: 50%;
-      width: 36px;
-      height: 36px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.4rem;
-      cursor: pointer;
-      margin: 0 0.25em;
-      box-shadow: 0 2px 14px #0002;
-      transition: background 0.14s;
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      z-index: 11;
-    }
-    .slideshow-arrow.left { left: 16px; }
-    .slideshow-arrow.right { right: 16px; }
-    .slideshow-arrow:hover { background: var(--accent-dark); color: #fff; }
-    /* Section Styles */
-    section {
-      box-sizing: border-box;
-      margin: 2.8rem 0;
-      background: var(--section-bg);
-      border-radius: var(--radius);
-      padding: 2.2rem var(--container-padding) 2.4rem var(--container-padding);
-      box-shadow: 0 2px 32px #0001;
-      border: 1.5px solid var(--card-bg);
-    }
-    .section-title {
-      font-size: 2.1rem;
-      font-weight: 800;
-      color: var(--accent);
-      margin-bottom: 0.5em;
-      letter-spacing: 1.1px;
-    }
-    .section-desc {
-      font-size: 1.14rem;
-      color: #b4b7c5;
-      margin-bottom: 1.5em;
-    }
-    .cards-container {
-      display: flex;
-      gap: 1.2rem;
-      flex-wrap: wrap;
-      justify-content: flex-start;
-      align-items: stretch;
-      margin-top: 1.3rem;
-    }
-    .card {
-      background: var(--card-bg);
-      border: 1.5px solid var(--accent-dark);
-      border-radius: 11px;
-      box-shadow: 0 2px 14px #0003;
-      padding: 1.3rem 1.1rem;
-      flex: 1 1 220px;
-      min-width: 180px;
-      max-width: 300px;
-      margin-bottom: 1.1rem;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-    }
-    .card h3 {
-      font-size: 1.13rem;
-      color: var(--accent);
-      margin-top: 0;
-      margin-bottom: 0.6em;
-      font-weight: 700;
-    }
-    .card p, .card ul {
-      color: #fff;
-      font-size: 1rem;
-    }
-    .card .service-icon {
-      font-size: 2rem;
-      margin-bottom: 0.7em;
-      color: var(--accent-dark);
-    }
-    /* Testimonial carousel */
-    .testimonial-slider {
-      position: relative;
-      width: 100%;
-      min-height: 170px;
-      max-width: 700px;
-      margin: 0 auto;
-    }
-    .testimonial-slide {
-      display: none;
-      opacity: 0;
-      transition: opacity 0.7s;
-      position: absolute;
-      left: 0; right: 0; top: 0; bottom: 0;
-      padding: 2.2rem 1.2rem;
-      box-sizing: border-box;
-    }
-    .testimonial-slide.active {
-      display: block;
-      opacity: 1;
-      position: relative;
-      background: var(--card-bg);
-      border-radius: 11px;
-      box-shadow: 0 2px 16px #0002;
-    }
-    .testimonial-quote {
-      font-size: 1.12rem;
-      color: #fff;
-      margin-bottom: 0.8em;
-      font-style: italic;
-    }
-    .testimonial-author {
-      color: var(--accent);
-      font-weight: 700;
-      font-size: 1rem;
-      margin-top: 0.6em;
-    }
-    .testimonial-controls {
-      display: flex;
-      gap: 0.5em;
-      justify-content: center;
-      align-items: center;
-      margin-top: 1em;
-    }
-    .testimonial-dot {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: #fff7;
-      border: 2px solid var(--accent);
-      cursor: pointer;
-      transition: background 0.14s;
-    }
-    .testimonial-dot.active { background: var(--accent); border-color: var(--accent-dark); }
-    /* Footer */
-    footer {
-      background: var(--card-bg);
-      color: #b4b7c5;
-      text-align: center;
-      padding: 2rem 0 1rem 0;
-      border-radius: 0 0 var(--radius) var(--radius);
-      margin-top: 3rem;
-    }
-    .footer-links {
-      display: flex; flex-wrap: wrap; justify-content: center; gap: 1.2em; margin-bottom: 1.2em;
-    }
-    .footer-links a {
-      color: #b4b7c5;
-      font-size: 1em;
-      transition: color .13s, text-shadow .13s;
-      text-decoration: none;
-    }
-    .footer-links a:hover { color: var(--accent); text-shadow: 0 1px 6px var(--accent)22; }
-    .social-icons {
-      display: flex; gap: 1em; justify-content: center; align-items: center; margin-bottom: 0.9em;
-    }
-    .social-icons a {
-      color: var(--accent);
-      margin: 0 0.7em;
-      font-size: 1.3rem;
-      transition: color .14s, transform .14s;
-      text-decoration: none;
-    }
-    .social-icons a:hover {
-      color: var(--accent-dark);
-      transform: scale(1.10) rotate(-5deg);
-    }
-    @media (max-width: 1070px) {
-      .main-boxed { max-width: 99vw; }
-      .header-content { max-width: 99vw; }
-    }
-    @media (max-width: 700px) {
-      .main-boxed { padding: 0 0.3rem; }
-      .header-content, nav ul { flex-direction: column; gap: 0.6em; }
-      .cards-container { flex-direction: column; }
-      .slideshow .slide-overlay { padding: 1.5rem 1rem 0.7rem 1rem; }
-    }
-  </style>
 </head>
 <body>
-  <a href="#main" class="skip-link">Skip to main content</a>
-  <div class="main-boxed">
-    <header>
-      <div class="header-content">
-        <a href="/" class="logo">
-          <div class="logo-img" style="background:#bdb8ff;"> <!-- Placeholder for logo --></div>
-          <span class="logo-title">Oliver Rose</span>
-        </a>
-        <nav aria-label="Main navigation">
-          <ul>
-            <li><a href="#hero" class="nav-link active">Home</a></li>
-            <li><a href="#about" class="nav-link">About</a></li>
-            <li><a href="#services" class="nav-link">Services</a></li>
-            <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
-            <li><a href="#contact" class="nav-link">Contact</a></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
-    <main id="main">
-      <!-- SLIDESHOW -->
-      <div class="slideshow-wrap">
-        <div class="slide active" style="background: linear-gradient(120deg, #5546a3 60%, #bdb8ff 100%);">
-          <div class="slide-overlay">
-            <h2 class="slide-title">Finance for Musicians & Creatives</h2>
-            <p class="slide-desc">Specialist support in tax, accounts & business for artists, bands, and indie labels. Trusted, modern, and jargon-free.</p>
-            <a href="#contact" class="slide-btn">Book a Free Consultation</a>
-          </div>
-        </div>
-        <div class="slide" style="background: #e4e2f7;">
-          <div class="slide-overlay">
-            <h2 class="slide-title">Personal, Professional, Proven</h2>
-            <p class="slide-desc">Every client gets a tailored, friendly service. See why so many creatives trust Oliver Rose with their finances.</p>
-            <a href="#testimonials" class="slide-btn">See Testimonials</a>
-          </div>
-        </div>
-        <div class="slide" style="background: #5546a3;">
-          <div class="slide-overlay">
-            <h2 class="slide-title">Get Organised & Focus on Your Art</h2>
-            <p class="slide-desc">Tax returns, budgeting, royalty tracking and growth advice—so you can do what you do best: create.</p>
-            <a href="#services" class="slide-btn">View Services</a>
-          </div>
-        </div>
-        <button class="slideshow-arrow left" id="slidePrev" aria-label="Previous slide"><i class="fa fa-chevron-left"></i></button>
-        <button class="slideshow-arrow right" id="slideNext" aria-label="Next slide"><i class="fa fa-chevron-right"></i></button>
-        <div class="slideshow-controls">
-          <span class="slideshow-dot active" data-slide="0"></span>
-          <span class="slideshow-dot" data-slide="1"></span>
-          <span class="slideshow-dot" data-slide="2"></span>
+  <header>
+    <div class="main-container header-content">
+      <a href="/" class="logo" aria-label="Oli Rose Home">
+        <img class="logo-img" src="images/logo-placeholder.png" alt="Oliver Rose Logo" />
+        <span class="logo-title">Oliver Rose</span>
+      </a>
+      <nav aria-label="Main navigation">
+        <ul>
+          <li><a href="#hero" class="nav-link active">Home</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#services" class="nav-link">Services</a></li>
+          <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main class="main-container">
+    <!-- SLIDESHOW HERO -->
+    <div class="slideshow" aria-label="Main Highlights">
+      <div class="slide active" style="background: linear-gradient(120deg, #7c5fff 60%, #3ee7fa 100%);">
+        <div class="slide-overlay">
+          <h2 class="slide-title">Finance for Musicians & Creatives</h2>
+          <p class="slide-desc">Specialist support in tax, accounts & business for artists, bands, and indie labels. Trusted, modern, and jargon-free.</p>
+          <a href="#contact" class="slide-btn">Book a Free Consultation</a>
         </div>
       </div>
-
-      <!-- ABOUT -->
-      <section id="about">
-        <h2 class="section-title">About Oliver</h2>
-        <div class="section-desc">
-          <strong>Specialist adviser to musicians, indie labels & creative entrepreneurs.</strong><br>
-          Years of experience, ICAEW ACA advanced, and a passion for making finance approachable for artists. I offer clarity, confidence, and practical support for your unique journey.
+      <div class="slide" style="background: url('images/slide2-placeholder.jpg') center/cover, #152033;">
+        <div class="slide-overlay">
+          <h2 class="slide-title">Personal, Professional, Proven</h2>
+          <p class="slide-desc">Every client gets a tailored, friendly service. See why so many creatives trust Oliver Rose with their finances.</p>
+          <a href="#testimonials" class="slide-btn">See Testimonials</a>
         </div>
+      </div>
+      <div class="slide" style="background: url('images/slide3-placeholder.jpg') center/cover, #3ee7fa;">
+        <div class="slide-overlay">
+          <h2 class="slide-title">Get Organised & Focus on Your Art</h2>
+          <p class="slide-desc">Tax returns, budgeting, royalty tracking and growth advice—so you can do what you do best: create.</p>
+          <a href="#services" class="slide-btn">View Services</a>
+        </div>
+      </div>
+      <button class="slideshow-arrow left" aria-label="Previous slide"><i class="fa fa-chevron-left"></i></button>
+      <button class="slideshow-arrow right" aria-label="Next slide"><i class="fa fa-chevron-right"></i></button>
+      <div class="slideshow-progress"></div>
+      <div class="slideshow-controls">
+        <span class="slideshow-dot active" tabindex="0" aria-label="Go to slide 1"></span>
+        <span class="slideshow-dot" tabindex="0" aria-label="Go to slide 2"></span>
+        <span class="slideshow-dot" tabindex="0" aria-label="Go to slide 3"></span>
+      </div>
+    </div>
+
+    <!-- ABOUT SECTION -->
+    <section id="about">
+      <span class="section-subtitle">Who I Am</span>
+      <h2 class="section-title">About Oliver</h2>
+      <div class="cards-container">
+        <div class="card" style="max-width:320px;">
+          <span class="service-icon"><i class="fa-solid fa-music"></i></span>
+          <h3>Music Industry Focus</h3>
+          <p>Years in the scene means I understand the ups and downs of creative income, royalties, and band life.</p>
+        </div>
+        <div class="card" style="max-width:320px;">
+          <span class="service-icon"><i class="fa-solid fa-certificate"></i></span>
+          <h3>Fully Qualified</h3>
+          <p>ICAEW ACA advanced, up-to-date on tax, digital tools, and creative business best practices.</p>
+        </div>
+        <div class="card" style="max-width:320px;">
+          <span class="service-icon"><i class="fa-solid fa-handshake"></i></span>
+          <h3>Personal Approach</h3>
+          <p>No jargon. No one-size-fits-all. Just honest, warm support tailored to you.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section id="services">
+      <span class="section-subtitle">How I Can Help</span>
+      <h2 class="section-title">Services</h2>
+      <div class="cards-container">
+        <div class="card">
+          <span class="service-icon"><i class="fa-solid fa-file-invoice"></i></span>
+          <h3>Tax & Compliance</h3>
+          <p>Stress-free returns, maximising your deductions, and never missing a deadline.</p>
+        </div>
+        <div class="card">
+          <span class="service-icon"><i class="fa-solid fa-chart-line"></i></span>
+          <h3>Growth & Budgeting</h3>
+          <p>Budgeting, cash flow, and growth strategies for the unpredictable creative world.</p>
+        </div>
+        <div class="card">
+          <span class="service-icon"><i class="fa-solid fa-lightbulb"></i></span>
+          <h3>Business Advice</h3>
+          <p>Band agreements, label setup, contracts and practical support for creative businesses at every stage.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS SECTION -->
+    <!-- Use the improved testimonial-carousel.html component -->
+    <section id="testimonials" class="fade-in section-band">
+      <span class="section-subtitle">What Clients Say</span>
+      <h2 class="section-title">Testimonials</h2>
+      <div class="testimonial-carousel" aria-label="Client Testimonials" tabindex="0">
+        <button class="carousel-btn prev" aria-label="Previous testimonial"><i class="fa-solid fa-chevron-left"></i></button>
+        <div class="carousel-track">
+          <div class="carousel-item active">
+            <span class="service-icon"><i class="fa-solid fa-heart"></i></span>
+            <p>“Oliver’s advice gave me clarity and confidence about my music finances. Highly recommended!”</p>
+            <span>- Singer/Songwriter</span>
+          </div>
+          <div class="carousel-item">
+            <span class="service-icon"><i class="fa-solid fa-thumbs-up"></i></span>
+            <p>“Professional, responsive, and knows the music business inside out.”</p>
+            <span>- Indie Label Owner</span>
+          </div>
+          <div class="carousel-item">
+            <span class="service-icon"><i class="fa-solid fa-star"></i></span>
+            <p>“Oliver made my tax return painless and helped me get organized for the year ahead.”</p>
+            <span>- Touring Musician</span>
+          </div>
+          <div class="carousel-item">
+            <p>Want to leave a testimonial? <a href="#contact">Get in touch!</a></p>
+          </div>
+        </div>
+        <button class="carousel-btn next" aria-label="Next testimonial"><i class="fa-solid fa-chevron-right"></i></button>
+      </div>
+      <div class="carousel-dots" aria-label="Testimonial carousel navigation">
+        <span class="carousel-dot active" tabindex="0" aria-label="Go to testimonial 1"></span>
+        <span class="carousel-dot" tabindex="0" aria-label="Go to testimonial 2"></span>
+        <span class="carousel-dot" tabindex="0" aria-label="Go to testimonial 3"></span>
+        <span class="carousel-dot" tabindex="0" aria-label="Go to testimonial 4"></span>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact">
+      <span class="section-subtitle">Let’s Talk</span>
+      <h2 class="section-title">Contact</h2>
+      <form id="contactForm" autocomplete="off" novalidate>
         <div class="cards-container">
-          <div class="card">
-            <span class="service-icon"><i class="fa-solid fa-music"></i></span>
-            <h3>Music Industry Focus</h3>
-            <p>Decades in the scene means I understand the ups and downs of creative income, royalties, and band life.</p>
+          <div class="card" style="flex:2;">
+            <label for="contactName">Name</label>
+            <input id="contactName" name="contactName" type="text" placeholder="Your Name" required>
+            <label for="contactEmail" style="margin-top:0.7em;">Email</label>
+            <input id="contactEmail" name="contactEmail" type="email" placeholder="you@email.com" required>
+            <label for="contactMessage" style="margin-top:0.7em;">How can I help?</label>
+            <textarea id="contactMessage" name="contactMessage" placeholder="Tell me about your project or question" rows="4" required></textarea>
+            <button type="submit" class="slide-btn" style="margin-top:1em;">Send Message <i class="fa-solid fa-paper-plane"></i></button>
+            <div id="form-success" style="display:none;color:var(--color-accent2);margin-top:1em;font-weight:600;">Thank you! I’ll be in touch soon.</div>
           </div>
-          <div class="card">
-            <span class="service-icon"><i class="fa-solid fa-certificate"></i></span>
-            <h3>Fully Qualified</h3>
-            <p>ICAEW ACA advanced, up-to-date on tax, digital tools, and creative business best practices.</p>
-          </div>
-          <div class="card">
-            <span class="service-icon"><i class="fa-solid fa-handshake"></i></span>
-            <h3>Personal Approach</h3>
-            <p>No jargon. No one-size-fits-all. Just honest, warm support tailored to you.</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- SERVICES -->
-      <section id="services">
-        <h2 class="section-title">Services</h2>
-        <div class="section-desc">
-          <ul>
-            <li>Tax Returns, Self-Assessment & HMRC Liaison</li>
-            <li>Bookkeeping, Accounts & Cloud Solutions</li>
-            <li>Royalties, Income Streams & Project Budgets</li>
-            <li>Business Advice for Labels, Creatives & Musicians</li>
-            <li>Funding, Grants, and Growth Strategy</li>
-          </ul>
-        </div>
-        <div class="cards-container">
-          <div class="card">
-            <span class="service-icon"><i class="fa-solid fa-file-invoice"></i></span>
-            <h3>Tax & Compliance</h3>
-            <p>Stress-free returns, maximising your deductions, and never missing a deadline.</p>
-          </div>
-          <div class="card">
-            <span class="service-icon"><i class="fa-solid fa-chart-line"></i></span>
-            <h3>Growth & Budgeting</h3>
-            <p>Budgeting, cash flow, and growth strategies for the unpredictable creative world.</p>
-          </div>
-          <div class="card">
-            <span class="service-icon"><i class="fa-solid fa-lightbulb"></i></span>
-            <h3>Business Advice</h3>
-            <p>Band agreements, label setup, contracts and practical support for creative businesses at every stage.</p>
+          <div class="card" style="flex:1;align-items:center;justify-content:center;text-align:center;">
+            <div style="font-size:2.5rem;margin-bottom:1em;"><i class="fa-solid fa-envelope"></i></div>
+            <p style="margin:0 0 0.6em 0;">Or email me directly:</p>
+            <a href="mailto:oliverrosefinance@gmail.com" style="font-size:1.13rem;color:var(--color-accent);font-weight:700;">oliverrosefinance@gmail.com</a>
+            <div style="margin-top:1.5em;color:var(--color-text-muted);font-size:0.97em;">Response within 48 hours.</div>
           </div>
         </div>
-      </section>
-
-      <!-- TESTIMONIALS -->
-      <section id="testimonials">
-        <h2 class="section-title">Testimonials</h2>
-        <div class="testimonial-slider" aria-label="Client Testimonials">
-          <div class="testimonial-slide active">
-            <div class="testimonial-quote">“Oliver’s advice gave me clarity and confidence about my music finances. Highly recommended!”</div>
-            <div class="testimonial-author">Singer/Songwriter</div>
-          </div>
-          <div class="testimonial-slide">
-            <div class="testimonial-quote">“Professional, responsive, and knows the music business inside out.”</div>
-            <div class="testimonial-author">Indie Label Owner</div>
-          </div>
-          <div class="testimonial-slide">
-            <div class="testimonial-quote">“Oliver made my tax return painless and helped me get organized for the year ahead.”</div>
-            <div class="testimonial-author">Touring Musician</div>
-          </div>
-          <div class="testimonial-controls">
-            <span class="testimonial-dot active" data-slide="0"></span>
-            <span class="testimonial-dot" data-slide="1"></span>
-            <span class="testimonial-dot" data-slide="2"></span>
-          </div>
-        </div>
-      </section>
-
-      <!-- CONTACT -->
-      <section id="contact">
-        <h2 class="section-title">Contact</h2>
-        <form id="contactForm" autocomplete="off" novalidate>
-          <div class="cards-container">
-            <div class="card" style="flex:2">
-              <label for="contactName">Name</label>
-              <input id="contactName" name="contactName" type="text" placeholder="Your Name" required>
-              <label for="contactEmail" style="margin-top:0.7em;">Email</label>
-              <input id="contactEmail" name="contactEmail" type="email" placeholder="you@email.com" required>
-              <label for="contactMessage" style="margin-top:0.7em;">How can I help?</label>
-              <textarea id="contactMessage" name="contactMessage" placeholder="Tell me about your project or question" rows="4" required></textarea>
-              <button type="submit" class="slide-btn" style="margin-top:1em;">Send Message <i class="fa-solid fa-paper-plane"></i></button>
-              <div id="form-success" style="display:none;color:var(--accent);margin-top:1em;font-weight:600;">Thank you! I’ll be in touch soon.</div>
-            </div>
-            <div class="card" style="flex:1;align-items:center;justify-content:center;text-align:center;">
-              <div style="font-size:2.5rem;margin-bottom:1em;"><i class="fa-solid fa-envelope"></i></div>
-              <p style="margin:0 0 0.6em 0;">Or email me directly:</p>
-              <a href="mailto:oliverrosefinance@gmail.com" style="font-size:1.13rem;color:var(--accent);font-weight:700;">oliverrosefinance@gmail.com</a>
-              <div style="margin-top:1.5em;color:#b4b7c5;font-size:0.97em;">Response within 48 hours.</div>
-            </div>
-          </div>
-        </form>
-      </section>
-    </main>
-    <footer>
+      </form>
+    </section>
+  </main>
+  <footer>
+    <div class="main-container" style="text-align:center;">
       <div class="footer-links">
         <a href="#about">About</a>
         <a href="#services">Services</a>
@@ -539,44 +198,16 @@
         <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
         <a href="mailto:oliverrosefinance@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
       </div>
-      <div style="margin-top:0.8em;">
-        &copy; 2025 Oliver Rose. Finance for Musicians & Creatives.
-        <br>
+      <div style="margin-top:0.7em;">
+        &copy; 2025 Oliver Rose. Finance for Musicians & Creatives.<br>
         <small>Professional freelance finance, built for artists.</small>
       </div>
-    </footer>
-  </div>
+    </div>
+  </footer>
+  <!-- SCRIPTS -->
+  <script src="js/slideshow.js"></script>
+  <script src="js/testimonial-carousel.js"></script>
   <script>
-    // SLIDESHOW LOGIC
-    const slides = document.querySelectorAll('.slideshow-wrap .slide');
-    const dots = document.querySelectorAll('.slideshow-dot');
-    let currentSlide = 0;
-    function showSlide(n) {
-      slides.forEach((slide, idx) => {
-        slide.classList.toggle('active', idx === n);
-        dots[idx].classList.toggle('active', idx === n);
-      });
-      currentSlide = n;
-    }
-    function nextSlide() { showSlide((currentSlide + 1) % slides.length); }
-    function prevSlide() { showSlide((currentSlide - 1 + slides.length) % slides.length); }
-    document.getElementById('slidePrev').onclick = prevSlide;
-    document.getElementById('slideNext').onclick = nextSlide;
-    dots.forEach((dot, idx) => dot.onclick = () => showSlide(idx));
-    setInterval(nextSlide, 7000);
-    // TESTIMONIAL SLIDER LOGIC
-    const tSlides = document.querySelectorAll('.testimonial-slide');
-    const tDots = document.querySelectorAll('.testimonial-dot');
-    let tCurrent = 0;
-    function showT(n) {
-      tSlides.forEach((slide, idx) => {
-        slide.classList.toggle('active', idx === n);
-        if (tDots[idx]) tDots[idx].classList.toggle('active', idx === n);
-      });
-      tCurrent = n;
-    }
-    tDots.forEach((dot, idx) => dot.onclick = () => showT(idx));
-    setInterval(() => showT((tCurrent+1)%tSlides.length), 9000);
     // CONTACT FORM SUCCESS MESSAGE
     document.getElementById('contactForm').addEventListener('submit', function(e) {
       e.preventDefault();
