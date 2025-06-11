@@ -88,34 +88,71 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // --- Hamburger Navigation ---
+  // --- Hamburger Navigation (fully modern, accessible, mobile friendly) ---
   const nav = document.querySelector('nav');
   const hamburger = document.querySelector('.hamburger');
   if (nav && hamburger) {
+    function closeNav() {
+      nav.classList.remove('nav-open');
+      hamburger.classList.remove('is-active');
+      hamburger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+    function openNav() {
+      nav.classList.add('nav-open');
+      hamburger.classList.add('is-active');
+      hamburger.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+      const firstLink = nav.querySelector('.nav-link');
+      if (firstLink) firstLink.focus();
+    }
     hamburger.addEventListener('click', function () {
-      nav.classList.toggle('nav-open');
-      hamburger.classList.toggle('is-active');
-      hamburger.setAttribute('aria-expanded', nav.classList.contains('nav-open'));
-      // Close menu when a link is clicked
-      nav.querySelectorAll('.nav-link').forEach(link => {
-        link.addEventListener('click', () => {
-          nav.classList.remove('nav-open');
-          hamburger.classList.remove('is-active');
-          hamburger.setAttribute('aria-expanded', 'false');
-        });
-      });
+      if (nav.classList.contains('nav-open')) {
+        closeNav();
+      } else {
+        openNav();
+      }
     });
-    // Accessibility: close menu on Escape
+    // Close nav on link click
+    nav.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', closeNav);
+    });
+    // Accessibility: close on Escape
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape' && nav.classList.contains('nav-open')) {
-        nav.classList.remove('nav-open');
-        hamburger.classList.remove('is-active');
-        hamburger.setAttribute('aria-expanded', 'false');
+        closeNav();
+      }
+    });
+    // Click outside nav closes it
+    document.addEventListener('click', function (e) {
+      if (
+        nav.classList.contains('nav-open') &&
+        !nav.contains(e.target) &&
+        !hamburger.contains(e.target)
+      ) {
+        closeNav();
+      }
+    });
+    // Trap focus inside nav when open (for accessibility)
+    nav.addEventListener('keydown', function (e) {
+      if (!nav.classList.contains('nav-open')) return;
+      const focusable = nav.querySelectorAll('.nav-link');
+      if (!focusable.length) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (e.key === 'Tab') {
+        if (e.shiftKey && document.activeElement === first) {
+          last.focus();
+          e.preventDefault();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          first.focus();
+          e.preventDefault();
+        }
       }
     });
   }
 
-  // --- Nav active link (works for nav not using #navMenu id) ---
+  // --- Nav active link highlight ---
   document.querySelectorAll("nav .nav-link").forEach((link) => {
     link.addEventListener("click", function () {
       document.querySelectorAll("nav .nav-link").forEach((l) => {
