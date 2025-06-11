@@ -17,6 +17,76 @@
   <link rel="stylesheet" href="css/style.css?v=20250611">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Space+Grotesk:wght@500;700&display=swap">
   <script src="https://kit.fontawesome.com/fe7fbe4e2b.js" crossorigin="anonymous"></script>
+  <!-- Add smooth scroll for anchor links -->
+  <style>
+    html { scroll-behavior: smooth; }
+    /* Animated scroll indicator for hero */
+    .scroll-indicator {
+      position: absolute;
+      left: 50%;
+      bottom: 32px;
+      transform: translateX(-50%);
+      z-index: 10;
+      animation: bounce 2s infinite;
+      font-size: 2.1rem;
+      color: var(--accent, #3ee7fa);
+      opacity: 0.7;
+      cursor: pointer;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0);}
+      50% { transform: translateX(-50%) translateY(10px);}
+    }
+    /* Subtle glowing border on logo hover */
+    .logo-img {
+      transition: box-shadow 0.2s;
+    }
+    .logo-img:hover {
+      box-shadow: 0 0 0 3px #bb4ba255, 0 3px 12px #3ee7fa22;
+    }
+    /* "Back to Top" floating button */
+    #backToTop {
+      display: none;
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 900;
+      background: var(--accent, #3ee7fa);
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 48px;
+      height: 48px;
+      box-shadow: 0 2px 8px #0002;
+      cursor: pointer;
+      font-size: 1.6rem;
+      transition: opacity 0.2s;
+      opacity: 0.7;
+    }
+    #backToTop:hover {
+      opacity: 1;
+      background: #bb4ba2;
+    }
+    /* Subtle fade-in animation for all .scroll-fade-in elements */
+    .scroll-fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s, transform 0.8s;
+    }
+    .scroll-fade-in.visible {
+      opacity: 1;
+      transform: none;
+    }
+    /* Social icons pulse on hover */
+    .social-icons a:hover {
+      animation: pulse 0.7s;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1);}
+      50% { transform: scale(1.12);}
+      100% { transform: scale(1);}
+    }
+  </style>
 </head>
 <body>
   <!-- Accessibility: Skip link for screen readers and keyboard users -->
@@ -49,9 +119,8 @@
   <header>
     <div class="header-content">
       <a href="index.html" class="logo" aria-label="Rose Above Home">
-        <img class="logo-img" src="images/logo.png" alt="Rose Above Logo"
-          onerror="this.style.display='none';this.insertAdjacentHTML('afterend',`<svg width='48' height='48' aria-label='RA'><rect width='48' height='48' fill='#fff'/><text x='50%' y='55%' dominant-baseline='middle' text-anchor='middle' font-size='18' fill='#222' font-family='Montserrat,sans-serif'>RA</text></svg>`);" />
-        <span class="logo-title">ROSE<br>ABOVE</span>
+        <img class="logo-img" src="images/logo-rose-above.svg" alt="Rose Above Logo" width="56" height="56" style="vertical-align:middle;"/>
+        <span class="logo-title" style="font-family:'Montserrat',sans-serif;font-weight:700;letter-spacing:0.03em;font-size:1.18em;vertical-align:middle;display:inline-block;line-height:1.1;margin-left:0.55em;">ROSE<br>ABOVE</span>
       </a>
       <nav aria-label="Main navigation">
         <ul>
@@ -78,7 +147,7 @@
     <div class="ska-accent"></div>
 
     <!-- HERO -->
-    <section class="hero-section" id="hero">
+    <section class="hero-section" id="hero" style="position:relative;">
       <div class="hero-bg-float"></div>
       <div class="hero-accent ska-accent"></div>
       <div class="hero-content scroll-fade-in">
@@ -92,6 +161,10 @@
         </p>
         <a href="#contact" class="hero-btn">Book a Free Consultation</a>
       </div>
+      <!-- Scroll indicator -->
+      <a href="#about" class="scroll-indicator" aria-label="Scroll to About">
+        <i class="fa-solid fa-chevron-down"></i>
+      </a>
       <!-- Animated SVG Wave at top of hero -->
       <div class="hero-wave">
         <svg viewBox="0 0 1440 140" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
@@ -129,7 +202,7 @@
       <h2 class="section-title">About Rose Above</h2>
       <div class="about-flex">
         <div class="about-img">
-          <img src="images/oliver-profile.jpg" alt="Oliver Rose">
+          <img src="images/oliver-profile.jpg" alt="Oliver Rose" loading="lazy" style="border-radius:1.2em;box-shadow:0 4px 32px #3ee7fa22;">
         </div>
         <div class="about-text">
           <p>
@@ -191,15 +264,15 @@
         <button class="gallery-btn prev" aria-label="Previous image"><i class="fa-solid fa-chevron-left"></i></button>
         <div class="gallery-track">
           <div class="gallery-slide active">
-            <img src="https://placehold.co/600x400?text=Photo+1" alt="Placeholder Photo 1">
+            <img src="https://placehold.co/600x400?text=Photo+1" alt="Placeholder Photo 1" loading="lazy" style="border-radius:0.8em;">
             <div class="gallery-caption">Your headline moment #1</div>
           </div>
           <div class="gallery-slide">
-            <img src="https://placehold.co/600x400?text=Photo+2" alt="Placeholder Photo 2">
+            <img src="https://placehold.co/600x400?text=Photo+2" alt="Placeholder Photo 2" loading="lazy" style="border-radius:0.8em;">
             <div class="gallery-caption">Live at a festival #2</div>
           </div>
           <div class="gallery-slide">
-            <img src="https://placehold.co/600x400?text=Photo+3" alt="Placeholder Photo 3">
+            <img src="https://placehold.co/600x400?text=Photo+3" alt="Placeholder Photo 3" loading="lazy" style="border-radius:0.8em;">
             <div class="gallery-caption">Behind the scenes #3</div>
           </div>
         </div>
@@ -335,7 +408,65 @@
       </div>
     </div>
   </footer>
+  <!-- Back to Top button -->
+  <button id="backToTop" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
   <!-- Cache busting for updated JS -->
   <script src="js/main.js?v=20250611"></script>
+  <script>
+    // Animate numbers in stats section
+    document.addEventListener('DOMContentLoaded', function() {
+      // Fade in elements on scroll
+      function revealOnScroll() {
+        document.querySelectorAll('.scroll-fade-in').forEach(el => {
+          const rect = el.getBoundingClientRect();
+          if (rect.top < window.innerHeight - 60) {
+            el.classList.add('visible');
+          }
+        });
+      }
+      revealOnScroll();
+      window.addEventListener('scroll', revealOnScroll);
+
+      // Animated stats
+      document.querySelectorAll('.stat-number').forEach(el => {
+        let started = false;
+        let final = parseInt(el.getAttribute('data-target'), 10);
+        let plus = el.parentElement.querySelector('.stat-plus');
+        function animate() {
+          if (!started && el.getBoundingClientRect().top < window.innerHeight) {
+            started = true;
+            let count = 0;
+            let step = Math.ceil(final / 42);
+            let interval = setInterval(() => {
+              count += step;
+              if (count >= final) {
+                el.textContent = final;
+                if (plus) plus.style.opacity = '1';
+                clearInterval(interval);
+              } else {
+                el.textContent = count;
+                if (plus) plus.style.opacity = '0.5';
+              }
+            }, 30);
+          }
+        }
+        window.addEventListener('scroll', animate);
+        animate();
+      });
+
+      // Back to Top button
+      const backToTop = document.getElementById('backToTop');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 350) {
+          backToTop.style.display = 'block';
+        } else {
+          backToTop.style.display = 'none';
+        }
+      });
+      backToTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    });
+  </script>
 </body>
 </html>
