@@ -4,8 +4,9 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rose Above | Accountancy for Musicians & Creatives</title>
+  <title>Rose Above | Accountancy for Musicians & Creatives | roseaboveaccountancy.co.uk</title>
   <meta name="description" content="Rose Above – Accountancy for musicians, creatives, and indie businesses. Bookkeeping, tax returns, tour budgets, and advice to help you rise above the rest.">
+  <meta name="author" content="Oliver Rose">
   <meta property="og:title" content="Rose Above | Accountancy for Musicians & Creatives">
   <meta property="og:description" content="Accountancy, tax, and business support for musicians, creatives, and indie businesses.">
   <meta property="og:image" content="https://roseaboveaccountancy.co.uk/images/oliver-profile.jpg">
@@ -13,11 +14,15 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="manifest" href="manifest.json">
   <link rel="icon" href="images/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
   <link rel="stylesheet" href="css/style.css?v=20250611">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Space+Grotesk:wght@500;700&display=swap">
-  <script src="https://kit.fontawesome.com/fe7fbe4e2b.js" crossorigin="anonymous"></script>
+  <script defer src="https://kit.fontawesome.com/fe7fbe4e2b.js" crossorigin="anonymous"></script>
   <style>
     html { scroll-behavior: smooth; }
+    body {
+      background: linear-gradient(120deg, #fff 60%, #bb4ba210 100%);
+    }
     /* --- Header Layout --- */
     .header-content {
       display: flex;
@@ -65,6 +70,17 @@
       color: #181818;
       opacity: 0.7;
       font-weight: 500;
+      letter-spacing: 0.01em;
+    }
+    .badge {
+      display: inline-block;
+      padding: 0.2em 0.7em;
+      background: #3ee7fa22;
+      color: #bb4ba2;
+      border-radius: 0.6em;
+      font-size: 0.95em;
+      font-weight: 700;
+      margin-bottom: 0.7em;
       letter-spacing: 0.01em;
     }
     nav {
@@ -208,11 +224,32 @@
     /* --- Social icons pulse --- */
     .social-icons a:hover { animation: pulse 0.7s;}
     @keyframes pulse { 0%{transform:scale(1);} 50%{transform:scale(1.12);} 100%{transform:scale(1);} }
+    .disclaimer {
+      font-size: 0.93em;
+      margin-top: 1.2em;
+      color: #6a6a6a;
+      background: #3ee7fa15;
+      border-left: 3px solid #bb4ba2;
+      padding: 0.7em 1em;
+      border-radius: 0.5em;
+      max-width: 480px;
+    }
+    .hero-intro {
+      font-size: 1.12em;
+      margin: 1.1em 0 0.7em 0;
+      max-width: 520px;
+      color: #222;
+    }
+    .footer-credit {
+      margin-top: 1.2em;
+      color: #888;
+      font-size: 0.95em;
+    }
   </style>
 </head>
 <body>
   <a href="#mainContent" class="skip-link" style="position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden;">Skip to main content</a>
-  <svg class="background-svg" aria-hidden="true">
+  <svg class="background-svg" aria-hidden="true" focusable="false">
     <defs>
       <linearGradient id="bg-ska" x1="0" y1="0" x2="1" y2="1">
         <stop offset="0%" stop-color="#3ee7fa" />
@@ -274,17 +311,20 @@
       <div class="hero-content scroll-fade-in">
         <h1 class="hero-title">Rose Above</h1>
         <h2 class="hero-tagline">Accountancy for Musicians & Creatives</h2>
-        <p style="margin-top:1.2em;font-size:1.15em;max-width:500px;">Specialist support in bookkeeping, tax returns, tour budgets, and business advice for artists, bands, creatives, and indie labels. Trusted, modern, and jargon-free.<br>
+        <p class="hero-intro">Hi, I’m Oliver Rose, ICAEW ACA part-qualified accountant. I help musicians, bands, and creatives with tax, bookkeeping, and business advice.</p>
+        <p style="margin-top:0.7em;font-size:1.05em;max-width:500px;">Specialist support in bookkeeping, tax returns, tour budgets, and business advice for artists, bands, creatives, and indie labels. Trusted, modern, and jargon-free.<br>
           <span class="text-muted">Your numbers, your style, your rules.</span>
         </p>
-        <a href="#contact" class="hero-btn">Book a Free Consultation</a>
+        <a href="#contact" class="hero-btn" style="background:#bb4ba2;color:#fff;border:none;">
+          Book a Free Consultation <i class="fa-solid fa-paper-plane"></i>
+        </a>
       </div>
       <!-- Scroll indicator -->
       <a href="#about" class="scroll-indicator" aria-label="Scroll to About">
         <i class="fa-solid fa-chevron-down"></i>
       </a>
       <div class="hero-wave">
-        <svg viewBox="0 0 1440 140" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <svg viewBox="0 0 1440 140" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" aria-hidden="true" focusable="false">
           <path d="M0,80 Q360,140 720,80T1440,80V0H0Z" fill="#3ee7fa" opacity="0.21">
             <animate attributeName="d" dur="8s" repeatCount="indefinite"
               values="M0,80 Q360,140 720,80T1440,80V0H0Z; M0,60 Q360,100 720,120T1440,80V0H0Z; M0,80 Q360,140 720,80T1440,80V0H0Z" />
@@ -315,9 +355,10 @@
       <h2 class="section-title">About Rose Above</h2>
       <div class="about-flex">
         <div class="about-img">
-          <img src="images/oliver-profile.jpg" alt="Oliver Rose" loading="lazy" style="border-radius:1.2em;box-shadow:0 4px 32px #3ee7fa22;">
+          <img src="images/oliver-profile.jpg" alt="Oliver Rose, Music Accountant" loading="lazy" style="border-radius:1.2em;box-shadow:0 4px 32px #3ee7fa22;">
         </div>
         <div class="about-text">
+          <span class="badge">ICAEW ACA Part-Qualified</span>
           <p>
             <strong>Accountancy for musicians, indie labels, creatives, and ambitious entrepreneurs.</strong>
             <br>Hi! I am Oliver Rose, the founder of Rose Above. Years of finance experience, ICAEW ACA part-qualified accountant, and a passion for making finance approachable for creatives.<br>
@@ -365,6 +406,9 @@
           <h3>“Ask Me Anything” Sessions</h3>
           <p>Transparent, jargon-free answers to your questions—big or small. One-off or ongoing.</p>
         </div>
+      </div>
+      <div class="disclaimer">
+        All services provided as a part-qualified accountant (ICAEW ACA). Fully insured. Chartered Accountant status pending ICAEW completion.
       </div>
     </section>
     <div class="ska-divider"></div>
@@ -444,25 +488,25 @@
         <div class="faq-item">
           <button class="faq-question" type="button" aria-expanded="false">Do you only work with musicians and creatives?</button>
           <div class="faq-answer">
-            <p>That's our specialty! But we also help indie businesses, freelancers, and anyone who loves a creative approach to finance.</p>
+            <p>That's my specialty! But I also help indie businesses, freelancers, and anyone who loves a creative approach to finance.</p>
           </div>
         </div>
         <div class="faq-item">
           <button class="faq-question" type="button" aria-expanded="false">Can you help remotely or internationally?</button>
           <div class="faq-answer">
-            <p>Absolutely. Most work is done virtually, and we can help wherever you are in the world, as long as you need UK finance/tax support.</p>
+            <p>Absolutely. Most work is done virtually, and I can help wherever you are in the world, as long as you need UK finance/tax support.</p>
           </div>
         </div>
         <div class="faq-item">
           <button class="faq-question" type="button" aria-expanded="false">How does your pricing work?</button>
           <div class="faq-answer">
-            <p>We offer clear, up-front pricing for all services. Everything is agreed together before any work starts, so there are no surprises.</p>
+            <p>I offer clear, up-front pricing for all services. Everything is agreed together before any work starts, so there are no surprises.</p>
           </div>
         </div>
         <div class="faq-item">
           <button class="faq-question" type="button" aria-expanded="false">What if I just have a quick question?</button>
           <div class="faq-answer">
-            <p>Feel free to get in touch! We offer “Ask Me Anything” sessions for one-off advice, and there’s never any hard sell.</p>
+            <p>Feel free to get in touch! I offer “Ask Me Anything” sessions for one-off advice, and there’s never any hard sell.</p>
           </div>
         </div>
       </div>
@@ -480,10 +524,10 @@
             <input id="contactName" name="contactName" type="text" placeholder="Your Name" required>
             <label for="contactEmail" style="margin-top:0.7em;">Email</label>
             <input id="contactEmail" name="contactEmail" type="email" placeholder="you@email.com" required>
-            <label for="contactMessage" style="margin-top:0.7em;">How can we help?</label>
+            <label for="contactMessage" style="margin-top:0.7em;">How can I help?</label>
             <textarea id="contactMessage" name="contactMessage" placeholder="Tell me about your project or question" rows="4" required></textarea>
             <button type="submit" class="btn" style="margin-top:1em;">Send Message <i class="fa-solid fa-paper-plane"></i></button>
-            <div id="form-success" style="display:none;color:var(--accent-hover);margin-top:1em;font-weight:600;" aria-live="polite">Thank you! We’ll be in touch soon.</div>
+            <div id="form-success" style="display:none;color:var(--accent-hover);margin-top:1em;font-weight:600;" aria-live="polite">Thank you! I'll be in touch soon.</div>
           </form>
         </div>
         <div class="card" style="flex:1;align-items:center;justify-content:center;text-align:center;">
@@ -494,8 +538,8 @@
           <div style="margin-top:2em;">
             <div style="font-size:1.2em;font-weight:600;">Follow me:</div>
             <div class="social-icons" style="margin-top:0.4em;">
-              <a href="https://twitter.com/YOURHANDLE" aria-label="Twitter" target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a>
-              <a href="https://instagram.com/YOURHANDLE" aria-label="Instagram" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+              <!-- Twitter removed as you didn't specify a handle -->
+              <a href="https://instagram.com/roseaboveaccountancy" aria-label="Instagram" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
               <a href="https://linkedin.com/in/YOURHANDLE" aria-label="LinkedIn" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
               <a href="mailto:oliverrosefinance@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
             </div>
@@ -518,14 +562,17 @@
         <a href="terms.html">Terms</a>
       </div>
       <div class="social-icons">
-        <a href="https://twitter.com/YOURHANDLE" aria-label="Twitter" target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a>
-        <a href="https://instagram.com/YOURHANDLE" aria-label="Instagram" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+        <!-- Twitter removed as you didn't specify a handle -->
+        <a href="https://instagram.com/roseaboveaccountancy" aria-label="Instagram" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
         <a href="https://linkedin.com/in/YOURHANDLE" aria-label="LinkedIn" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
         <a href="mailto:oliverrosefinance@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
       </div>
       <div style="margin-top:0.7em;">
         &copy; 2025 Rose Above. Accountancy for Musicians & Creatives.<br>
         <small>Professional freelance finance, built for artists.</small>
+      </div>
+      <div class="footer-credit">
+        Site by Oliver Rose.
       </div>
     </div>
   </footer>
