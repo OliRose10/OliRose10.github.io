@@ -4,12 +4,13 @@
   justify-content: center;
   margin: 2.4em 0 1em 0;
   flex-wrap: wrap;
-  background: var(--bg-band);
+  background: var(--bg-band, var(--bg-section));
   border-radius: var(--radius);
   box-shadow: 0 4px 22px #0001;
   padding: 1.5em 0.5em 1.5em 0.5em;
   border: 1.5px solid var(--border);
 }
+
 .stat {
   background: var(--bg-card);
   border-radius: var(--radius);
@@ -45,4 +46,27 @@
   font-size: 1.13em;
   font-weight: 700;
   letter-spacing: 0.7px;
+}
+
+/* DARK MODE IMPROVEMENTS */
+[data-theme="dark"] .stats-row {
+  background: var(--bg-band, var(--bg-section));
+  border-color: #168aad44;
+}
+[data-theme="dark"] .stat {
+  background: var(--bg-card) !important;
+  border-color: #168aad44;
+  color: var(--text-main) !important;
+  box-shadow: 0 4px 18px #168aad22;
+}
+[data-theme="dark"] .stat:hover {
+  box-shadow: 0 12px 32px #168aad33;
+  border-color: #168aad;
+}
+[data-theme="dark"] .stat-number {
+  color: #fff;
+  text-shadow: 0 0 16px #168aad55;
+}
+[data-theme="dark"] .stat-label {
+  color: #168aad !important;
 }
