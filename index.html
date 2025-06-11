@@ -57,6 +57,7 @@
           <li><a href="#hero" class="nav-link active" aria-current="page">Home</a></li>
           <li><a href="#about" class="nav-link">About</a></li>
           <li><a href="#services" class="nav-link">Services</a></li>
+          <li><a href="#gallery" class="nav-link">Gallery</a></li>
           <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
           <li><a href="#faq" class="nav-link">FAQ</a></li>
           <li><a href="#contact" class="nav-link">Contact</a></li>
@@ -65,6 +66,9 @@
       <button id="themeToggleBtn" class="theme-toggle" aria-label="Toggle light/dark mode">
         <span class="theme-toggle-icon"><i class="fa-solid fa-moon"></i></span>
         <span class="theme-toggle-text">Dark</span>
+      </button>
+      <button class="hamburger" aria-label="Open navigation menu" aria-expanded="false">
+        <span></span><span></span><span></span>
       </button>
     </div>
   </header>
@@ -101,16 +105,16 @@
     <section>
       <div class="stats-row scroll-fade-in">
         <div class="stat">
-          <span class="stat-number" data-target="100">0</span><span class="stat-plus">+</span>
           <div class="stat-label">Artists Helped</div>
+          <span class="stat-number" data-target="100">0</span><span class="stat-plus">+</span>
         </div>
         <div class="stat">
-          <span class="stat-currency">£</span><span class="stat-number" data-target="250000">0</span><span class="stat-plus">+</span>
           <div class="stat-label">Tax Saved</div>
+          <span class="stat-currency">£</span><span class="stat-number" data-target="250000">0</span><span class="stat-plus">+</span>
         </div>
         <div class="stat">
-          <span class="stat-number" data-target="10">0</span><span class="stat-plus">+</span>
           <div class="stat-label">Years Experience</div>
+          <span class="stat-number" data-target="10">0</span><span class="stat-plus">+</span>
         </div>
       </div>
     </section>
@@ -176,6 +180,36 @@
     </section>
     <div class="ska-divider"></div>
 
+    <!-- GALLERY / SLIDESHOW SECTION -->
+    <section id="gallery" class="scroll-fade-in">
+      <span class="section-subtitle">Gallery</span>
+      <h2 class="section-title">Moments & Memories</h2>
+      <div class="gallery-slideshow">
+        <button class="gallery-btn prev" aria-label="Previous image"><i class="fa-solid fa-chevron-left"></i></button>
+        <div class="gallery-track">
+          <div class="gallery-slide active">
+            <img src="https://placehold.co/600x400?text=Photo+1" alt="Placeholder Photo 1">
+            <div class="gallery-caption">Your headline moment #1</div>
+          </div>
+          <div class="gallery-slide">
+            <img src="https://placehold.co/600x400?text=Photo+2" alt="Placeholder Photo 2">
+            <div class="gallery-caption">Live at a festival #2</div>
+          </div>
+          <div class="gallery-slide">
+            <img src="https://placehold.co/600x400?text=Photo+3" alt="Placeholder Photo 3">
+            <div class="gallery-caption">Behind the scenes #3</div>
+          </div>
+        </div>
+        <button class="gallery-btn next" aria-label="Next image"><i class="fa-solid fa-chevron-right"></i></button>
+      </div>
+      <div class="gallery-dots" aria-label="Gallery navigation">
+        <span class="gallery-dot active" tabindex="0" aria-label="Go to image 1"></span>
+        <span class="gallery-dot" tabindex="0" aria-label="Go to image 2"></span>
+        <span class="gallery-dot" tabindex="0" aria-label="Go to image 3"></span>
+      </div>
+    </section>
+    <div class="ska-divider"></div>
+
     <!-- TESTIMONIALS - CAROUSEL -->
     <section id="testimonials" class="fade-in section-band scroll-fade-in">
       <span class="section-subtitle">What Clients Say</span>
@@ -186,17 +220,17 @@
           <div class="carousel-item active" tabindex="0" aria-live="polite">
             <span class="service-icon"><i class="fa-solid fa-heart"></i></span>
             <p>“Oliver’s advice gave me clarity and confidence about my music finances. Highly recommended!”</p>
-            <span style="color:#3ee7fa;font-weight:700;">– Singer/Songwriter</span>
+            <span class="testimonial-author">– Singer/Songwriter</span>
           </div>
           <div class="carousel-item" tabindex="0">
             <span class="service-icon"><i class="fa-solid fa-thumbs-up"></i></span>
             <p>“Professional, responsive, and knows the music business inside out.”</p>
-            <span style="color:#3ee7fa;font-weight:700;">– Indie Label Owner</span>
+            <span class="testimonial-author">– Indie Label Owner</span>
           </div>
           <div class="carousel-item" tabindex="0">
             <span class="service-icon"><i class="fa-solid fa-star"></i></span>
             <p>“Oliver made my tax return painless and helped me get organized for the year ahead.”</p>
-            <span style="color:#3ee7fa;font-weight:700;">– Touring Musician</span>
+            <span class="testimonial-author">– Touring Musician</span>
           </div>
           <div class="carousel-item" tabindex="0">
             <p>Want to leave a testimonial? <a href="#contact">Get in touch!</a></p>
@@ -278,6 +312,7 @@
       <div class="footer-links">
         <a href="#about">About</a>
         <a href="#services">Services</a>
+        <a href="#gallery">Gallery</a>
         <a href="#testimonials">Testimonials</a>
         <a href="#faq">FAQ</a>
         <a href="#contact">Contact</a>
