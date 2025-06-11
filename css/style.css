@@ -1340,3 +1340,66 @@ nav .nav-link:focus {
   background: #168aad !important;
   color: #fff !important;
 }
+/* PATCH: Always-blue link color for "Get in touch!" in carousel, and fix carousel/gallery nav buttons visibility */
+
+/* Make all links in testimonial carousel always blue, not just on hover */
+.testimonial-carousel a,
+.testimonial-carousel a:visited {
+  color: #168aad !important;
+  text-decoration: underline;
+  font-weight: 700;
+  transition: color 0.17s;
+}
+.testimonial-carousel a:hover,
+.testimonial-carousel a:focus {
+  color: #12618a !important;
+}
+
+/* In dark mode, keep it bright blue as well */
+[data-theme="dark"] .testimonial-carousel a,
+[data-theme="dark"] .testimonial-carousel a:visited {
+  color: #3ee7fa !important;
+  text-decoration: underline;
+}
+
+/* Carousel and Gallery nav buttons: always visible in both light and dark mode */
+
+.carousel-btn,
+.gallery-btn {
+  background: #168aad !important;   /* Always blue */
+  color: #fff !important;
+  border: none;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  font-size: 1.55em;
+  box-shadow: 0 2px 8px #3ee7fa22;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 0.6em;
+  transition: background 0.18s, color 0.18s;
+}
+
+.carousel-btn:hover,
+.carousel-btn:focus,
+.gallery-btn:hover,
+.gallery-btn:focus {
+  background: #12618a !important;  /* Darker blue on hover/focus */
+  color: #fff !important;
+}
+
+/* In dark mode, keep nav buttons a bright blue/teal for contrast */
+[data-theme="dark"] .carousel-btn,
+[data-theme="dark"] .gallery-btn {
+  background: #3ee7fa !important;
+  color: #181820 !important;
+}
+
+[data-theme="dark"] .carousel-btn:hover,
+[data-theme="dark"] .carousel-btn:focus,
+[data-theme="dark"] .gallery-btn:hover,
+[data-theme="dark"] .gallery-btn:focus {
+  background: #168aad !important;
+  color: #fff !important;
+}
