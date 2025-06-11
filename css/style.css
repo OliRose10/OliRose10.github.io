@@ -51,6 +51,54 @@
   --shadow: 0 8px 38px #10111420, 0 2px 8px #10111418;
   --shadow-strong: 0 18px 60px #10111444;
 }
+/* Fixes for hero, about, stats, and contact sections in dark mode */
+[data-theme="dark"] .hero-section,
+[data-theme="dark"] .hero-content,
+[data-theme="dark"] .hero-title,
+[data-theme="dark"] .hero-tagline,
+[data-theme="dark"] .hero-desc,
+[data-theme="dark"] .about-text,
+[data-theme="dark"] .about-flex,
+[data-theme="dark"] .brand-tagline,
+[data-theme="dark"] .cards-container > .card,
+[data-theme="dark"] #contact .card,
+[data-theme="dark"] .stat,
+[data-theme="dark"] .stats-row .stat {
+  background: var(--bg-card) !important;
+  color: var(--text-main) !important;
+}
+[data-theme="dark"] .hero-section {
+  background: linear-gradient(120deg, #23242a 70%, #181820 100%) !important;
+}
+[data-theme="dark"] .hero-title,
+[data-theme="dark"] .hero-tagline,
+[data-theme="dark"] .hero-desc,
+[data-theme="dark"] .brand-tagline,
+[data-theme="dark"] .about-text {
+  color: #f7f7f7 !important;
+}
+[data-theme="dark"] .brand-tagline,
+[data-theme="dark"] .hero-tagline,
+[data-theme="dark"] .hero-desc,
+[data-theme="dark"] .about-text,
+[data-theme="dark"] .section-title,
+[data-theme="dark"] .section-subtitle {
+  color: #f7f7f7 !important;
+}
+[data-theme="dark"] .text-muted {
+  color: #b6b6b6 !important;
+}
+[data-theme="dark"] .stat-label {
+  color: #168aad !important;
+}
+[data-theme="dark"] .stat-number,
+[data-theme="dark"] .stat-plus,
+[data-theme="dark"] .stat-currency {
+  color: #f7f7f7 !important;
+}
+[data-theme="dark"] #contact .card:last-child {
+  background: linear-gradient(130deg, #168aad22 40%, #168aad08 100%) !important;
+}
 [data-theme="dark"] nav .nav-link.active,
 [data-theme="dark"] nav .nav-link:hover {
   color: #181818;
@@ -114,13 +162,21 @@
 [data-theme="dark"] .ska-divider {
   background: repeating-linear-gradient(90deg, #168aad 0 14px, #fff 14px 28px);
 }
-/* Fix: dark mode contrast for testimonial authors and gallery captions */
 [data-theme="dark"] .testimonial-author,
 [data-theme="dark"] .gallery-caption {
   color: #168aad !important;
 }
-[data-theme="dark"] .stat-label {
-  color: #168aad !important;
+
+[data-theme="dark"] input, 
+[data-theme="dark"] textarea {
+  background: #23242a !important;
+  color: #f7f7f7 !important;
+  border-color: #168aad !important;
+}
+[data-theme="dark"] input:focus, 
+[data-theme="dark"] textarea:focus {
+  background: #181820 !important;
+  color: #fff !important;
 }
 
 /* ===== RESET & BASE ===== */
