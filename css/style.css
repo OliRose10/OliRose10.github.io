@@ -15,7 +15,7 @@
   --text-muted: #757575;
   --text-heading: #101114;
   --accent: #16171c;
-  --accent-hover: #3ee7fa;
+  --accent-hover: #168aad;
   --accent-light: #e9e9e9;
   --accent-faded: #e7e7e7;
   --chequer-light: #fff;
@@ -29,7 +29,7 @@
   --font-main: 'Montserrat', Arial, sans-serif;
   --font-heading: 'Space Grotesk', 'Montserrat', Arial, sans-serif;
   --transition: .19s cubic-bezier(.4,0,.2,1);
-  --input-focus: #3ee7fa;
+  --input-focus: #168aad;
 }
 
 /* ===== DARK THEME ===== */
@@ -42,8 +42,8 @@
   --text-main: #f7f7f7;
   --text-muted: #b6b6b6;
   --text-heading: #fff;
-  --accent: #3ee7fa;
-  --accent-hover: #1ca9c9;
+  --accent: #168aad;
+  --accent-hover: #168aad;
   --accent-light: #222;
   --accent-faded: #191b20;
   --chequer-light: #23242a;
@@ -54,12 +54,12 @@
 [data-theme="dark"] nav .nav-link.active,
 [data-theme="dark"] nav .nav-link:hover {
   color: #181818;
-  background: #3ee7fa;
-  border-bottom: 2.5px solid #3ee7fa;
+  background: #168aad;
+  border-bottom: 2.5px solid #168aad;
 }
 [data-theme="dark"] .btn,
 [data-theme="dark"] .hero-btn {
-  background: #3ee7fa;
+  background: #168aad;
   color: #23242a;
 }
 [data-theme="dark"] .btn:hover,
@@ -68,11 +68,11 @@
   color: #23242a;
 }
 [data-theme="dark"] .card.card-accent {
-  background: repeating-linear-gradient(135deg, #3ee7fa 0 18px, #222 18px 36px) !important;
+  background: repeating-linear-gradient(135deg, #168aad 0 18px, #222 18px 36px) !important;
 }
 [data-theme="dark"] .about-highlight .fa-solid {
   color: #fff;
-  background: #3ee7fa;
+  background: #168aad;
 }
 [data-theme="dark"] .section-title {
   color: #fff;
@@ -80,11 +80,11 @@
 [data-theme="dark"] .card {
   background: #23242a;
   color: #fff;
-  border-color: #3ee7fa22;
+  border-color: #168aad22;
 }
 [data-theme="dark"] .card h3 {
-  color: #3ee7fa;
-  border-bottom: 2px solid #3ee7fa;
+  color: #168aad;
+  border-bottom: 2px solid #168aad;
 }
 [data-theme="dark"] .card:not(.card-accent):hover {
   background: #222;
@@ -92,7 +92,7 @@
 [data-theme="dark"] .faq-item {
   background: #23242a;
   color: #fff;
-  border-color: #3ee7fa44;
+  border-color: #168aad44;
 }
 [data-theme="dark"] .faq-answer {
   background: #222;
@@ -100,27 +100,27 @@
 }
 [data-theme="dark"] footer {
   background: #101114;
-  color: #3ee7fa;
+  color: #168aad;
 }
 [data-theme="dark"] footer .footer-links a {
-  color: #3ee7fa;
+  color: #168aad;
 }
 [data-theme="dark"] footer .footer-links a:hover {
-  background: #3ee7fa;
+  background: #168aad;
   color: #101114;
-  border-bottom: 2px dotted #101114;
+  border-bottom: 2.5px solid #101114;
 }
 [data-theme="dark"] .ska-accent,
 [data-theme="dark"] .ska-divider {
-  background: repeating-linear-gradient(90deg, #3ee7fa 0 14px, #fff 14px 28px);
+  background: repeating-linear-gradient(90deg, #168aad 0 14px, #fff 14px 28px);
 }
 /* Fix: dark mode contrast for testimonial authors and gallery captions */
 [data-theme="dark"] .testimonial-author,
 [data-theme="dark"] .gallery-caption {
-  color: #3ee7fa !important;
+  color: #168aad !important;
 }
 [data-theme="dark"] .stat-label {
-  color: #3ee7fa !important;
+  color: #168aad !important;
 }
 
 /* ===== RESET & BASE ===== */
@@ -193,7 +193,7 @@ a:hover {
 .font-main { font-family: var(--font-main);}
 .uppercase { text-transform: uppercase; }
 .testimonial-author, .gallery-caption {
-  color: #3ee7fa;
+  color: #168aad;
   font-weight: bold;
   font-size: 1em;
   margin: 0.2em 0 0 0;
@@ -228,8 +228,8 @@ a:hover {
   animation: none;
 }
 @keyframes pulse {
-  0%, 100% { box-shadow: 0 0 0 0 #3ee7fa44; }
-  50% { box-shadow: 0 0 0 16px #3ee7fa11; }
+  0%, 100% { box-shadow: 0 0 0 0 #168aad44; }
+  50% { box-shadow: 0 0 0 16px #168aad11; }
 }
 
 /* ===== HEADER ===== */
@@ -322,7 +322,7 @@ nav .nav-link:hover {
   position: absolute;
   left: 0; right: 0; top: 0; bottom: 0;
   pointer-events: none;
-  background: radial-gradient(circle at 80% 20%, #3ee7fa19 0, #fff0 90%),
+  background: radial-gradient(circle at 80% 20%, #168aad19 0, #fff0 90%),
     radial-gradient(circle at 15% 80%, #23232713 0, #fff0 85%);
   z-index: 0;
 }
@@ -681,7 +681,7 @@ section {
 }
 .gallery-btn:hover, .gallery-btn:focus {
   background: #16171c;
-  color: #3ee7fa;
+  color: #168aad;
   transform: scale(1.09);
 }
 .gallery-dots {
@@ -695,13 +695,13 @@ section {
   height: 13px;
   border-radius: 50%;
   background: #e0e0e0;
-  border: 2px solid #3ee7fa44;
+  border: 2px solid #168aad44;
   cursor: pointer;
   transition: background 0.2s, border 0.2s;
   outline: none;
 }
 .gallery-dot.active, .gallery-dot:focus {
-  background: #3ee7fa;
+  background: #168aad;
   border: 2px solid #16171c;
 }
 
@@ -753,7 +753,7 @@ section {
   to { opacity: 1; transform: none;}
 }
 .testimonial-author {
-  color: #3ee7fa;
+  color: #168aad;
   font-weight: bold;
   font-size: 1em;
   margin: 0.2em 0 0 0;
@@ -779,7 +779,7 @@ section {
 }
 .carousel-btn:hover, .carousel-btn:focus {
   background: #16171c;
-  color: #3ee7fa;
+  color: #168aad;
   transform: scale(1.09);
 }
 .carousel-dots {
@@ -793,13 +793,13 @@ section {
   height: 13px;
   border-radius: 50%;
   background: #e0e0e0;
-  border: 2px solid #3ee7fa44;
+  border: 2px solid #168aad44;
   cursor: pointer;
   transition: background 0.2s, border 0.2s;
   outline: none;
 }
 .carousel-dot.active, .carousel-dot:focus {
-  background: #3ee7fa;
+  background: #168aad;
   border: 2px solid #16171c;
 }
 
@@ -861,7 +861,7 @@ input, textarea {
 input:focus, textarea:focus {
   border-color: var(--input-focus);
   background: #fff;
-  box-shadow: 0 0 0 4px #3ee7fa22;
+  box-shadow: 0 0 0 4px #168aad22;
 }
 input.error, textarea.error {
   border-color: #e43;
@@ -1027,16 +1027,16 @@ footer .ska-accent {
 }
 /* Add glowing focus for important controls */
 a:focus, button:focus, input:focus, textarea:focus {
-  outline: 2.5px solid #3ee7fa;
+  outline: 2.5px solid #168aad;
   outline-offset: 2px;
   transition: outline 0.07s;
 }
 .btn:focus, .theme-toggle:focus, .nav-link:focus {
-  box-shadow: 0 0 0 4px #3ee7fa44;
+  box-shadow: 0 0 0 4px #168aad44;
   outline: none;
 }
 nav .nav-link:focus {
-  outline: 2.5px solid #3ee7fa;
+  outline: 2.5px solid #168aad;
   background: #e9e9e9;
 }
 [data-theme="dark"] nav .nav-link:focus { background: #23242a; }
@@ -1045,7 +1045,7 @@ nav .nav-link:focus {
 .faq-question:focus,
 .gallery-btn:focus,
 .gallery-dot:focus {
-  outline: 2px solid #3ee7fa;
+  outline: 2px solid #168aad;
   outline-offset: 2px;
   background: #e9e9e9;
 }
@@ -1063,7 +1063,7 @@ nav .nav-link:focus {
 .floating-note {
   position: absolute;
   font-size: 1.6em;
-  color: #3ee7fa;
+  color: #168aad;
   opacity: 0.10;
   animation: floatNotes 18s linear infinite;
 }
