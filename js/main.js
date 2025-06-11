@@ -90,20 +90,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // --- Hamburger Navigation ---
   const nav = document.querySelector('nav');
-  if (nav) {
-    // Create hamburger button if not present
-    let hamburger = document.querySelector('.hamburger');
-    if (!hamburger) {
-      hamburger = document.createElement('button');
-      hamburger.className = 'hamburger';
-      hamburger.setAttribute('aria-label', 'Open navigation menu');
-      hamburger.innerHTML = '<span></span><span></span><span></span>';
-      nav.parentNode.insertBefore(hamburger, nav);
-    }
+  const hamburger = document.querySelector('.hamburger');
+  if (nav && hamburger) {
     hamburger.addEventListener('click', function () {
       nav.classList.toggle('nav-open');
       hamburger.classList.toggle('is-active');
-      // Accessibility: set aria-expanded
       hamburger.setAttribute('aria-expanded', nav.classList.contains('nav-open'));
       // Close menu when a link is clicked
       nav.querySelectorAll('.nav-link').forEach(link => {
@@ -291,6 +282,60 @@ window.addEventListener('DOMContentLoaded', () => {
     );
     ['mouseleave', 'focusout'].forEach(evt =>
       carousel.addEventListener(evt, () => { paused = false; resetTimer(); })
+    );
+  }
+  // Touch swipe
+  let startX = 0;
+  track.addEventListener('touchstart', e => startX = e.touches[0].clientX);
+  track.addEventListener('touchend', e => {
+    let endX = e.changedTouches[0].clientX;
+    if (endX - startX > 40) prev();
+    if (startX - endX > 40) next();
+  });
+
+  show(0);
+})();
+
+// --- Gallery Slideshow: auto/manual, dots, swipe, keyboard, focus ---
+(function () {
+  const track = document.querySelector('.gallery-track');
+  const slides = Array.from(document.querySelectorAll('.gallery-slide'));
+  const dots = Array.from(document.querySelectorAll('.gallery-dot'));
+  if (!track || slides.length === 0 || dots.length === 0) return;
+
+  let current = 0, timer = null, paused = false;
+
+  function show(index) {
+    slides.forEach((slide, i) => slide.classList.toggle('active', i === index));
+    dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
+    current = index;
+    resetTimer();
+  }
+  function next() { show((current + 1) % slides.length); }
+  function prev() { show((current - 1 + slides.length) % slides.length); }
+
+  function resetTimer() {
+    if (timer) clearTimeout(timer);
+    if (!paused) timer = setTimeout(next, 6000);
+  }
+
+  const prevBtn = document.querySelector('.gallery-btn.prev');
+  const nextBtn = document.querySelector('.gallery-btn.next');
+  if (prevBtn) prevBtn.onclick = prev;
+  if (nextBtn) nextBtn.onclick = next;
+  dots.forEach((dot, i) => dot.onclick = () => show(i));
+  const gallery = document.querySelector('.gallery-slideshow');
+  if (gallery) {
+    gallery.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowLeft') prev();
+      if (e.key === 'ArrowRight') next();
+    });
+    // Pause auto scroll on hover/focus
+    ['mouseenter', 'focusin'].forEach(evt =>
+      gallery.addEventListener(evt, () => { paused = true; if (timer) clearTimeout(timer); })
+    );
+    ['mouseleave', 'focusout'].forEach(evt =>
+      gallery.addEventListener(evt, () => { paused = false; resetTimer(); })
     );
   }
   // Touch swipe
