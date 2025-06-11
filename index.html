@@ -13,38 +13,99 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="manifest" href="manifest.json">
   <link rel="icon" href="images/favicon.ico">
-  <!-- Cache busting for updated CSS -->
   <link rel="stylesheet" href="css/style.css?v=20250611">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Space+Grotesk:wght@500;700&display=swap">
   <script src="https://kit.fontawesome.com/fe7fbe4e2b.js" crossorigin="anonymous"></script>
-  <!-- Add smooth scroll for anchor links -->
   <style>
     html { scroll-behavior: smooth; }
-    /* Animated scroll indicator for hero */
-    .scroll-indicator {
-      position: absolute;
-      left: 50%;
-      bottom: 32px;
-      transform: translateX(-50%);
-      z-index: 10;
-      animation: bounce 2s infinite;
-      font-size: 2.1rem;
-      color: var(--accent, #3ee7fa);
-      opacity: 0.7;
-      cursor: pointer;
+    /* --- Header Layout --- */
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 2em;
+      position: relative;
+      padding-top: 0.6em;
+      padding-bottom: 0.6em;
     }
-    @keyframes bounce {
-      0%, 100% { transform: translateX(-50%) translateY(0);}
-      50% { transform: translateX(-50%) translateY(10px);}
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 0.8em;
+      min-width: 72px;
     }
-    /* Subtle glowing border on logo hover */
     .logo-img {
+      width: 56px;
+      height: 56px;
+      object-fit: contain;
+      border-radius: 50%;
+      background: #fff;
+      border: 2px solid #3ee7fa33;
+      box-shadow: 0 2px 8px #3ee7fa11;
       transition: box-shadow 0.2s;
     }
     .logo-img:hover {
       box-shadow: 0 0 0 3px #bb4ba255, 0 3px 12px #3ee7fa22;
     }
-    /* "Back to Top" floating button */
+    nav {
+      flex: 1;
+    }
+    nav ul {
+      display: flex;
+      align-items: center;
+      gap: 1.5em;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+    nav ul li {
+      position: relative;
+    }
+    .nav-link {
+      font-family: Montserrat, sans-serif;
+      font-weight: 600;
+      font-size: 1.08em;
+      color: #181818;
+      text-decoration: none;
+      padding: 0.3em 0.7em;
+      border-radius: 0.4em;
+      transition: background 0.15s, color 0.15s;
+    }
+    .nav-link.active,
+    .nav-link:focus,
+    .nav-link:hover {
+      background: #3ee7fa22;
+      color: #bb4ba2;
+    }
+    /* --- Rose Above Title under Home --- */
+    .site-title-under-nav {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      margin-top: 0.2em;
+      margin-bottom: 0.4em;
+    }
+    .site-title-under-nav h1 {
+      font-family: Montserrat, sans-serif;
+      font-weight: 900;
+      font-size: 2.1em;
+      margin: 0.18em 0 0.08em 0;
+      color: #bb4ba2;
+      letter-spacing: 0.03em;
+      line-height: 1.05;
+      text-shadow: 0 2px 16px #3ee7fa11;
+    }
+    .site-title-under-nav .site-tagline {
+      font-family: Space Grotesk, sans-serif;
+      font-size: 1.01em;
+      color: #222;
+      font-weight: 500;
+      margin-bottom: 0.7em;
+      letter-spacing: 0.01em;
+      opacity: 0.85;
+    }
+    /* --- Back to Top Button --- */
     #backToTop {
       display: none;
       position: fixed;
@@ -67,32 +128,93 @@
       opacity: 1;
       background: #bb4ba2;
     }
-    /* Subtle fade-in animation for all .scroll-fade-in elements */
-    .scroll-fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.8s, transform 0.8s;
+    /* --- Gallery/Carousel Arrows --- */
+    .gallery-btn, .carousel-btn {
+      background: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 44px;
+      height: 44px;
+      font-size: 1.45em;
+      color: #bb4ba2;
+      box-shadow: 0 2px 8px #3ee7fa22;
+      transition: background 0.18s, color 0.18s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 0.6em;
     }
-    .scroll-fade-in.visible {
-      opacity: 1;
-      transform: none;
+    .gallery-btn:hover, .carousel-btn:hover {
+      background: #3ee7fa;
+      color: #fff;
     }
-    /* Social icons pulse on hover */
-    .social-icons a:hover {
-      animation: pulse 0.7s;
+    /* --- Contact Section Improvements --- */
+    #contact .cards-container {
+      display: flex;
+      gap: 2em;
+      margin-top: 1.2em;
+      align-items: stretch;
+      flex-wrap: wrap;
     }
-    @keyframes pulse {
-      0% { transform: scale(1);}
-      50% { transform: scale(1.12);}
-      100% { transform: scale(1);}
+    #contact .card {
+      background: #fff;
+      border-radius: 1.1em;
+      box-shadow: 0 2px 12px #3ee7fa13;
+      padding: 2em 1.5em;
+      min-width: 260px;
+      flex: 1 1 320px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
+    #contact .card:last-child {
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: linear-gradient(130deg, #3ee7fa11 40%, #bb4ba211 100%);
+      border-left: 4px solid #3ee7fa55;
+    }
+    @media (max-width: 900px) {
+      #contact .cards-container {
+        flex-direction: column;
+        gap: 1.3em;
+      }
+      #contact .card {
+        width: 100%;
+        min-width: unset;
+      }
+      #contact .card:last-child {
+        border-left: none;
+        border-top: 4px solid #3ee7fa55;
+      }
+    }
+    /* --- Scroll indicator for hero --- */
+    .scroll-indicator {
+      position: absolute;
+      left: 50%;
+      bottom: 32px;
+      transform: translateX(-50%);
+      z-index: 10;
+      animation: bounce 2s infinite;
+      font-size: 2.1rem;
+      color: var(--accent, #3ee7fa);
+      opacity: 0.7;
+      cursor: pointer;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0);}
+      50% { transform: translateX(-50%) translateY(10px);}
+    }
+    /* --- Fade-in Animation --- */
+    .scroll-fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.8s, transform 0.8s;}
+    .scroll-fade-in.visible { opacity: 1; transform: none;}
+    /* --- Social icons pulse --- */
+    .social-icons a:hover { animation: pulse 0.7s;}
+    @keyframes pulse { 0%{transform:scale(1);} 50%{transform:scale(1.12);} 100%{transform:scale(1);} }
   </style>
 </head>
 <body>
-  <!-- Accessibility: Skip link for screen readers and keyboard users -->
   <a href="#mainContent" class="skip-link" style="position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden;">Skip to main content</a>
-
-  <!-- Single animated SVG background for depth (don't duplicate!) -->
   <svg class="background-svg" aria-hidden="true">
     <defs>
       <linearGradient id="bg-ska" x1="0" y1="0" x2="1" y2="1">
@@ -108,7 +230,7 @@
   <div class="texture-overlay"></div>
   <div id="floating-notes"></div>
 
-  <!-- Free Guide Banner with Ska Accent -->
+  <!-- Free Guide Banner -->
   <div class="free-guide-banner" style="text-align:center;background:var(--bg-accent);padding:1.2em 0;box-shadow:0 2px 12px #0001; position:relative;">
     <a href="free-guide.pdf" class="btn" style="font-size:1.1rem;" download>
       <i class="fa-solid fa-book-open"></i> Download My Free Guide: “Finance for Musicians”
@@ -118,13 +240,18 @@
   <!-- Header -->
   <header>
     <div class="header-content">
-      <a href="index.html" class="logo" aria-label="Rose Above Home">
-        <img class="logo-img" src="images/logo-rose-above.svg" alt="Rose Above Logo" width="56" height="56" style="vertical-align:middle;"/>
-        <span class="logo-title" style="font-family:'Montserrat',sans-serif;font-weight:700;letter-spacing:0.03em;font-size:1.18em;vertical-align:middle;display:inline-block;line-height:1.1;margin-left:0.55em;">ROSE<br>ABOVE</span>
-      </a>
+      <div class="logo-area">
+        <img class="logo-img" src="images/logo-rose-above.svg" alt="Rose Above Logo" />
+      </div>
       <nav aria-label="Main navigation">
         <ul>
-          <li><a href="#hero" class="nav-link active" aria-current="page">Home</a></li>
+          <li>
+            <a href="#hero" class="nav-link active" aria-current="page">Home</a>
+            <div class="site-title-under-nav">
+              <h1>Rose Above</h1>
+              <div class="site-tagline">Accountancy for Musicians & Creatives</div>
+            </div>
+          </li>
           <li><a href="#about" class="nav-link">About</a></li>
           <li><a href="#services" class="nav-link">Services</a></li>
           <li><a href="#gallery" class="nav-link">Gallery</a></li>
@@ -143,7 +270,6 @@
     </div>
   </header>
   <main id="mainContent" class="main-container" tabindex="-1">
-    <!-- SKA ACCENT -->
     <div class="ska-accent"></div>
 
     <!-- HERO -->
@@ -151,7 +277,6 @@
       <div class="hero-bg-float"></div>
       <div class="hero-accent ska-accent"></div>
       <div class="hero-content scroll-fade-in">
-        <h1 class="hero-title">Rose Above</h1>
         <h2 class="hero-tagline">Accountancy for Musicians and Creatives</h2>
         <p class="hero-desc">
           Helping you rise above the rest.<br>
@@ -165,7 +290,6 @@
       <a href="#about" class="scroll-indicator" aria-label="Scroll to About">
         <i class="fa-solid fa-chevron-down"></i>
       </a>
-      <!-- Animated SVG Wave at top of hero -->
       <div class="hero-wave">
         <svg viewBox="0 0 1440 140" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
           <path d="M0,80 Q360,140 720,80T1440,80V0H0Z" fill="#3ee7fa" opacity="0.21">
@@ -261,7 +385,7 @@
       <span class="section-subtitle">Gallery</span>
       <h2 class="section-title">Moments & Memories</h2>
       <div class="gallery-slideshow">
-        <button class="gallery-btn prev" aria-label="Previous image"><i class="fa-solid fa-chevron-left"></i></button>
+        <button class="gallery-btn prev" aria-label="Previous image"><i class="fa-solid fa-arrow-left"></i></button>
         <div class="gallery-track">
           <div class="gallery-slide active">
             <img src="https://placehold.co/600x400?text=Photo+1" alt="Placeholder Photo 1" loading="lazy" style="border-radius:0.8em;">
@@ -276,7 +400,7 @@
             <div class="gallery-caption">Behind the scenes #3</div>
           </div>
         </div>
-        <button class="gallery-btn next" aria-label="Next image"><i class="fa-solid fa-chevron-right"></i></button>
+        <button class="gallery-btn next" aria-label="Next image"><i class="fa-solid fa-arrow-right"></i></button>
       </div>
       <div class="gallery-dots" aria-label="Gallery navigation">
         <span class="gallery-dot active" tabindex="0" aria-label="Go to image 1"></span>
@@ -291,7 +415,7 @@
       <span class="section-subtitle">What Clients Say</span>
       <h2 class="section-title">Testimonials</h2>
       <div class="testimonial-carousel" aria-label="Client Testimonials" tabindex="0">
-        <button class="carousel-btn prev" aria-label="Previous testimonial"><i class="fa-solid fa-chevron-left"></i></button>
+        <button class="carousel-btn prev" aria-label="Previous testimonial"><i class="fa-solid fa-arrow-left"></i></button>
         <div class="carousel-track">
           <div class="carousel-item active" tabindex="0" aria-live="polite">
             <span class="service-icon"><i class="fa-solid fa-heart"></i></span>
@@ -312,7 +436,7 @@
             <p>Want to leave a testimonial? <a href="#contact">Get in touch!</a></p>
           </div>
         </div>
-        <button class="carousel-btn next" aria-label="Next testimonial"><i class="fa-solid fa-chevron-right"></i></button>
+        <button class="carousel-btn next" aria-label="Next testimonial"><i class="fa-solid fa-arrow-right"></i></button>
       </div>
       <div class="carousel-dots" aria-label="Testimonial carousel navigation">
         <span class="carousel-dot active" tabindex="0" aria-label="Go to testimonial 1"></span>
@@ -356,13 +480,13 @@
     </section>
     <div class="ska-divider"></div>
 
-    <!-- CONTACT -->
+    <!-- CONTACT (improved layout) -->
     <section id="contact" class="scroll-fade-in">
       <span class="section-subtitle">Let’s Talk</span>
       <h2 class="section-title">Contact</h2>
-      <form id="contactForm" autocomplete="off" novalidate>
-        <div class="cards-container">
-          <div class="card" style="flex:2;">
+      <div class="cards-container">
+        <div class="card" style="flex:1.5;">
+          <form id="contactForm" autocomplete="off" novalidate>
             <label for="contactName">Name</label>
             <input id="contactName" name="contactName" type="text" placeholder="Your Name" required>
             <label for="contactEmail" style="margin-top:0.7em;">Email</label>
@@ -371,15 +495,24 @@
             <textarea id="contactMessage" name="contactMessage" placeholder="Tell us about your project or question" rows="4" required></textarea>
             <button type="submit" class="btn" style="margin-top:1em;">Send Message <i class="fa-solid fa-paper-plane"></i></button>
             <div id="form-success" style="display:none;color:var(--accent-hover);margin-top:1em;font-weight:600;" aria-live="polite">Thank you! We’ll be in touch soon.</div>
-          </div>
-          <div class="card" style="flex:1;align-items:center;justify-content:center;text-align:center;">
-            <div style="font-size:2.5rem;margin-bottom:1em;"><i class="fa-solid fa-envelope"></i></div>
-            <p style="margin:0 0 0.6em 0;">Or email us directly:</p>
-            <a href="mailto:oliverrosefinance@gmail.com" style="font-size:1.13rem;color:#181818;font-weight:700;">oliverrosefinance@gmail.com</a>
-            <div style="margin-top:1.5em;color:var(--text-muted);font-size:0.97em;">Response within 48 hours.</div>
+          </form>
+        </div>
+        <div class="card" style="flex:1;align-items:center;justify-content:center;text-align:center;">
+          <div style="font-size:2.5rem;margin-bottom:1em;"><i class="fa-solid fa-envelope"></i></div>
+          <p style="margin:0 0 0.6em 0;">Or email us directly:</p>
+          <a href="mailto:oliverrosefinance@gmail.com" style="font-size:1.13rem;color:#181818;font-weight:700;">oliverrosefinance@gmail.com</a>
+          <div style="margin-top:1.5em;color:var(--text-muted);font-size:0.97em;">Response within 48 hours.</div>
+          <div style="margin-top:2em;">
+            <div style="font-size:1.2em;font-weight:600;">Follow us:</div>
+            <div class="social-icons" style="margin-top:0.4em;">
+              <a href="https://twitter.com/YOURHANDLE" aria-label="Twitter" target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a>
+              <a href="https://instagram.com/YOURHANDLE" aria-label="Instagram" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+              <a href="https://linkedin.com/in/YOURHANDLE" aria-label="LinkedIn" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
+              <a href="mailto:oliverrosefinance@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+            </div>
           </div>
         </div>
-      </form>
+      </div>
     </section>
   </main>
   <footer>
@@ -396,7 +529,6 @@
         <a href="terms.html">Terms</a>
       </div>
       <div class="social-icons">
-        <!-- Replace # with actual URLs for your socials -->
         <a href="https://twitter.com/YOURHANDLE" aria-label="Twitter" target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a>
         <a href="https://instagram.com/YOURHANDLE" aria-label="Instagram" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
         <a href="https://linkedin.com/in/YOURHANDLE" aria-label="LinkedIn" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
@@ -408,14 +540,11 @@
       </div>
     </div>
   </footer>
-  <!-- Back to Top button -->
   <button id="backToTop" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
-  <!-- Cache busting for updated JS -->
   <script src="js/main.js?v=20250611"></script>
   <script>
-    // Animate numbers in stats section
+    // Fade-in scroll animations
     document.addEventListener('DOMContentLoaded', function() {
-      // Fade in elements on scroll
       function revealOnScroll() {
         document.querySelectorAll('.scroll-fade-in').forEach(el => {
           const rect = el.getBoundingClientRect();
