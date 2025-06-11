@@ -17,102 +17,6 @@
   <link rel="stylesheet" href="css/style.css?v=20250611">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Space+Grotesk:wght@500;700&display=swap">
   <script src="https://kit.fontawesome.com/fe7fbe4e2b.js" crossorigin="anonymous"></script>
-  <style>
-    /* Subtle color tweaks for a rich, modern, creative-corporate vibe */
-    :root {
-      --ska-blue: #168aad;
-      --ska-blue-light: #5fc7f7;
-      --ska-blue-dark: #0e4c6d;
-      --ska-green: #46d39a;
-      --ska-purple: #7b4fb2;
-      --ska-yellow: #ffee99;
-      --ska-grey: #eef3f6;
-    }
-    .free-guide-banner {
-      background: linear-gradient(90deg, var(--ska-blue), var(--ska-blue-light) 80%);
-      color: #fff;
-    }
-    .ska-accent, .ska-divider, footer .ska-accent {
-      background: repeating-linear-gradient(90deg, var(--ska-blue) 0 14px, #fff 14px 28px);
-    }
-    .hero-section {
-      background: linear-gradient(120deg, #fff 70%, var(--ska-grey) 100%);
-    }
-    .hero-btn, .btn.cta, .btn {
-      background: var(--ska-blue);
-      color: #fff;
-      border: none;
-    }
-    .hero-btn:hover, .btn.cta:hover, .btn:hover {
-      background: var(--ska-blue-dark);
-      color: #fff;
-    }
-    .gallery-btn, .carousel-btn {
-      background: var(--ska-blue-light);
-      color: #fff;
-    }
-    .gallery-btn:hover, .carousel-btn:hover, .gallery-btn:focus, .carousel-btn:focus {
-      background: var(--ska-blue-dark);
-      color: #fff;
-    }
-    .gallery-dot.active, .gallery-dot:focus,
-    .carousel-dot.active, .carousel-dot:focus {
-      background: var(--ska-blue);
-      border-color: var(--ska-blue-dark);
-    }
-    .testimonial-author, .gallery-caption, .stat-label {
-      color: var(--ska-blue-dark)!important;
-    }
-    .stat-number, .stat-currency, .stat-plus {
-      color: var(--ska-blue)!important;
-    }
-    .about-highlight .fa-music { background: var(--ska-blue-light); color: var(--ska-blue-dark);}
-    .about-highlight .fa-guitar { background: var(--ska-yellow); color: #7b4fb2;}
-    .about-highlight .fa-headphones { background: var(--ska-green); color: #222;}
-    .about-highlight .fa-microphone { background: var(--ska-purple); color: #fff;}
-    .about-highlight .fa-wave-square { background: #fff; color: var(--ska-blue);}
-    .section-title {
-      color: var(--ska-blue-dark);
-    }
-    .card h3 {
-      color: var(--ska-blue-dark);
-      border-bottom: 2px solid var(--ska-blue);
-    }
-    .card .service-icon {
-      color: var(--ska-blue-dark);
-      background: linear-gradient(135deg, #fff 60%, var(--ska-blue-light) 140%);
-    }
-    .card {
-      border-color: var(--ska-blue-light);
-    }
-    .card:hover {
-      background: var(--ska-grey);
-      border-color: var(--ska-blue-dark);
-      box-shadow: 0 8px 38px #168aad22;
-    }
-    footer {
-      border-top: 3px solid var(--ska-blue);
-    }
-    footer .footer-links a,
-    footer .social-icons a {
-      color: var(--ska-blue-dark);
-    }
-    footer .footer-links a:hover,
-    footer .social-icons a:hover {
-      background: var(--ska-blue);
-      color: #fff;
-    }
-    /* SVG background override */
-    .background-svg stop[offset="0%"] {
-      stop-color: var(--ska-blue);
-    }
-    .background-svg stop[offset="100%"] {
-      stop-color: #fff;
-    }
-    .hero-wave path {
-      fill: var(--ska-blue-light)!important;
-    }
-  </style>
 </head>
 <body>
   <!-- Accessibility: Skip link for screen readers and keyboard users -->
@@ -122,7 +26,7 @@
   <svg class="background-svg" aria-hidden="true">
     <defs>
       <linearGradient id="bg-ska" x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0%" stop-color="#168aad" />
+        <stop offset="0%" stop-color="#3ee7fa" />
         <stop offset="100%" stop-color="#fff" />
       </linearGradient>
     </defs>
@@ -135,7 +39,7 @@
   <div id="floating-notes"></div>
 
   <!-- Free Guide Banner with Ska Accent -->
-  <div class="free-guide-banner" style="text-align:center;padding:1.2em 0;box-shadow:0 2px 12px #0001; position:relative;">
+  <div class="free-guide-banner" style="text-align:center;background:var(--bg-accent);padding:1.2em 0;box-shadow:0 2px 12px #0001; position:relative;">
     <a href="free-guide.pdf" class="btn" style="font-size:1.1rem;" download>
       <i class="fa-solid fa-book-open"></i> Download My Free Guide: “Finance for Musicians”
     </a>
@@ -189,7 +93,7 @@
       <!-- Animated SVG Wave at top of hero -->
       <div class="hero-wave">
         <svg viewBox="0 0 1440 140" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-          <path d="M0,80 Q360,140 720,80T1440,80V0H0Z" fill="#5fc7f7" opacity="0.21">
+          <path d="M0,80 Q360,140 720,80T1440,80V0H0Z" fill="#3ee7fa" opacity="0.21">
             <animate attributeName="d" dur="8s" repeatCount="indefinite"
               values="M0,80 Q360,140 720,80T1440,80V0H0Z; M0,60 Q360,100 720,120T1440,80V0H0Z; M0,80 Q360,140 720,80T1440,80V0H0Z" />
           </path>
@@ -357,4 +261,79 @@
         </div>
         <div class="faq-item">
           <button class="faq-question" type="button" aria-expanded="false">Can you help remotely or internationally?</button>
-          <div class="faq-answer
+          <div class="faq-answer">
+            <p>Absolutely. Most of my work is done virtually, and I can help wherever you are in the world, as long as you need UK finance/tax support.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false">How does your pricing work?</button>
+          <div class="faq-answer">
+            <p>I offer clear, up-front pricing for all services. We’ll agree everything together before any work starts, so there are no surprises.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false">What if I just have a quick question?</button>
+          <div class="faq-answer">
+            <p>Feel free to get in touch! I offer “Ask Me Anything” sessions for one-off advice, and there’s never any hard sell.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="ska-divider"></div>
+
+    <!-- CONTACT -->
+    <section id="contact" class="scroll-fade-in">
+      <span class="section-subtitle">Let’s Talk</span>
+      <h2 class="section-title">Contact</h2>
+      <form id="contactForm" autocomplete="off" novalidate>
+        <div class="cards-container">
+          <div class="card" style="flex:2;">
+            <label for="contactName">Name</label>
+            <input id="contactName" name="contactName" type="text" placeholder="Your Name" required>
+            <label for="contactEmail" style="margin-top:0.7em;">Email</label>
+            <input id="contactEmail" name="contactEmail" type="email" placeholder="you@email.com" required>
+            <label for="contactMessage" style="margin-top:0.7em;">How can I help?</label>
+            <textarea id="contactMessage" name="contactMessage" placeholder="Tell me about your project or question" rows="4" required></textarea>
+            <button type="submit" class="btn" style="margin-top:1em;">Send Message <i class="fa-solid fa-paper-plane"></i></button>
+            <div id="form-success" style="display:none;color:var(--accent-hover);margin-top:1em;font-weight:600;" aria-live="polite">Thank you! I’ll be in touch soon.</div>
+          </div>
+          <div class="card" style="flex:1;align-items:center;justify-content:center;text-align:center;">
+            <div style="font-size:2.5rem;margin-bottom:1em;"><i class="fa-solid fa-envelope"></i></div>
+            <p style="margin:0 0 0.6em 0;">Or email me directly:</p>
+            <a href="mailto:oliverrosefinance@gmail.com" style="font-size:1.13rem;color:#181818;font-weight:700;">oliverrosefinance@gmail.com</a>
+            <div style="margin-top:1.5em;color:var(--text-muted);font-size:0.97em;">Response within 48 hours.</div>
+          </div>
+        </div>
+      </form>
+    </section>
+  </main>
+  <footer>
+    <div class="ska-accent"></div>
+    <div class="main-container" style="text-align:center;">
+      <div class="footer-links">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+      </div>
+      <div class="social-icons">
+        <!-- Replace # with actual URLs for your socials -->
+        <a href="https://twitter.com/YOURHANDLE" aria-label="Twitter" target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a>
+        <a href="https://instagram.com/YOURHANDLE" aria-label="Instagram" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+        <a href="https://linkedin.com/in/YOURHANDLE" aria-label="LinkedIn" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
+        <a href="mailto:oliverrosefinance@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+      </div>
+      <div style="margin-top:0.7em;">
+        &copy; 2025 Oliver Rose. Finance for Musicians & Creatives.<br>
+        <small>Professional freelance finance, built for artists.</small>
+      </div>
+    </div>
+  </footer>
+  <!-- Cache busting for updated JS -->
+  <script src="js/main.js?v=20250611"></script>
+</body>
+</html>
