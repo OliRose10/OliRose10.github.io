@@ -1223,3 +1223,28 @@ nav .nav-link:focus {
   .brand-logo { height: 30px !important; width: 30px !important; }
   nav ul { padding-top: 3em !important; }
 }
+/* ===== DARK MODE PATCH: NO WHITE GAPS ===== */
+[data-theme="dark"] body,
+[data-theme="dark"] .main-container,
+[data-theme="dark"] section,
+[data-theme="dark"] header,
+[data-theme="dark"] .faq-section,
+[data-theme="dark"] .gallery-slideshow,
+[data-theme="dark"] .testimonial-carousel,
+[data-theme="dark"] .free-guide-banner,
+[data-theme="dark"] .panel,
+[data-theme="dark"] .ska-divider,
+[data-theme="dark"] .ska-accent,
+[data-theme="dark"] .background-svg {
+  background: #181820 !important;
+  color: #f7f7f7 !important;
+}
+
+[data-theme="dark"] .ska-divider,
+[data-theme="dark"] .ska-accent {
+  background: repeating-linear-gradient(90deg, #168aad 0 14px, #23242a 14px 28px) !important;
+}
+
+[data-theme="dark"] .free-guide-banner::after {
+  background: repeating-linear-gradient(90deg, #23242a 0 12px, #fff 12px 24px) !important;
+}
