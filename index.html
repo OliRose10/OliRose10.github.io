@@ -22,6 +22,61 @@
     html { scroll-behavior: smooth; }
     body {
       background: linear-gradient(120deg, #fff 60%, #bb4ba210 100%);
+      color: #181818;
+      transition: background 0.25s, color 0.25s;
+    }
+    /* Dark mode handling */
+    @media (prefers-color-scheme: dark) {
+      body {
+        background: linear-gradient(120deg, #191a1d 60%, #1a1022 100%);
+        color: #f2f2f2;
+      }
+      .brand-logo, .gallery-btn, .carousel-btn {
+        background: #23232b !important;
+        color: #bb4ba2 !important;
+        border-color: #3ee7fa44 !important;
+      }
+      .brand-title, .brand-tagline { color: #f2f2f2 !important; }
+      .nav-link { color: #f2f2f2; }
+      .nav-link.active, .nav-link:focus, .nav-link:hover {
+        background: #3ee7fa33;
+        color: #bb4ba2;
+      }
+      .card, #contact .card {
+        background: #23232b !important;
+        color: #e2e2e2;
+      }
+      #contact .card:last-child {
+        background: linear-gradient(130deg, #3ee7fa22 40%, #bb4ba222 100%) !important;
+        border-left: 4px solid #3ee7fa99 !important;
+      }
+      .gallery-caption, .testimonial-author, .section-title, .section-subtitle {
+        color: #f2f2f2 !important;
+      }
+      .ska-divider { border-color: #3ee7fa33 !important; }
+      .footer-links a, .footer-credit, .footer-links, .social-icons a {
+        color: #e2e2e2 !important;
+      }
+      .badge {
+        background: #bb4ba244 !important;
+        color: #3ee7fa;
+      }
+      .disclaimer {
+        background: #bb4ba211;
+        color: #e0e0e0;
+        border-left: 3px solid #3ee7fa;
+      }
+      .hero-content .text-muted, .hero-content span.text-muted {
+        color: #ccc !important;
+      }
+      input, textarea {
+        background: #23232b !important;
+        color: #f2f2f2 !important;
+        border-color: #3ee7fa66 !important;
+      }
+      input::placeholder, textarea::placeholder {
+        color: #bbb !important;
+      }
     }
     /* --- Header Layout --- */
     .header-content {
@@ -50,6 +105,7 @@
       justify-content: center;
       height: 52px;
       width: 52px;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
     }
     .brand-title-tagline {
       display: flex;
@@ -82,6 +138,7 @@
       font-weight: 700;
       margin-bottom: 0.7em;
       letter-spacing: 0.01em;
+      transition: background 0.2s, color 0.2s;
     }
     nav {
       flex: 1;
@@ -129,7 +186,7 @@
       box-shadow: 0 2px 8px #0002;
       cursor: pointer;
       font-size: 1.8rem;
-      transition: opacity 0.2s;
+      transition: opacity 0.2s, background 0.2s, color 0.2s;
       opacity: 0.7;
       align-items: center;
       justify-content: center;
@@ -180,6 +237,7 @@
       flex-direction: column;
       justify-content: center;
       align-items: flex-start;
+      transition: background 0.2s, color 0.2s;
     }
     #contact .card:last-child {
       align-items: center;
@@ -233,6 +291,7 @@
       padding: 0.7em 1em;
       border-radius: 0.5em;
       max-width: 480px;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
     }
     .hero-intro {
       font-size: 1.12em;
@@ -244,6 +303,38 @@
       margin-top: 1.2em;
       color: #888;
       font-size: 0.95em;
+    }
+    /* Enhanced button for accessibility */
+    .btn, .hero-btn {
+      transition: background 0.18s, color 0.18s, box-shadow 0.18s;
+      outline: none;
+      border: none;
+      cursor: pointer;
+      border-radius: .5em;
+      padding: 0.7em 1.4em;
+      font-family: Montserrat, sans-serif;
+      font-weight: 700;
+      background: #bb4ba2;
+      color: #fff;
+      box-shadow: 0 2px 8px #bb4ba22a;
+      font-size: 1.06em;
+      margin-top: 0.8em;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6em;
+    }
+    .btn:focus, .hero-btn:focus {
+      box-shadow: 0 0 0 3px #3ee7fa77;
+    }
+    /* Add more accessible color for muted text in dark mode */
+    .text-muted {
+      color: #888 !important;
+      transition: color 0.2s;
+    }
+    @media (prefers-color-scheme: dark) {
+      .text-muted {
+        color: #b0b0b0 !important;
+      }
     }
   </style>
 </head>
@@ -263,14 +354,12 @@
   </svg>
   <div class="texture-overlay"></div>
   <div id="floating-notes"></div>
-
   <!-- Free Guide Banner -->
   <div class="free-guide-banner" style="text-align:center;background:var(--bg-accent);padding:1.2em 0;box-shadow:0 2px 12px #0001; position:relative;">
     <a href="free-guide.pdf" class="btn" style="font-size:1.1rem;" download>
       <i class="fa-solid fa-book-open"></i> Download My Free Guide: “Finance for Musicians”
     </a>
   </div>
-
   <!-- Header -->
   <header>
     <div class="header-content">
@@ -303,7 +392,6 @@
   </header>
   <main id="mainContent" class="main-container" tabindex="-1">
     <div class="ska-accent"></div>
-
     <!-- HERO -->
     <section class="hero-section" id="hero" style="position:relative;">
       <div class="hero-bg-float"></div>
@@ -315,7 +403,7 @@
         <p style="margin-top:0.7em;font-size:1.05em;max-width:500px;">Specialist support in bookkeeping, tax returns, tour budgets, and business advice for artists, bands, creatives, and indie labels. Trusted, modern, and jargon-free.<br>
           <span class="text-muted">Your numbers, your style, your rules.</span>
         </p>
-        <a href="#contact" class="hero-btn" style="background:#bb4ba2;color:#fff;border:none;">
+        <a href="#contact" class="hero-btn">
           Book a Free Consultation <i class="fa-solid fa-paper-plane"></i>
         </a>
       </div>
@@ -333,7 +421,6 @@
       </div>
     </section>
     <div class="ska-divider"></div>
-
     <!-- IMPACT STATS (animated) -->
     <section>
       <div class="stats-row scroll-fade-in">
@@ -348,7 +435,6 @@
       </div>
     </section>
     <div class="ska-divider"></div>
-
     <!-- ABOUT -->
     <section id="about" class="scroll-fade-in">
       <span class="section-subtitle">Who I Am</span>
@@ -375,7 +461,6 @@
       </div>
     </section>
     <div class="ska-divider"></div>
-
     <!-- SERVICES -->
     <section id="services" class="scroll-fade-in">
       <span class="section-subtitle">How I Can Help</span>
@@ -408,11 +493,10 @@
         </div>
       </div>
       <div class="disclaimer">
-        All services provided as a part-qualified accountant (ICAEW ACA). Fully insured. Chartered Accountant status pending ICAEW completion.
+        All services provided as a part-qualified accountant (ICAEW ACA). Fully insured.
       </div>
     </section>
     <div class="ska-divider"></div>
-
     <!-- GALLERY / SLIDESHOW SECTION -->
     <section id="gallery" class="scroll-fade-in">
       <span class="section-subtitle">Gallery</span>
@@ -442,7 +526,6 @@
       </div>
     </section>
     <div class="ska-divider"></div>
-
     <!-- TESTIMONIALS - CAROUSEL -->
     <section id="testimonials" class="fade-in section-band scroll-fade-in">
       <span class="section-subtitle">What Clients Say</span>
@@ -479,7 +562,6 @@
       </div>
     </section>
     <div class="ska-divider"></div>
-
     <!-- FAQ -->
     <section id="faq" class="faq-section scroll-fade-in">
       <span class="section-subtitle">FAQ</span>
@@ -512,7 +594,6 @@
       </div>
     </section>
     <div class="ska-divider"></div>
-
     <!-- CONTACT (improved layout) -->
     <section id="contact" class="scroll-fade-in">
       <span class="section-subtitle">Let’s Talk</span>
@@ -526,7 +607,7 @@
             <input id="contactEmail" name="contactEmail" type="email" placeholder="you@email.com" required>
             <label for="contactMessage" style="margin-top:0.7em;">How can I help?</label>
             <textarea id="contactMessage" name="contactMessage" placeholder="Tell me about your project or question" rows="4" required></textarea>
-            <button type="submit" class="btn" style="margin-top:1em;">Send Message <i class="fa-solid fa-paper-plane"></i></button>
+            <button type="submit" class="btn">Send Message <i class="fa-solid fa-paper-plane"></i></button>
             <div id="form-success" style="display:none;color:var(--accent-hover);margin-top:1em;font-weight:600;" aria-live="polite">Thank you! I'll be in touch soon.</div>
           </form>
         </div>
@@ -538,7 +619,6 @@
           <div style="margin-top:2em;">
             <div style="font-size:1.2em;font-weight:600;">Follow me:</div>
             <div class="social-icons" style="margin-top:0.4em;">
-              <!-- Twitter removed as you didn't specify a handle -->
               <a href="https://instagram.com/roseaboveaccountancy" aria-label="Instagram" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
               <a href="https://linkedin.com/in/YOURHANDLE" aria-label="LinkedIn" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
               <a href="mailto:oliverrosefinance@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
@@ -562,7 +642,6 @@
         <a href="terms.html">Terms</a>
       </div>
       <div class="social-icons">
-        <!-- Twitter removed as you didn't specify a handle -->
         <a href="https://instagram.com/roseaboveaccountancy" aria-label="Instagram" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
         <a href="https://linkedin.com/in/YOURHANDLE" aria-label="LinkedIn" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
         <a href="mailto:oliverrosefinance@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
