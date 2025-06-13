@@ -24,13 +24,18 @@ document.addEventListener("DOMContentLoaded", function () {
       if (rect.top < window.innerHeight - 60) {
         el.classList.add('visible');
       }
-        // --- Prevent gallery slideshow from causing page jumps ---
+    });
+  }
+  window.addEventListener('scroll', handleFadeIn);
+  window.addEventListener('resize', handleFadeIn);
+  handleFadeIn();
+
+  // --- Prevent gallery slideshow from causing page jumps ---
   const galleryTrack = document.querySelector('.gallery-track');
   if (galleryTrack) {
     function setGalleryTrackHeight() {
       let max = 0;
       galleryTrack.querySelectorAll('.gallery-slide').forEach(slide => {
-        // Temporarily show all to measure true height
         const prevDisplay = slide.style.display;
         slide.style.display = 'block';
         const h = slide.offsetHeight;
@@ -42,6 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
     setGalleryTrackHeight();
     window.addEventListener('resize', setGalleryTrackHeight);
   }
+
   // --- Prevent testimonial carousel from causing page jumps ---
   const carouselTrack = document.querySelector('.carousel-track');
   if (carouselTrack) {
@@ -59,11 +65,6 @@ document.addEventListener("DOMContentLoaded", function () {
     setCarouselTrackHeight();
     window.addEventListener('resize', setCarouselTrackHeight);
   }
-    });
-  }
-  window.addEventListener('scroll', handleFadeIn);
-  window.addEventListener('resize', handleFadeIn);
-  handleFadeIn();
 
   // --- FAQ Accordion ---
   document.querySelectorAll(".faq-question").forEach((btn) => {
