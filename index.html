@@ -87,47 +87,65 @@
       .contact-icon {
         color: #fff !important;
       }
+      /* Contact card logo swap for dark mode */
+      #contact .contact-logo-light { display: none !important; }
+      #contact .contact-logo-dark { display: inline !important; }
     }
     .logo-darkmode { display: none !important; }
     .logo-lightmode { display: inline !important; }
 
-    /* Header layout - remove banner space above/below, shadow, and enlarge logo */
+    /* HEADER - logo fills the banner vertically, no space above/below, centered */
+    header {
+      width: 100%;
+      background: #fff;
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+      border: none;
+    }
+    @media (prefers-color-scheme: dark) {
+      header { background: #191a1d; }
+    }
     .header-content {
       display: flex;
-      align-items: center;
+      align-items: stretch;
       justify-content: space-between;
       gap: 2em;
       padding: 0;
-      margin: 0;
-      min-height: unset;
-      background: none;
+      margin: 0 auto;
+      max-width: 1280px;
+      min-height: 0;
+      box-sizing: border-box;
+      width: 100%;
+      height: 100px;
     }
     .site-brand {
       display: flex;
-      align-items: center;
+      align-items: stretch;
       gap: 0.9em;
       margin: 0;
+      padding: 0;
+      height: 100%;
     }
     .main-logo-large {
-      height: 146px;
+      height: 100px;
       width: auto;
-      max-width: 520px;
+      max-width: 320px;
       display: block;
       margin: 0;
       border-radius: 0;
       box-shadow: none !important;
       background: none;
       padding: 0;
+      object-fit: contain;
     }
-    @media (max-width: 600px) {
-      .main-logo-large {
-        height: 90px;
-        max-width: 320px;
-      }
+    @media (max-width: 900px) {
+      .header-content { height: 70px; }
+      .main-logo-large { height: 70px; max-width: 210px; }
     }
     .brand-title-tagline { display: flex; flex-direction: column; line-height: 1.05; }
     .brand-title, .brand-tagline { display: none !important; }
-    nav { flex: 1; display: flex; justify-content: flex-end; }
+    nav { flex: 1; display: flex; justify-content: flex-end; align-items: center; }
     nav ul {
       display: flex;
       align-items: center;
@@ -153,190 +171,32 @@
       background: #3ee7fa22;
       color: #bb4ba2;
     }
-    #backToTop {
-      display: none;
-      position: fixed;
-      bottom: 24px;
-      right: 24px;
-      z-index: 900;
-      background: var(--accent, #3ee7fa);
-      color: #fff;
-      border: none;
-      border-radius: 50%;
-      width: 48px;
-      height: 48px;
-      box-shadow: 0 2px 8px #0002;
-      cursor: pointer;
-      font-size: 1.8rem;
-      transition: opacity 0.2s, background 0.2s, color 0.2s;
-      opacity: 0.7;
-      align-items: center;
-      justify-content: center;
-      display: flex;
-    }
-    #backToTop:hover {
-      opacity: 1;
-      background: #bb4ba2;
-      color: #fff;
-    }
-    .gallery-btn, .carousel-btn {
-      background: #fff;
-      border: none;
-      border-radius: 50%;
-      width: 44px;
-      height: 44px;
-      font-size: 1.55em;
-      color: #bb4ba2;
-      box-shadow: 0 2px 8px #3ee7fa22;
-      transition: background 0.18s, color 0.18s;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 0.6em;
-    }
-    .gallery-btn:hover, .carousel-btn:hover {
-      background: #3ee7fa;
-      color: #fff;
-    }
-    #contact .cards-container {
-      display: flex;
-      gap: 2em;
-      margin-top: 1.2em;
-      align-items: stretch;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    #contact .card {
-      background: #fff;
-      border-radius: 1.1em;
-      box-shadow: 0 2px 12px #3ee7fa13;
-      padding: 2.2em 1.6em;
-      min-width: 260px;
-      flex: 1 1 320px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: flex-start;
-      transition: background 0.2s, color 0.2s;
-    }
-    #contact .card:last-child {
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      background: linear-gradient(130deg, #3ee7fa11 40%, #bb4ba211 100%);
-      border-left: 4px solid #3ee7fa55;
-      min-width: 280px;
-    }
-    @media (max-width: 900px) {
-      #contact .cards-container {
-        flex-direction: column;
-        gap: 1.3em;
-      }
-      #contact .card, #contact .card:last-child {
-        width: 100%;
-        min-width: unset;
-        border-left: none;
-        border-top: 4px solid #3ee7fa55;
-      }
-    }
-    .scroll-indicator {
-      position: absolute;
-      left: 50%;
-      bottom: 32px;
-      transform: translateX(-50%);
-      z-index: 10;
-      animation: bounce 2s infinite;
-      font-size: 2.1rem;
-      color: var(--accent, #3ee7fa);
-      opacity: 0.7;
-      cursor: pointer;
-    }
-    @keyframes bounce {
-      0%, 100% { transform: translateX(-50%) translateY(0);}
-      50% { transform: translateX(-50%) translateY(10px);}
-    }
-    .scroll-fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.8s, transform 0.8s;}
-    .scroll-fade-in.visible { opacity: 1; transform: none;}
-    .social-icons a:hover { animation: pulse 0.7s;}
-    @keyframes pulse { 0%{transform:scale(1);} 50%{transform:scale(1.12);} 100%{transform:scale(1);} }
-    .disclaimer {
-      font-size: 0.93em;
-      margin-top: 1.2em;
-      color: #6a6a6a;
-      background: #3ee7fa15;
-      border-left: 3px solid #bb4ba2;
-      padding: 0.7em 1em;
-      border-radius: 0.5em;
-      max-width: 480px;
-      transition: background 0.2s, color 0.2s, border-color 0.2s;
-    }
-    .hero-intro {
-      font-size: 1.12em;
-      margin: 1.1em 0 0.7em 0;
-      max-width: 520px;
-      color: #222;
-    }
-    .footer-credit {
-      margin-top: 1.2em;
-      color: #888;
-      font-size: 0.95em;
-    }
-    .btn, .hero-btn {
-      transition: background 0.18s, color 0.18s, box-shadow 0.18s;
-      outline: none;
-      border: none;
-      cursor: pointer;
-      border-radius: .5em;
-      padding: 0.7em 1.4em;
-      font-family: Montserrat, sans-serif;
-      font-weight: 700;
-      background: #bb4ba2;
-      color: #fff;
-      box-shadow: 0 2px 8px #bb4ba22a;
-      font-size: 1.06em;
-      margin-top: 0.8em;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6em;
-    }
-    .btn:focus, .hero-btn:focus {
-      box-shadow: 0 0 0 3px #3ee7fa77;
-    }
-    .text-muted {
-      color: #888 !important;
-      transition: color 0.2s;
-    }
-    @media (prefers-color-scheme: dark) {
-      .text-muted {
-        color: #b0b0b0 !important;
-      }
-    }
-    /* About logo: circular, fixed aspect, white in dark mode, not squished */
+    /* --- ABOUT LOGO - CIRCULAR, NOT SQUISHED --- */
     .about-logo-img {
-      width: 82px !important;
-      height: 82px !important;
-      aspect-ratio: 1 / 1;
-      object-fit: cover;
+      width: 80px !important;
+      height: 80px !important;
+      aspect-ratio: 1/1;
+      object-fit: contain;
       border-radius: 50%;
       box-shadow: none !important;
       position: absolute;
-      top: -30px;
-      left: -30px;
+      top: -24px;
+      left: -24px;
       z-index: 2;
       background: none;
       display: block;
+      background-color: #fff; /* fallback for transparent PNG */
     }
     @media (max-width: 600px) {
       .about-logo-img {
-        width: 50px !important;
-        height: 50px !important;
+        width: 48px !important;
+        height: 48px !important;
         top: -10px;
         left: -10px;
       }
     }
-    /* Contact card logo: bigger, white in dark mode, no shadow */
-    #contact .card:last-child picture,
-    #contact .card:last-child img {
+    /* --- CONTACT LOGO - SWAP FOR DARK MODE --- */
+    #contact .contact-logo-img {
       height: 132px !important;
       width: auto !important;
       margin: 0 auto 1.5em auto !important;
@@ -346,13 +206,14 @@
       background: none;
       max-width: 220px;
     }
+    #contact .contact-logo-light { display: inline; }
+    #contact .contact-logo-dark { display: none; }
     @media (max-width: 600px) {
-      #contact .card:last-child picture,
-      #contact .card:last-child img {
+      #contact .contact-logo-img {
         height: 78px !important;
       }
     }
-    /* Remove shadow from footer logo, keep white, and size/spacing consistent */
+    /* --- FOOTER LOGO --- */
     .footer-main-logo {
       height: 120px;
       width: auto;
@@ -371,7 +232,7 @@
         max-width: 220px;
       }
     }
-    /* Contact envelope icon sizing and color */
+    /* --- CONTACT ENVELOPE ICON SIZING AND COLOR --- */
     .contact-icon {
       font-size: 3.2rem !important;
       margin-bottom: 1em;
@@ -380,6 +241,26 @@
     }
     @media (max-width: 600px) {
       .contact-icon { font-size: 2.2rem !important; }
+    }
+    /* --- Responsive main container for centering all page content --- */
+    .main-container {
+      width: 100%;
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0 1.5em;
+      box-sizing: border-box;
+    }
+    .about-flex,
+    .cards-container,
+    .stats-row,
+    .gallery-slideshow,
+    .testimonial-carousel,
+    .faq-list {
+      width: 100%;
+      box-sizing: border-box;
+      margin: 0 auto;
+      justify-content: center;
+      align-items: center;
     }
   </style>
 </head>
@@ -408,10 +289,10 @@
   <header>
     <div class="header-content">
       <div class="site-brand">
-        <!-- BIG MAIN LOGO AT TOP, NO EXTRA BANNER SPACE, NO SHADOW -->
-        <picture>
+        <!-- LOGO: TOUCHES TOP AND BOTTOM (height 100px), NO SHADOW, RESTORED CENTERING -->
+        <picture style="display:flex;align-items:stretch;height:100px;">
           <source srcset="images/Rose Above Logo - White.png" media="(prefers-color-scheme: dark)">
-          <img src="images/Rose Above Logo - No Background.png" alt="Rose Above Logo" class="main-logo-large logo-lightmode">
+          <img src="images/Rose Above Logo - No Background.png" alt="Rose Above Logo" class="main-logo-large logo-lightmode" style="height:100px;object-fit:contain;">
         </picture>
         <span class="brand-title-tagline">
           <span class="brand-title">Rose Above</span>
@@ -487,7 +368,7 @@
       <h2 class="section-title">About Rose Above</h2>
       <div class="about-flex">
         <div class="about-img" style="position:relative;">
-          <!-- LOGO OVER PROFILE PIC, CIRCULAR, WHITE IN DARK MODE, NOT SQUISHED -->
+          <!-- CIRCULAR LOGO, FIXED ASPECT, WHITE IN DARK MODE -->
           <picture>
             <source srcset="images/Rose Above Logo - White.png" media="(prefers-color-scheme: dark)">
             <img src="images/Rose Above Logo - Black.png" alt="Rose Above Logo About" class="about-logo-img logo-lightmode">
@@ -668,10 +549,11 @@
           </form>
         </div>
         <div class="card" style="flex:1;align-items:center;justify-content:center;text-align:center;">
-          <!-- BIGGER LOGO IN CONTACT CARD, WHITE IN DARK MODE, NO SHADOW -->
+          <!-- LOGO: DARK MODE SWAP, BIGGER, NO SHADOW -->
           <picture>
             <source srcset="images/Rose Above Logo - White.png" media="(prefers-color-scheme: dark)">
-            <img src="images/Rose Above Logo - Black.png" alt="Rose Above Logo Contact" class="logo-lightmode">
+            <img src="images/Rose Above Logo - Black.png" alt="Rose Above Logo Contact"
+                 class="contact-logo-img contact-logo-light">
           </picture>
           <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
           <p style="margin:0 0 0.6em 0;">Or email me directly:</p>
