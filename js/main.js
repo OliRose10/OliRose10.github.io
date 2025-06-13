@@ -330,27 +330,28 @@ window.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-// --- Testimonial Carousel: auto-scroll, pause on hover/focus, keyboard/swipe ---
+// --- Testimonial Carousel: consistent timing, faster, never gets stuck ---
 (function () {
   const track = document.querySelector('.carousel-track');
   const items = Array.from(document.querySelectorAll('.carousel-item'));
   const dots = Array.from(document.querySelectorAll('.carousel-dot'));
   if (!track || items.length === 0 || dots.length === 0) return;
 
-  let current = 0, timer = null, paused = false;
+  let current = 0, interval = null, paused = false;
+  const INTERVAL_MS = 3500;
 
   function show(index) {
     items.forEach((item, i) => item.classList.toggle('active', i === index));
     dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
     current = index;
-    resetTimer();
+    resetInterval();
   }
   function next() { show((current + 1) % items.length); }
   function prev() { show((current - 1 + items.length) % items.length); }
 
-  function resetTimer() {
-    if (timer) clearTimeout(timer);
-    if (!paused) timer = setTimeout(next, 3500);
+  function resetInterval() {
+    if (interval) clearInterval(interval);
+    if (!paused) interval = setInterval(next, INTERVAL_MS);
   }
 
   const prevBtn = document.querySelector('.carousel-btn.prev');
@@ -366,10 +367,10 @@ window.addEventListener('DOMContentLoaded', () => {
     });
     // Pause auto scroll on hover/focus
     ['mouseenter', 'focusin'].forEach(evt =>
-      carousel.addEventListener(evt, () => { paused = true; if (timer) clearTimeout(timer); })
+      carousel.addEventListener(evt, () => { paused = true; if (interval) clearInterval(interval); })
     );
     ['mouseleave', 'focusout'].forEach(evt =>
-      carousel.addEventListener(evt, () => { paused = false; resetTimer(); })
+      carousel.addEventListener(evt, () => { paused = false; resetInterval(); })
     );
   }
   // Touch swipe
@@ -384,27 +385,28 @@ window.addEventListener('DOMContentLoaded', () => {
   show(0);
 })();
 
-// --- Gallery Slideshow: auto/manual, dots, swipe, keyboard, focus ---
+// --- Gallery Slideshow: consistent timing, faster, never gets stuck ---
 (function () {
   const track = document.querySelector('.gallery-track');
   const slides = Array.from(document.querySelectorAll('.gallery-slide'));
   const dots = Array.from(document.querySelectorAll('.gallery-dot'));
   if (!track || slides.length === 0 || dots.length === 0) return;
 
-  let current = 0, timer = null, paused = false;
+  let current = 0, interval = null, paused = false;
+  const INTERVAL_MS = 3500;
 
   function show(index) {
     slides.forEach((slide, i) => slide.classList.toggle('active', i === index));
     dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
     current = index;
-    resetTimer();
+    resetInterval();
   }
   function next() { show((current + 1) % slides.length); }
   function prev() { show((current - 1 + slides.length) % slides.length); }
 
-  function resetTimer() {
-    if (timer) clearTimeout(timer);
-    if (!paused) timer = setTimeout(next, 3500);
+  function resetInterval() {
+    if (interval) clearInterval(interval);
+    if (!paused) interval = setInterval(next, INTERVAL_MS);
   }
 
   const prevBtn = document.querySelector('.gallery-btn.prev');
@@ -420,10 +422,10 @@ window.addEventListener('DOMContentLoaded', () => {
     });
     // Pause auto scroll on hover/focus
     ['mouseenter', 'focusin'].forEach(evt =>
-      gallery.addEventListener(evt, () => { paused = true; if (timer) clearTimeout(timer); })
+      gallery.addEventListener(evt, () => { paused = true; if (interval) clearInterval(interval); })
     );
     ['mouseleave', 'focusout'].forEach(evt =>
-      gallery.addEventListener(evt, () => { paused = false; resetTimer(); })
+      gallery.addEventListener(evt, () => { paused = false; resetInterval(); })
     );
   }
   // Touch swipe
