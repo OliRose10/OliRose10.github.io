@@ -1305,3 +1305,16 @@ nav .nav-link:focus {
   0% { background: #eee; }
   100% { background: #ddd; }
 }
+.contact-card-logo {
+  height: 140px !important;
+  width: auto !important;
+  margin: 0 auto 1.6em auto !important;
+  display: block !important;
+  object-fit: contain;
+  transition: filter 0.2s;
+}
+@media (max-width:600px) {
+  .contact-card-logo {
+    height: 90px !important;
+  }
+}
