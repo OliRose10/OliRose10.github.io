@@ -1,4 +1,4 @@
-// Carousel for testimonials - improved version
+// Carousel for testimonials - improved version with flawless timing and user experience
 document.addEventListener("DOMContentLoaded", function () {
   const track = document.querySelector('.carousel-track');
   if (!track) return;
@@ -35,9 +35,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Keyboard navigation
   if (carousel) {
+    carousel.tabIndex = 0; // Ensure focusable
     carousel.addEventListener('keydown', function (e) {
-      if (e.key === 'ArrowLeft') prevItem();
-      if (e.key === 'ArrowRight') nextItem();
+      if (e.key === 'ArrowLeft') { prevItem(); e.preventDefault(); }
+      if (e.key === 'ArrowRight') { nextItem(); e.preventDefault(); }
     });
     // Pause on hover/focus
     ['mouseenter', 'focusin'].forEach(evt =>
