@@ -24,6 +24,41 @@ document.addEventListener("DOMContentLoaded", function () {
       if (rect.top < window.innerHeight - 60) {
         el.classList.add('visible');
       }
+        // --- Prevent gallery slideshow from causing page jumps ---
+  const galleryTrack = document.querySelector('.gallery-track');
+  if (galleryTrack) {
+    function setGalleryTrackHeight() {
+      let max = 0;
+      galleryTrack.querySelectorAll('.gallery-slide').forEach(slide => {
+        // Temporarily show all to measure true height
+        const prevDisplay = slide.style.display;
+        slide.style.display = 'block';
+        const h = slide.offsetHeight;
+        if (h > max) max = h;
+        slide.style.display = prevDisplay;
+      });
+      galleryTrack.style.height = max + 'px';
+    }
+    setGalleryTrackHeight();
+    window.addEventListener('resize', setGalleryTrackHeight);
+  }
+  // --- Prevent testimonial carousel from causing page jumps ---
+  const carouselTrack = document.querySelector('.carousel-track');
+  if (carouselTrack) {
+    function setCarouselTrackHeight() {
+      let max = 0;
+      carouselTrack.querySelectorAll('.carousel-item').forEach(item => {
+        const prevDisplay = item.style.display;
+        item.style.display = 'block';
+        const h = item.offsetHeight;
+        if (h > max) max = h;
+        item.style.display = prevDisplay;
+      });
+      carouselTrack.style.height = max + 'px';
+    }
+    setCarouselTrackHeight();
+    window.addEventListener('resize', setCarouselTrackHeight);
+  }
     });
   }
   window.addEventListener('scroll', handleFadeIn);
