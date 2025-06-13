@@ -1334,3 +1334,10 @@ nav .nav-link:focus {
 @media (max-width:600px) {
   .contact-card-logo { height: 90px !important; }
 }
+@keyframes floatNotesScatter {
+  0% { opacity: 0.12; transform: translateY(0);}
+  100% { opacity: 0.10; transform: translateY(-120vh);}
+}
+.floating-note[style*="animation-name: floatNotesScatter"] {
+  animation-name: floatNotesScatter !important;
+}
