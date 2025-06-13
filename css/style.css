@@ -699,26 +699,41 @@ section {
   font-weight: 600;
   letter-spacing: 0.05em;
 }
-.gallery-btn {
-  background: var(--accent-hover);
-  color: #fff;
+/* --- CLEANED UP: Carousel and Gallery Buttons, No Duplicates --- */
+.gallery-btn, .carousel-btn {
+  background: #168aad !important;
+  color: #fff !important;
   border: none;
   border-radius: 50%;
-  width: 38px;
-  height: 38px;
-  font-size: 1.45em;
+  width: 44px;
+  height: 44px;
+  font-size: 1.55em;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   box-shadow: 0 2px 10px #0001;
-  transition: background 0.17s, color 0.17s, transform 0.15s;
+  transition: background 0.18s, color 0.18s, transform 0.15s;
   z-index: 5;
+  margin: 0 0.6em;
 }
-.gallery-btn:hover, .gallery-btn:focus {
-  background: #16171c;
-  color: #168aad;
+.gallery-btn:hover, .gallery-btn:focus,
+.carousel-btn:hover, .carousel-btn:focus {
+  background: #12618a !important;
+  color: #fff !important;
   transform: scale(1.09);
+}
+[data-theme="dark"] .gallery-btn,
+[data-theme="dark"] .carousel-btn {
+  background: #3ee7fa !important;
+  color: #181820 !important;
+}
+[data-theme="dark"] .gallery-btn:hover,
+[data-theme="dark"] .carousel-btn:hover,
+[data-theme="dark"] .gallery-btn:focus,
+[data-theme="dark"] .carousel-btn:focus {
+  background: #168aad !important;
+  color: #fff !important;
 }
 .gallery-dots {
   display: flex;
@@ -797,27 +812,6 @@ section {
   text-align: right;
   letter-spacing: 0.2em;
 }
-.carousel-btn {
-  background: var(--accent-hover);
-  color: #fff;
-  border: none;
-  border-radius: 50%;
-  width: 38px;
-  height: 38px;
-  font-size: 1.45em;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  box-shadow: 0 2px 10px #0001;
-  transition: background 0.17s, color 0.17s, transform 0.15s;
-  z-index: 5;
-}
-.carousel-btn:hover, .carousel-btn:focus {
-  background: #16171c;
-  color: #168aad;
-  transform: scale(1.09);
-}
 .carousel-dots {
   display: flex;
   justify-content: center;
@@ -837,6 +831,24 @@ section {
 .carousel-dot.active, .carousel-dot:focus {
   background: #168aad;
   border: 2px solid #16171c;
+}
+
+/* PATCH: Always-blue link color for "Get in touch!" in carousel */
+.testimonial-carousel a,
+.testimonial-carousel a:visited {
+  color: #168aad !important;
+  text-decoration: underline;
+  font-weight: 700;
+  transition: color 0.17s;
+}
+.testimonial-carousel a:hover,
+.testimonial-carousel a:focus {
+  color: #12618a !important;
+}
+[data-theme="dark"] .testimonial-carousel a,
+[data-theme="dark"] .testimonial-carousel a:visited {
+  color: #3ee7fa !important;
+  text-decoration: underline;
 }
 
 /* ===== FAQ ===== */
@@ -1261,42 +1273,6 @@ nav .nav-link:focus {
   color: #3ee7fa !important;
   text-shadow: 0 1px 8px #0008;
 }
-
-/* === CAROUSEL BUTTON VISIBILITY PATCH === */
-.gallery-btn, .carousel-btn {
-  background: #168aad;
-  color: #fff;
-  border: none;
-  border-radius: 50%;
-  width: 38px;
-  height: 38px;
-  font-size: 1.45em;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  box-shadow: 0 2px 10px #0001;
-  transition: background 0.17s, color 0.17s, transform 0.15s;
-  z-index: 5;
-}
-.gallery-btn:hover, .gallery-btn:focus,
-.carousel-btn:hover, .carousel-btn:focus {
-  background: #16171c;
-  color: #168aad;
-  transform: scale(1.09);
-}
-[data-theme="dark"] .gallery-btn,
-[data-theme="dark"] .carousel-btn {
-  background: #3ee7fa;
-  color: #121212;
-}
-[data-theme="dark"] .gallery-btn:hover,
-[data-theme="dark"] .carousel-btn:hover,
-[data-theme="dark"] .gallery-btn:focus,
-[data-theme="dark"] .carousel-btn:focus {
-  background: #168aad;
-  color: #fff;
-}
 [data-theme="dark"] .hero-desc,
 [data-theme="dark"] .brand-tagline,
 [data-theme="dark"] .hero-content p,
@@ -1306,106 +1282,15 @@ nav .nav-link:focus {
   background: transparent !important;
   text-shadow: 0 1px 4px #000a;
 }
-.carousel-btn,
-.gallery-btn {
-  background: #168aad !important;
-  color: #fff !important;
-  border: none;
-  border-radius: 50%;
-  width: 38px;
-  height: 38px;
-  font-size: 1.45em;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  box-shadow: 0 2px 10px #0001;
-  transition: background 0.17s, color 0.17s, transform 0.15s;
-  z-index: 5;
-}
-
-.carousel-btn:hover, .carousel-btn:focus,
-.gallery-btn:hover, .gallery-btn:focus {
-  background: #16171c !important;
-  color: #168aad !important;
-}
-
-[data-theme="dark"] .carousel-btn,
-[data-theme="dark"] .gallery-btn {
-  background: #3ee7fa !important;
-  color: #16171c !important;
-}
-
-[data-theme="dark"] .carousel-btn:hover, [data-theme="dark"] .carousel-btn:focus,
-[data-theme="dark"] .gallery-btn:hover, [data-theme="dark"] .gallery-btn:focus {
-  background: #168aad !important;
-  color: #fff !important;
-}
-/* PATCH: Always-blue link color for "Get in touch!" in carousel, and fix carousel/gallery nav buttons visibility */
-
-/* Make all links in testimonial carousel always blue, not just on hover */
-.testimonial-carousel a,
-.testimonial-carousel a:visited {
-  color: #168aad !important;
-  text-decoration: underline;
-  font-weight: 700;
-  transition: color 0.17s;
-}
-.testimonial-carousel a:hover,
-.testimonial-carousel a:focus {
-  color: #12618a !important;
-}
-
-/* In dark mode, keep it bright blue as well */
-[data-theme="dark"] .testimonial-carousel a,
-[data-theme="dark"] .testimonial-carousel a:visited {
-  color: #3ee7fa !important;
-  text-decoration: underline;
-}
-
-/* Carousel and Gallery nav buttons: always visible in both light and dark mode */
-
-.carousel-btn,
-.gallery-btn {
-  background: #168aad !important;   /* Always blue */
-  color: #fff !important;
-  border: none;
-  border-radius: 50%;
-  width: 44px;
-  height: 44px;
-  font-size: 1.55em;
-  box-shadow: 0 2px 8px #3ee7fa22;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 0.6em;
-  transition: background 0.18s, color 0.18s;
-}
-
-.carousel-btn:hover,
-.carousel-btn:focus,
-.gallery-btn:hover,
-.gallery-btn:focus {
-  background: #12618a !important;  /* Darker blue on hover/focus */
-  color: #fff !important;
-}
-
-/* In dark mode, keep nav buttons a bright blue/teal for contrast */
-[data-theme="dark"] .carousel-btn,
-[data-theme="dark"] .gallery-btn {
-  background: #3ee7fa !important;
-  color: #181820 !important;
-}
-
-[data-theme="dark"] .carousel-btn:hover,
-[data-theme="dark"] .carousel-btn:focus,
-[data-theme="dark"] .gallery-btn:hover,
-[data-theme="dark"] .gallery-btn:focus {
-  background: #168aad !important;
-  color: #fff !important;
-}
 .img-placeholder {
   animation: pulse-bg 1.5s infinite alternate;
+  position: absolute;
+  left: 0; top: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 0.8em;
+  background: #eee;
+  z-index: 1;
 }
 @keyframes pulse-bg {
   0% { background: #eee; }
