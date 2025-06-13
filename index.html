@@ -105,54 +105,30 @@
       align-items: center;
       gap: 0.9em;
     }
-    .brand-logo {
-      font-size: 2.2em;
-      color: #bb4ba2;
-      background: #fff;
-      border-radius: 50%;
-      padding: 0.13em 0.22em 0.13em 0.18em;
-      border: 2px solid #3ee7fa33;
-      box-shadow: 0 2px 8px #3ee7fa11;
-      margin-right: 0.28em;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 52px;
-      width: 52px;
-      transition: background 0.2s, color 0.2s, border-color 0.2s;
+    /* --- Main logo at top --- */
+    .main-logo-large {
+      height: 92px;
+      width: auto;
+      max-width: 320px;
+      display: block;
+      margin-right: 0.8em;
+      border-radius: 18px;
+      box-shadow: 0 2px 12px #3ee7fa1a;
+      background: none;
+    }
+    @media (max-width: 600px) {
+      .main-logo-large {
+        height: 58px;
+        max-width: 180px;
+      }
     }
     .brand-title-tagline {
       display: flex;
       flex-direction: column;
       line-height: 1.05;
     }
-    .brand-title {
-      font-family: Montserrat, sans-serif;
-      font-weight: 900;
-      font-size: 1.45em;
-      color: #bb4ba2;
-      letter-spacing: 0.03em;
-      margin-bottom: 0.05em;
-    }
-    .brand-tagline {
-      font-family: Space Grotesk, sans-serif;
-      font-size: 1em;
-      color: #181818;
-      opacity: 0.7;
-      font-weight: 500;
-      letter-spacing: 0.01em;
-    }
-    .badge {
-      display: inline-block;
-      padding: 0.2em 0.7em;
-      background: #3ee7fa22;
-      color: #bb4ba2;
-      border-radius: 0.6em;
-      font-size: 0.95em;
-      font-weight: 700;
-      margin-bottom: 0.7em;
-      letter-spacing: 0.01em;
-      transition: background 0.2s, color 0.2s;
+    .brand-title, .brand-tagline {
+      display: none !important;
     }
     nav {
       flex: 1;
@@ -350,6 +326,80 @@
         color: #b0b0b0 !important;
       }
     }
+    /* --- Custom improvements for logo placements and sizes --- */
+    /* Hide logo above hero title, stats logos, Bookkeeping card logo, testimonial logos, and make contact/footer logos bigger */
+    /* Header main logo */
+    .main-logo-large {
+      height: 92px;
+      width: auto;
+      max-width: 320px;
+      display: block;
+      margin-right: 0.8em;
+      border-radius: 18px;
+      box-shadow: 0 2px 12px #3ee7fa1a;
+      background: none;
+    }
+    @media (max-width: 600px) {
+      .main-logo-large {
+        height: 58px;
+        max-width: 180px;
+      }
+    }
+    .brand-title, .brand-tagline, .brand-logo {
+      display: none !important;
+    }
+    /* Hide logo above hero title */
+    .hero-content picture {
+      display: none !important;
+    }
+    /* Hide logo in stats */
+    .stats-row .stat picture,
+    .stats-row .stat img {
+      display: none !important;
+    }
+    /* Hide logo in Bookkeeping & Tax Returns card */
+    .card .service-icon picture,
+    .card .service-icon img {
+      display: none !important;
+    }
+    /* Hide logo in testimonials section and first testimonial, but make overall section logo much bigger if it exists */
+    .testimonial-carousel > picture,
+    .testimonial-carousel > img,
+    .carousel-item .service-icon picture,
+    .carousel-item .service-icon img {
+      display: none !important;
+    }
+    /* Make contact card logo much bigger */
+    #contact .card:last-child picture,
+    #contact .card:last-child img {
+      height: 96px !important;
+      width: auto !important;
+      margin: 0 auto 1.4em auto !important;
+      display: block !important;
+    }
+    @media (max-width: 600px) {
+      #contact .card:last-child picture,
+      #contact .card:last-child img {
+        height: 60px !important;
+      }
+    }
+    /* Make footer logo much bigger and prominent */
+    .footer-main-logo {
+      height: 96px;
+      width: auto;
+      max-width: 320px;
+      display: block;
+      margin: 0 auto 2em auto;
+      border-radius: 18px;
+      box-shadow: 0 2px 12px #3ee7fa1a;
+      filter: grayscale(0) opacity(1);
+    }
+    @media (max-width: 600px) {
+      .footer-main-logo {
+        height: 60px;
+        max-width: 180px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -378,12 +428,11 @@
   <header>
     <div class="header-content">
       <div class="site-brand">
-        <!-- LOGO IN HEADER -->
+        <!-- BIG MAIN LOGO AT TOP -->
         <picture>
           <source srcset="images/Rose Above Logo - White.png" media="(prefers-color-scheme: dark)">
-          <img src="images/Rose Above Logo - No Background.png" alt="Rose Above Logo" style="height:48px;width:auto;margin-right:0.3em;border-radius:12px;box-shadow:0 2px 8px #3ee7fa11;" class="logo-lightmode">
+          <img src="images/Rose Above Logo - No Background.png" alt="Rose Above Logo" class="main-logo-large logo-lightmode">
         </picture>
-        <span class="brand-logo" style="display:none;"><i class="fa-solid fa-music"></i></span>
         <span class="brand-title-tagline">
           <span class="brand-title">Rose Above</span>
           <span class="brand-tagline">Accountancy for Musicians & Creatives</span>
@@ -416,11 +465,7 @@
       <div class="hero-bg-float"></div>
       <div class="hero-accent ska-accent"></div>
       <div class="hero-content scroll-fade-in">
-        <!-- HERO LOGO -->
-        <picture>
-          <source srcset="images/Rose Above Logo - White.png" media="(prefers-color-scheme: dark)">
-          <img src="images/Rose Above Logo - No Background.png" alt="Rose Above Logo" style="height:90px;width:auto;display:block;margin-bottom:1em;border-radius:14px;box-shadow:0 4px 20px #bb4ba233;" class="logo-lightmode">
-        </picture>
+        <!-- LOGO REMOVED ABOVE HERO TITLE -->
         <h1 class="hero-title">Rose Above</h1>
         <h2 class="hero-tagline">Accountancy for Musicians & Creatives</h2>
         <p style="margin-top:0.7em;font-size:1.05em;max-width:500px;">Specialist support in bookkeeping, tax returns, royalty management, tour budgets, and business advice for artists, bands, creatives, and indie labels. Trusted, modern, and jargon-free.<br>
@@ -448,19 +493,10 @@
     <section>
       <div class="stats-row scroll-fade-in">
         <div class="stat">
-          <!-- LOGO IN STATS -->
-          <picture>
-            <source srcset="images/Rose Above Logo - White.png" media="(prefers-color-scheme: dark)">
-            <img src="images/Rose Above Logo - Black.png" alt="Rose Above Logo Black" style="height:28px;width:auto;display:block;margin:0 auto 0.5em auto;" class="logo-lightmode">
-          </picture>
           <div class="stat-label">Creatives Supported</div>
           <span class="stat-number" data-target="100">0</span><span class="stat-plus">+</span>
         </div>
         <div class="stat">
-          <picture>
-            <source srcset="images/Rose Above Logo - White.png" media="(prefers-color-scheme: dark)">
-            <img src="images/Rose Above Logo - Black.png" alt="Rose Above Logo Black" style="height:28px;width:auto;display:block;margin:0 auto 0.5em auto;" class="logo-lightmode">
-          </picture>
           <div class="stat-label">Years Experience</div>
           <span class="stat-number" data-target="4">0</span><span class="stat-plus">+</span>
         </div>
@@ -473,7 +509,7 @@
       <h2 class="section-title">About Rose Above</h2>
       <div class="about-flex">
         <div class="about-img" style="position:relative;">
-          <!-- LOGO OVER PROFILE PIC -->
+          <!-- LOGO OVER PROFILE PIC REMAINS -->
           <picture>
             <source srcset="images/Rose Above Logo - White.png" media="(prefers-color-scheme: dark)">
             <img src="images/Rose Above Logo - Black.png" alt="Rose Above Logo About" style="width:56px;height:56px;object-fit:cover;border-radius:12px;box-shadow:0 2px 8px #bb4ba233;position:absolute;top:-18px;left:-18px;z-index:2;" class="logo-lightmode">
@@ -488,10 +524,6 @@
             I offer clarity, confidence, and practical support for your unique journey, from everyday tax to big tours.
           </p>
           <div class="about-highlight">
-            <picture>
-              <source srcset="images/Rose Above Logo - White.png" media="(prefers-color-scheme: dark)">
-              <img src="images/Rose Above Logo - Black.png" alt="Rose Above Logo Black" style="height:22px;width:auto;vertical-align:middle;" class="logo-lightmode">
-            </picture>
             <i class="fa-solid fa-music"></i>
             <i class="fa-solid fa-guitar"></i>
             <i class="fa-solid fa-headphones"></i>
@@ -508,12 +540,7 @@
       <h2 class="section-title">Services</h2>
       <div class="cards-container">
         <div class="card scroll-fade-in">
-          <span class="service-icon">
-            <picture>
-              <source srcset="images/Rose Above Logo - White.png" media="(prefers-color-scheme: dark)">
-              <img src="images/Rose Above Logo - No Background.png" alt="Service Logo" style="height:22px;width:auto;vertical-align:middle;" class="logo-lightmode">
-            </picture>
-          </span>
+          <span class="service-icon"></span>
           <h3>Bookkeeping & Tax Returns</h3>
           <p>Stress-free accounts and tax return preperation, maximising deductions, and managing deadlines.</p>
         </div>
@@ -583,20 +610,10 @@
       <span class="section-subtitle">What Clients Say</span>
       <h2 class="section-title">Testimonials</h2>
       <div class="testimonial-carousel" aria-label="Client Testimonials" tabindex="0">
-        <!-- LOGO IN TESTIMONIALS -->
-        <picture>
-          <source srcset="images/Rose Above Logo - White.png" media="(prefers-color-scheme: dark)">
-          <img src="images/Rose Above Logo - No Background.png" alt="Rose Above Logo Testimonials" style="height:34px;width:auto;display:block;margin:0 auto 1em auto;" class="logo-lightmode">
-        </picture>
+        <!-- LOGO IN TESTIMONIALS REMOVED, ALL TESTIMONIALS CONSISTENT -->
         <button class="carousel-btn prev" aria-label="Previous testimonial"><i class="fa-solid fa-arrow-left"></i></button>
         <div class="carousel-track">
           <div class="carousel-item active" tabindex="0" aria-live="polite">
-            <span class="service-icon">
-              <picture>
-                <source srcset="images/Rose Above Logo - White.png" media="(prefers-color-scheme: dark)">
-                <img src="images/Rose Above Logo - Black.png" alt="Logo Heart" style="height:20px;width:auto;vertical-align:middle;" class="logo-lightmode">
-              </picture>
-            </span>
             <p>“Rose Above gave me clarity and confidence about my music finances. Highly recommended!”</p>
             <span class="testimonial-author">– Singer/Songwriter</span>
           </div>
@@ -674,10 +691,10 @@
           </form>
         </div>
         <div class="card" style="flex:1;align-items:center;justify-content:center;text-align:center;">
-          <!-- LOGO IN CONTACT CARD -->
+          <!-- LOGO MUCH BIGGER IN CONTACT CARD -->
           <picture>
             <source srcset="images/Rose Above Logo - White.png" media="(prefers-color-scheme: dark)">
-            <img src="images/Rose Above Logo - Black.png" alt="Rose Above Logo Contact" style="height:44px;width:auto;display:block;margin:0 auto 1em auto;" class="logo-lightmode">
+            <img src="images/Rose Above Logo - Black.png" alt="Rose Above Logo Contact" style="display:block;" class="logo-lightmode">
           </picture>
           <div style="font-size:2.5rem;margin-bottom:1em;"><i class="fa-solid fa-envelope"></i></div>
           <p style="margin:0 0 0.6em 0;">Or email me directly:</p>
@@ -698,10 +715,10 @@
   <footer>
     <div class="ska-accent"></div>
     <div class="main-container" style="text-align:center;">
-      <!-- LOGO IN FOOTER -->
+      <!-- BIG LOGO IN FOOTER -->
       <picture>
         <source srcset="images/Rose Above Logo - White.png" media="(prefers-color-scheme: dark)">
-        <img src="images/Rose Above Logo - Black.png" alt="Rose Above Logo Footer" style="height:32px;width:auto;display:block;margin:0 auto 1.2em auto;filter: grayscale(100%) opacity(0.75);" class="logo-lightmode">
+        <img src="images/Rose Above Logo - Black.png" alt="Rose Above Logo Footer" class="footer-main-logo logo-lightmode">
       </picture>
       <div class="footer-links">
         <a href="#about">About</a>
