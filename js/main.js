@@ -444,3 +444,20 @@ function spawnNote() {
 }
 setInterval(spawnNote, 1300);
 for (let i = 0; i < 6; i++) spawnNote();
+function updateContactLogoForTheme() {
+  var logo = document.getElementById('contactLogo');
+  if (!logo) return;
+  var theme = document.documentElement.getAttribute('data-theme');
+  if (theme === 'dark') {
+    logo.src = 'images/Rose Above Logo - White.png';
+  } else {
+    logo.src = 'images/Rose Above Logo - Black.png';
+  }
+}
+updateContactLogoForTheme();
+const themeBtn = document.getElementById("themeToggleBtn");
+if (themeBtn) {
+  themeBtn.addEventListener("click", function () {
+    setTimeout(updateContactLogoForTheme, 10);
+  });
+}
