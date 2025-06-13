@@ -173,6 +173,21 @@ document.addEventListener("DOMContentLoaded", function () {
       setTimeout(() => mainContent && mainContent.focus(), 10);
     });
   }
+
+  // --- Hide gallery image placeholder on image load (improvement) ---
+  document.querySelectorAll('.gallery-slide').forEach(slide => {
+    const img = slide.querySelector('img');
+    const placeholder = slide.querySelector('.img-placeholder');
+    if (img && placeholder) {
+      img.addEventListener('load', () => {
+        placeholder.style.display = 'none';
+      });
+      // Hide immediately if already cached
+      if (img.complete) {
+        placeholder.style.display = 'none';
+      }
+    }
+  });
 });
 
 // --- Fast, reliable scroll-fade-in using IntersectionObserver ---
