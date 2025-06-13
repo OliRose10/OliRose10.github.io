@@ -84,8 +84,28 @@
       .logo-lightmode {
         display: none !important;
       }
+      /* Contact card logo white */
+      #contact .card:last-child .logo-contact-light {
+        display: none !important;
+      }
+      #contact .card:last-child .logo-contact-dark {
+        display: block !important;
+      }
+      /* About section logo white */
+      .about-img .logo-about-light {
+        display: none !important;
+      }
+      .about-img .logo-about-dark {
+        display: block !important;
+      }
+      /* Footer logo always white in dark mode */
+      .footer-main-logo-dark {
+        display: block !important;
+      }
+      .footer-main-logo-light {
+        display: none !important;
+      }
     }
-    /* Light mode logo visibility */
     .logo-darkmode {
       display: none !important;
     }
@@ -107,19 +127,26 @@
     }
     /* --- Main logo at top --- */
     .main-logo-large {
-      height: 92px;
+      height: 180px;
       width: auto;
-      max-width: 320px;
+      max-width: 420px;
       display: block;
-      margin-right: 0.8em;
-      border-radius: 18px;
-      box-shadow: 0 2px 12px #3ee7fa1a;
+      margin-right: 1.2em;
+      border-radius: 24px;
+      box-shadow: 0 4px 18px #3ee7fa1a;
       background: none;
+    }
+    @media (max-width: 900px) {
+      .main-logo-large {
+        height: 110px;
+        max-width: 260px;
+        margin-right: 0.5em;
+      }
     }
     @media (max-width: 600px) {
       .main-logo-large {
-        height: 58px;
-        max-width: 180px;
+        height: 80px;
+        max-width: 140px;
       }
     }
     .brand-title-tagline {
@@ -127,7 +154,7 @@
       flex-direction: column;
       line-height: 1.05;
     }
-    .brand-title, .brand-tagline {
+    .brand-title, .brand-tagline, .brand-logo {
       display: none !important;
     }
     nav {
@@ -237,167 +264,80 @@
       border-left: 4px solid #3ee7fa55;
       min-width: 280px;
     }
-    @media (max-width: 900px) {
-      #contact .cards-container {
-        flex-direction: column;
-        gap: 1.3em;
-      }
-      #contact .card, #contact .card:last-child {
-        width: 100%;
-        min-width: unset;
-        border-left: none;
-        border-top: 4px solid #3ee7fa55;
-      }
-    }
-    /* --- Scroll indicator for hero --- */
-    .scroll-indicator {
-      position: absolute;
-      left: 50%;
-      bottom: 32px;
-      transform: translateX(-50%);
-      z-index: 10;
-      animation: bounce 2s infinite;
-      font-size: 2.1rem;
-      color: var(--accent, #3ee7fa);
-      opacity: 0.7;
-      cursor: pointer;
-    }
-    @keyframes bounce {
-      0%, 100% { transform: translateX(-50%) translateY(0);}
-      50% { transform: translateX(-50%) translateY(10px);}
-    }
-    /* --- Fade-in Animation --- */
-    .scroll-fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.8s, transform 0.8s;}
-    .scroll-fade-in.visible { opacity: 1; transform: none;}
-    /* --- Social icons pulse --- */
-    .social-icons a:hover { animation: pulse 0.7s;}
-    @keyframes pulse { 0%{transform:scale(1);} 50%{transform:scale(1.12);} 100%{transform:scale(1);} }
-    .disclaimer {
-      font-size: 0.93em;
-      margin-top: 1.2em;
-      color: #6a6a6a;
-      background: #3ee7fa15;
-      border-left: 3px solid #bb4ba2;
-      padding: 0.7em 1em;
-      border-radius: 0.5em;
-      max-width: 480px;
-      transition: background 0.2s, color 0.2s, border-color 0.2s;
-    }
-    .hero-intro {
-      font-size: 1.12em;
-      margin: 1.1em 0 0.7em 0;
-      max-width: 520px;
-      color: #222;
-    }
-    .footer-credit {
-      margin-top: 1.2em;
-      color: #888;
-      font-size: 0.95em;
-    }
-    /* Enhanced button for accessibility */
-    .btn, .hero-btn {
-      transition: background 0.18s, color 0.18s, box-shadow 0.18s;
-      outline: none;
-      border: none;
-      cursor: pointer;
-      border-radius: .5em;
-      padding: 0.7em 1.4em;
-      font-family: Montserrat, sans-serif;
-      font-weight: 700;
-      background: #bb4ba2;
-      color: #fff;
-      box-shadow: 0 2px 8px #bb4ba22a;
-      font-size: 1.06em;
-      margin-top: 0.8em;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6em;
-    }
-    .btn:focus, .hero-btn:focus {
-      box-shadow: 0 0 0 3px #3ee7fa77;
-    }
-    /* Add more accessible color for muted text in dark mode */
-    .text-muted {
-      color: #888 !important;
-      transition: color 0.2s;
-    }
-    @media (prefers-color-scheme: dark) {
-      .text-muted {
-        color: #b0b0b0 !important;
-      }
-    }
-    /* --- Custom improvements for logo placements and sizes --- */
-    /* Hide logo above hero title, stats logos, Bookkeeping card logo, testimonial logos, and make contact/footer logos bigger */
-    /* Header main logo */
-    .main-logo-large {
-      height: 92px;
-      width: auto;
-      max-width: 320px;
-      display: block;
-      margin-right: 0.8em;
-      border-radius: 18px;
-      box-shadow: 0 2px 12px #3ee7fa1a;
-      background: none;
-    }
-    @media (max-width: 600px) {
-      .main-logo-large {
-        height: 58px;
-        max-width: 180px;
-      }
-    }
-    .brand-title, .brand-tagline, .brand-logo {
-      display: none !important;
-    }
-    /* Hide logo above hero title */
-    .hero-content picture {
-      display: none !important;
-    }
-    /* Hide logo in stats */
-    .stats-row .stat picture,
-    .stats-row .stat img {
-      display: none !important;
-    }
-    /* Hide logo in Bookkeeping & Tax Returns card */
-    .card .service-icon picture,
-    .card .service-icon img {
-      display: none !important;
-    }
-    /* Hide logo in testimonials section and first testimonial, but make overall section logo much bigger if it exists */
-    .testimonial-carousel > picture,
-    .testimonial-carousel > img,
-    .carousel-item .service-icon picture,
-    .carousel-item .service-icon img {
-      display: none !important;
-    }
-    /* Make contact card logo much bigger */
-    #contact .card:last-child picture,
-    #contact .card:last-child img {
-      height: 96px !important;
+    /* Make contact logo much bigger and responsive */
+    #contact .card:last-child .logo-contact-light,
+    #contact .card:last-child .logo-contact-dark {
+      height: 132px !important;
       width: auto !important;
-      margin: 0 auto 1.4em auto !important;
+      margin: 0 auto 1.6em auto !important;
       display: block !important;
+      border-radius: 20px;
+      box-shadow: 0 4px 20px #3ee7fa22;
+      transition: height 0.2s;
     }
-    @media (max-width: 600px) {
-      #contact .card:last-child picture,
-      #contact .card:last-child img {
-        height: 60px !important;
+    @media (max-width: 900px) {
+      #contact .card:last-child .logo-contact-light,
+      #contact .card:last-child .logo-contact-dark {
+        height: 90px !important;
       }
     }
-    /* Make footer logo much bigger and prominent */
-    .footer-main-logo {
-      height: 96px;
-      width: auto;
-      max-width: 320px;
+    @media (max-width: 600px) {
+      #contact .card:last-child .logo-contact-light,
+      #contact .card:last-child .logo-contact-dark {
+        height: 62px !important;
+      }
+    }
+    /* --- About section logo bigger and swaps to white on dark --- */
+    .about-img .logo-about-light,
+    .about-img .logo-about-dark {
+      width: 88px !important;
+      height: 88px !important;
+      object-fit: cover;
+      border-radius: 16px;
+      box-shadow: 0 2px 8px #bb4ba233;
+      position: absolute;
+      top: -28px;
+      left: -28px;
+      z-index: 2;
       display: block;
+      transition: width 0.2s, height 0.2s;
+    }
+    .about-img .logo-about-dark {
+      display: none;
+    }
+    @media (max-width: 600px) {
+      .about-img .logo-about-light,
+      .about-img .logo-about-dark {
+        width: 44px !important;
+        height: 44px !important;
+        top: -10px;
+        left: -10px;
+      }
+    }
+    /* --- Footer logo always white version, big --- */
+    .footer-main-logo-light {
+      display: none !important;
+    }
+    .footer-main-logo-dark {
+      display: block !important;
+      height: 180px;
+      width: auto;
+      max-width: 420px;
       margin: 0 auto 2em auto;
-      border-radius: 18px;
-      box-shadow: 0 2px 12px #3ee7fa1a;
+      border-radius: 24px;
+      box-shadow: 0 4px 20px #3ee7fa1a;
       filter: grayscale(0) opacity(1);
     }
+    @media (max-width: 900px) {
+      .footer-main-logo-dark {
+        height: 110px;
+        max-width: 260px;
+      }
+    }
     @media (max-width: 600px) {
-      .footer-main-logo {
-        height: 60px;
-        max-width: 180px;
+      .footer-main-logo-dark {
+        height: 80px;
+        max-width: 140px;
       }
     }
   </style>
@@ -509,11 +449,9 @@
       <h2 class="section-title">About Rose Above</h2>
       <div class="about-flex">
         <div class="about-img" style="position:relative;">
-          <!-- LOGO OVER PROFILE PIC REMAINS -->
-          <picture>
-            <source srcset="images/Rose Above Logo - White.png" media="(prefers-color-scheme: dark)">
-            <img src="images/Rose Above Logo - Black.png" alt="Rose Above Logo About" style="width:56px;height:56px;object-fit:cover;border-radius:12px;box-shadow:0 2px 8px #bb4ba233;position:absolute;top:-18px;left:-18px;z-index:2;" class="logo-lightmode">
-          </picture>
+          <!-- BIGGER LOGO, WHITE ON DARK, BLACK ON LIGHT -->
+          <img src="images/Rose Above Logo - Black.png" alt="Rose Above Logo About" class="logo-about-light" />
+          <img src="images/Rose Above Logo - White.png" alt="Rose Above Logo About" class="logo-about-dark" />
           <img src="images/oliver-profile.jpg" alt="Oliver Rose, Music Accountant" loading="lazy" style="border-radius:1.2em;box-shadow:0 4px 32px #3ee7fa22;">
         </div>
         <div class="about-text">
@@ -691,11 +629,9 @@
           </form>
         </div>
         <div class="card" style="flex:1;align-items:center;justify-content:center;text-align:center;">
-          <!-- LOGO MUCH BIGGER IN CONTACT CARD -->
-          <picture>
-            <source srcset="images/Rose Above Logo - White.png" media="(prefers-color-scheme: dark)">
-            <img src="images/Rose Above Logo - Black.png" alt="Rose Above Logo Contact" style="display:block;" class="logo-lightmode">
-          </picture>
+          <!-- LOGO MUCH BIGGER IN CONTACT CARD, SWAPS TO WHITE ON DARK -->
+          <img src="images/Rose Above Logo - Black.png" alt="Rose Above Logo Contact" class="logo-contact-light" />
+          <img src="images/Rose Above Logo - White.png" alt="Rose Above Logo Contact" class="logo-contact-dark" style="display:none;" />
           <div style="font-size:2.5rem;margin-bottom:1em;"><i class="fa-solid fa-envelope"></i></div>
           <p style="margin:0 0 0.6em 0;">Or email me directly:</p>
           <a href="mailto:oliverrosefinance@gmail.com" style="font-size:1.13rem;color:#181818;font-weight:700;">oliverrosefinance@gmail.com</a>
@@ -715,11 +651,9 @@
   <footer>
     <div class="ska-accent"></div>
     <div class="main-container" style="text-align:center;">
-      <!-- BIG LOGO IN FOOTER -->
-      <picture>
-        <source srcset="images/Rose Above Logo - White.png" media="(prefers-color-scheme: dark)">
-        <img src="images/Rose Above Logo - Black.png" alt="Rose Above Logo Footer" class="footer-main-logo logo-lightmode">
-      </picture>
+      <!-- BIG LOGO IN FOOTER, ALWAYS WHITE -->
+      <img src="images/Rose Above Logo - White.png" alt="Rose Above Logo Footer" class="footer-main-logo-dark" />
+      <img src="images/Rose Above Logo - Black.png" alt="Rose Above Logo Footer" class="footer-main-logo-light" style="display:none;" />
       <div class="footer-links">
         <a href="#about">About</a>
         <a href="#services">Services</a>
