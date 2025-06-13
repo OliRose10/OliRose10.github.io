@@ -1318,3 +1318,45 @@ nav .nav-link:focus {
     height: 90px !important;
   }
 }
+/* --- HEADER LOGO: Remove shadow, make bigger, fill banner --- */
+.header-content {
+  max-width: 1120px;
+  margin: 0 auto;
+  display: flex;
+  align-items: stretch;       /* Stretch children (logo) to header height */
+  justify-content: space-between;
+  gap: 2em;
+  padding: 0 2vw;             /* Remove vertical padding */
+  height: 150px;              /* Set header height to desired logo size */
+  min-height: unset;
+  box-sizing: border-box;
+}
+
+/* Responsive: smaller header on mobile */
+@media (max-width: 800px) {
+  .header-content {
+    height: 90px;
+  }
+}
+
+/* Main logo at top: fill header, no shadow, bigger */
+.main-logo-large {
+  height: 100%;               /* Fill the header vertically */
+  max-height: 150px;          /* Sync with .header-content height */
+  width: auto;
+  max-width: 400px;
+  margin-right: 0.8em;
+  border-radius: 20px;
+  background: none;
+  align-self: stretch;
+  object-fit: contain;
+  box-shadow: none !important; /* Remove any shadow */
+  display: block;
+}
+
+/* Mobile logo size */
+@media (max-width: 800px) {
+  .main-logo-large {
+    max-height: 90px;
+  }
+}
