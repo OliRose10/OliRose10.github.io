@@ -259,7 +259,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // --- Testimonial Carousel (single script, flawless timing) ---
+  // --- Testimonial Carousel: Pause only on interactive elements (not the whole section) ---
   (function () {
     const track = document.querySelector('.carousel-track');
     const items = Array.from(document.querySelectorAll('.carousel-item'));
@@ -288,20 +288,23 @@ document.addEventListener("DOMContentLoaded", function () {
     if (prevBtn) prevBtn.onclick = prev;
     if (nextBtn) nextBtn.onclick = next;
     dots.forEach((dot, i) => dot.onclick = () => show(i));
-    const carousel = document.querySelector('.testimonial-carousel');
-    if (carousel) {
-      carousel.addEventListener('keydown', function (e) {
-        if (e.key === 'ArrowLeft') prev();
-        if (e.key === 'ArrowRight') next();
-      });
-      // Pause auto scroll on hover/focus
-      ['mouseenter', 'focusin'].forEach(evt =>
-        carousel.addEventListener(evt, () => { paused = true; if (interval) clearInterval(interval); })
-      );
-      ['mouseleave', 'focusout'].forEach(evt =>
-        carousel.addEventListener(evt, () => { paused = false; resetInterval(); })
-      );
-    }
+
+    // Pause/resume only when hovering over track, arrows, or dots (not the whole section)
+    [track, prevBtn, nextBtn, ...dots].forEach(el => {
+      if (!el) return;
+      el.addEventListener('mouseenter', () => { paused = true; if (interval) clearInterval(interval); });
+      el.addEventListener('mouseleave', () => { paused = false; resetInterval(); });
+      el.addEventListener('focusin', () => { paused = true; if (interval) clearInterval(interval); });
+      el.addEventListener('focusout', () => { paused = false; resetInterval(); });
+    });
+
+    // Keyboard nav (when focused)
+    track.tabIndex = 0;
+    track.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowLeft') prev();
+      if (e.key === 'ArrowRight') next();
+    });
+
     // Touch swipe
     let startX = 0;
     track.addEventListener('touchstart', e => startX = e.touches[0].clientX);
@@ -314,7 +317,7 @@ document.addEventListener("DOMContentLoaded", function () {
     show(0);
   })();
 
-  // --- Gallery Slideshow (single script, flawless timing) ---
+  // --- Gallery Slideshow: Pause only on interactive elements (not the whole section) ---
   (function () {
     const track = document.querySelector('.gallery-track');
     const slides = Array.from(document.querySelectorAll('.gallery-slide'));
@@ -343,20 +346,23 @@ document.addEventListener("DOMContentLoaded", function () {
     if (prevBtn) prevBtn.onclick = prev;
     if (nextBtn) nextBtn.onclick = next;
     dots.forEach((dot, i) => dot.onclick = () => show(i));
-    const gallery = document.querySelector('.gallery-slideshow');
-    if (gallery) {
-      gallery.addEventListener('keydown', function (e) {
-        if (e.key === 'ArrowLeft') prev();
-        if (e.key === 'ArrowRight') next();
-      });
-      // Pause auto scroll on hover/focus
-      ['mouseenter', 'focusin'].forEach(evt =>
-        gallery.addEventListener(evt, () => { paused = true; if (interval) clearInterval(interval); })
-      );
-      ['mouseleave', 'focusout'].forEach(evt =>
-        gallery.addEventListener(evt, () => { paused = false; resetInterval(); })
-      );
-    }
+
+    // Pause/resume only when hovering over track, arrows, or dots (not the whole section)
+    [track, prevBtn, nextBtn, ...dots].forEach(el => {
+      if (!el) return;
+      el.addEventListener('mouseenter', () => { paused = true; if (interval) clearInterval(interval); });
+      el.addEventListener('mouseleave', () => { paused = false; resetInterval(); });
+      el.addEventListener('focusin', () => { paused = true; if (interval) clearInterval(interval); });
+      el.addEventListener('focusout', () => { paused = false; resetInterval(); });
+    });
+
+    // Keyboard nav (when focused)
+    track.tabIndex = 0;
+    track.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowLeft') prev();
+      if (e.key === 'ArrowRight') next();
+    });
+
     // Touch swipe
     let startX = 0;
     track.addEventListener('touchstart', e => startX = e.touches[0].clientX);
