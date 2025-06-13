@@ -350,7 +350,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
   function resetTimer() {
     if (timer) clearTimeout(timer);
-    if (!paused) timer = setTimeout(next, 6000);
+    if (!paused) timer = setTimeout(next, 3500);
   }
 
   const prevBtn = document.querySelector('.carousel-btn.prev');
@@ -404,7 +404,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
   function resetTimer() {
     if (timer) clearTimeout(timer);
-    if (!paused) timer = setTimeout(next, 6000);
+    if (!paused) timer = setTimeout(next, 3500);
   }
 
   const prevBtn = document.querySelector('.gallery-btn.prev');
