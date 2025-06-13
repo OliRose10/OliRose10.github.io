@@ -706,14 +706,13 @@
         </div>
         <div class="card" style="flex:1;align-items:center;justify-content:center;text-align:center;">
           <!-- BIGGER LOGO IN CONTACT CARD, WHITE IN DARK MODE -->
-          <picture>
-            <source srcset="images/Rose Above Logo - White.png" media="(prefers-color-scheme: dark)">
-            <img
-              src="images/Rose Above Logo - Black.png"
-              alt="Rose Above Logo Contact"
-              class="contact-card-logo"
-              style="display:block;margin:0 auto 1.6em auto;">
-          </picture>
+          <!-- New (works with JS swaps): -->
+          <img
+            id="contactLogo"
+            src="images/Rose Above Logo - Black.png"
+            alt="Rose Above Logo Contact"
+            class="contact-card-logo"
+            style="display:block;margin:0 auto 1.6em auto;">
           <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
           <p style="margin:0 0 0.6em 0;">Or email me directly:</p>
           <a href="mailto:oliverrosefinance@gmail.com" style="font-size:1.13rem;color:#181818;font-weight:700;">oliverrosefinance@gmail.com</a>
