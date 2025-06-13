@@ -660,6 +660,7 @@ section {
   justify-content: center;
 }
 .gallery-slide {
+  position: relative;
   display: none;
   flex-direction: column;
   align-items: center;
