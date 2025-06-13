@@ -25,7 +25,6 @@
       color: #181818;
       transition: background 0.25s, color 0.25s;
     }
-    /* Dark mode handling */
     @media (prefers-color-scheme: dark) {
       body {
         background: linear-gradient(120deg, #191a1d 60%, #1a1022 100%);
@@ -84,15 +83,13 @@
       .logo-lightmode {
         display: none !important;
       }
+      /* Contact icon to white in dark mode */
+      .contact-icon {
+        color: #fff !important;
+      }
     }
-    /* Light mode logo visibility */
-    .logo-darkmode {
-      display: none !important;
-    }
-    .logo-lightmode {
-      display: inline !important;
-    }
-    /* --- Header Layout --- */
+    .logo-darkmode { display: none !important; }
+    .logo-lightmode { display: inline !important; }
     .header-content {
       display: flex;
       align-items: center;
@@ -107,34 +104,24 @@
     }
     /* --- Main logo at top --- */
     .main-logo-large {
-      height: 92px;
+      height: 110px;
       width: auto;
-      max-width: 320px;
+      max-width: 400px;
       display: block;
       margin-right: 0.8em;
-      border-radius: 18px;
-      box-shadow: 0 2px 12px #3ee7fa1a;
+      border-radius: 20px;
+      box-shadow: 0 2px 14px #3ee7fa1a;
       background: none;
     }
     @media (max-width: 600px) {
       .main-logo-large {
-        height: 58px;
-        max-width: 180px;
+        height: 70px;
+        max-width: 220px;
       }
     }
-    .brand-title-tagline {
-      display: flex;
-      flex-direction: column;
-      line-height: 1.05;
-    }
-    .brand-title, .brand-tagline {
-      display: none !important;
-    }
-    nav {
-      flex: 1;
-      display: flex;
-      justify-content: flex-end;
-    }
+    .brand-title-tagline { display: flex; flex-direction: column; line-height: 1.05; }
+    .brand-title, .brand-tagline { display: none !important; }
+    nav { flex: 1; display: flex; justify-content: flex-end; }
     nav ul {
       display: flex;
       align-items: center;
@@ -160,7 +147,6 @@
       background: #3ee7fa22;
       color: #bb4ba2;
     }
-    /* --- Back to Top Button --- */
     #backToTop {
       display: none;
       position: fixed;
@@ -207,7 +193,6 @@
       background: #3ee7fa;
       color: #fff;
     }
-    /* --- Contact Section Improvements --- */
     #contact .cards-container {
       display: flex;
       gap: 2em;
@@ -249,7 +234,6 @@
         border-top: 4px solid #3ee7fa55;
       }
     }
-    /* --- Scroll indicator for hero --- */
     .scroll-indicator {
       position: absolute;
       left: 50%;
@@ -266,10 +250,8 @@
       0%, 100% { transform: translateX(-50%) translateY(0);}
       50% { transform: translateX(-50%) translateY(10px);}
     }
-    /* --- Fade-in Animation --- */
     .scroll-fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.8s, transform 0.8s;}
     .scroll-fade-in.visible { opacity: 1; transform: none;}
-    /* --- Social icons pulse --- */
     .social-icons a:hover { animation: pulse 0.7s;}
     @keyframes pulse { 0%{transform:scale(1);} 50%{transform:scale(1.12);} 100%{transform:scale(1);} }
     .disclaimer {
@@ -294,7 +276,6 @@
       color: #888;
       font-size: 0.95em;
     }
-    /* Enhanced button for accessibility */
     .btn, .hero-btn {
       transition: background 0.18s, color 0.18s, box-shadow 0.18s;
       outline: none;
@@ -316,7 +297,6 @@
     .btn:focus, .hero-btn:focus {
       box-shadow: 0 0 0 3px #3ee7fa77;
     }
-    /* Add more accessible color for muted text in dark mode */
     .text-muted {
       color: #888 !important;
       transition: color 0.2s;
@@ -327,77 +307,103 @@
       }
     }
     /* --- Custom improvements for logo placements and sizes --- */
-    /* Hide logo above hero title, stats logos, Bookkeeping card logo, testimonial logos, and make contact/footer logos bigger */
-    /* Header main logo */
     .main-logo-large {
-      height: 92px;
+      height: 110px;
       width: auto;
-      max-width: 320px;
+      max-width: 400px;
       display: block;
       margin-right: 0.8em;
-      border-radius: 18px;
-      box-shadow: 0 2px 12px #3ee7fa1a;
+      border-radius: 20px;
+      box-shadow: 0 2px 14px #3ee7fa1a;
       background: none;
     }
     @media (max-width: 600px) {
       .main-logo-large {
-        height: 58px;
-        max-width: 180px;
+        height: 70px;
+        max-width: 220px;
       }
     }
     .brand-title, .brand-tagline, .brand-logo {
       display: none !important;
     }
-    /* Hide logo above hero title */
-    .hero-content picture {
-      display: none !important;
-    }
-    /* Hide logo in stats */
+    .hero-content picture { display: none !important; }
     .stats-row .stat picture,
     .stats-row .stat img {
       display: none !important;
     }
-    /* Hide logo in Bookkeeping & Tax Returns card */
     .card .service-icon picture,
     .card .service-icon img {
       display: none !important;
     }
-    /* Hide logo in testimonials section and first testimonial, but make overall section logo much bigger if it exists */
     .testimonial-carousel > picture,
     .testimonial-carousel > img,
     .carousel-item .service-icon picture,
     .carousel-item .service-icon img {
       display: none !important;
     }
-    /* Make contact card logo much bigger */
+    /* Bigger logo in Contact card */
     #contact .card:last-child picture,
     #contact .card:last-child img {
-      height: 96px !important;
+      height: 120px !important;
       width: auto !important;
-      margin: 0 auto 1.4em auto !important;
+      margin: 0 auto 1.6em auto !important;
       display: block !important;
     }
     @media (max-width: 600px) {
       #contact .card:last-child picture,
       #contact .card:last-child img {
-        height: 60px !important;
+        height: 78px !important;
       }
     }
-    /* Make footer logo much bigger and prominent */
+    /* Footer logo bigger and white */
     .footer-main-logo {
-      height: 96px;
+      height: 120px;
       width: auto;
-      max-width: 320px;
+      max-width: 400px;
       display: block;
       margin: 0 auto 2em auto;
-      border-radius: 18px;
-      box-shadow: 0 2px 12px #3ee7fa1a;
+      border-radius: 20px;
+      box-shadow: 0 2px 14px #3ee7fa1a;
       filter: grayscale(0) opacity(1);
+      background: none;
     }
     @media (max-width: 600px) {
       .footer-main-logo {
-        height: 60px;
-        max-width: 180px;
+        height: 78px;
+        max-width: 220px;
+      }
+    }
+    /* About Rose Above logo bigger and switches to white in dark mode */
+    .about-logo-img {
+      width: 70px !important;
+      height: 70px !important;
+      object-fit: cover;
+      border-radius: 14px;
+      box-shadow: 0 2px 12px #bb4ba233;
+      position: absolute;
+      top: -20px;
+      left: -20px;
+      z-index: 2;
+      background: none;
+    }
+    @media (max-width: 600px) {
+      .about-logo-img {
+        width: 45px !important;
+        height: 45px !important;
+        top: -11px;
+        left: -11px;
+      }
+    }
+    /* Contact envelope icon sizing and color */
+    .contact-icon {
+      font-size: 3.2rem !important;
+      margin-bottom: 1em;
+      color: #181818;
+      transition: color 0.18s;
+    }
+    @media (max-width: 600px) {
+      .contact-icon {
+        font-size: 2.2rem !important;
       }
     }
   </style>
@@ -418,7 +424,6 @@
   </svg>
   <div class="texture-overlay"></div>
   <div id="floating-notes"></div>
-  <!-- Free Guide Banner -->
   <div class="free-guide-banner" style="text-align:center;background:var(--bg-accent);padding:1.2em 0;box-shadow:0 2px 12px #0001; position:relative;">
     <a href="free-guide.pdf" class="btn" style="font-size:1.1rem;" download>
       <i class="fa-solid fa-book-open"></i> Download My Free Guide: “Finance for Musicians”
@@ -465,7 +470,6 @@
       <div class="hero-bg-float"></div>
       <div class="hero-accent ska-accent"></div>
       <div class="hero-content scroll-fade-in">
-        <!-- LOGO REMOVED ABOVE HERO TITLE -->
         <h1 class="hero-title">Rose Above</h1>
         <h2 class="hero-tagline">Accountancy for Musicians & Creatives</h2>
         <p style="margin-top:0.7em;font-size:1.05em;max-width:500px;">Specialist support in bookkeeping, tax returns, royalty management, tour budgets, and business advice for artists, bands, creatives, and indie labels. Trusted, modern, and jargon-free.<br>
@@ -475,7 +479,6 @@
           Get in touch! <i class="fa-solid fa-paper-plane"></i>
         </a>
       </div>
-      <!-- Scroll indicator -->
       <a href="#about" class="scroll-indicator" aria-label="Scroll to About">
         <i class="fa-solid fa-chevron-down"></i>
       </a>
@@ -509,10 +512,10 @@
       <h2 class="section-title">About Rose Above</h2>
       <div class="about-flex">
         <div class="about-img" style="position:relative;">
-          <!-- LOGO OVER PROFILE PIC REMAINS -->
+          <!-- LOGO OVER PROFILE PIC, BIGGER AND WHITE IN DARK MODE -->
           <picture>
             <source srcset="images/Rose Above Logo - White.png" media="(prefers-color-scheme: dark)">
-            <img src="images/Rose Above Logo - Black.png" alt="Rose Above Logo About" style="width:56px;height:56px;object-fit:cover;border-radius:12px;box-shadow:0 2px 8px #bb4ba233;position:absolute;top:-18px;left:-18px;z-index:2;" class="logo-lightmode">
+            <img src="images/Rose Above Logo - Black.png" alt="Rose Above Logo About" class="about-logo-img logo-lightmode">
           </picture>
           <img src="images/oliver-profile.jpg" alt="Oliver Rose, Music Accountant" loading="lazy" style="border-radius:1.2em;box-shadow:0 4px 32px #3ee7fa22;">
         </div>
@@ -610,7 +613,6 @@
       <span class="section-subtitle">What Clients Say</span>
       <h2 class="section-title">Testimonials</h2>
       <div class="testimonial-carousel" aria-label="Client Testimonials" tabindex="0">
-        <!-- LOGO IN TESTIMONIALS REMOVED, ALL TESTIMONIALS CONSISTENT -->
         <button class="carousel-btn prev" aria-label="Previous testimonial"><i class="fa-solid fa-arrow-left"></i></button>
         <div class="carousel-track">
           <div class="carousel-item active" tabindex="0" aria-live="polite">
@@ -691,12 +693,12 @@
           </form>
         </div>
         <div class="card" style="flex:1;align-items:center;justify-content:center;text-align:center;">
-          <!-- LOGO MUCH BIGGER IN CONTACT CARD -->
+          <!-- BIGGER LOGO IN CONTACT CARD, WHITE IN DARK MODE -->
           <picture>
             <source srcset="images/Rose Above Logo - White.png" media="(prefers-color-scheme: dark)">
-            <img src="images/Rose Above Logo - Black.png" alt="Rose Above Logo Contact" style="display:block;" class="logo-lightmode">
+            <img src="images/Rose Above Logo - Black.png" alt="Rose Above Logo Contact" class="logo-lightmode">
           </picture>
-          <div style="font-size:2.5rem;margin-bottom:1em;"><i class="fa-solid fa-envelope"></i></div>
+          <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
           <p style="margin:0 0 0.6em 0;">Or email me directly:</p>
           <a href="mailto:oliverrosefinance@gmail.com" style="font-size:1.13rem;color:#181818;font-weight:700;">oliverrosefinance@gmail.com</a>
           <div style="margin-top:1.5em;color:var(--text-muted);font-size:0.97em;">Response within 48 hours.</div>
@@ -715,10 +717,9 @@
   <footer>
     <div class="ska-accent"></div>
     <div class="main-container" style="text-align:center;">
-      <!-- BIG LOGO IN FOOTER -->
+      <!-- BIG WHITE LOGO IN FOOTER ALWAYS -->
       <picture>
-        <source srcset="images/Rose Above Logo - White.png" media="(prefers-color-scheme: dark)">
-        <img src="images/Rose Above Logo - Black.png" alt="Rose Above Logo Footer" class="footer-main-logo logo-lightmode">
+        <img src="images/Rose Above Logo - White.png" alt="Rose Above Logo Footer" class="footer-main-logo">
       </picture>
       <div class="footer-links">
         <a href="#about">About</a>
