@@ -1403,3 +1403,10 @@ nav .nav-link:focus {
   background: #168aad !important;
   color: #fff !important;
 }
+.img-placeholder {
+  animation: pulse-bg 1.5s infinite alternate;
+}
+@keyframes pulse-bg {
+  0% { background: #eee; }
+  100% { background: #ddd; }
+}
