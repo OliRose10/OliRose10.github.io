@@ -275,7 +275,7 @@ header {
   box-shadow: var(--shadow);
   border-bottom: 2.5px solid var(--border);
   border-radius: 0 0 32px 32px;
-  padding: 0.7em 0;
+  padding: 0;
   position: sticky;
   top: 0;
   z-index: 100;
@@ -285,10 +285,16 @@ header {
   max-width: 1120px;
   margin: 0 auto;
   display: flex;
-  align-items: center;
+  align-items: stretch;
   justify-content: space-between;
   gap: 2em;
-  padding: 1em 2vw;
+  padding: 0;
+  height: 120px;
+  min-height: unset;
+  box-sizing: border-box;
+}
+@media (max-width: 800px) {
+  .header-content { height: 70px; }
 }
 .logo { display: flex; align-items: center; gap: 0.7em; font-size: 1.1em; font-family: var(--font-heading); }
 .logo-img {
@@ -298,7 +304,22 @@ header {
   border: 2.5px solid #fff;
 }
 .logo-title { font-size: 1.45rem; color: var(--text-heading); font-family: var(--font-heading); font-weight: 900; letter-spacing: 3px; text-transform: uppercase; }
-
+.main-logo-large {
+  height: 100%;
+  width: auto;
+  max-height: 120px;
+  max-width: 400px;
+  margin-right: 0.8em;
+  border-radius: 20px;
+  background: none;
+  align-self: stretch;
+  object-fit: contain;
+  box-shadow: none !important;
+  display: block;
+}
+@media (max-width: 800px) {
+  .main-logo-large { max-height: 70px; }
+}
 nav ul { list-style: none; display: flex; gap: 1.5rem; }
 nav .nav-link {
   color: var(--accent);
@@ -658,8 +679,7 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
-  /* --- Prevent layout jump: set min-height to the tallest image + caption --- */
-  min-height: 430px; /* Adjust as needed for your tallest gallery slide */
+  min-height: 430px;
   transition: min-height 0.4s cubic-bezier(.7,.1,.4,1.3);
 }
 .gallery-slide {
@@ -772,9 +792,7 @@ section {
   box-shadow: var(--shadow);
   border: 2px solid var(--border);
   padding: 2.2em 1em 2.1em 1em;
-  min-height: 230px;
-  /* --- Prevent layout jump: set min-height to the tallest testimonial --- */
-  min-height: 270px; /* Adjust as needed for your tallest testimonial */
+  min-height: 270px;
   transition: min-height 0.4s cubic-bezier(.7,.1,.4,1.3);
 }
 .carousel-track {
@@ -784,8 +802,7 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
-  /* --- Prevent layout jump: set min-height to the tallest carousel item --- */
-  min-height: 160px; /* Adjust as needed */
+  min-height: 160px;
   transition: min-height 0.4s cubic-bezier(.7,.1,.4,1.3);
 }
 .carousel-item {
@@ -1015,11 +1032,7 @@ footer .ska-accent {
   .carousel-track { width: 98vw; min-width: 0; }
 }
 @media (max-width: 800px) {
-  /* --- Enhanced Mobile Header/Nav Styles --- */
-  header {
-    padding: 0;
-    min-height: 52px;
-  }
+  header { padding: 0; min-height: 52px; }
   .header-content {
     flex-direction: row !important;
     align-items: center !important;
@@ -1030,7 +1043,9 @@ footer .ska-accent {
     width: 100vw !important;
     box-sizing: border-box !important;
     max-width: 100vw !important;
+    height: 70px;
   }
+  .main-logo-large { max-height: 70px; }
   .site-brand { gap: 0.5em; }
   .brand-logo {
     font-size: 1.2em !important;
@@ -1049,7 +1064,7 @@ footer .ska-accent {
     margin-bottom: 0 !important;
   }
   .brand-tagline {
-    display: none !important; /* Hide tagline on mobile */
+    display: none !important;
   }
   nav {
     position: fixed !important;
@@ -1067,14 +1082,12 @@ footer .ska-accent {
     box-shadow: 0 6px 32px #0002 !important;
     padding-top: 0 !important;
   }
-  nav.nav-open {
-    transform: translateY(0) !important;
-  }
+  nav.nav-open { transform: translateY(0) !important; }
   nav ul {
     flex-direction: column !important;
     gap: 2.2em !important;
     width: 100% !important;
-    padding: 5em 2em 2em 2em !important; /* pushes links down for thumb reach, removes blank top */
+    padding: 5em 2em 2em 2em !important;
     align-items: flex-start !important;
   }
   .theme-toggle {
@@ -1082,20 +1095,16 @@ footer .ska-accent {
     font-size: 0.93rem !important;
     padding: 0.3em 1em !important;
   }
-  .hamburger {
-    display: flex !important;
-    margin-right: 0 !important;
-  }
+  .hamburger { display: flex !important; margin-right: 0 !important; }
 }
-/* Even smaller header on smallest screens */
 @media (max-width: 600px) {
   section { padding-left: 0.7rem; padding-right: 0.7rem; }
   .main-container { padding-left: 0.1rem; padding-right: 0.1rem; }
   .hero-section { padding: 1.3rem 0.4rem 1.7rem 0.4rem; }
   .header-content { min-height: 44px !important; padding: 0.1em 1vw !important; }
+  .main-logo-large { max-height: 44px; }
   .brand-logo { height: 30px !important; width: 30px !important; }
-  nav ul { padding-top: 4em !important; }
-  nav ul { gap: 1.1em !important; }
+  nav ul { padding-top: 4em !important; gap: 1.1em !important; }
   .card { padding: 1rem 0.5rem; }
   .gallery-slide img { max-width: 98vw; }
   h1 { font-size: 2rem; }
@@ -1261,16 +1270,13 @@ nav .nav-link:focus {
   background: #181820 !important;
   color: #f7f7f7 !important;
 }
-
 [data-theme="dark"] .ska-divider,
 [data-theme="dark"] .ska-accent {
   background: repeating-linear-gradient(90deg, #168aad 0 14px, #23242a 14px 28px) !important;
 }
-
 [data-theme="dark"] .free-guide-banner::after {
   background: repeating-linear-gradient(90deg, #23242a 0 12px, #fff 12px 24px) !important;
 }
-/* === DARK MODE READABILITY PATCH === */
 [data-theme="dark"] .hero-title,
 [data-theme="dark"] .hero-desc,
 [data-theme="dark"] .brand-tagline,
@@ -1314,99 +1320,5 @@ nav .nav-link:focus {
   transition: filter 0.2s;
 }
 @media (max-width:600px) {
-  .contact-card-logo {
-    height: 90px !important;
-  }
-}
-/* --- HEADER LOGO: Remove shadow, make bigger, fill banner --- */
-.header-content {
-  max-width: 1120px;
-  margin: 0 auto;
-  display: flex;
-  align-items: stretch;       /* Stretch children (logo) to header height */
-  justify-content: space-between;
-  gap: 2em;
-  padding: 0 2vw;             /* Remove vertical padding */
-  height: 150px;              /* Set header height to desired logo size */
-  min-height: unset;
-  box-sizing: border-box;
-}
-
-/* Responsive: smaller header on mobile */
-@media (max-width: 800px) {
-  .header-content {
-    height: 90px;
-  }
-}
-
-/* Main logo at top: fill header, no shadow, bigger */
-.main-logo-large {
-  height: 100%;               /* Fill the header vertically */
-  max-height: 150px;          /* Sync with .header-content height */
-  width: auto;
-  max-width: 400px;
-  margin-right: 0.8em;
-  border-radius: 20px;
-  background: none;
-  align-self: stretch;
-  object-fit: contain;
-  box-shadow: none !important; /* Remove any shadow */
-  display: block;
-}
-
-/* Mobile logo size */
-@media (max-width: 800px) {
-  .main-logo-large {
-    max-height: 90px;
-  }
-}
-header {
-  background: var(--bg-section);
-  box-shadow: var(--shadow);
-  border-bottom: 2.5px solid var(--border);
-  border-radius: 0 0 32px 32px;
-  padding: 0; /* <<< REMOVE ALL PADDING */
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  transition: background 0.3s, border 0.3s;
-}
-
-.header-content {
-  max-width: 1120px;
-  margin: 0 auto;
-  display: flex;
-  align-items: stretch;       /* Ensures children fill header height */
-  justify-content: space-between;
-  gap: 2em;
-  padding: 0;                 /* <<< REMOVE ALL PADDING */
-  height: 120px;              /* Adjust as desired for logo size */
-  min-height: unset;
-  box-sizing: border-box;
-}
-
-@media (max-width: 800px) {
-  .header-content {
-    height: 70px;
-  }
-}
-
-.main-logo-large {
-  height: 100%;               /* Fill the header vertically */
-  width: auto;
-  max-height: 120px;          /* Sync with header-content height */
-  max-width: 400px;
-  margin-right: 0.8em;
-  border-radius: 20px;
-  background: none;
-  align-self: stretch;
-  object-fit: contain;
-  box-shadow: none !important; /* Remove any shadow */
-  display: block;
-}
-
-@media (max-width: 800px) {
-  .main-logo-large {
-    max-height: 70px;
-  }
+  .contact-card-logo { height: 90px !important; }
 }
