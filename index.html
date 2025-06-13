@@ -90,33 +90,39 @@
     }
     .logo-darkmode { display: none !important; }
     .logo-lightmode { display: inline !important; }
+
+    /* Header layout - remove banner space above/below, shadow, and enlarge logo */
     .header-content {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 2em;
-      padding: 0.7em 0 0.7em 0;
+      padding: 0;
+      margin: 0;
+      min-height: unset;
+      background: none;
     }
     .site-brand {
       display: flex;
       align-items: center;
       gap: 0.9em;
+      margin: 0;
     }
-    /* --- Main logo at top --- */
     .main-logo-large {
-      height: 110px;
+      height: 146px;
       width: auto;
-      max-width: 400px;
+      max-width: 520px;
       display: block;
-      margin-right: 0.8em;
-      border-radius: 20px;
-      box-shadow: 0 2px 14px #3ee7fa1a;
+      margin: 0;
+      border-radius: 0;
+      box-shadow: none !important;
       background: none;
+      padding: 0;
     }
     @media (max-width: 600px) {
       .main-logo-large {
-        height: 70px;
-        max-width: 220px;
+        height: 90px;
+        max-width: 320px;
       }
     }
     .brand-title-tagline { display: flex; flex-direction: column; line-height: 1.05; }
@@ -173,7 +179,6 @@
       background: #bb4ba2;
       color: #fff;
     }
-    /* --- Gallery/Carousel Arrows --- */
     .gallery-btn, .carousel-btn {
       background: #fff;
       border: none;
@@ -306,48 +311,40 @@
         color: #b0b0b0 !important;
       }
     }
-    /* --- Custom improvements for logo placements and sizes --- */
-    .main-logo-large {
-      height: 110px;
-      width: auto;
-      max-width: 400px;
-      display: block;
-      margin-right: 0.8em;
-      border-radius: 20px;
-      box-shadow: 0 2px 14px #3ee7fa1a;
+    /* About logo: circular, fixed aspect, white in dark mode, not squished */
+    .about-logo-img {
+      width: 82px !important;
+      height: 82px !important;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 50%;
+      box-shadow: none !important;
+      position: absolute;
+      top: -30px;
+      left: -30px;
+      z-index: 2;
       background: none;
+      display: block;
     }
     @media (max-width: 600px) {
-      .main-logo-large {
-        height: 70px;
-        max-width: 220px;
+      .about-logo-img {
+        width: 50px !important;
+        height: 50px !important;
+        top: -10px;
+        left: -10px;
       }
     }
-    .brand-title, .brand-tagline, .brand-logo {
-      display: none !important;
-    }
-    .hero-content picture { display: none !important; }
-    .stats-row .stat picture,
-    .stats-row .stat img {
-      display: none !important;
-    }
-    .card .service-icon picture,
-    .card .service-icon img {
-      display: none !important;
-    }
-    .testimonial-carousel > picture,
-    .testimonial-carousel > img,
-    .carousel-item .service-icon picture,
-    .carousel-item .service-icon img {
-      display: none !important;
-    }
-    /* Bigger logo in Contact card */
+    /* Contact card logo: bigger, white in dark mode, no shadow */
     #contact .card:last-child picture,
     #contact .card:last-child img {
-      height: 120px !important;
+      height: 132px !important;
       width: auto !important;
-      margin: 0 auto 1.6em auto !important;
+      margin: 0 auto 1.5em auto !important;
       display: block !important;
+      border-radius: 0 !important;
+      box-shadow: none !important;
+      background: none;
+      max-width: 220px;
     }
     @media (max-width: 600px) {
       #contact .card:last-child picture,
@@ -355,43 +352,23 @@
         height: 78px !important;
       }
     }
-    /* Footer logo bigger and white */
+    /* Remove shadow from footer logo, keep white, and size/spacing consistent */
     .footer-main-logo {
       height: 120px;
       width: auto;
       max-width: 400px;
       display: block;
       margin: 0 auto 2em auto;
-      border-radius: 20px;
-      box-shadow: 0 2px 14px #3ee7fa1a;
+      border-radius: 0;
+      box-shadow: none !important;
       filter: grayscale(0) opacity(1);
       background: none;
+      padding: 0;
     }
     @media (max-width: 600px) {
       .footer-main-logo {
         height: 78px;
         max-width: 220px;
-      }
-    }
-    /* About Rose Above logo bigger and switches to white in dark mode */
-    .about-logo-img {
-      width: 70px !important;
-      height: 70px !important;
-      object-fit: cover;
-      border-radius: 14px;
-      box-shadow: 0 2px 12px #bb4ba233;
-      position: absolute;
-      top: -20px;
-      left: -20px;
-      z-index: 2;
-      background: none;
-    }
-    @media (max-width: 600px) {
-      .about-logo-img {
-        width: 45px !important;
-        height: 45px !important;
-        top: -11px;
-        left: -11px;
       }
     }
     /* Contact envelope icon sizing and color */
@@ -402,9 +379,7 @@
       transition: color 0.18s;
     }
     @media (max-width: 600px) {
-      .contact-icon {
-        font-size: 2.2rem !important;
-      }
+      .contact-icon { font-size: 2.2rem !important; }
     }
   </style>
 </head>
@@ -433,7 +408,7 @@
   <header>
     <div class="header-content">
       <div class="site-brand">
-        <!-- BIG MAIN LOGO AT TOP -->
+        <!-- BIG MAIN LOGO AT TOP, NO EXTRA BANNER SPACE, NO SHADOW -->
         <picture>
           <source srcset="images/Rose Above Logo - White.png" media="(prefers-color-scheme: dark)">
           <img src="images/Rose Above Logo - No Background.png" alt="Rose Above Logo" class="main-logo-large logo-lightmode">
@@ -512,7 +487,7 @@
       <h2 class="section-title">About Rose Above</h2>
       <div class="about-flex">
         <div class="about-img" style="position:relative;">
-          <!-- LOGO OVER PROFILE PIC, BIGGER AND WHITE IN DARK MODE -->
+          <!-- LOGO OVER PROFILE PIC, CIRCULAR, WHITE IN DARK MODE, NOT SQUISHED -->
           <picture>
             <source srcset="images/Rose Above Logo - White.png" media="(prefers-color-scheme: dark)">
             <img src="images/Rose Above Logo - Black.png" alt="Rose Above Logo About" class="about-logo-img logo-lightmode">
@@ -693,7 +668,7 @@
           </form>
         </div>
         <div class="card" style="flex:1;align-items:center;justify-content:center;text-align:center;">
-          <!-- BIGGER LOGO IN CONTACT CARD, WHITE IN DARK MODE -->
+          <!-- BIGGER LOGO IN CONTACT CARD, WHITE IN DARK MODE, NO SHADOW -->
           <picture>
             <source srcset="images/Rose Above Logo - White.png" media="(prefers-color-scheme: dark)">
             <img src="images/Rose Above Logo - Black.png" alt="Rose Above Logo Contact" class="logo-lightmode">
@@ -717,7 +692,7 @@
   <footer>
     <div class="ska-accent"></div>
     <div class="main-container" style="text-align:center;">
-      <!-- BIG WHITE LOGO IN FOOTER ALWAYS -->
+      <!-- BIG WHITE LOGO IN FOOTER, NO SHADOW -->
       <picture>
         <img src="images/Rose Above Logo - White.png" alt="Rose Above Logo Footer" class="footer-main-logo">
       </picture>
