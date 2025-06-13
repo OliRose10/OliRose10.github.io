@@ -77,6 +77,20 @@
       input::placeholder, textarea::placeholder {
         color: #bbb !important;
       }
+      /* Logo swaps for dark mode */
+      .logo-darkmode {
+        display: inline !important;
+      }
+      .logo-lightmode {
+        display: none !important;
+      }
+    }
+    /* Light mode logo visibility */
+    .logo-darkmode {
+      display: none !important;
+    }
+    .logo-lightmode {
+      display: inline !important;
     }
     /* --- Header Layout --- */
     .header-content {
@@ -365,7 +379,10 @@
     <div class="header-content">
       <div class="site-brand">
         <!-- LOGO IN HEADER -->
-        <img src="images/Rose Above Logo - No Background.png" alt="Rose Above Logo" style="height:48px;width:auto;margin-right:0.3em;border-radius:12px;box-shadow:0 2px 8px #3ee7fa11;">
+        <picture>
+          <source srcset="images/Rose Above Logo - White.png" media="(prefers-color-scheme: dark)">
+          <img src="images/Rose Above Logo - No Background.png" alt="Rose Above Logo" style="height:48px;width:auto;margin-right:0.3em;border-radius:12px;box-shadow:0 2px 8px #3ee7fa11;" class="logo-lightmode">
+        </picture>
         <span class="brand-logo" style="display:none;"><i class="fa-solid fa-music"></i></span>
         <span class="brand-title-tagline">
           <span class="brand-title">Rose Above</span>
@@ -400,7 +417,10 @@
       <div class="hero-accent ska-accent"></div>
       <div class="hero-content scroll-fade-in">
         <!-- HERO LOGO -->
-        <img src="images/Rose Above Logo - No Background.png" alt="Rose Above Logo" style="height:90px;width:auto;display:block;margin-bottom:1em;border-radius:14px;box-shadow:0 4px 20px #bb4ba233;">
+        <picture>
+          <source srcset="images/Rose Above Logo - White.png" media="(prefers-color-scheme: dark)">
+          <img src="images/Rose Above Logo - No Background.png" alt="Rose Above Logo" style="height:90px;width:auto;display:block;margin-bottom:1em;border-radius:14px;box-shadow:0 4px 20px #bb4ba233;" class="logo-lightmode">
+        </picture>
         <h1 class="hero-title">Rose Above</h1>
         <h2 class="hero-tagline">Accountancy for Musicians & Creatives</h2>
         <p style="margin-top:0.7em;font-size:1.05em;max-width:500px;">Specialist support in bookkeeping, tax returns, royalty management, tour budgets, and business advice for artists, bands, creatives, and indie labels. Trusted, modern, and jargon-free.<br>
@@ -429,12 +449,18 @@
       <div class="stats-row scroll-fade-in">
         <div class="stat">
           <!-- LOGO IN STATS -->
-          <img src="images/Rose Above Logo - Black.png" alt="Rose Above Logo Black" style="height:28px;width:auto;display:block;margin:0 auto 0.5em auto;">
+          <picture>
+            <source srcset="images/Rose Above Logo - White.png" media="(prefers-color-scheme: dark)">
+            <img src="images/Rose Above Logo - Black.png" alt="Rose Above Logo Black" style="height:28px;width:auto;display:block;margin:0 auto 0.5em auto;" class="logo-lightmode">
+          </picture>
           <div class="stat-label">Creatives Supported</div>
           <span class="stat-number" data-target="100">0</span><span class="stat-plus">+</span>
         </div>
         <div class="stat">
-          <img src="images/Rose Above Logo - Black.png" alt="Rose Above Logo Black" style="height:28px;width:auto;display:block;margin:0 auto 0.5em auto;">
+          <picture>
+            <source srcset="images/Rose Above Logo - White.png" media="(prefers-color-scheme: dark)">
+            <img src="images/Rose Above Logo - Black.png" alt="Rose Above Logo Black" style="height:28px;width:auto;display:block;margin:0 auto 0.5em auto;" class="logo-lightmode">
+          </picture>
           <div class="stat-label">Years Experience</div>
           <span class="stat-number" data-target="4">0</span><span class="stat-plus">+</span>
         </div>
@@ -448,7 +474,10 @@
       <div class="about-flex">
         <div class="about-img" style="position:relative;">
           <!-- LOGO OVER PROFILE PIC -->
-          <img src="images/Rose Above Logo - Black.png" alt="Rose Above Logo About" style="width:56px;height:56px;object-fit:cover;border-radius:12px;box-shadow:0 2px 8px #bb4ba233;position:absolute;top:-18px;left:-18px;z-index:2;">
+          <picture>
+            <source srcset="images/Rose Above Logo - White.png" media="(prefers-color-scheme: dark)">
+            <img src="images/Rose Above Logo - Black.png" alt="Rose Above Logo About" style="width:56px;height:56px;object-fit:cover;border-radius:12px;box-shadow:0 2px 8px #bb4ba233;position:absolute;top:-18px;left:-18px;z-index:2;" class="logo-lightmode">
+          </picture>
           <img src="images/oliver-profile.jpg" alt="Oliver Rose, Music Accountant" loading="lazy" style="border-radius:1.2em;box-shadow:0 4px 32px #3ee7fa22;">
         </div>
         <div class="about-text">
@@ -459,7 +488,10 @@
             I offer clarity, confidence, and practical support for your unique journey, from everyday tax to big tours.
           </p>
           <div class="about-highlight">
-            <img src="images/Rose Above Logo - Black.png" alt="Rose Above Logo Black" style="height:22px;width:auto;vertical-align:middle;">
+            <picture>
+              <source srcset="images/Rose Above Logo - White.png" media="(prefers-color-scheme: dark)">
+              <img src="images/Rose Above Logo - Black.png" alt="Rose Above Logo Black" style="height:22px;width:auto;vertical-align:middle;" class="logo-lightmode">
+            </picture>
             <i class="fa-solid fa-music"></i>
             <i class="fa-solid fa-guitar"></i>
             <i class="fa-solid fa-headphones"></i>
@@ -476,7 +508,12 @@
       <h2 class="section-title">Services</h2>
       <div class="cards-container">
         <div class="card scroll-fade-in">
-          <span class="service-icon"><img src="images/Rose Above Logo - No Background.png" alt="Service Logo" style="height:22px;width:auto;vertical-align:middle;"></span>
+          <span class="service-icon">
+            <picture>
+              <source srcset="images/Rose Above Logo - White.png" media="(prefers-color-scheme: dark)">
+              <img src="images/Rose Above Logo - No Background.png" alt="Service Logo" style="height:22px;width:auto;vertical-align:middle;" class="logo-lightmode">
+            </picture>
+          </span>
           <h3>Bookkeeping & Tax Returns</h3>
           <p>Stress-free accounts and tax return preperation, maximising deductions, and managing deadlines.</p>
         </div>
@@ -511,7 +548,10 @@
       <span class="section-subtitle">Gallery</span>
       <h2 class="section-title">Moments & Memories</h2>
       <!-- LOGO WATERMARK -->
-      <img src="images/Rose Above Logo - Black.png" alt="Rose Above Logo Watermark" style="position:absolute;right:2vw;top:2vw;opacity:0.06;height:100px;width:auto;pointer-events:none;z-index:1;">
+      <picture>
+        <source srcset="images/Rose Above Logo - White.png" media="(prefers-color-scheme: dark)">
+        <img src="images/Rose Above Logo - Black.png" alt="Rose Above Logo Watermark" style="position:absolute;right:2vw;top:2vw;opacity:0.06;height:100px;width:auto;pointer-events:none;z-index:1;" class="logo-lightmode">
+      </picture>
       <div class="gallery-slideshow">
         <button class="gallery-btn prev" aria-label="Previous image"><i class="fa-solid fa-arrow-left"></i></button>
         <div class="gallery-track">
@@ -544,11 +584,19 @@
       <h2 class="section-title">Testimonials</h2>
       <div class="testimonial-carousel" aria-label="Client Testimonials" tabindex="0">
         <!-- LOGO IN TESTIMONIALS -->
-        <img src="images/Rose Above Logo - No Background.png" alt="Rose Above Logo Testimonials" style="height:34px;width:auto;display:block;margin:0 auto 1em auto;">
+        <picture>
+          <source srcset="images/Rose Above Logo - White.png" media="(prefers-color-scheme: dark)">
+          <img src="images/Rose Above Logo - No Background.png" alt="Rose Above Logo Testimonials" style="height:34px;width:auto;display:block;margin:0 auto 1em auto;" class="logo-lightmode">
+        </picture>
         <button class="carousel-btn prev" aria-label="Previous testimonial"><i class="fa-solid fa-arrow-left"></i></button>
         <div class="carousel-track">
           <div class="carousel-item active" tabindex="0" aria-live="polite">
-            <span class="service-icon"><img src="images/Rose Above Logo - Black.png" alt="Logo Heart" style="height:20px;width:auto;vertical-align:middle;"></span>
+            <span class="service-icon">
+              <picture>
+                <source srcset="images/Rose Above Logo - White.png" media="(prefers-color-scheme: dark)">
+                <img src="images/Rose Above Logo - Black.png" alt="Logo Heart" style="height:20px;width:auto;vertical-align:middle;" class="logo-lightmode">
+              </picture>
+            </span>
             <p>“Rose Above gave me clarity and confidence about my music finances. Highly recommended!”</p>
             <span class="testimonial-author">– Singer/Songwriter</span>
           </div>
@@ -627,7 +675,10 @@
         </div>
         <div class="card" style="flex:1;align-items:center;justify-content:center;text-align:center;">
           <!-- LOGO IN CONTACT CARD -->
-          <img src="images/Rose Above Logo - Black.png" alt="Rose Above Logo Contact" style="height:44px;width:auto;display:block;margin:0 auto 1em auto;">
+          <picture>
+            <source srcset="images/Rose Above Logo - White.png" media="(prefers-color-scheme: dark)">
+            <img src="images/Rose Above Logo - Black.png" alt="Rose Above Logo Contact" style="height:44px;width:auto;display:block;margin:0 auto 1em auto;" class="logo-lightmode">
+          </picture>
           <div style="font-size:2.5rem;margin-bottom:1em;"><i class="fa-solid fa-envelope"></i></div>
           <p style="margin:0 0 0.6em 0;">Or email me directly:</p>
           <a href="mailto:oliverrosefinance@gmail.com" style="font-size:1.13rem;color:#181818;font-weight:700;">oliverrosefinance@gmail.com</a>
@@ -648,7 +699,10 @@
     <div class="ska-accent"></div>
     <div class="main-container" style="text-align:center;">
       <!-- LOGO IN FOOTER -->
-      <img src="images/Rose Above Logo - Black.png" alt="Rose Above Logo Footer" style="height:32px;width:auto;display:block;margin:0 auto 1.2em auto;filter: grayscale(100%) opacity(0.75);">
+      <picture>
+        <source srcset="images/Rose Above Logo - White.png" media="(prefers-color-scheme: dark)">
+        <img src="images/Rose Above Logo - Black.png" alt="Rose Above Logo Footer" style="height:32px;width:auto;display:block;margin:0 auto 1.2em auto;filter: grayscale(100%) opacity(0.75);" class="logo-lightmode">
+      </picture>
       <div class="footer-links">
         <a href="#about">About</a>
         <a href="#services">Services</a>
