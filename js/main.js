@@ -423,7 +423,7 @@ if (heroSection) {
   });
 }
 
-// --- Floating notes/music icons ---
+// --- Floating notes/music icons (SCATTERED START) ---
 const notes = [
   '<i class="fa-solid fa-music"></i>',
   '<i class="fa-solid fa-guitar"></i>',
@@ -431,7 +431,8 @@ const notes = [
   '<i class="fa-solid fa-star"></i>'
 ];
 const container = document.getElementById('floating-notes');
-function spawnNote() {
+
+function spawnNote(scattered = false) {
   if (!container) return;
   const el = document.createElement('div');
   el.className = 'floating-note';
@@ -439,11 +440,29 @@ function spawnNote() {
   el.style.left = Math.random() * 96 + 'vw';
   el.style.fontSize = (1 + Math.random() * 1.8) + 'em';
   el.style.animationDuration = (12 + Math.random() * 12) + 's';
+
+  if (scattered) {
+    // Start scattered: random top position
+    el.style.top = Math.random() * 96 + 'vh';
+    el.style.transform = `translateY(0)`;
+    // Use animation to float upward from wherever it starts
+    el.style.animationName = 'floatNotesScatter';
+  }
   container.appendChild(el);
   setTimeout(() => el.remove(), 18000);
 }
+
+// On load, scatter 12 notes over the screen (so they don't all rise from the bottom)
+for (let i = 0; i < 12; i++) spawnNote(true);
+// Afterward, continue to spawn from the bottom as before
 setInterval(spawnNote, 1300);
-for (let i = 0; i < 6; i++) spawnNote();
+
+// --- Ensure the new animation is present (add this to your CSS if missing) ---
+// @keyframes floatNotesScatter {
+//   0% { opacity: 0.12; transform: translateY(0); }
+//   100% { opacity: 0.10; transform: translateY(-120vh); }
+// }
+
 function updateContactLogoForTheme() {
   var logo = document.getElementById('contactLogo');
   if (!logo) return;
