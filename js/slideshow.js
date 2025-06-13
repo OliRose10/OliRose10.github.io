@@ -1,4 +1,3 @@
-// Advanced slideshow: autoplay, pause on hover/focus/touch, dots, arrows, keyboard, swipe, progress bar
 document.addEventListener("DOMContentLoaded", function() {
   const slides = document.querySelectorAll('.slide');
   const dots = document.querySelectorAll('.slideshow-dot');
@@ -6,51 +5,45 @@ document.addEventListener("DOMContentLoaded", function() {
   const progressBar = document.querySelector('.slideshow-progress');
   const slideshow = document.querySelector('.slideshow');
   let currentSlide = 0;
-  let interval = 3500; // Faster and more standard
+  const interval = 3500;
   let autoplayTimer = null;
   let progressTimer = null;
   let isPaused = false;
-  let startTime = null;
 
-  function showSlide(n, userTriggered = false) {
+  function showSlide(n) {
     currentSlide = n;
     slides.forEach((slide, i) => slide.classList.toggle('active', i === n));
     dots.forEach((dot, i) => dot.classList.toggle('active', i === n));
-    resetProgressBar();
-    if (!isPaused) {
-      resetAutoplay();
-    }
+    resetTimers();
   }
 
   function nextSlide() {
-    showSlide((currentSlide + 1) % slides.length, true);
+    showSlide((currentSlide + 1) % slides.length);
   }
   function prevSlide() {
-    showSlide((currentSlide - 1 + slides.length) % slides.length, true);
+    showSlide((currentSlide - 1 + slides.length) % slides.length);
   }
 
-  // Progress bar logic
-  function resetProgressBar() {
-    if (progressBar) progressBar.style.width = "0%";
-    clearInterval(progressTimer);
-    if (progressBar && !isPaused) {
-      startTime = Date.now();
-      progressTimer = setInterval(() => {
-        let percent = Math.min(100, ((Date.now() - startTime) / interval) * 100);
-        progressBar.style.width = percent + "%";
-        if (percent >= 100) clearInterval(progressTimer);
-      }, 20);
-    }
-  }
-
-  // Autoplay logic
-  function resetAutoplay() {
+  function resetTimers() {
     clearInterval(autoplayTimer);
+    clearInterval(progressTimer);
+    if (isPaused) {
+      if (progressBar) progressBar.style.width = "0%";
+      return;
+    }
+    let startTime = Date.now();
+    if (progressBar) progressBar.style.width = "0%";
+    progressTimer = setInterval(() => {
+      if (isPaused) return;
+      let percent = Math.min(100, ((Date.now() - startTime) / interval) * 100);
+      if (progressBar) progressBar.style.width = percent + "%";
+      if (percent >= 100) clearInterval(progressTimer);
+    }, 20);
     autoplayTimer = setInterval(() => {
       nextSlide();
     }, interval);
-    resetProgressBar();
   }
+
   function pauseAutoplay() {
     isPaused = true;
     clearInterval(autoplayTimer);
@@ -60,27 +53,25 @@ document.addEventListener("DOMContentLoaded", function() {
   function resumeAutoplay() {
     if (isPaused) {
       isPaused = false;
-      resetAutoplay();
+      resetTimers();
     }
   }
 
-  // Arrow controls
+  // Controls
   if (arrows[0]) arrows[0].onclick = prevSlide;
   if (arrows[1]) arrows[1].onclick = nextSlide;
+  dots.forEach((dot, idx) => dot.onclick = () => showSlide(idx));
 
-  // Dots
-  dots.forEach((dot, idx) => dot.onclick = () => showSlide(idx, true));
-
-  // Keyboard: Only when slideshow is focused for accessibility
+  // Keyboard nav (when focused)
   if (slideshow) {
-    slideshow.tabIndex = 0; // Make focusable
+    slideshow.tabIndex = 0;
     slideshow.addEventListener("keydown", (e) => {
       if (e.key === "ArrowLeft") { prevSlide(); e.preventDefault(); }
       if (e.key === "ArrowRight") { nextSlide(); e.preventDefault(); }
     });
   }
 
-  // Pause on hover/focus/touch
+  // Pause/resume on hover/focus/touch
   if (slideshow) {
     slideshow.addEventListener('mouseenter', pauseAutoplay);
     slideshow.addEventListener('mouseleave', resumeAutoplay);
@@ -100,11 +91,10 @@ document.addEventListener("DOMContentLoaded", function() {
         else if (dx < -44) nextSlide();
       }
       startX = null;
-      setTimeout(resumeAutoplay, 350); // Resume after swipe
+      setTimeout(resumeAutoplay, 350);
     });
   }
 
   // Initialize
   showSlide(0);
-  resetAutoplay();
 });
