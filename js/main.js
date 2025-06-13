@@ -1,7 +1,7 @@
 // === Indie Rock Movement & Interactivity by Copilot ===
 
-// --- Typewriter effect ---
 document.addEventListener("DOMContentLoaded", function () {
+  // --- Typewriter effect ---
   const typewriter = document.getElementById("typewriterText");
   if (typewriter) {
     const text = "Specialist finance, tax & business support for musicians, indie labels & creatives.";
@@ -124,7 +124,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // --- Hamburger Navigation (fully modern, accessible, mobile friendly) ---
+  // --- Hamburger Navigation (modern, accessible, mobile friendly) ---
   const nav = document.querySelector('nav');
   const hamburger = document.querySelector('.hamburger');
   if (nav && hamburger) {
@@ -224,6 +224,150 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
   });
+
+  // --- Stats Counter Animation ---
+  function animateStats() {
+    document.querySelectorAll('.stat-number').forEach(function (el) {
+      if (el.dataset.animated) return; // Only animate once
+      const target = parseInt(el.getAttribute('data-target'), 10);
+      if (isNaN(target)) return;
+      let start = 0;
+      let duration = 1300 + Math.random() * 300;
+      let increment = Math.ceil(target / (duration / 20));
+      function run() {
+        start += increment;
+        if (start > target) start = target;
+        el.textContent = start.toLocaleString();
+        if (start < target) setTimeout(run, 20);
+        else el.dataset.animated = "true";
+      }
+      run();
+    });
+  }
+  function isInView(el) {
+    const rect = el.getBoundingClientRect();
+    return rect.top < window.innerHeight && rect.bottom > 0;
+  }
+  window.addEventListener('scroll', () => {
+    document.querySelectorAll('.stats-row').forEach(row => {
+      if (isInView(row)) animateStats();
+    });
+  });
+  window.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.stats-row').forEach(row => {
+      if (isInView(row)) animateStats();
+    });
+  });
+
+  // --- Testimonial Carousel (single script, flawless timing) ---
+  (function () {
+    const track = document.querySelector('.carousel-track');
+    const items = Array.from(document.querySelectorAll('.carousel-item'));
+    const dots = Array.from(document.querySelectorAll('.carousel-dot'));
+    if (!track || items.length === 0 || dots.length === 0) return;
+
+    let current = 0, interval = null, paused = false;
+    const INTERVAL_MS = 3500;
+
+    function show(index) {
+      items.forEach((item, i) => item.classList.toggle('active', i === index));
+      dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
+      current = index;
+      resetInterval();
+    }
+    function next() { show((current + 1) % items.length); }
+    function prev() { show((current - 1 + items.length) % items.length); }
+
+    function resetInterval() {
+      if (interval) clearInterval(interval);
+      if (!paused) interval = setInterval(next, INTERVAL_MS);
+    }
+
+    const prevBtn = document.querySelector('.carousel-btn.prev');
+    const nextBtn = document.querySelector('.carousel-btn.next');
+    if (prevBtn) prevBtn.onclick = prev;
+    if (nextBtn) nextBtn.onclick = next;
+    dots.forEach((dot, i) => dot.onclick = () => show(i));
+    const carousel = document.querySelector('.testimonial-carousel');
+    if (carousel) {
+      carousel.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowLeft') prev();
+        if (e.key === 'ArrowRight') next();
+      });
+      // Pause auto scroll on hover/focus
+      ['mouseenter', 'focusin'].forEach(evt =>
+        carousel.addEventListener(evt, () => { paused = true; if (interval) clearInterval(interval); })
+      );
+      ['mouseleave', 'focusout'].forEach(evt =>
+        carousel.addEventListener(evt, () => { paused = false; resetInterval(); })
+      );
+    }
+    // Touch swipe
+    let startX = 0;
+    track.addEventListener('touchstart', e => startX = e.touches[0].clientX);
+    track.addEventListener('touchend', e => {
+      let endX = e.changedTouches[0].clientX;
+      if (endX - startX > 40) prev();
+      if (startX - endX > 40) next();
+    });
+
+    show(0);
+  })();
+
+  // --- Gallery Slideshow (single script, flawless timing) ---
+  (function () {
+    const track = document.querySelector('.gallery-track');
+    const slides = Array.from(document.querySelectorAll('.gallery-slide'));
+    const dots = Array.from(document.querySelectorAll('.gallery-dot'));
+    if (!track || slides.length === 0 || dots.length === 0) return;
+
+    let current = 0, interval = null, paused = false;
+    const INTERVAL_MS = 3500;
+
+    function show(index) {
+      slides.forEach((slide, i) => slide.classList.toggle('active', i === index));
+      dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
+      current = index;
+      resetInterval();
+    }
+    function next() { show((current + 1) % slides.length); }
+    function prev() { show((current - 1 + slides.length) % slides.length); }
+
+    function resetInterval() {
+      if (interval) clearInterval(interval);
+      if (!paused) interval = setInterval(next, INTERVAL_MS);
+    }
+
+    const prevBtn = document.querySelector('.gallery-btn.prev');
+    const nextBtn = document.querySelector('.gallery-btn.next');
+    if (prevBtn) prevBtn.onclick = prev;
+    if (nextBtn) nextBtn.onclick = next;
+    dots.forEach((dot, i) => dot.onclick = () => show(i));
+    const gallery = document.querySelector('.gallery-slideshow');
+    if (gallery) {
+      gallery.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowLeft') prev();
+        if (e.key === 'ArrowRight') next();
+      });
+      // Pause auto scroll on hover/focus
+      ['mouseenter', 'focusin'].forEach(evt =>
+        gallery.addEventListener(evt, () => { paused = true; if (interval) clearInterval(interval); })
+      );
+      ['mouseleave', 'focusout'].forEach(evt =>
+        gallery.addEventListener(evt, () => { paused = false; resetInterval(); })
+      );
+    }
+    // Touch swipe
+    let startX = 0;
+    track.addEventListener('touchstart', e => startX = e.touches[0].clientX);
+    track.addEventListener('touchend', e => {
+      let endX = e.changedTouches[0].clientX;
+      if (endX - startX > 40) prev();
+      if (startX - endX > 40) next();
+    });
+
+    show(0);
+  })();
 });
 
 // --- Fast, reliable scroll-fade-in using IntersectionObserver ---
@@ -239,7 +383,6 @@ if ('IntersectionObserver' in window) {
   }, { threshold: 0.12 });
   fadeEls.forEach(el => fadeObserver.observe(el));
 } else {
-  // fallback for older browsers
   function revealFallback() {
     document.querySelectorAll('.scroll-fade-in').forEach(el => {
       const rect = el.getBoundingClientRect();
@@ -295,147 +438,3 @@ function spawnNote() {
 }
 setInterval(spawnNote, 1300);
 for (let i = 0; i < 6; i++) spawnNote();
-
-// --- Stats Counter Animation (with thousands separator and animation on scroll) ---
-function animateStats() {
-  document.querySelectorAll('.stat-number').forEach(function (el) {
-    if (el.dataset.animated) return; // Only animate once
-    const target = parseInt(el.getAttribute('data-target'), 10);
-    if (isNaN(target)) return;
-    let start = 0;
-    let duration = 1300 + Math.random() * 300;
-    let increment = Math.ceil(target / (duration / 20));
-    function run() {
-      start += increment;
-      if (start > target) start = target;
-      el.textContent = start.toLocaleString();
-      if (start < target) setTimeout(run, 20);
-      else el.dataset.animated = "true";
-    }
-    run();
-  });
-}
-function isInView(el) {
-  const rect = el.getBoundingClientRect();
-  return rect.top < window.innerHeight && rect.bottom > 0;
-}
-window.addEventListener('scroll', () => {
-  document.querySelectorAll('.stats-row').forEach(row => {
-    if (isInView(row)) animateStats();
-  });
-});
-window.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('.stats-row').forEach(row => {
-    if (isInView(row)) animateStats();
-  });
-});
-
-// --- Testimonial Carousel: consistent timing, faster, never gets stuck ---
-(function () {
-  const track = document.querySelector('.carousel-track');
-  const items = Array.from(document.querySelectorAll('.carousel-item'));
-  const dots = Array.from(document.querySelectorAll('.carousel-dot'));
-  if (!track || items.length === 0 || dots.length === 0) return;
-
-  let current = 0, interval = null, paused = false;
-  const INTERVAL_MS = 3500;
-
-  function show(index) {
-    items.forEach((item, i) => item.classList.toggle('active', i === index));
-    dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
-    current = index;
-    resetInterval();
-  }
-  function next() { show((current + 1) % items.length); }
-  function prev() { show((current - 1 + items.length) % items.length); }
-
-  function resetInterval() {
-    if (interval) clearInterval(interval);
-    if (!paused) interval = setInterval(next, INTERVAL_MS);
-  }
-
-  const prevBtn = document.querySelector('.carousel-btn.prev');
-  const nextBtn = document.querySelector('.carousel-btn.next');
-  if (prevBtn) prevBtn.onclick = prev;
-  if (nextBtn) nextBtn.onclick = next;
-  dots.forEach((dot, i) => dot.onclick = () => show(i));
-  const carousel = document.querySelector('.testimonial-carousel');
-  if (carousel) {
-    carousel.addEventListener('keydown', function (e) {
-      if (e.key === 'ArrowLeft') prev();
-      if (e.key === 'ArrowRight') next();
-    });
-    // Pause auto scroll on hover/focus
-    ['mouseenter', 'focusin'].forEach(evt =>
-      carousel.addEventListener(evt, () => { paused = true; if (interval) clearInterval(interval); })
-    );
-    ['mouseleave', 'focusout'].forEach(evt =>
-      carousel.addEventListener(evt, () => { paused = false; resetInterval(); })
-    );
-  }
-  // Touch swipe
-  let startX = 0;
-  track.addEventListener('touchstart', e => startX = e.touches[0].clientX);
-  track.addEventListener('touchend', e => {
-    let endX = e.changedTouches[0].clientX;
-    if (endX - startX > 40) prev();
-    if (startX - endX > 40) next();
-  });
-
-  show(0);
-})();
-
-// --- Gallery Slideshow: consistent timing, faster, never gets stuck ---
-(function () {
-  const track = document.querySelector('.gallery-track');
-  const slides = Array.from(document.querySelectorAll('.gallery-slide'));
-  const dots = Array.from(document.querySelectorAll('.gallery-dot'));
-  if (!track || slides.length === 0 || dots.length === 0) return;
-
-  let current = 0, interval = null, paused = false;
-  const INTERVAL_MS = 3500;
-
-  function show(index) {
-    slides.forEach((slide, i) => slide.classList.toggle('active', i === index));
-    dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
-    current = index;
-    resetInterval();
-  }
-  function next() { show((current + 1) % slides.length); }
-  function prev() { show((current - 1 + slides.length) % slides.length); }
-
-  function resetInterval() {
-    if (interval) clearInterval(interval);
-    if (!paused) interval = setInterval(next, INTERVAL_MS);
-  }
-
-  const prevBtn = document.querySelector('.gallery-btn.prev');
-  const nextBtn = document.querySelector('.gallery-btn.next');
-  if (prevBtn) prevBtn.onclick = prev;
-  if (nextBtn) nextBtn.onclick = next;
-  dots.forEach((dot, i) => dot.onclick = () => show(i));
-  const gallery = document.querySelector('.gallery-slideshow');
-  if (gallery) {
-    gallery.addEventListener('keydown', function (e) {
-      if (e.key === 'ArrowLeft') prev();
-      if (e.key === 'ArrowRight') next();
-    });
-    // Pause auto scroll on hover/focus
-    ['mouseenter', 'focusin'].forEach(evt =>
-      gallery.addEventListener(evt, () => { paused = true; if (interval) clearInterval(interval); })
-    );
-    ['mouseleave', 'focusout'].forEach(evt =>
-      gallery.addEventListener(evt, () => { paused = false; resetInterval(); })
-    );
-  }
-  // Touch swipe
-  let startX = 0;
-  track.addEventListener('touchstart', e => startX = e.touches[0].clientX);
-  track.addEventListener('touchend', e => {
-    let endX = e.changedTouches[0].clientX;
-    if (endX - startX > 40) prev();
-    if (startX - endX > 40) next();
-  });
-
-  show(0);
-})();
