@@ -87,9 +87,25 @@
       .contact-icon {
         color: #fff !important;
       }
+      /* Contact logo swap for dark mode */
+      .contact-logo-light {
+        display: none !important;
+      }
+      .contact-logo-dark {
+        display: inline !important;
+      }
     }
     .logo-darkmode { display: none !important; }
     .logo-lightmode { display: inline !important; }
+
+    /* Contact logo: light mode (default) */
+    .contact-logo-light {
+      display: inline !important;
+    }
+    .contact-logo-dark {
+      display: none !important;
+    }
+
     .header-content {
       display: flex;
       align-items: center;
@@ -102,9 +118,10 @@
       align-items: center;
       gap: 0.9em;
     }
-    /* --- Main logo at top --- */
+    /* --- Main logo at top: STRETCH TO FILL BANNER VERTICALLY --- */
     .main-logo-large {
-      height: 110px;
+      height: 100%;
+      max-height: 110px;
       width: auto;
       max-width: 400px;
       display: block;
@@ -112,11 +129,20 @@
       border-radius: 20px;
       box-shadow: 0 2px 14px #3ee7fa1a;
       background: none;
+      align-self: stretch;
+      object-fit: contain;
+    }
+    .header-content {
+      min-height: 110px;
     }
     @media (max-width: 600px) {
       .main-logo-large {
-        height: 70px;
+        max-height: 70px;
+        height: 100%;
         max-width: 220px;
+      }
+      .header-content {
+        min-height: 70px;
       }
     }
     .brand-title-tagline { display: flex; flex-direction: column; line-height: 1.05; }
@@ -307,78 +333,12 @@
       }
     }
     /* --- Custom improvements for logo placements and sizes --- */
-    .main-logo-large {
-      height: 110px;
-      width: auto;
-      max-width: 400px;
-      display: block;
-      margin-right: 0.8em;
-      border-radius: 20px;
-      box-shadow: 0 2px 14px #3ee7fa1a;
-      background: none;
-    }
-    @media (max-width: 600px) {
-      .main-logo-large {
-        height: 70px;
-        max-width: 220px;
-      }
-    }
-    .brand-title, .brand-tagline, .brand-logo {
-      display: none !important;
-    }
-    .hero-content picture { display: none !important; }
-    .stats-row .stat picture,
-    .stats-row .stat img {
-      display: none !important;
-    }
-    .card .service-icon picture,
-    .card .service-icon img {
-      display: none !important;
-    }
-    .testimonial-carousel > picture,
-    .testimonial-carousel > img,
-    .carousel-item .service-icon picture,
-    .carousel-item .service-icon img {
-      display: none !important;
-    }
-    /* Bigger logo in Contact card */
-    #contact .card:last-child picture,
-    #contact .card:last-child img {
-      height: 120px !important;
-      width: auto !important;
-      margin: 0 auto 1.6em auto !important;
-      display: block !important;
-    }
-    @media (max-width: 600px) {
-      #contact .card:last-child picture,
-      #contact .card:last-child img {
-        height: 78px !important;
-      }
-    }
-    /* Footer logo bigger and white */
-    .footer-main-logo {
-      height: 120px;
-      width: auto;
-      max-width: 400px;
-      display: block;
-      margin: 0 auto 2em auto;
-      border-radius: 20px;
-      box-shadow: 0 2px 14px #3ee7fa1a;
-      filter: grayscale(0) opacity(1);
-      background: none;
-    }
-    @media (max-width: 600px) {
-      .footer-main-logo {
-        height: 78px;
-        max-width: 220px;
-      }
-    }
-    /* About Rose Above logo bigger and switches to white in dark mode */
+    /* About Rose Above logo: perfectly circular and not squished */
     .about-logo-img {
       width: 70px !important;
       height: 70px !important;
-      object-fit: cover;
-      border-radius: 14px;
+      object-fit: contain !important;
+      border-radius: 50% !important;
       box-shadow: 0 2px 12px #bb4ba233;
       position: absolute;
       top: -20px;
@@ -405,6 +365,58 @@
       .contact-icon {
         font-size: 2.2rem !important;
       }
+    }
+    /* Contact logo: ensure size and spacing matches original intent */
+    #contact .card:last-child picture,
+    #contact .card:last-child img {
+      height: 120px !important;
+      width: auto !important;
+      margin: 0 auto 1.6em auto !important;
+      display: block !important;
+    }
+    @media (max-width: 600px) {
+      #contact .card:last-child picture,
+      #contact .card:last-child img {
+        height: 78px !important;
+      }
+    }
+    /* Footer logo: REMOVE SHADOW */
+    .footer-main-logo {
+      height: 120px;
+      width: auto;
+      max-width: 400px;
+      display: block;
+      margin: 0 auto 2em auto;
+      border-radius: 20px;
+      /* box-shadow: 0 2px 14px #3ee7fa1a;  REMOVED */
+      box-shadow: none !important;
+      filter: grayscale(0) opacity(1);
+      background: none;
+    }
+    @media (max-width: 600px) {
+      .footer-main-logo {
+        height: 78px;
+        max-width: 220px;
+      }
+    }
+    /* Hide unused logo images */
+    .brand-title, .brand-tagline, .brand-logo {
+      display: none !important;
+    }
+    .hero-content picture { display: none !important; }
+    .stats-row .stat picture,
+    .stats-row .stat img {
+      display: none !important;
+    }
+    .card .service-icon picture,
+    .card .service-icon img {
+      display: none !important;
+    }
+    .testimonial-carousel > picture,
+    .testimonial-carousel > img,
+    .carousel-item .service-icon picture,
+    .carousel-item .service-icon img {
+      display: none !important;
     }
   </style>
 </head>
@@ -434,7 +446,7 @@
     <div class="header-content">
       <div class="site-brand">
         <!-- BIG MAIN LOGO AT TOP -->
-        <picture>
+        <picture style="height:100%;">
           <source srcset="images/Rose Above Logo - White.png" media="(prefers-color-scheme: dark)">
           <img src="images/Rose Above Logo - No Background.png" alt="Rose Above Logo" class="main-logo-large logo-lightmode">
         </picture>
@@ -696,7 +708,8 @@
           <!-- BIGGER LOGO IN CONTACT CARD, WHITE IN DARK MODE -->
           <picture>
             <source srcset="images/Rose Above Logo - White.png" media="(prefers-color-scheme: dark)">
-            <img src="images/Rose Above Logo - Black.png" alt="Rose Above Logo Contact" class="logo-lightmode">
+            <img src="images/Rose Above Logo - Black.png" alt="Rose Above Logo Contact" class="contact-logo-light">
+            <img src="images/Rose Above Logo - White.png" alt="Rose Above Logo Contact White" class="contact-logo-dark">
           </picture>
           <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
           <p style="margin:0 0 0.6em 0;">Or email me directly:</p>
