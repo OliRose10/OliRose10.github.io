@@ -1322,6 +1322,3 @@ nav .nav-link:focus {
 @media (max-width:600px) {
   .contact-card-logo { height: 90px !important; }
 }
-[data-theme="dark"] .contact-card-logo {
-  content: url('images/Rose Above Logo - White.png');
-}
