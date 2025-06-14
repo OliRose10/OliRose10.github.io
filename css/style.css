@@ -1431,3 +1431,96 @@ nav .nav-link:focus {
     font-size: 0.96em;
   }
 }
+/* Sticky header at top */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--bg-section);
+  box-shadow: var(--shadow);
+}
+
+/* Header row: logo | nav | controls */
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.2em;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.5em 2vw;
+  min-height: 64px;
+}
+
+/* Brand/logo left */
+.site-brand {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+
+/* Nav center, overflow-scroll if too wide */
+.main-nav {
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: center;
+  min-width: 0;
+  max-width: 100%;
+}
+.main-nav ul {
+  display: flex;
+  gap: 1em;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  flex-wrap: nowrap;
+}
+
+/* Controls right */
+.header-controls {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+}
+
+/* Hamburger only on mobile */
+.hamburger { display: none; }
+@media (max-width: 900px) {
+  .main-nav { display: none; }
+  .main-nav.nav-open { /* shown when hamburger toggles */
+    display: flex;
+    position: absolute;
+    left: 0; right: 0; top: 100%;
+    background: var(--bg-section);
+    box-shadow: 0 2px 16px #0002;
+    padding: 1em 0;
+    z-index: 200;
+    justify-content: center;
+  }
+  .main-nav.nav-open ul {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1em;
+    width: 100%;
+    padding: 0 2em;
+  }
+  .hamburger { display: flex; }
+}
+
+/* Always keep controls in header row */
+.header-controls {
+  margin-left: auto;
+}
+
+/* Don't let anything wrap or drop below */
+.header-content,
+.site-brand,
+.header-controls,
+.main-nav,
+.main-nav ul {
+  min-width: 0;
+  flex-wrap: nowrap;
+}
