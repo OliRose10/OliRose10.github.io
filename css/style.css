@@ -1488,3 +1488,30 @@ nav .nav-link:focus {
 @media (max-width: 900px) {
   .hamburger { display: flex !important; }
 }
+/* --- Make nav wider before wrapping --- */
+/* Let the nav take up more space, even if it means logo/controls get a bit more squished */
+.main-nav {
+  flex: 2 1 0px;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.main-nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  /* Make the nav links spread out more before wrapping */
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+/* If you want even more room, slightly reduce the side padding: */
+.header-content {
+  padding-left: 1vw !important;
+  padding-right: 1vw !important;
+}
