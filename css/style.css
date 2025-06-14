@@ -1341,204 +1341,13 @@ nav .nav-link:focus {
 .floating-note[style*="animation-name: floatNotesScatter"] {
   animation-name: floatNotesScatter !important;
 }
-/* --- Bulletproof Responsive Header Layout --- */
+/* --- HEADER: Flexible, wraps when needed --- */
 .header-content {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 2em;
-  flex-wrap: nowrap;
-  width: 100%;
-  box-sizing: border-box;
-}
-.site-brand {
-  display: flex;
-  align-items: center;
+  flex-wrap: wrap;    /* Allow wrapping! */
   gap: 1em;
-  min-width: 0;
-  flex-shrink: 1;
-}
-.main-nav {
-  flex: 1 1 auto;
-  display: flex;
-  justify-content: center;
-  min-width: 0;
-}
-.main-nav ul {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.2em;
-  align-items: center;
-  justify-content: center;
-  min-width: 0;
-}
-.header-controls {
-  display: flex;
-  align-items: center;
-  gap: 0.7em;
-  flex-shrink: 0;
-  min-width: 0;
-}
-.theme-toggle, .hamburger {
-  margin: 0;
-  position: static;
-  align-self: center;
-}
-
-/* Responsive: Stack vertically on mobile, keep controls right aligned */
-@media (max-width: 950px) {
-  .header-content {
-    flex-wrap: wrap;
-    gap: 0.9em;
-  }
-  .main-nav ul {
-    gap: 0.7em;
-  }
-  .site-brand, .header-controls {
-    width: 100%;
-    justify-content: space-between;
-  }
-}
-@media (max-width: 700px) {
-  .header-content {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0.4em;
-    padding: 0.2em 1vw !important;
-  }
-  .site-brand {
-    width: 100%;
-    justify-content: flex-start;
-    margin-bottom: 0.3em;
-  }
-  .main-nav {
-    width: 100%;
-    justify-content: flex-start;
-  }
-  .main-nav ul {
-    width: 100%;
-    justify-content: flex-start;
-    gap: 0.5em;
-  }
-  .header-controls {
-    width: 100%;
-    justify-content: flex-end;
-    margin-top: 0.2em;
-    margin-bottom: 0.2em;
-    gap: 0.4em;
-  }
-  .theme-toggle, .hamburger {
-    font-size: 0.96em;
-  }
-}
-/* Sticky header at top */
-header {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: var(--bg-section);
-  box-shadow: var(--shadow);
-}
-
-/* Header row: logo | nav | controls */
-.header-content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1.2em;
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0.5em 2vw;
-  min-height: 64px;
-}
-
-/* Brand/logo left */
-.site-brand {
-  flex: 0 0 auto;
-  display: flex;
-  align-items: center;
-  gap: 1em;
-}
-
-/* Nav center, overflow-scroll if too wide */
-.main-nav {
-  flex: 1 1 auto;
-  display: flex;
-  justify-content: center;
-  min-width: 0;
-  max-width: 100%;
-}
-.main-nav ul {
-  display: flex;
-  gap: 1em;
-  align-items: center;
-  justify-content: center;
-  min-width: 0;
-  flex-wrap: nowrap;
-}
-
-/* Controls right */
-.header-controls {
-  flex: 0 0 auto;
-  display: flex;
-  align-items: center;
-  gap: 0.4em;
-}
-
-/* Hamburger only on mobile */
-.hamburger { display: none; }
-@media (max-width: 900px) {
-  .main-nav { display: none; }
-  .main-nav.nav-open { /* shown when hamburger toggles */
-    display: flex;
-    position: absolute;
-    left: 0; right: 0; top: 100%;
-    background: var(--bg-section);
-    box-shadow: 0 2px 16px #0002;
-    padding: 1em 0;
-    z-index: 200;
-    justify-content: center;
-  }
-  .main-nav.nav-open ul {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1em;
-    width: 100%;
-    padding: 0 2em;
-  }
-  .hamburger { display: flex; }
-}
-
-/* Always keep controls in header row */
-.header-controls {
-  margin-left: auto;
-}
-
-/* Don't let anything wrap or drop below */
-.header-content,
-.site-brand,
-.header-controls,
-.main-nav,
-.main-nav ul {
-  min-width: 0;
-  flex-wrap: nowrap;
-}
-/* --- Bulletproof Header Layout --- */
-header {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  width: 100%;
-  background: var(--bg-section, #fff);
-  box-shadow: 0 2px 10px #0001;
-}
-
-.header-content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1.2em;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
@@ -1554,7 +1363,6 @@ header {
   align-items: center;
   gap: 0.7em;
   min-width: 0;
-  z-index: 1;
 }
 
 .main-logo-large {
@@ -1571,75 +1379,93 @@ header {
 }
 
 .main-nav {
-  flex: 1 1 auto;
+  flex: 1 1 100%;
   display: flex;
   justify-content: center;
   min-width: 0;
-  max-width: 100%;
-  z-index: 1;
+  width: 100%;
+  order: 2;
+  margin-top: 0.2em;
 }
-
 .main-nav ul {
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;    /* Allow nav to wrap! */
   gap: 1em;
   align-items: center;
   justify-content: center;
   min-width: 0;
-  overflow-x: auto;
   padding: 0;
   margin: 0;
   list-style: none;
 }
 
+/* Controls always at the end of header-content flex, wrap underneath if needed */
 .header-controls {
-  flex: 0 0 auto;
   display: flex;
   align-items: center;
   gap: 0.4em;
-  min-width: 0;
-  z-index: 1;
+  flex-shrink: 0;
+  order: 3;
+  margin-left: auto;
+  margin-top: 0.2em;
 }
 
-.theme-toggle,
+/* --- Responsive: On mobile, hamburger and theme-toggle always right, nav hidden unless open --- */
 .hamburger {
-  margin: 0;
-  position: static;
-  align-self: center;
+  display: none;
 }
 
-/* Hamburger only shows on mobile */
-.hamburger { display: none; }
 @media (max-width: 900px) {
-  .main-nav { display: none; }
+  .main-nav {
+    display: none;
+    width: 100%;
+    justify-content: flex-start;
+    margin-top: 0.2em;
+  }
   .main-nav.nav-open {
     display: flex;
-    position: absolute;
-    left: 0; right: 0; top: 100%;
+    position: static;
     background: var(--bg-section, #fff);
-    box-shadow: 0 2px 16px #0003;
-    padding: 1em 0;
-    z-index: 200;
-    justify-content: center;
-    animation: fadeInMenu 0.2s;
+    box-shadow: none;
+    padding: 0.5em 0;
+    flex-direction: column;
+    width: 100%;
+    order: 4;
   }
   .main-nav.nav-open ul {
     flex-direction: column;
     align-items: flex-start;
-    gap: 1em;
+    gap: 0.7em;
     width: 100%;
     padding: 0 2em;
   }
-  .hamburger { display: flex; }
+  .hamburger {
+    display: flex;
+    z-index: 10;
+  }
+  .header-controls {
+    order: 3;
+    margin-left: auto;
+    margin-top: 0.2em;
+  }
 }
 
-@keyframes fadeInMenu {
-  from { opacity: 0; transform: translateY(-16px);}
-  to { opacity: 1; transform: translateY(0);}
+/* Hamburger transforms to X when open */
+.hamburger.is-active span:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
 }
-
-/* Ensure header never wraps or underlaps */
-.header-content, .site-brand, .header-controls, .main-nav, .main-nav ul {
-  min-width: 0;
-  flex-wrap: nowrap !important;
+.hamburger.is-active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.is-active span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 3px;
+  margin: 4px 0;
+  background: #111;
+  border-radius: 2px;
+  transition: .3s;
 }
