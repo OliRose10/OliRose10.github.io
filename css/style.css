@@ -1341,126 +1341,150 @@ nav .nav-link:focus {
 .floating-note[style*="animation-name: floatNotesScatter"] {
   animation-name: floatNotesScatter !important;
 }
-/* --- HEADER FLEX LAYOUT FIXES --- */
+/* --- HEADER PROFESSIONAL WRAP LAYOUT --- */
 .header-content {
   display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
+  flex-direction: row;
+  align-items: center;
   justify-content: space-between;
-  gap: 0.8em;
-  position: relative;
+  gap: 1.5em;
+  flex-wrap: nowrap;
+  width: 100%;
+  padding: 0.7em 2vw 0.7em 2vw;
+  box-sizing: border-box;
+  min-height: 64px;
 }
 
+/* Logo always left, vertically centered */
 .site-brand {
+  flex: 0 0 auto;
   display: flex;
   align-items: center;
-  flex: 0 0 auto;
   min-width: 0;
 }
 
+/* Nav wraps inside its own area, does not push controls or logo down */
 .main-nav {
-  flex: 1 1 100%;
-  order: 2;
+  flex: 1 1 auto;
   display: flex;
+  align-items: center;
+  justify-content: center;
   min-width: 0;
-  width: 100%;
+  /* Allow nav to shrink before controls/logo move */
 }
+
+/* Nav links wrap inside nav area */
 .main-nav ul {
   display: flex;
-  flex-wrap: wrap;     /* allow nav links to wrap */
+  flex-wrap: wrap;
   gap: 1em;
   align-items: center;
   justify-content: flex-start;
+  min-width: 0;
   width: 100%;
   padding: 0;
   margin: 0;
   list-style: none;
 }
 
+/* Controls always far right, vertically centered */
 .header-controls {
+  flex: 0 0 auto;
   display: flex;
   align-items: center;
   gap: 0.4em;
-  order: 3;
-  flex: 0 0 auto;
-  margin-left: auto;    /* always push to far right */
-  margin-top: 0;
+  margin-left: 1em;
+  align-self: center;
 }
 
-/* Always keep controls on top row, even as nav wraps */
-@media (min-width: 601px) {
-  .header-content {
-    align-items: flex-start;
-  }
-  .main-nav {
-    align-items: flex-end;
-  }
-  .header-controls {
-    align-self: flex-start;
-  }
-}
-
-/* --- MOBILE: theme toggle & hamburger side by side --- */
-@media (max-width: 600px) {
-  .header-content {
-    flex-wrap: wrap;
-    align-items: flex-start;
-    padding-right: 0.7em;
-  }
-  .site-brand {
-    min-width: 0;
-    max-width: 64vw;
-  }
-  .main-logo-large {
-    max-height: 42px !important;
-  }
-  .main-nav {
-    order: 3;
-    width: 100vw;
-    margin-top: 0.6em;
-  }
-  .header-controls {
-    order: 2;
-    width: auto;
-    align-self: flex-start;
-    flex-direction: row;
-    margin-left: auto;
-    margin-top: 0;
-    margin-bottom: 0;
-    gap: 0.2em;
-  }
-  .theme-toggle {
-    font-size: 0.92em !important;
-    padding: 0.3em 0.9em !important;
-    margin: 0 !important;
-  }
-  .hamburger {
-    margin-left: 0.3em !important;
-  }
-}
-
-/* --- Hamburger shows/hides nav as usual, no change needed to JS --- */
-.hamburger {
-  display: none;
-}
-@media (max-width: 900px) {
-  .hamburger { display: flex !important; }
-  .main-nav { display: none; }
-  .main-nav.nav-open { display: flex; }
-}
-
-/* --- Make sure theme toggle is always visible on all screens --- */
+/* Theme toggle always visible, styled */
 .theme-toggle {
-  display: flex !important;
+  display: flex;
   align-items: center;
   font-size: 1em;
   padding: 0.5em 1.2em;
   border-radius: 50px;
   font-weight: 700;
-  transition: background 0.2s, color 0.2s, border 0.2s;
   background: #fff;
   border: 2px solid #000;
   color: #000;
   cursor: pointer;
   margin: 0 0 0 0.9em;
+}
+
+/* --- Responsive for tablet/small desktop: allow nav and controls to wrap under logo if space is tight --- */
+@media (max-width: 1050px) {
+  .header-content {
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+  .main-nav {
+    order: 2;
+    width: 100%;
+    margin-top: 0.15em;
+    justify-content: flex-start;
+  }
+  .header-controls {
+    order: 3;
+    margin-left: auto;
+  }
+}
+
+/* --- MOBILE: theme toggle & hamburger side by side, vertically centered --- */
+@media (max-width: 700px) {
+  .header-content {
+    flex-wrap: nowrap;
+    gap: 0.6em;
+    min-height: 48px;
+    padding: 0.3em 1vw 0.3em 1vw;
+    align-items: center;
+  }
+  .main-logo-large { max-height: 38px; }
+  .site-brand { max-width: 60vw; }
+  .main-nav {
+    display: none;
+    flex: 1 1 100%;
+    order: 4;
+  }
+  .main-nav.nav-open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: 0; top: 100%; width: 100vw;
+    background: var(--bg-section);
+    z-index: 200;
+    box-shadow: 0 6px 32px #0002;
+    padding: 1em 0;
+    align-items: flex-start;
+  }
+  .main-nav.nav-open ul {
+    flex-direction: column;
+    gap: 1.4em;
+    width: 100%;
+    padding-left: 2em;
+  }
+  .header-controls {
+    order: 3;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    margin-left: auto;
+    margin-right: 0;
+    gap: 0.2em;
+    height: 100%;
+  }
+  .theme-toggle {
+    font-size: 0.95em !important;
+    padding: 0.3em 0.9em !important;
+    margin: 0 !important;
+  }
+  .hamburger {
+    margin-left: 0.2em !important;
+  }
+}
+
+/* --- Hamburger toggle visibility --- */
+.hamburger { display: none; }
+@media (max-width: 900px) {
+  .hamburger { display: flex !important; }
 }
