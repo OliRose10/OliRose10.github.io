@@ -1341,3 +1341,126 @@ nav .nav-link:focus {
 .floating-note[style*="animation-name: floatNotesScatter"] {
   animation-name: floatNotesScatter !important;
 }
+/* --- HEADER FLEX LAYOUT FIXES --- */
+.header-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.8em;
+  position: relative;
+}
+
+.site-brand {
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+  min-width: 0;
+}
+
+.main-nav {
+  flex: 1 1 100%;
+  order: 2;
+  display: flex;
+  min-width: 0;
+  width: 100%;
+}
+.main-nav ul {
+  display: flex;
+  flex-wrap: wrap;     /* allow nav links to wrap */
+  gap: 1em;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+  order: 3;
+  flex: 0 0 auto;
+  margin-left: auto;    /* always push to far right */
+  margin-top: 0;
+}
+
+/* Always keep controls on top row, even as nav wraps */
+@media (min-width: 601px) {
+  .header-content {
+    align-items: flex-start;
+  }
+  .main-nav {
+    align-items: flex-end;
+  }
+  .header-controls {
+    align-self: flex-start;
+  }
+}
+
+/* --- MOBILE: theme toggle & hamburger side by side --- */
+@media (max-width: 600px) {
+  .header-content {
+    flex-wrap: wrap;
+    align-items: flex-start;
+    padding-right: 0.7em;
+  }
+  .site-brand {
+    min-width: 0;
+    max-width: 64vw;
+  }
+  .main-logo-large {
+    max-height: 42px !important;
+  }
+  .main-nav {
+    order: 3;
+    width: 100vw;
+    margin-top: 0.6em;
+  }
+  .header-controls {
+    order: 2;
+    width: auto;
+    align-self: flex-start;
+    flex-direction: row;
+    margin-left: auto;
+    margin-top: 0;
+    margin-bottom: 0;
+    gap: 0.2em;
+  }
+  .theme-toggle {
+    font-size: 0.92em !important;
+    padding: 0.3em 0.9em !important;
+    margin: 0 !important;
+  }
+  .hamburger {
+    margin-left: 0.3em !important;
+  }
+}
+
+/* --- Hamburger shows/hides nav as usual, no change needed to JS --- */
+.hamburger {
+  display: none;
+}
+@media (max-width: 900px) {
+  .hamburger { display: flex !important; }
+  .main-nav { display: none; }
+  .main-nav.nav-open { display: flex; }
+}
+
+/* --- Make sure theme toggle is always visible on all screens --- */
+.theme-toggle {
+  display: flex !important;
+  align-items: center;
+  font-size: 1em;
+  padding: 0.5em 1.2em;
+  border-radius: 50px;
+  font-weight: 700;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+  background: #fff;
+  border: 2px solid #000;
+  color: #000;
+  cursor: pointer;
+  margin: 0 0 0 0.9em;
+}
