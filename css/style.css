@@ -1114,7 +1114,6 @@ footer .ska-accent {
   .brand-logo { height: 30px !important; width: 30px !important; }
   nav ul { padding-top: 4em !important; gap: 1.1em !important; }
   .card { padding: 1rem 0.5rem; }
-  .gallery-slide img { max-width: 98vw; }
   h1 { font-size: 2rem; }
   h2 { font-size: 1.13rem; }
 }
