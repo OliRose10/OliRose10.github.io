@@ -1341,3 +1341,71 @@ nav .nav-link:focus {
 .floating-note[style*="animation-name: floatNotesScatter"] {
   animation-name: floatNotesScatter !important;
 }
+/* --- HEADER RESPONSIVE FIX - BULLETPROOF --- */
+@media (max-width: 1200px) {
+  .header-content {
+    flex-wrap: wrap;
+    gap: 1em;
+  }
+  nav ul {
+    flex-wrap: wrap;
+    gap: 0.7em;
+  }
+  .theme-toggle, .hamburger {
+    order: initial;
+    margin: 0;
+    align-self: center;
+    position: static;
+    flex-shrink: 0;
+  }
+}
+
+@media (max-width: 900px) {
+  .header-content {
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 0.2em;
+    min-height: unset;
+    padding: 0.3em 2vw 0.2em 2vw;
+  }
+  .site-brand {
+    width: 100%;
+    justify-content: flex-start;
+  }
+  nav {
+    width: 100%;
+    justify-content: flex-start;
+  }
+  nav ul {
+    width: 100%;
+    justify-content: flex-start;
+    gap: 0.6em;
+  }
+  .theme-toggle {
+    align-self: flex-end;
+    margin: 0.2em 0 0.6em 0;
+    font-size: 1em;
+  }
+  .hamburger {
+    align-self: flex-end;
+    margin: 0.2em 0 0.6em 0;
+  }
+}
+
+/* On mobile, keep everything in a column and right aligned for toggle and hamburger */
+@media (max-width: 600px) {
+  .header-content {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.15em;
+    min-height: unset;
+    padding: 0.1em 1vw 0.1em 1vw;
+  }
+  .theme-toggle, .hamburger {
+    align-self: flex-end;
+    margin: 0.1em 0 0.1em 0;
+    font-size: 0.96em;
+    position: static;
+  }
+}
