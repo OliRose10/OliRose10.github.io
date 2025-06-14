@@ -1524,3 +1524,122 @@ header {
   min-width: 0;
   flex-wrap: nowrap;
 }
+/* --- Bulletproof Header Layout --- */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  background: var(--bg-section, #fff);
+  box-shadow: 0 2px 10px #0001;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.2em;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.5em 2vw;
+  min-height: 64px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.site-brand {
+  flex: 0 1 auto;
+  display: flex;
+  align-items: center;
+  gap: 0.7em;
+  min-width: 0;
+  z-index: 1;
+}
+
+.main-logo-large {
+  max-height: 48px;
+  width: auto;
+  height: auto;
+  display: block;
+}
+
+.brand-title-tagline {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.main-nav {
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: center;
+  min-width: 0;
+  max-width: 100%;
+  z-index: 1;
+}
+
+.main-nav ul {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 1em;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  overflow-x: auto;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.header-controls {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+  min-width: 0;
+  z-index: 1;
+}
+
+.theme-toggle,
+.hamburger {
+  margin: 0;
+  position: static;
+  align-self: center;
+}
+
+/* Hamburger only shows on mobile */
+.hamburger { display: none; }
+@media (max-width: 900px) {
+  .main-nav { display: none; }
+  .main-nav.nav-open {
+    display: flex;
+    position: absolute;
+    left: 0; right: 0; top: 100%;
+    background: var(--bg-section, #fff);
+    box-shadow: 0 2px 16px #0003;
+    padding: 1em 0;
+    z-index: 200;
+    justify-content: center;
+    animation: fadeInMenu 0.2s;
+  }
+  .main-nav.nav-open ul {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1em;
+    width: 100%;
+    padding: 0 2em;
+  }
+  .hamburger { display: flex; }
+}
+
+@keyframes fadeInMenu {
+  from { opacity: 0; transform: translateY(-16px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+
+/* Ensure header never wraps or underlaps */
+.header-content, .site-brand, .header-controls, .main-nav, .main-nav ul {
+  min-width: 0;
+  flex-wrap: nowrap !important;
+}
