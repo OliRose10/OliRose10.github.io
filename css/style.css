@@ -1515,3 +1515,63 @@ nav .nav-link:focus {
   padding-left: 1vw !important;
   padding-right: 1vw !important;
 }
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  gap: 0.4em; /* Reduce gap between logo, nav, controls */
+  padding-left: 0.5vw !important;
+  padding-right: 0.5vw !important;
+}
+
+.site-brand {
+  flex: 0 1 auto;
+  min-width: 0;
+}
+
+.main-nav {
+  flex: 1 1 0px; /* Take up as much space as possible */
+  min-width: 0;
+  max-width: 100%;
+}
+
+.main-nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.7em; /* Reduce gap between nav links */
+  min-width: 0;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.header-controls {
+  flex: 0 1 auto;
+  display: flex;
+  align-items: center;
+  gap: 0.3em;
+  margin-left: 0;
+  align-self: center;
+}
+
+/* Responsive tweaks for tablet/small desktop, if needed */
+@media (max-width: 1050px) {
+  .header-content {
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+  .main-nav {
+    order: 2;
+    width: 100%;
+    margin-top: 0.15em;
+    justify-content: flex-start;
+  }
+  .header-controls {
+    order: 3;
+    margin-left: auto;
+  }
+}
