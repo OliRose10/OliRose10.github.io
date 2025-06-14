@@ -1341,71 +1341,93 @@ nav .nav-link:focus {
 .floating-note[style*="animation-name: floatNotesScatter"] {
   animation-name: floatNotesScatter !important;
 }
-/* --- HEADER RESPONSIVE FIX - BULLETPROOF --- */
-@media (max-width: 1200px) {
-  .header-content {
-    flex-wrap: wrap;
-    gap: 1em;
-  }
-  nav ul {
-    flex-wrap: wrap;
-    gap: 0.7em;
-  }
-  .theme-toggle, .hamburger {
-    order: initial;
-    margin: 0;
-    align-self: center;
-    position: static;
-    flex-shrink: 0;
-  }
+/* --- Bulletproof Responsive Header Layout --- */
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2em;
+  flex-wrap: nowrap;
+  width: 100%;
+  box-sizing: border-box;
+}
+.site-brand {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  min-width: 0;
+  flex-shrink: 1;
+}
+.main-nav {
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: center;
+  min-width: 0;
+}
+.main-nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2em;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+}
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.7em;
+  flex-shrink: 0;
+  min-width: 0;
+}
+.theme-toggle, .hamburger {
+  margin: 0;
+  position: static;
+  align-self: center;
 }
 
-@media (max-width: 900px) {
+/* Responsive: Stack vertically on mobile, keep controls right aligned */
+@media (max-width: 950px) {
+  .header-content {
+    flex-wrap: wrap;
+    gap: 0.9em;
+  }
+  .main-nav ul {
+    gap: 0.7em;
+  }
+  .site-brand, .header-controls {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+@media (max-width: 700px) {
   .header-content {
     flex-direction: column;
     align-items: stretch;
-    justify-content: flex-start;
-    gap: 0.2em;
-    min-height: unset;
-    padding: 0.3em 2vw 0.2em 2vw;
+    gap: 0.4em;
+    padding: 0.2em 1vw !important;
   }
   .site-brand {
     width: 100%;
     justify-content: flex-start;
+    margin-bottom: 0.3em;
   }
-  nav {
+  .main-nav {
     width: 100%;
     justify-content: flex-start;
   }
-  nav ul {
+  .main-nav ul {
     width: 100%;
     justify-content: flex-start;
-    gap: 0.6em;
+    gap: 0.5em;
   }
-  .theme-toggle {
-    align-self: flex-end;
-    margin: 0.2em 0 0.6em 0;
-    font-size: 1em;
-  }
-  .hamburger {
-    align-self: flex-end;
-    margin: 0.2em 0 0.6em 0;
-  }
-}
-
-/* On mobile, keep everything in a column and right aligned for toggle and hamburger */
-@media (max-width: 600px) {
-  .header-content {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0.15em;
-    min-height: unset;
-    padding: 0.1em 1vw 0.1em 1vw;
+  .header-controls {
+    width: 100%;
+    justify-content: flex-end;
+    margin-top: 0.2em;
+    margin-bottom: 0.2em;
+    gap: 0.4em;
   }
   .theme-toggle, .hamburger {
-    align-self: flex-end;
-    margin: 0.1em 0 0.1em 0;
     font-size: 0.96em;
-    position: static;
   }
 }
