@@ -1828,3 +1828,131 @@ html, body {
   background: repeating-linear-gradient(135deg, #fff 0 20px, #222 20px 40px) !important;
   color: #fff !important;
 }
+/* ===== LIGHT MODE PATCH: fix section titles, captions, cards, buttons, gallery, testimonials, etc. ===== */
+
+/* Section titles and subtitles */
+[data-theme="light"] .section-title,
+[data-theme="light"] .section-subtitle {
+  color: var(--text-heading) !important;
+  text-shadow: none !important;
+}
+
+/* About highlight blue text fix */
+[data-theme="light"] .about-highlight .fa-solid {
+  color: #181818 !important;
+  background: #fff !important;
+  box-shadow: none !important;
+}
+
+/* Gallery captions */
+[data-theme="light"] .gallery-caption {
+  color: #168aad !important;
+  text-shadow: none !important;
+  background: none !important;
+}
+
+/* Gallery & carousel arrows/buttons */
+[data-theme="light"] .gallery-btn,
+[data-theme="light"] .carousel-btn {
+  background: #168aad !important;
+  color: #fff !important;
+  box-shadow: 0 2px 10px #0001 !important;
+}
+[data-theme="light"] .gallery-btn:hover,
+[data-theme="light"] .gallery-btn:focus,
+[data-theme="light"] .carousel-btn:hover,
+[data-theme="light"] .carousel-btn:focus {
+  background: #12618a !important;
+  color: #fff !important;
+}
+
+/* Gallery dots (not purple/black) */
+[data-theme="light"] .gallery-dot,
+[data-theme="light"] .carousel-dot {
+  background: #e0e0e0 !important;
+  border: 2px solid #168aad44 !important;
+}
+[data-theme="light"] .gallery-dot.active,
+[data-theme="light"] .gallery-dot:focus,
+[data-theme="light"] .carousel-dot.active,
+[data-theme="light"] .carousel-dot:focus {
+  background: #168aad !important;
+  border: 2px solid #16171c !important;
+}
+
+/* Testimonials author ("Playing a festival..." etc.) */
+[data-theme="light"] .testimonial-author {
+  color: #168aad !important;
+  text-shadow: none !important;
+}
+
+/* Testimonials carousel background and text */
+[data-theme="light"] .testimonial-carousel {
+  background: var(--bg-main) !important;
+  color: var(--text-main) !important;
+}
+[data-theme="light"] .testimonial-carousel a,
+[data-theme="light"] .testimonial-carousel a:visited {
+  color: #168aad !important;
+}
+[data-theme="light"] .testimonial-carousel a:hover,
+[data-theme="light"] .testimonial-carousel a:focus {
+  color: #12618a !important;
+}
+
+/* Testimonial text (not too light!) */
+[data-theme="light"] .carousel-item {
+  color: var(--text-main) !important;
+  background: none !important;
+}
+
+/* Contact card (SEND MESSAGE) background */
+[data-theme="light"] #contact .card,
+[data-theme="light"] .card {
+  background: var(--bg-card) !important;
+  color: var(--text-main) !important;
+  box-shadow: var(--shadow) !important;
+}
+
+/* Card-accent in light mode */
+[data-theme="light"] .card.card-accent {
+  background: repeating-linear-gradient(135deg, #fff 0 20px, #222 20px 40px) !important;
+  color: #fff !important;
+}
+[data-theme="light"] .card.card-accent h3,
+[data-theme="light"] .card.card-accent p {
+  color: #fff !important;
+  text-shadow: 1px 2px 8px #0008 !important;
+}
+
+/* About text clarity */
+[data-theme="light"] .about-text,
+[data-theme="light"] .about-flex {
+  color: var(--text-main) !important;
+  background: none !important;
+}
+
+/* Restore main nav link color in light mode */
+[data-theme="light"] nav .nav-link {
+  color: var(--accent) !important;
+  background: none !important;
+}
+[data-theme="light"] nav .nav-link.active,
+[data-theme="light"] nav .nav-link:hover {
+  color: #fff !important;
+  background: #181818 !important;
+  border-bottom: 2.5px solid #fff !important;
+}
+
+/* Fix input and textarea backgrounds */
+[data-theme="light"] input,
+[data-theme="light"] textarea {
+  background: var(--bg-alt) !important;
+  color: var(--text-main) !important;
+  border-color: var(--border) !important;
+}
+
+/* Fix text color for .font-heading in light mode */
+[data-theme="light"] .font-heading {
+  color: var(--text-heading) !important;
+}
