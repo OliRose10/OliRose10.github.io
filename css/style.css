@@ -2164,8 +2164,8 @@ html, body {
     border-color: #fff;
   }
   .about-overlay-logo {
-    width: 70%;
-    height: 70%;
+    width: 95%;
+    height: 95%;
   }
   [data-theme="dark"] .about-overlay-logo-circle {
     background: #23242a;
