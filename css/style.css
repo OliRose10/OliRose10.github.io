@@ -1949,3 +1949,20 @@ html, body {
 [data-theme="dark"] .badge {
   color: #fff !important;
 }
+.badge {
+  background: none !important;
+  color: #16171c !important;   /* solid black text */
+  box-shadow: none !important;
+  border: none !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  font-weight: inherit !important;
+  font-size: inherit !important;
+  letter-spacing: inherit !important;
+  display: inline !important;
+}
+
+/* In dark mode, just white text */
+[data-theme="dark"] .badge {
+  color: #fff !important;
+}
