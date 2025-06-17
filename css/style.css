@@ -2021,7 +2021,7 @@ html, body {
   height: 72px;
   bottom: 14px;
   right: 14px;
-  background: transparent;
+  background: #fff;
   border-radius: 50%;
   border: 3px solid #e1e3e8;
   box-shadow: 0 4px 16px #0002;
@@ -2053,7 +2053,7 @@ html, body {
   display: none;
 }
 [data-theme="dark"] .about-overlay-logo-circle {
-  background: transparent;
+  background: #23242a;
   border-color: #168aad;
 }
 [data-theme="dark"] .about-overlay-logo-light {
