@@ -1946,3 +1946,6 @@ html, body {
 [data-theme="dark"] .hamburger span {
   background: #fff !important;
 }
+[data-theme="dark"] .badge {
+  color: #fff !important;
+}
