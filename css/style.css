@@ -2162,8 +2162,8 @@ html, body {
     transition: background 0.2s, border 0.2s;
   }
   .about-overlay-logo {
-    width: 84%;   /* Fills almost the whole circle with just a little space for border */
-    height: 84%;
+    width: 76%;   /* Fills almost the whole circle with just a little space for border */
+    height: 76%;
     object-fit: contain;
     margin: 0;
     display: none;
