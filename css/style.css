@@ -2034,10 +2034,12 @@ html, body {
   transition: background 0.2s, border 0.2s;
 }
 
+/* Overlay logo - ensure image is tightly cropped with transparent background for best results */
 .about-overlay-logo {
   width: 70%;
   height: 70%;
   object-fit: contain;
+  display: block;
   pointer-events: none;
   user-select: none;
   background: none;
