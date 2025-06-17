@@ -2038,28 +2038,28 @@ html, body {
   width: 70%;
   height: 70%;
   object-fit: contain;
-  display: block;
   pointer-events: none;
   user-select: none;
   background: none;
   border: none;
 }
 
-.about-overlay-logo-light { display: block; }
-.about-overlay-logo-dark { display: none; }
+.about-overlay-logo-light {
+  display: block;
+}
+.about-overlay-logo-dark {
+  display: none;
+}
 [data-theme="dark"] .about-overlay-logo-circle {
   background: #23242a;
   border-color: #168aad;
 }
-[data-theme="dark"] .about-overlay-logo-light { display: none; }
-[data-theme="dark"] .about-overlay-logo-dark { display: block; }
-
-[data-theme="dark"] .about-overlay-logo-circle {
-  background: #23242a;
-  border-color: #168aad;
+[data-theme="dark"] .about-overlay-logo-light {
+  display: none;
 }
-[data-theme="dark"] .about-overlay-logo-light { display: none; }
-[data-theme="dark"] .about-overlay-logo-dark { display: block; }
+[data-theme="dark"] .about-overlay-logo-dark {
+  display: block;
+}
 
 /* About text area */
 .about-text-group {
