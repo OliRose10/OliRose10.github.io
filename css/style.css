@@ -1966,20 +1966,19 @@ html, body {
 [data-theme="dark"] .badge {
   color: #fff !important;
 }
-/* --- About profile image, overlay logo, and spacing polish --- */
+/* --- About Profile Section: Perfect Professional Layout --- */
 
-/* Push grid away from the screen edge, especially on laptop */
 .about-section {
-  padding: 2.4em 2.4em 2.4em 3.8em; /* extra left padding */
+  padding: 2.4em 2.4em 2.4em 3.5em; /* extra left padding for breathing room */
   background: var(--bg-section);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   margin-bottom: 3.2rem;
   border: 2px solid var(--border);
   position: relative;
+  overflow: visible;
 }
 
-/* Grid sits slightly more central */
 .about-grid {
   display: flex;
   align-items: center;
@@ -1987,116 +1986,158 @@ html, body {
   justify-content: flex-start;
 }
 
-/* Profile image container: more right margin for air from the edge */
 .about-profile-img-container {
-  flex: 0 0 240px;
+  flex: 0 0 265px;
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  min-width: 180px;
-  margin-left: 0.5em;
-  margin-right: 1.1em; /* add a bit of internal gap */
+  min-width: 220px;
+  margin-left: 0.7em;
+  margin-right: 1.5em;
 }
 
-/* Profile wrapper and photo: perfect size, logo circle fits INSIDE */
 .about-profile-img-wrapper {
   position: relative;
-  width: 210px;
-  height: 210px;
+  width: 235px;
+  height: 235px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .about-profile-img {
-  width: 190px;
-  height: 190px;
+  width: 215px;
+  height: 215px;
   object-fit: cover;
   border-radius: 50%;
-  border: 5px solid #fff;
+  border: 6px solid #fff;
   box-shadow: 0 12px 48px #10111415, 0 2px 8px #10111410;
   background: var(--bg-alt);
   z-index: 1;
+  display: block;
 }
 
-/* Overlay logo circle: fits INSIDE the main profile image circle */
+/* LOGO FIX: Never cropped, always fully visible */
 .about-overlay-logo {
   position: absolute;
-  width: 72px;
-  height: 72px;
-  bottom: 16px;
-  right: 12px;
+  width: 85px;
+  height: 85px;
+  bottom: 10px;
+  right: 10px;
+  background: transparent; /* no forced white bg, let logo file handle bg */
+  border-radius: 50%;
+  box-shadow: 0 4px 16px #0002;
+  padding: 0;
+  z-index: 3;
+  border: none;
+  opacity: 1;
+  object-fit: contain;
+  display: none;
+  pointer-events: none;
+  user-select: none;
+}
+.about-overlay-logo-light { display: block; }
+.about-overlay-logo-dark { display: none; }
+[data-theme="dark"] .about-overlay-logo-light { display: none; }
+[data-theme="dark"] .about-overlay-logo-dark { display: block; }
+
+/* ----------------------------------- */
+/* ICON ROW: restore perfect look      */
+/* ----------------------------------- */
+.about-icons {
+  display: flex;
+  gap: 1.1em;
+  margin-top: 1.6em;
+  font-size: 1.7em;
+  justify-content: flex-start;
+}
+.about-icons i {
   background: #fff;
   border-radius: 50%;
-  box-shadow: 0 4px 18px #0002;
-  padding: 0;
-  z-index: 2;
-  border: 3px solid #e1e3e8;
-  opacity: 1;
-  display: none;
-  object-fit: contain;
+  padding: 0.19em 0.26em;
+  border: 1.5px solid #e1e3e8;
+  box-shadow: 0 2px 8px #0001;
+  color: #168aad;
+  transition: background 0.18s, color 0.18s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
-
-.about-overlay-logo-light { display: block; }
-.about-overlay-logo-dark  { display: none; }
-
-[data-theme="dark"] .about-overlay-logo-light { display: none; }
-[data-theme="dark"] .about-overlay-logo-dark  { 
-  display: block;
+.about-icons i.fa-music { background: #e7e7e7; }
+.about-icons i.fa-guitar { background: #f3f3f3; }
+.about-icons i.fa-headphones { background: #e9e9e9; }
+.about-icons i.fa-microphone { background: #e7e7e7; }
+.about-icons i.fa-wave-square { background: #f3f3f3; }
+[data-theme="dark"] .about-icons i {
   background: #23242a;
   border-color: #168aad44;
+  color: #3ee7fa;
 }
 
+/* ----------------------------------- */
+/* RESPONSIVE: Big and beautiful on mobile/tablet */
 @media (max-width: 900px) {
   .about-section {
-    padding: 1.7em 1.2em 1.7em 1.2em;
+    padding: 1.7em 0.5em 1.7em 0.5em;
   }
   .about-grid {
     flex-direction: column;
     align-items: center;
-    gap: 1.7em;
+    gap: 1.9em;
   }
   .about-profile-img-container {
     margin-left: 0;
     margin-right: 0;
     justify-content: center;
+    flex: none;
   }
   .about-profile-img-wrapper {
-    width: 175px;
-    height: 175px;
+    width: 320px;
+    height: 320px;
   }
   .about-profile-img {
-    width: 150px;
-    height: 150px;
-    border-width: 4px;
+    width: 290px;
+    height: 290px;
+    border-width: 8px;
   }
   .about-overlay-logo {
-    width: 54px;
-    height: 54px;
-    bottom: 9px;
-    right: 7px;
-    border-width: 2px;
+    width: 120px;
+    height: 120px;
+    bottom: 14px;
+    right: 14px;
+  }
+  .about-icons {
+    justify-content: center;
+    margin-top: 2em;
+    font-size: 2.2em;
   }
 }
 
 @media (max-width: 600px) {
   .about-section {
-    padding: 0.7em 0.1em 1.1em 0.1em;
+    padding: 0.6em 0.1em 1em 0.1em;
   }
   .about-profile-img-wrapper {
-    width: 115px;
-    height: 115px;
+    width: 98vw;
+    max-width: 350px;
+    height: 98vw;
+    max-height: 350px;
   }
   .about-profile-img {
-    width: 98px;
-    height: 98px;
-    border-width: 3px;
+    width: 90vw;
+    max-width: 320px;
+    height: 90vw;
+    max-height: 320px;
+    border-width: 6px;
   }
   .about-overlay-logo {
-    width: 32px;
-    height: 32px;
-    bottom: 3px;
-    right: 3px;
-    border-width: 1.5px;
+    width: 80px;
+    height: 80px;
+    bottom: 9vw;
+    right: 12vw;
+  }
+  .about-icons {
+    font-size: 2em;
+    margin-top: 1.3em;
   }
 }
