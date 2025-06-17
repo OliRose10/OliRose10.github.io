@@ -1966,16 +1966,15 @@ html, body {
 [data-theme="dark"] .badge {
   color: #fff !important;
 }
-/* --- About Profile Section: Perfect Professional Layout --- */
+/* --- ABOUT SECTION: Responsive, centered, no cropping, pro look --- */
 
 .about-section {
-  padding: 2.4em 2.4em 2.4em 3.5em; /* extra left padding for breathing room */
+  padding: 2.4em 2.2em 2.4em 2.2em; /* uniform padding */
   background: var(--bg-section);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   margin-bottom: 3.2rem;
   border: 2px solid var(--border);
-  position: relative;
   overflow: visible;
 }
 
@@ -1983,31 +1982,30 @@ html, body {
   display: flex;
   align-items: center;
   gap: 3em;
-  justify-content: flex-start;
+  justify-content: center;
 }
 
 .about-profile-img-container {
-  flex: 0 0 265px;
+  flex: 0 0 260px;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  min-width: 220px;
-  margin-left: 0.7em;
-  margin-right: 1.5em;
+  justify-content: center;
+  min-width: 180px;
+  margin: 0 1.2em 0 0.5em;
 }
 
 .about-profile-img-wrapper {
   position: relative;
-  width: 235px;
-  height: 235px;
+  width: 220px;
+  height: 220px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .about-profile-img {
-  width: 215px;
-  height: 215px;
+  width: 210px;
+  height: 210px;
   object-fit: cover;
   border-radius: 50%;
   border: 6px solid #fff;
@@ -2017,20 +2015,28 @@ html, body {
   display: block;
 }
 
-/* LOGO FIX: Never cropped, always fully visible */
-.about-overlay-logo {
+/* Overlay circle: always fully inside the photo, never cropped */
+.about-overlay-logo-circle {
   position: absolute;
-  width: 85px;
-  height: 85px;
-  bottom: 10px;
-  right: 10px;
-  background: transparent; /* no forced white bg, let logo file handle bg */
+  width: 80px;
+  height: 80px;
+  bottom: 12px;
+  right: 12px;
+  background: #fff;
   border-radius: 50%;
+  border: 3px solid #e1e3e8;
   box-shadow: 0 4px 16px #0002;
-  padding: 0;
-  z-index: 3;
-  border: none;
-  opacity: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  overflow: hidden;
+  pointer-events: none;
+  transition: background 0.2s, border 0.2s;
+}
+.about-overlay-logo-circle img {
+  width: 62px;
+  height: 62px;
   object-fit: contain;
   display: none;
   pointer-events: none;
@@ -2038,12 +2044,20 @@ html, body {
 }
 .about-overlay-logo-light { display: block; }
 .about-overlay-logo-dark { display: none; }
+[data-theme="dark"] .about-overlay-logo-circle {
+  background: #23242a;
+  border-color: #168aad44;
+}
 [data-theme="dark"] .about-overlay-logo-light { display: none; }
 [data-theme="dark"] .about-overlay-logo-dark { display: block; }
 
-/* ----------------------------------- */
-/* ICON ROW: restore perfect look      */
-/* ----------------------------------- */
+/* About text area */
+.about-text-group {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+/* ICONS: restore perfect look */
 .about-icons {
   display: flex;
   gap: 1.1em;
@@ -2074,70 +2088,101 @@ html, body {
   color: #3ee7fa;
 }
 
-/* ----------------------------------- */
-/* RESPONSIVE: Big and beautiful on mobile/tablet */
+/* ------------------ RESPONSIVE ------------------ */
 @media (max-width: 900px) {
   .about-section {
-    padding: 1.7em 0.5em 1.7em 0.5em;
+    padding: 1.6em 0.4em 1.6em 0.4em;
   }
   .about-grid {
     flex-direction: column;
     align-items: center;
-    gap: 1.9em;
+    gap: 2.1em;
   }
   .about-profile-img-container {
-    margin-left: 0;
-    margin-right: 0;
-    justify-content: center;
+    margin: 0;
     flex: none;
   }
   .about-profile-img-wrapper {
-    width: 320px;
-    height: 320px;
+    width: 210px;
+    height: 210px;
   }
   .about-profile-img {
-    width: 290px;
-    height: 290px;
-    border-width: 8px;
+    width: 200px;
+    height: 200px;
+    border-width: 5px;
   }
-  .about-overlay-logo {
-    width: 120px;
-    height: 120px;
-    bottom: 14px;
-    right: 14px;
+  .about-overlay-logo-circle {
+    width: 70px;
+    height: 70px;
+    bottom: 10px;
+    right: 10px;
+    border-width: 2.5px;
+  }
+  .about-overlay-logo-circle img {
+    width: 54px;
+    height: 54px;
   }
   .about-icons {
     justify-content: center;
-    margin-top: 2em;
-    font-size: 2.2em;
+    font-size: 2em;
   }
 }
 
+/* Mobile: scale down slightly, fix text cut-off, keep centered */
 @media (max-width: 600px) {
   .about-section {
-    padding: 0.6em 0.1em 1em 0.1em;
+    padding: 0.7em 0.5em 1em 0.5em;
   }
   .about-profile-img-wrapper {
-    width: 98vw;
-    max-width: 350px;
-    height: 98vw;
-    max-height: 350px;
+    width: 130px;
+    height: 130px;
   }
   .about-profile-img {
-    width: 90vw;
-    max-width: 320px;
-    height: 90vw;
-    max-height: 320px;
-    border-width: 6px;
+    width: 120px;
+    height: 120px;
+    border-width: 3.5px;
   }
-  .about-overlay-logo {
-    width: 80px;
-    height: 80px;
-    bottom: 9vw;
-    right: 12vw;
+  .about-overlay-logo-circle {
+    width: 38px;
+    height: 38px;
+    bottom: 4px;
+    right: 4px;
+    border-width: 1.5px;
+  }
+  .about-overlay-logo-circle img {
+    width: 28px;
+    height: 28px;
   }
   .about-icons {
-    font-size: 2em;
-    margin-top: 1.3em;
+    font-size: 1.2em;
+    margin-top: 1.1em;
+  }
+  .about-grid {
+    gap: 1.1em;
+  }
+  .about-text-group {
+    text-align: center;
+    padding: 0 0.2em;
+  }
+}
+
+@media (max-width: 400px) {
+  .about-profile-img-wrapper {
+    width: 100px;
+    height: 100px;
+  }
+  .about-profile-img {
+    width: 90px;
+    height: 90px;
+  }
+  .about-overlay-logo-circle {
+    width: 28px;
+    height: 28px;
+    bottom: 2px;
+    right: 2px;
+  }
+  .about-overlay-logo-circle img {
+    width: 19px;
+    height: 19px;
   }
 }
