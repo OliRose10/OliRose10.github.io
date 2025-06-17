@@ -1966,7 +1966,7 @@ html, body {
 [data-theme="dark"] .badge {
   color: #fff !important;
 }
-/* --- ABOUT SECTION: Modern, Professional, Responsive, No Cropping --- */
+/* --- ABOUT SECTION: Responsive, centered, logo fills overlay circle, pro look --- */
 
 .about-section {
   padding: 2.5em 2.5em;
@@ -2022,9 +2022,9 @@ html, body {
   height: 72px;
   bottom: 14px;
   right: 14px;
-  background: transparent;
+  background: #fff;
   border-radius: 50%;
-  border: 3px solid #e1e3e8;
+  border: 3px solid #168aad;
   box-shadow: 0 4px 16px #0002;
   display: flex;
   align-items: center;
@@ -2035,9 +2035,14 @@ html, body {
   transition: background 0.2s, border 0.2s;
 }
 
+[data-theme="dark"] .about-overlay-logo-circle {
+  background: #23242a;
+  border-color: #168aad;
+}
+
 .about-overlay-logo {
-  width: 62%;
-  height: 62%;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
   display: block;
   pointer-events: none;
@@ -2051,10 +2056,6 @@ html, body {
 }
 .about-overlay-logo-dark {
   display: none;
-}
-[data-theme="dark"] .about-overlay-logo-circle {
-  background: transparent;
-  border-color: #168aad;
 }
 [data-theme="dark"] .about-overlay-logo-light {
   display: none;
@@ -2168,8 +2169,8 @@ html, body {
     border-width: 2px;
   }
   .about-overlay-logo {
-    width: 70%;
-    height: 70%;
+    width: 100%;
+    height: 100%;
   }
   .about-icons {
     justify-content: center;
@@ -2202,8 +2203,8 @@ html, body {
     border-width: 1.5px;
   }
   .about-overlay-logo {
-    width: 85%;
-    height: 85%;
+    width: 100%;
+    height: 100%;
   }
   .about-icons {
     font-size: 1.18em;
