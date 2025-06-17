@@ -1946,21 +1946,3 @@ html, body {
 [data-theme="dark"] .hamburger span {
   background: #fff !important;
 }
-.badge {
-  background: #f2f3f7;
-  color: #16171c;
-  padding: 0.16em 0.9em;
-  border-radius: 1.1em;
-  font-weight: 700;
-  font-size: 1em;
-  letter-spacing: 0.04em;
-  display: inline-block;
-  border: 1.5px solid #e1e3e8;
-  box-shadow: 0 2px 8px #0001;
-}
-
-[data-theme="dark"] .badge {
-  background: #222;
-  color: #fff;
-  border-color: #168aad44;
-}
