@@ -2041,8 +2041,8 @@ html, body {
 }
 
 .about-overlay-logo {
-  width: 100%;
-  height: 100%;
+  width: 95%;
+  height: 95%;
   object-fit: contain;
   display: block;
   pointer-events: none;
@@ -2169,8 +2169,8 @@ html, body {
     border-width: 2px;
   }
   .about-overlay-logo {
-    width: 100%;
-    height: 100%;
+    width: 95%;
+    height: 95%;
   }
   .about-icons {
     justify-content: center;
@@ -2203,8 +2203,8 @@ html, body {
     border-width: 1.5px;
   }
   .about-overlay-logo {
-    width: 100%;
-    height: 100%;
+    width: 95%;
+    height: 95%;
   }
   .about-icons {
     font-size: 1.18em;
