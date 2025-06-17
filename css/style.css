@@ -2015,7 +2015,6 @@ html, body {
   display: block;
 }
 
-/* Overlay circle ensures logo is never cropped */
 .about-overlay-logo-circle {
   position: absolute;
   width: 72px;
@@ -2034,19 +2033,25 @@ html, body {
   pointer-events: none;
   transition: background 0.2s, border 0.2s;
 }
+
 .about-overlay-logo {
-  width: 54px;
-  height: 54px;
+  width: 70%;
+  height: 70%;
   object-fit: contain;
-  display: none;
+  display: block;
   pointer-events: none;
   user-select: none;
+  box-shadow: none;
+  background: none;
+  border: none;
 }
+
 .about-overlay-logo-light { display: block; }
 .about-overlay-logo-dark { display: none; }
+
 [data-theme="dark"] .about-overlay-logo-circle {
   background: #23242a;
-  border-color: #168aad44;
+  border-color: #168aad;
 }
 [data-theme="dark"] .about-overlay-logo-light { display: none; }
 [data-theme="dark"] .about-overlay-logo-dark { display: block; }
@@ -2119,8 +2124,8 @@ html, body {
     border-width: 2px;
   }
   .about-overlay-logo {
-    width: 39px;
-    height: 39px;
+    width: 70%;
+    height: 70%;
   }
   .about-icons {
     justify-content: center;
@@ -2134,7 +2139,7 @@ html, body {
     padding: 0.7em 0.7em 1em 0.7em;
   }
   .about-profile-img-wrapper {
-    width: 160px;    /* Slightly larger than before */
+    width: 160px;
     height: 160px;
   }
   .about-profile-img {
@@ -2143,42 +2148,22 @@ html, body {
     border-width: 3.5px;
   }
   .about-overlay-logo-circle {
-    width: 44px;
-    height: 44px;
+    width: 38px;
+    height: 38px;
     bottom: 6px;
     right: 6px;
     border-width: 2.5px;
-    border-style: solid;
-    border-radius: 50%;
-    box-shadow: 0 4px 16px #0002;
     background: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 2;
-    overflow: hidden;
-    pointer-events: none;
-    border-color: #fff; /* White in light mode */
-    transition: background 0.2s, border 0.2s;
+    border-color: #fff;
   }
   .about-overlay-logo {
-    width: 76%;   /* Fills almost the whole circle with just a little space for border */
-    height: 76%;
-    object-fit: contain;
-    margin: 0;
-    display: none;
-    box-shadow: none;
-    background: none;
-    border: none;
+    width: 70%;
+    height: 70%;
   }
-  .about-overlay-logo-light { display: block; }
-  .about-overlay-logo-dark { display: none; }
   [data-theme="dark"] .about-overlay-logo-circle {
     background: #23242a;
     border-color: #168aad;
   }
-  [data-theme="dark"] .about-overlay-logo-light { display: none; }
-  [data-theme="dark"] .about-overlay-logo-dark { display: block; }
   .about-icons {
     font-size: 1.24em;
     margin-top: 1.05em;
