@@ -2112,8 +2112,8 @@ html, body {
     border-width: 4.5px;
   }
   .about-overlay-logo-circle {
-    width: 52px;
-    height: 52px;
+    width: 44px;
+    height: 44px;
     bottom: 8px;
     right: 8px;
     border-width: 2px;
@@ -2162,8 +2162,8 @@ html, body {
     transition: background 0.2s, border 0.2s;
   }
   .about-overlay-logo {
-    width: 94%;   /* Fills almost the whole circle with just a little space for border */
-    height: 94%;
+    width: 84%;   /* Fills almost the whole circle with just a little space for border */
+    height: 84%;
     object-fit: contain;
     margin: 0;
     display: none;
