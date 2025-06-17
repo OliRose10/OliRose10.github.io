@@ -1943,3 +1943,6 @@ html, body {
   background: #181818 !important;
   border-bottom: 2.5px solid #fff !important;
 }
+[data-theme="dark"] .hamburger span {
+  background: #fff !important;
+}
