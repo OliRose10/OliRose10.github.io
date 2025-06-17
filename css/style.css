@@ -1969,7 +1969,7 @@ html, body {
 /* --- ABOUT SECTION: Responsive, centered, no cropping, pro look --- */
 
 .about-section {
-  padding: 2.4em 2.2em 2.4em 2.2em; /* uniform padding */
+  padding: 2.4em 2.2em;
   background: var(--bg-section);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
@@ -1991,21 +1991,21 @@ html, body {
   align-items: center;
   justify-content: center;
   min-width: 180px;
-  margin: 0 1.2em 0 0.5em;
+  margin: 0 1.1em 0 0.5em;
 }
 
 .about-profile-img-wrapper {
   position: relative;
-  width: 220px;
-  height: 220px;
+  width: 210px;
+  height: 210px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .about-profile-img {
-  width: 210px;
-  height: 210px;
+  width: 200px;
+  height: 200px;
   object-fit: cover;
   border-radius: 50%;
   border: 6px solid #fff;
@@ -2015,13 +2015,13 @@ html, body {
   display: block;
 }
 
-/* Overlay circle: always fully inside the photo, never cropped */
+/* Overlay circle ensures logo is never cropped */
 .about-overlay-logo-circle {
   position: absolute;
-  width: 80px;
-  height: 80px;
-  bottom: 12px;
-  right: 12px;
+  width: 72px;
+  height: 72px;
+  bottom: 14px;
+  right: 14px;
   background: #fff;
   border-radius: 50%;
   border: 3px solid #e1e3e8;
@@ -2034,9 +2034,9 @@ html, body {
   pointer-events: none;
   transition: background 0.2s, border 0.2s;
 }
-.about-overlay-logo-circle img {
-  width: 62px;
-  height: 62px;
+.about-overlay-logo {
+  width: 54px;
+  height: 54px;
   object-fit: contain;
   display: none;
   pointer-events: none;
@@ -2057,7 +2057,7 @@ html, body {
   min-width: 0;
 }
 
-/* ICONS: restore perfect look */
+/* ICONS */
 .about-icons {
   display: flex;
   gap: 1.1em;
@@ -2088,10 +2088,10 @@ html, body {
   color: #3ee7fa;
 }
 
-/* ------------------ RESPONSIVE ------------------ */
+/* RESPONSIVE */
 @media (max-width: 900px) {
   .about-section {
-    padding: 1.6em 0.4em 1.6em 0.4em;
+    padding: 1.6em 0.4em;
   }
   .about-grid {
     flex-direction: column;
@@ -2103,86 +2103,65 @@ html, body {
     flex: none;
   }
   .about-profile-img-wrapper {
-    width: 210px;
-    height: 210px;
+    width: 160px;
+    height: 160px;
   }
   .about-profile-img {
-    width: 200px;
-    height: 200px;
-    border-width: 5px;
+    width: 150px;
+    height: 150px;
+    border-width: 4.5px;
   }
   .about-overlay-logo-circle {
-    width: 70px;
-    height: 70px;
-    bottom: 10px;
-    right: 10px;
-    border-width: 2.5px;
+    width: 52px;
+    height: 52px;
+    bottom: 8px;
+    right: 8px;
+    border-width: 2px;
   }
-  .about-overlay-logo-circle img {
-    width: 54px;
-    height: 54px;
+  .about-overlay-logo {
+    width: 39px;
+    height: 39px;
   }
   .about-icons {
     justify-content: center;
-    font-size: 2em;
+    font-size: 1.45em;
+    margin-top: 1.2em;
   }
 }
 
-/* Mobile: scale down slightly, fix text cut-off, keep centered */
 @media (max-width: 600px) {
   .about-section {
-    padding: 0.7em 0.5em 1em 0.5em;
+    padding: 0.7em 0.7em 1em 0.7em;
   }
   .about-profile-img-wrapper {
-    width: 130px;
-    height: 130px;
+    width: 110px;
+    height: 110px;
   }
   .about-profile-img {
-    width: 120px;
-    height: 120px;
-    border-width: 3.5px;
+    width: 100px;
+    height: 100px;
+    border-width: 2.5px;
   }
   .about-overlay-logo-circle {
-    width: 38px;
-    height: 38px;
-    bottom: 4px;
-    right: 4px;
-    border-width: 1.5px;
+    width: 32px;
+    height: 32px;
+    bottom: 2px;
+    right: 2px;
+    border-width: 1.2px;
   }
-  .about-overlay-logo-circle img {
-    width: 28px;
-    height: 28px;
+  .about-overlay-logo {
+    width: 23px;
+    height: 23px;
   }
   .about-icons {
-    font-size: 1.2em;
-    margin-top: 1.1em;
+    font-size: 1.08em;
+    margin-top: 0.9em;
   }
   .about-grid {
-    gap: 1.1em;
+    gap: 0.7em;
   }
   .about-text-group {
     text-align: center;
-    padding: 0 0.2em;
-  }
-}
-
-@media (max-width: 400px) {
-  .about-profile-img-wrapper {
-    width: 100px;
-    height: 100px;
-  }
-  .about-profile-img {
-    width: 90px;
-    height: 90px;
-  }
-  .about-overlay-logo-circle {
-    width: 28px;
-    height: 28px;
-    bottom: 2px;
-    right: 2px;
-  }
-  .about-overlay-logo-circle img {
-    width: 19px;
-    height: 19px;
+    padding: 0 0.1em;
   }
 }
