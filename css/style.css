@@ -2134,31 +2134,38 @@ html, body {
     padding: 0.7em 0.7em 1em 0.7em;
   }
   .about-profile-img-wrapper {
-    width: 110px;
-    height: 110px;
+    width: 145px;     /* was 110px */
+    height: 145px;
   }
   .about-profile-img {
-    width: 100px;
-    height: 100px;
-    border-width: 2.5px;
+    width: 135px;     /* was 100px */
+    height: 135px;
+    border-width: 3px;
   }
   .about-overlay-logo-circle {
-    width: 32px;
-    height: 32px;
-    bottom: 2px;
-    right: 2px;
-    border-width: 1.2px;
+    width: 42px;      /* was 32px */
+    height: 42px;
+    bottom: 6px;
+    right: 6px;
+    border-width: 1.4px;
   }
   .about-overlay-logo {
-    width: 23px;
-    height: 23px;
+    width: 28px;      /* was 23px - smaller than the circle for "zoom out" effect */
+    height: 28px;
+    object-fit: contain;
+    margin: 0;        /* ensure no cropping */
+    display: none;
   }
+  .about-overlay-logo-light { display: block; }
+  .about-overlay-logo-dark { display: none; }
+  [data-theme="dark"] .about-overlay-logo-light { display: none; }
+  [data-theme="dark"] .about-overlay-logo-dark { display: block; }
   .about-icons {
-    font-size: 1.08em;
-    margin-top: 0.9em;
+    font-size: 1.15em;
+    margin-top: 1em;
   }
   .about-grid {
-    gap: 0.7em;
+    gap: 1em;
   }
   .about-text-group {
     text-align: center;
