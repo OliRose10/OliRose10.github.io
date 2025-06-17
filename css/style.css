@@ -2134,59 +2134,57 @@ html, body {
     padding: 0.7em 0.7em 1em 0.7em;
   }
   .about-profile-img-wrapper {
-    width: 145px;     /* was 110px */
-    height: 145px;
+    width: 160px;    /* Slightly larger than before */
+    height: 160px;
   }
   .about-profile-img {
-    width: 135px;     /* was 100px */
-    height: 135px;
-    border-width: 3px;
+    width: 150px;
+    height: 150px;
+    border-width: 3.5px;
   }
-.about-overlay-logo-circle {
-  width: 42px;
-  height: 42px;
-  bottom: 6px;
-  right: 6px;
-  border-width: 2.5px;
-  border-style: solid;
-  border-radius: 50%;
-  box-shadow: 0 4px 16px #0002;
-  background: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 2;
-  overflow: hidden;
-  pointer-events: none;
-  transition: background 0.2s, border 0.2s;
-  border-color: #fff;         /* White border in light mode */
-}
-
-.about-overlay-logo {
-  width: 95%;                 /* Nearly fills the circle */
-  height: 95%;
-  object-fit: contain;
-  margin: 0;
-  display: none;
-  box-shadow: none;
-  background: none;
-  border: none;
-}
-
-.about-overlay-logo-light { display: block; }
-.about-overlay-logo-dark { display: none; }
-[data-theme="dark"] .about-overlay-logo-circle {
-  background: #23242a;
-  border-color: #168aad;
-}
-[data-theme="dark"] .about-overlay-logo-light { display: none; }
-[data-theme="dark"] .about-overlay-logo-dark { display: block; }
+  .about-overlay-logo-circle {
+    width: 44px;
+    height: 44px;
+    bottom: 6px;
+    right: 6px;
+    border-width: 2.5px;
+    border-style: solid;
+    border-radius: 50%;
+    box-shadow: 0 4px 16px #0002;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    overflow: hidden;
+    pointer-events: none;
+    border-color: #fff; /* White in light mode */
+    transition: background 0.2s, border 0.2s;
+  }
+  .about-overlay-logo {
+    width: 94%;   /* Fills almost the whole circle with just a little space for border */
+    height: 94%;
+    object-fit: contain;
+    margin: 0;
+    display: none;
+    box-shadow: none;
+    background: none;
+    border: none;
+  }
+  .about-overlay-logo-light { display: block; }
+  .about-overlay-logo-dark { display: none; }
+  [data-theme="dark"] .about-overlay-logo-circle {
+    background: #23242a;
+    border-color: #168aad;
+  }
+  [data-theme="dark"] .about-overlay-logo-light { display: none; }
+  [data-theme="dark"] .about-overlay-logo-dark { display: block; }
   .about-icons {
-    font-size: 1.15em;
-    margin-top: 1em;
+    font-size: 1.24em;
+    margin-top: 1.05em;
   }
   .about-grid {
-    gap: 1em;
+    gap: 1.1em;
   }
   .about-text-group {
     text-align: center;
