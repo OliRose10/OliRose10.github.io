@@ -2150,8 +2150,8 @@ html, body {
     border-width: 1.4px;
   }
   .about-overlay-logo {
-    width: 24px;      /* was 23px - smaller than the circle for "zoom out" effect */
-    height: 24px;
+    width: 28px;      /* was 23px - smaller than the circle for "zoom out" effect */
+    height: 28px;
     object-fit: contain;
     margin: 0;        /* ensure no cropping */
     display: none;
