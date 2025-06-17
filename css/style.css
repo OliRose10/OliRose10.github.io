@@ -2142,24 +2142,45 @@ html, body {
     height: 135px;
     border-width: 3px;
   }
-  .about-overlay-logo-circle {
-    width: 42px;      /* was 32px */
-    height: 42px;
-    bottom: 6px;
-    right: 6px;
-    border-width: 1.4px;
-  }
-  .about-overlay-logo {
-    width: 28px;      /* was 23px - smaller than the circle for "zoom out" effect */
-    height: 28px;
-    object-fit: contain;
-    margin: 0;        /* ensure no cropping */
-    display: none;
-  }
-  .about-overlay-logo-light { display: block; }
-  .about-overlay-logo-dark { display: none; }
-  [data-theme="dark"] .about-overlay-logo-light { display: none; }
-  [data-theme="dark"] .about-overlay-logo-dark { display: block; }
+.about-overlay-logo-circle {
+  width: 42px;
+  height: 42px;
+  bottom: 6px;
+  right: 6px;
+  border-width: 2.5px;
+  border-style: solid;
+  border-radius: 50%;
+  box-shadow: 0 4px 16px #0002;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  overflow: hidden;
+  pointer-events: none;
+  transition: background 0.2s, border 0.2s;
+  border-color: #fff;         /* White border in light mode */
+}
+
+.about-overlay-logo {
+  width: 95%;                 /* Nearly fills the circle */
+  height: 95%;
+  object-fit: contain;
+  margin: 0;
+  display: none;
+  box-shadow: none;
+  background: none;
+  border: none;
+}
+
+.about-overlay-logo-light { display: block; }
+.about-overlay-logo-dark { display: none; }
+[data-theme="dark"] .about-overlay-logo-circle {
+  background: #23242a;
+  border-color: #168aad;
+}
+[data-theme="dark"] .about-overlay-logo-light { display: none; }
+[data-theme="dark"] .about-overlay-logo-dark { display: block; }
   .about-icons {
     font-size: 1.15em;
     margin-top: 1em;
