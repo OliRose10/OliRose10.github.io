@@ -8,6 +8,11 @@
   <meta name="description" content="The page you're looking for cannot be found." />
   <link rel="canonical" href="https://roseaboveaccountancy.co.uk/404.html" />
   <meta name="author" content="Oliver Rose">
+  <meta property="og:title" content="Page Not Found - Rose Above Accountancy">
+  <meta property="og:description" content="The page you're looking for cannot be found.">
+  <meta property="og:image" content="https://roseaboveaccountancy.co.uk/images/Rose%20Above%20Logo.png">
+  <meta property="og:url" content="https://roseaboveaccountancy.co.uk/404.html">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="manifest" href="manifest.json">
   <link rel="icon" href="images/Rose Above Logo - No Background.png">
   <link rel="apple-touch-icon" sizes="180x180" href="images/Rose Above Logo - No Background.png">
@@ -16,10 +21,13 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-  <main style="padding:2em;text-align:center;">
+  <a href="#mainContent" class="skip-link">Skip to main content</a>
+  <main id="mainContent" tabindex="-1" style="padding:2em;text-align:center;">
     <h1>404 - Page Not Found</h1>
     <p>The page you requested could not be found.</p>
     <a href="index.html" class="btn">Return Home</a>
   </main>
+  <button id="backToTop" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+  <script src="js/main.js?v=20250611" defer></script>
 </body>
 </html>

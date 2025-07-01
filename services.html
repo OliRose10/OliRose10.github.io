@@ -8,6 +8,11 @@
   <title>Our Services | Oliver's Finance for Musicians</title>
   <meta name="description" content="Our Services – Oliver's Finance for Musicians" />
   <meta name="author" content="Oliver Rose">
+  <meta property="og:title" content="Our Services | Oliver's Finance for Musicians">
+  <meta property="og:description" content="Our Services – Oliver's Finance for Musicians">
+  <meta property="og:image" content="https://roseaboveaccountancy.co.uk/images/Rose%20Above%20Logo.png">
+  <meta property="og:url" content="https://roseaboveaccountancy.co.uk/services.html">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="manifest" href="manifest.json">
   <link rel="icon" href="images/Rose Above Logo - No Background.png">
   <link rel="apple-touch-icon" sizes="180x180" href="images/Rose Above Logo - No Background.png">
@@ -16,6 +21,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
+  <a href="#mainContent" class="skip-link">Skip to main content</a>
   <header>
     <div class="header-content">
       <a href="index.html" class="logo" aria-label="Oli Rose Home">
@@ -34,9 +40,18 @@
           <li><a href="contact.html" class="nav-link">Contact</a></li>
         </ul>
       </nav>
+      <div class="header-controls">
+        <button id="themeToggleBtn" class="theme-toggle" aria-label="Toggle dark or light mode">
+          <span class="theme-toggle-icon"><i class="fa-solid fa-moon"></i></span>
+          <span class="theme-toggle-text">Dark</span>
+        </button>
+        <button class="hamburger" aria-label="Open navigation menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </div>
   </header>
-  <main class="main-container">
+  <main id="mainContent" tabindex="-1" class="main-container">
     <div class="ska-accent"></div>
     <section id="our-services" class="fade-in">
       <span class="section-subtitle">What I Offer</span>
@@ -90,5 +105,7 @@
       </div>
     </div>
   </footer>
+  <button id="backToTop" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+  <script src="js/main.js?v=20250611" defer></script>
 </body>
 </html>
