@@ -700,7 +700,7 @@
         method="POST" 
         autocomplete="off" 
         novalidate 
-        onsubmit="document.getElementById('form-success').style.display = 'block'; this.reset(); return false;"
+        onsubmit="setTimeout(() => { this.reset(); document.getElementById('form-success').style.display = 'block'; }, 300);"
       >
         <label for="contactName">Name</label>
         <input id="contactName" name="name" type="text" placeholder="Your Name" required>
@@ -712,6 +712,7 @@
         <textarea id="contactMessage" name="message" placeholder="Tell me about your project or question" rows="4" required></textarea>
 
         <button type="submit" class="btn">Send Message <i class="fa-solid fa-paper-plane"></i></button>
+
         <div id="form-success" style="display:none;color:var(--accent-hover);margin-top:1em;font-weight:600;" aria-live="polite">
           Thank you! I'll be in touch soon.
         </div>
