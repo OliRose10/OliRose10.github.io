@@ -480,3 +480,9 @@ if (themeBtn) {
     setTimeout(updateContactLogoForTheme, 10);
   });
 }
+
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('/sw.js');
+  });
+}
