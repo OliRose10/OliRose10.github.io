@@ -8,7 +8,7 @@ const urlsToCache = [
   '/portfolio.html',
   '/css/style.css',
   '/js/main.js',
-  '/images/logo.png' // add other assets as needed...
+  '/images/Rose Above Logo.png' // add other assets as needed...
 ];
 
 self.addEventListener('install', function(event) {
