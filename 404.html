@@ -22,14 +22,19 @@
 </head>
 <body>
   <a href="#mainContent" class="skip-link">Skip to main content</a>
-  <header>
+<header>
     <div class="header-content">
-      <a href="index.html" class="logo" aria-label="Oli Rose Home">
-        <img class="logo-img" src="images/Rose Above Logo.png" alt="Oliver Rose Logo"
-          onerror="this.style.display='none';this.insertAdjacentHTML('afterend',`<svg width='48' height='48' aria-label='OR'><rect width='48' height='48' fill='#fff'/><text x='50%' y='55%' dominant-baseline='middle' text-anchor='middle' font-size='18' fill='#222' font-family='Montserrat,sans-serif'>OR</text></svg>`);" />
-        <span class="logo-title">OLIVER<br>ROSE</span>
-      </a>
-      <nav aria-label="Main navigation">
+      <div class="site-brand">
+        <picture style="height:100%;">
+          <source src="images/Rose Above Logo - White.png" media="(prefers-color-scheme: dark)">
+          <img src="images/Rose Above Logo - No Background.png" alt="Rose Above Logo" class="main-logo-large logo-lightmode">
+        </picture>
+        <span class="brand-title-tagline">
+          <span class="brand-title">Rose Above</span>
+          <span class="brand-tagline">Accountancy for Musicians & Creatives</span>
+        </span>
+      </div>
+      <nav aria-label="Main navigation" class="main-nav">
         <ul>
           <li><a href="index.html" class="nav-link">Home</a></li>
           <li><a href="about.html" class="nav-link">About</a></li>
@@ -56,9 +61,10 @@
     <p>The page you requested could not be found.</p>
     <a href="index.html" class="btn">Return Home</a>
   </main>
-  <footer class="site-footer">
-    <div class="ska-accent"></div>
-    <div class="main-container" style="text-align:center;">
+<footer class="site-footer">
+      <picture>
+        <img src="images/Rose Above Logo - White.png" alt="Rose Above Logo Footer" class="footer-main-logo">
+      </picture>
       <div class="footer-links">
         <a href="about.html">About</a>
         <a href="services.html">Services</a>
@@ -77,8 +83,10 @@
         &copy; 2025 Oliver Rose. Finance for Musicians & Creatives.<br>
         <small>Professional freelance finance, built for artists.</small>
       </div>
-    </div>
-  </footer>
+      <div class="footer-credit">
+        Site by Oliver Rose.
+      </div>
+    </footer>
   <button id="backToTop" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
   <script src="js/main.js?v=20250611" defer></script>
 </body>
