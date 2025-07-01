@@ -2,14 +2,26 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact | Oliver Rose Finance for Musicians & Creatives</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<link rel="canonical" href="https://roseaboveaccountancy.co.uk/contact.html" />
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="icon" href="images/favicon.ico">
-  <script src="https://kit.fontawesome.com/fe7fbe4e2b.js" crossorigin="anonymous"></script>
+  <meta name="description" content="Contact Oliver Rose for finance and tax support for musicians and creatives." />
+  <link rel="canonical" href="https://roseaboveaccountancy.co.uk/contact.html" />
+  <meta name="author" content="Oliver Rose">
+  <meta property="og:title" content="Contact | Oliver Rose Finance for Musicians & Creatives">
+  <meta property="og:description" content="Contact Oliver Rose for finance and tax support for musicians and creatives.">
+  <meta property="og:image" content="https://roseaboveaccountancy.co.uk/images/Rose%20Above%20Logo.png">
+  <meta property="og:url" content="https://roseaboveaccountancy.co.uk/contact.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="images/Rose Above Logo - No Background.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/Rose Above Logo - No Background.png">
+  <link rel="stylesheet" href="css/style.css?v=20250611">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Space+Grotesk:wght@500;700&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
+  <a href="#mainContent" class="skip-link">Skip to main content</a>
   <header>
     <div class="header-content">
       <a href="index.html" class="logo" aria-label="Oli Rose Home">
@@ -28,9 +40,18 @@
           <li><a href="contact.html" class="nav-link active">Contact</a></li>
         </ul>
       </nav>
+      <div class="header-controls">
+        <button id="themeToggleBtn" class="theme-toggle" aria-label="Toggle dark or light mode">
+          <span class="theme-toggle-icon"><i class="fa-solid fa-moon"></i></span>
+          <span class="theme-toggle-text">Dark</span>
+        </button>
+        <button class="hamburger" aria-label="Open navigation menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </div>
   </header>
-  <main class="main-container" style="max-width:650px;">
+  <main id="mainContent" tabindex="-1" class="main-container" style="max-width:650px;">
     <div class="ska-accent"></div>
     <section id="contact">
       <span class="section-subtitle">Let’s Talk</span>
@@ -94,5 +115,7 @@
       </div>
     </div>
   </footer>
+  <button id="backToTop" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+  <script src="js/main.js?v=20250611" defer></script>
 </body>
 </html>
