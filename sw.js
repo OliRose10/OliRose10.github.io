@@ -8,6 +8,7 @@ const urlsToCache = [
   '/portfolio.html',
   '/css/style.css',
   '/js/main.js',
+  '/js/main.js?v=20250611',
   '/images/Rose Above Logo.png' // add other assets as needed...
 ];
 
