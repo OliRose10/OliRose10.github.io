@@ -688,51 +688,58 @@
       </div>
     </section>
     <div class="ska-divider"></div>
-    <!-- CONTACT (improved layout) -->
-    <section id="contact" class="scroll-fade-in">
-      <span class="section-subtitle">Let’s Talk</span>
-      <h2 class="section-title">Contact</h2>
-      <div class="cards-container">
-        <div class="card" style="flex:1.5;">
-          <form id="contactForm" autocomplete="off" novalidate>
-            <label for="contactName">Name</label>
-            <input id="contactName" name="contactName" type="text" placeholder="Your Name" required>
-            <label for="contactEmail" style="margin-top:0.7em;">Email</label>
-            <input id="contactEmail" name="contactEmail" type="email" placeholder="you@email.com" required>
-            <label for="contactMessage" style="margin-top:0.7em;">How can I help?</label>
-            <textarea id="contactMessage" name="contactMessage" placeholder="Tell me about your project or question" rows="4" required></textarea>
-            <button type="submit" class="btn">Send Message <i class="fa-solid fa-paper-plane"></i></button>
-            <div id="form-success" style="display:none;color:var(--accent-hover);margin-top:1em;font-weight:600;" aria-live="polite">Thank you! I'll be in touch soon.</div>
-          </form>
+<!-- CONTACT (improved layout) -->
+<section id="contact" class="scroll-fade-in">
+  <span class="section-subtitle">Let’s Talk</span>
+  <h2 class="section-title">Contact</h2>
+  <div class="cards-container">
+    <div class="card" style="flex:1.5;">
+      <form 
+        id="contactForm" 
+        action="https://formspree.io/f/mjkrllva" 
+        method="POST" 
+        autocomplete="off" 
+        novalidate 
+        onsubmit="document.getElementById('form-success').style.display = 'block'; this.reset(); return false;"
+      >
+        <label for="contactName">Name</label>
+        <input id="contactName" name="name" type="text" placeholder="Your Name" required>
+
+        <label for="contactEmail" style="margin-top:0.7em;">Email</label>
+        <input id="contactEmail" name="email" type="email" placeholder="you@email.com" required>
+
+        <label for="contactMessage" style="margin-top:0.7em;">How can I help?</label>
+        <textarea id="contactMessage" name="message" placeholder="Tell me about your project or question" rows="4" required></textarea>
+
+        <button type="submit" class="btn">Send Message <i class="fa-solid fa-paper-plane"></i></button>
+        <div id="form-success" style="display:none;color:var(--accent-hover);margin-top:1em;font-weight:600;" aria-live="polite">
+          Thank you! I'll be in touch soon.
         </div>
-        <div class="card" style="flex:1;align-items:center;justify-content:center;text-align:center;">
-          <!-- BIGGER LOGO IN CONTACT CARD, WHITE IN DARK MODE -->
-          <!-- New (works with JS swaps): -->
-          <img
-            id="contactLogo"
-            src="images/Rose Above Logo - Black.png"
-            alt="Rose Above Logo Contact"
-            class="contact-card-logo"
-            style="display:block;margin:0 auto 1.6em auto;">
-          <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
-          <p style="margin:0 0 0.6em 0;">Or email me directly:</p>
-          <a href="mailto:oliverrosefinance@gmail.com" style="font-size:1.13rem;color:#181818;font-weight:700;">oliverrosefinance@gmail.com</a>
-          <div style="margin-top:1.5em;color:var(--text-muted);font-size:0.97em;">Response within 48 hours.</div>
-          <div style="margin-top:2em;">
-            <div style="font-size:1.2em;font-weight:600;">Follow me:</div>
-            <div class="social-icons" style="margin-top:0.4em;">
-              <a href="https://instagram.com/roseaboveaccountancy" aria-label="Instagram" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
-              <a href="https://linkedin.com/in/YOURHANDLE" aria-label="LinkedIn" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
-              <a href="mailto:oliverrosefinance@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
-            </div>
-          </div>
+      </form>
+    </div>
+
+    <div class="card" style="flex:1;align-items:center;justify-content:center;text-align:center;">
+      <img
+        id="contactLogo"
+        src="images/Rose Above Logo - Black.png"
+        alt="Rose Above Logo Contact"
+        class="contact-card-logo"
+        style="display:block;margin:0 auto 1.6em auto;">
+      <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+      <p style="margin:0 0 0.6em 0;">Or email me directly:</p>
+      <a href="mailto:oli@roseaboveaccountancy.co.uk" style="font-size:1.13rem;color:#181818;font-weight:700;">oli@roseaboveaccountancy.co.uk</a>
+      <div style="margin-top:1.5em;color:var(--text-muted);font-size:0.97em;">Response within 48 hours.</div>
+      <div style="margin-top:2em;">
+        <div style="font-size:1.2em;font-weight:600;">Follow me:</div>
+        <div class="social-icons" style="margin-top:0.4em;">
+          <a href="https://instagram.com/roseaboveaccountancy" aria-label="Instagram" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+          <a href="https://linkedin.com/in/YOURHANDLE" aria-label="LinkedIn" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
+          <a href="mailto:oli@roseaboveaccountancy.co.uk" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
         </div>
       </div>
-    </section>
-  </main>
-  <footer>
-    <div class="ska-accent"></div>
-    <div class="main-container" style="text-align:center;">
+    </div>
+  </div>
+</section>
       <!-- BIG WHITE LOGO IN FOOTER ALWAYS -->
       <picture>
         <img src="images/Rose Above Logo - White.png" alt="Rose Above Logo Footer" class="footer-main-logo">
