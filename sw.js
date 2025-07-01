@@ -9,7 +9,7 @@ const urlsToCache = [
   '/css/style.css',
   '/js/main.js',
   '/js/main.js?v=20250611',
-  '/images/logo.png' // add other assets as needed...
+  '/images/Rose Above Logo.png' // add other assets as needed...
 ];
 
 self.addEventListener('install', function(event) {
