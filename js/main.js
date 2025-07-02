@@ -17,20 +17,6 @@ document.addEventListener("DOMContentLoaded", function () {
     typing();
   }
 
-  // --- Fade-in on scroll for .fade-in (legacy; prefer .scroll-fade-in now) ---
-  function handleFadeIn() {
-    document.querySelectorAll('.fade-in').forEach(el => {
-      const rect = el.getBoundingClientRect();
-      if (rect.top < window.innerHeight - 60) {
-        el.classList.add('visible');
-      }
-    });
-  }
-  window.addEventListener('scroll', handleFadeIn);
-  window.addEventListener('resize', handleFadeIn);
-  handleFadeIn();
-
-  // --- Prevent gallery slideshow from causing page jumps ---
   const galleryTrack = document.querySelector('.gallery-track');
   if (galleryTrack) {
     function setGalleryTrackHeight() {
