@@ -589,17 +589,22 @@ section {
   padding-bottom: 0.13em;
 }
 .service-icon {
-  font-size: 2.1em;
+  font-size: 1.6em;
+  width: 3em;
+  height: 3em;
   color: #222;
   margin-bottom: 0.42em;
   background: linear-gradient(135deg, #fff 60%, #222 140%);
   border-radius: 50%;
   aspect-ratio: 1 / 1;
   padding: 0.18em;
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border: 2px solid #fff;
   box-shadow: 0 3px 10px #0001;
   opacity: 0.82;
+  line-height: 1;
 }
 .card.card-accent {
   border: 2.5px solid #181818;
@@ -1053,10 +1058,10 @@ footer .ska-accent {
   opacity: 0.16;
 }
 .site-footer {background:#181818;color:#fff;text-align:center;padding:2.8rem 1.2rem 1.5rem;margin-top:3.2rem;border-radius:0 0 var(--radius) var(--radius);box-shadow:0 -2px 28px #0002;}
-.footer-main-logo {
-  height: 120px;
+.footer-main-logo 
+  height: 90px;
   width: auto;
-  max-width: 400px;
+  max-width: 240px;
   display: block;
   margin: 0 auto 2em auto;
   border-radius: 20px;
@@ -1092,8 +1097,8 @@ footer .ska-accent {
 }
 @media (max-width: 600px) {
   .footer-main-logo {
-    height: 78px;
-    max-width: 220px;
+    height: 60px;
+    max-width: 160px;
   }
 }
 
