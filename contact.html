@@ -4,16 +4,20 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact | Oliver Rose Finance for Musicians & Creatives</title>
+  <title>Contact | Rose Above Accountancy</title>
   <meta name="description" content="Contact Oliver Rose for finance and tax support for musicians and creatives." />
   <link rel="canonical" href="https://roseaboveaccountancy.co.uk/contact.html" />
   <meta name="author" content="Oliver Rose">
-  <meta property="og:title" content="Contact | Oliver Rose Finance for Musicians & Creatives">
+  <meta property="og:title" content="Contact | Rose Above Accountancy">
   <meta property="og:description" content="Contact Oliver Rose for finance and tax support for musicians and creatives.">
   <meta property="og:image" content="https://roseaboveaccountancy.co.uk/images/Rose%20Above%20Logo.png">
   <meta property="og:url" content="https://roseaboveaccountancy.co.uk/contact.html">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="manifest" href="manifest.json">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https://placehold.co; style-src 'self' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; script-src 'self'">
+  <link rel="icon" sizes="32x32" href="images/Rose Above Logo - No Background.png">
+  <link rel="icon" sizes="192x192" href="images/Rose Above Logo - No Background.png">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <link rel="icon" href="images/Rose Above Logo - No Background.png">
   <link rel="apple-touch-icon" sizes="180x180" href="images/Rose Above Logo - No Background.png">
   <link rel="stylesheet" href="css/style.css?v=20250611">
@@ -61,7 +65,7 @@
     <section id="contact">
       <span class="section-subtitle">Let’s Talk</span>
       <h1 class="section-title">Contact</h1>
-      <form id="contactForm" autocomplete="off" novalidate>
+      <form id="contactForm" action="https://formspree.io/f/mjkrllva" method="POST" autocomplete="off" novalidate onsubmit="setTimeout(() => { this.reset(); document.getElementById('form-success').style.display = 'block'; }, 300);">
         <div class="cards-container">
           <div class="card" style="flex:2;">
             <label for="contactName">Name</label>
@@ -81,20 +85,6 @@
           </div>
         </div>
       </form>
-      <script>
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-          e.preventDefault();
-          let valid = true;
-          this.querySelectorAll('input[required],textarea[required]').forEach(inp => {
-            if (!inp.value.trim()) {inp.classList.add('error'); valid=false;}
-            else {inp.classList.remove('error');}
-          });
-          if (valid) {
-            document.getElementById('form-success').style.display = 'block';
-            this.reset();
-          }
-        });
-      </script>
     </section>
   </main>
 <footer class="site-footer">
@@ -116,7 +106,7 @@
         <a href="mailto:oli@roseaboveaccountancy.co.uk" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
       </div>
       <div style="margin-top:0.7em;">
-        &copy; 2025 Oliver Rose. Finance for Musicians & Creatives.<br>
+        &copy; 2025 Rose Above Accountancy. Accountancy for Musicians & Creatives.<br>
         <small>Professional freelance finance, built for artists.</small>
       </div>
       <div class="footer-credit">
