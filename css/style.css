@@ -596,6 +596,7 @@ section {
   margin-bottom: 0.42em;
   background: linear-gradient(135deg, #fff 60%, #222 140%);
   border-radius: 50%;
+  aspect-ratio: 1 / 1;
   padding: 0.18em;
   display: flex;
   align-items: center;
@@ -1057,7 +1058,7 @@ footer .ska-accent {
   opacity: 0.16;
 }
 .site-footer {background:#181818;color:#fff;text-align:center;padding:2.8rem 1.2rem 1.5rem;margin-top:3.2rem;border-radius:0 0 var(--radius) var(--radius);box-shadow:0 -2px 28px #0002;}
-.footer-main-logo {
+.footer-main-logo 
   height: 90px;
   width: auto;
   max-width: 240px;
